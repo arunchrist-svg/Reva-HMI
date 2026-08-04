@@ -13,7 +13,7 @@ function showSlide(index) {
   });
   counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
   progress.style.width = `${((current + 1) / slides.length) * 100}%`;
-  document.title = `${slides[current].dataset.title} — HCI for M.Arch`;
+  document.title = `${slides[current].dataset.title}: HCI for M.Arch`;
   previous.disabled = current === 0;
   next.disabled = current === slides.length - 1;
 }
