@@ -19,16 +19,11 @@ cd presentation && python3 -m http.server 8080
 
 Open [http://localhost:8080](http://localhost:8080) (site) or [http://localhost:8080/deck.html](http://localhost:8080/deck.html) (slide deck).
 
-**Vercel (live)**
+**Live (Vercel)**
 
-1. Sign in at [vercel.com](https://vercel.com) with your GitHub account.
-2. Click **Add New… → Project** and import `arunchrist-svg/Reva-HMI`.
-3. Leave defaults — `vercel.json` already points Vercel at `presentation/` (no build step).
-4. Click **Deploy**.
+- **Full site:** [https://reva-hmi.vercel.app/](https://reva-hmi.vercel.app/)
+- **Slide deck:** [https://reva-hmi.vercel.app/deck](https://reva-hmi.vercel.app/deck)
 
-After deploy:
+Connected to `main` on GitHub — every push redeploys automatically.
 
-- **Slide deck:** `https://<your-project>.vercel.app/deck`
-- **Full site:** `https://<your-project>.vercel.app/`
-
-Every push to `main` redeploys automatically.
+To redeploy or change settings, open the [reva-hmi project on Vercel](https://vercel.com/arunchrist-svgs-projects/reva-hmi).
