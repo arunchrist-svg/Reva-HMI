@@ -1,0 +1,28 @@
+@media(max-width:480px){
+  h1{font-size:clamp(2rem,8.5vw,2.6rem)}
+  .cover .lede{font-size:.88rem;line-height:1.4;margin-top:.9rem;padding:.5rem .7rem}
+  .cover-author strong{font-size:1.6rem;line-height:1}
+  .cover-role{font-size:.85rem}
+  .cover-tags{font-size:.58rem;letter-spacing:.07em;white-space:normal}
+  .arun-intro h2{font-size:clamp(2.4rem,9.5vw,3rem)}
+  .arun-statement{font-size:.95rem;margin:1rem 0 1.5rem}
+  .timeline-strip{grid-template-columns:repeat(2,1fr)}
+  .approach-intro h2{font-size:clamp(2.2rem,9.5vw,3rem)}
+  .approach-intro-lede{font-size:.9rem;line-height:1.42;margin-top:1rem;padding-top:.9rem}
+  .speaking-copy h2{font-size:clamp(2rem,8.5vw,2.8rem)}
+  .industry-room-heading h2{font-size:clamp(1.9rem,8.5vw,2.6rem)}
+  .output-content h2{font-size:clamp(2rem,8.5vw,2.8rem);line-height:1.05}
+  .output-subtitle{font-size:.9rem;margin-top:1rem;padding-top:.8rem}
+  .closing-content h2{font-size:clamp(2.2rem,9vw,2.8rem)}
+  .course-struct .lp-heading h2 br{display:none}
+  .cs-phases{grid-template-columns:1fr}
+  .cs-card{border-right:0;border-bottom:1px solid rgba(236,233,225,.17)}
+  .cs-card:nth-child(2n){border-right:0}
+  .cs-footer{grid-template-columns:repeat(3,1fr)}
+  .cs-footer-stat:nth-child(3){border-right:0}
+  .cs-footer-stat:nth-child(4){border-top:1px solid rgba(236,233,225,.17)}
+  .cs-footer-stat:nth-child(5){border-top:1px solid rgba(236,233,225,.17);border-right:0}
+  .outcome-statement{font-size:.88rem}
+  .lp-grading{grid-template-columns:1fr 1fr}
+  .projects .project-grid{grid-template-columns:1fr}
+}
