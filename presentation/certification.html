@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certified UI/UX Designer - Certificate Program Proposal | REVA University</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:     #101116;
+    --surface: #1b1d24;
+    --edge:    #252830;
+    --paper:   #ece9e1;
+    --muted:   #7a7a80;
+    --faint:   #3a3a42;
+    --lime:    #d4f169;
+    --lime-dim: rgba(212,241,105,0.12);
+    --serif:   "Playfair Display", Georgia, serif;
+    --sans:    "Manrope", system-ui, sans-serif;
+    --col:     680px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 18px; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--ink);
+    color: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Progress bar ── */
+  #progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--lime);
+    z-index: 1000;
+    transition: width 0.1s linear;
+  }
+
+  /* ── Nav ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(16,17,22,0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--faint);
+  }
+
+  .nav-inner {
+    max-width: calc(var(--col) + 120px);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: var(--serif);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-brand span { color: var(--lime); }
+
+  .nav-pill {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--lime);
+    padding: 5px 14px;
+    border-radius: 100px;
+  }
+
+  /* ── Layout ── */
+  .page {
+    max-width: calc(var(--col) + 120px);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .content {
+    max-width: var(--col);
+    margin: 0 auto;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--faint);
+    margin-bottom: 60px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--paper);
+    margin-bottom: 28px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--lime);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  /* ── Meta card ── */
+  .meta-card {
+    background: var(--surface);
+    border: 1px solid var(--edge);
+    border-radius: 12px;
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 40px;
+  }
+
+  .meta-item {}
+
+  .meta-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .meta-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--paper);
+    line-height: 1.4;
+  }
+
+  .meta-value strong {
+    color: var(--lime);
+    font-weight: 600;
+  }
+
+  /* ── Sections ── */
+  .section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--faint);
+  }
+
+  .section:last-of-type { border-bottom: none; }
+
+  .section-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 12px;
+  }
+
+  h2.section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--paper);
+    margin-bottom: 28px;
+  }
+
+  h3 {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    margin: 36px 0 14px;
+  }
+
+  h4 {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin: 28px 0 10px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(236,233,225,0.88);
+    margin-bottom: 18px;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  strong { color: var(--paper); font-weight: 600; }
+
+  em { font-style: italic; }
+
+  a { color: var(--lime); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── Lists ── */
+  ul, ol {
+    padding-left: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  li {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(236,233,225,0.85);
+    margin-bottom: 6px;
+  }
+
+  li strong { color: var(--paper); }
+
+  /* ── Blockquote ── */
+  blockquote {
+    border-left: 3px solid var(--lime);
+    margin: 32px 0;
+    padding: 16px 24px;
+    background: var(--lime-dim);
+    border-radius: 0 8px 8px 0;
+  }
+
+  blockquote p {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--paper);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ── Tables ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 24px 0;
+    border-radius: 10px;
+    border: 1px solid var(--edge);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+
+  thead tr {
+    background: var(--surface);
+  }
+
+  thead th {
+    padding: 12px 18px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--edge);
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--edge);
+    transition: background 0.15s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+
+  tbody tr:hover { background: rgba(255,255,255,0.025); }
+
+  tbody td {
+    padding: 13px 18px;
+    color: rgba(236,233,225,0.85);
+    line-height: 1.55;
+    vertical-align: top;
+  }
+
+  tbody td strong { color: var(--paper); }
+
+  tbody td:first-child { color: var(--paper); font-weight: 500; }
+
+  /* ── Session cards ── */
+  .session-card {
+    background: var(--surface);
+    border: 1px solid var(--edge);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 24px 0;
+  }
+
+  .session-card h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--paper);
+  }
+
+  .session-card .session-duration {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .session-card ul {
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+
+  .session-card li { font-size: 0.9rem; }
+
+  .workshop-note {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: var(--lime-dim);
+    border-radius: 8px;
+    border: 1px solid rgba(212,241,105,0.2);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(236,233,225,0.9);
+  }
+
+  .workshop-note strong {
+    color: var(--lime);
+  }
+
+  /* ── Expert session cards ── */
+  .expert-card {
+    background: linear-gradient(135deg, rgba(212,241,105,0.06), rgba(27,29,36,0.9));
+    border: 1px solid rgba(212,241,105,0.2);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+
+  .expert-card .expert-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 8px;
+  }
+
+  .expert-card h3 {
+    margin-top: 0;
+    font-size: 1.15rem;
+    color: var(--paper);
+    margin-bottom: 16px;
+  }
+
+  /* ── Module header ── */
+  .module-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin: 48px 0 8px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--faint);
+  }
+
+  .module-title {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+  }
+
+  .module-meta {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .module-header:first-of-type { margin-top: 0; }
+
+  /* ── Deliverable pill ── */
+  .deliverable {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--edge);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin: 20px 0 0;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: rgba(236,233,225,0.85);
+  }
+
+  .deliverable::before {
+    content: "↗";
+    color: var(--lime);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── Stat row ── */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 28px 0;
+  }
+
+  .stat-box {
+    background: var(--surface);
+    border: 1px solid var(--edge);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--lime);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+
+  /* ── Certificate callout ── */
+  .cert-callout {
+    background: linear-gradient(135deg, rgba(212,241,105,0.1) 0%, rgba(27,29,36,0) 100%);
+    border: 1px solid rgba(212,241,105,0.3);
+    border-radius: 14px;
+    padding: 36px 40px;
+    text-align: center;
+    margin: 24px 0;
+  }
+
+  .cert-callout .cert-title {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--lime);
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+
+  .cert-callout .cert-meta {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 2;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid var(--faint);
+    padding: 48px 0 64px;
+    margin-top: 0;
+  }
+
+  .footer-inner {
+    max-width: var(--col);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footer-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--paper);
+    letter-spacing: -0.02em;
+  }
+
+  .footer-role {
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .footer-links {
+    margin-top: 12px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--lime);
+    letter-spacing: 0.04em;
+  }
+
+  .footer-date {
+    font-size: 0.78rem;
+    color: var(--faint);
+    margin-top: 24px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    html { font-size: 16px; }
+
+    .hero { padding: 48px 0 40px; }
+
+    .meta-card {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 20px;
+    }
+
+    .session-card, .expert-card {
+      padding: 20px;
+    }
+
+    .stat-row { grid-template-columns: 1fr 1fr; }
+
+    .cert-callout { padding: 24px 20px; }
+
+    .cert-callout .cert-title { font-size: 1.5rem; }
+
+    .nav-inner { padding: 0 16px; }
+
+    .page { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">REVA University &nbsp;/&nbsp; <span>Certificate Program</span></span>
+    <span class="nav-pill">Proposal</span>
+  </div>
+</nav>
+
+<main class="page">
+  <div class="content">
+
+    <!-- Hero -->
+    <header class="hero">
+      <p class="hero-eyebrow">Certificate Program Proposal &nbsp;·&nbsp; Open to All Departments</p>
+      <h1>UI/UX Design<br>in <em>Practice</em></h1>
+      <p class="hero-sub">A hands-on certification in user experience design. 3 credits. 36 hours. No prior design experience required.</p>
+
+      <div class="meta-card">
+        <div class="meta-item">
+          <div class="meta-label">Proposed By</div>
+          <div class="meta-value"><strong>Arun Murugesan</strong>, Head of Design, MoneyView</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Submitted To</div>
+          <div class="meta-value">REVA University</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Open To</div>
+          <div class="meta-value">All Departments and Schools</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Credit Load</div>
+          <div class="meta-value"><strong>3 Credits &nbsp;·&nbsp; 36 Contact Hours</strong></div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Program Type</div>
+          <div class="meta-value">Short-Term Certificate / Continuing Education</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Cohort Size</div>
+          <div class="meta-value">20–30 participants</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 1. Executive Summary -->
+    <section class="section" id="summary">
+      <p class="section-num">01</p>
+      <h2 class="section-title">Executive Summary</h2>
+
+      <p>This proposal describes a 36-hour, 3-credit Certificate Program in UI/UX Design open to students and professionals from <strong>any academic background</strong>. No prior design experience is required. Participants who complete the program earn the designation <strong>Certified UI/UX Designer</strong>, issued by REVA University.</p>
+
+      <p>The program teaches how to research real users, structure information clearly, design usable interfaces, test them with evidence, and build a working prototype — skills in demand across every sector that has a digital product, service, or system.</p>
+
+      <p>The program is <strong>task-based and data-backed</strong>. Every session produces a deliverable. Every design decision must be supported by observation or measurement. Participants leave with a working prototype, a documented research process, an industry-standard portfolio case study, and direct exposure to practitioners actively building products through structured <strong>Expert Sessions</strong> embedded in the curriculum.</p>
+
+      <p>I, Arun Murugesan, bring 20+ years of product design practice across SAP, Cisco, Rupeek, and MoneyView, an MS in Computer Software Engineering from BITS Pilani, and current visiting faculty engagement at REVA University (M25DA304D, HCI, M.Arch III Semester). This program extends that practice into an open-access certification format.</p>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-num">36</div>
+          <div class="stat-label">Contact Hours</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Credits</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Expert Sessions</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Program Objectives -->
+    <section class="section" id="objectives">
+      <p class="section-num">02</p>
+      <h2 class="section-title">Program Objectives</h2>
+      <p>By the end of this program, participants will be able to:</p>
+      <ol>
+        <li><strong>Plan and conduct user research</strong> — structured interviews, contextual observation, card sorting — and synthesize raw data into actionable design insights.</li>
+        <li><strong>Build information architectures and task flows</strong> that reflect how real users think, not how product teams think.</li>
+        <li><strong>Apply foundational UX principles</strong> — Norman's affordances, Nielsen's heuristics, WCAG 2.1 AA — to audit and improve any digital interface.</li>
+        <li><strong>Design in Figma</strong> from wireframe to high-fidelity prototype, using components and design systems.</li>
+        <li><strong>Run usability tests</strong> with real users and document measurable outcomes: task success rate, time-on-task, error rate.</li>
+        <li><strong>Iterate from evidence</strong> — make design decisions that follow from test data, not from personal preference.</li>
+        <li><strong>Document a complete design process</strong> as a portfolio case study: problem → research → design → test → outcome.</li>
+        <li><strong>Engage critically with practitioner perspectives</strong> through Expert Sessions and apply industry insight to their own projects.</li>
+      </ol>
+    </section>
+
+    <!-- 3. Credit Structure -->
+    <section class="section" id="credits">
+      <p class="section-num">03</p>
+      <h2 class="section-title">Credit Structure and Hour Distribution</h2>
+
+      <p>The program awards <strong>3 credits</strong> across <strong>36 contact hours</strong>:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Hours</th>
+              <th>Credits</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Core instruction sessions (lectures + workshops)</td><td>24 hours</td><td>2.00</td></tr>
+            <tr><td>Expert Sessions (industry practitioners)</td><td>6 hours</td><td>0.50</td></tr>
+            <tr><td>Critique and iteration labs</td><td>3 hours</td><td>0.25</td></tr>
+            <tr><td>Final jury and presentation</td><td>3 hours</td><td>0.25</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>36 hours</strong></td><td><strong>3 credits</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Standard Session Format</h3>
+      <p>Each 3-hour core session follows this structure:</p>
+      <ul>
+        <li><strong>~45 min:</strong> Concept input — tightly scoped, direct, no padding</li>
+        <li><strong>~90 min:</strong> Hands-on workshop: making, testing, or critiquing</li>
+        <li><strong>~45 min:</strong> Structured review — evidence check, peer feedback, next-session brief</li>
+      </ul>
+
+      <h3>Expert Session Format</h3>
+      <p>Each 2-hour Expert Session follows this structure:</p>
+      <ul>
+        <li><strong>~60 min:</strong> Practitioner talk — a real project, a real problem, a real decision they made</li>
+        <li><strong>~30 min:</strong> Live Q&amp;A — unscripted, participant-driven</li>
+        <li><strong>~30 min:</strong> Application workshop — participants immediately apply one insight to their own project</li>
+      </ul>
+
+      <blockquote><p>Theory enters when the task demands it. Expert Sessions make the stakes real.</p></blockquote>
+    </section>
+
+    <!-- 4. Curriculum Structure -->
+    <section class="section" id="curriculum">
+      <p class="section-num">04</p>
+      <h2 class="section-title">Curriculum Structure</h2>
+
+      <!-- Module 1 -->
+      <div class="module-header">
+        <span class="module-title">Module 1: Understanding Users</span>
+        <span class="module-meta">Sessions 1–3 &nbsp;·&nbsp; 9 Hours</span>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 1 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>What UX Actually Is</h3>
+        <ul>
+          <li>Why interfaces fail: the gap between how builders think and how users behave</li>
+          <li>The five-component framework: research → IA → visual design → prototype → test</li>
+          <li>What UX work looks like across domains: fintech, health, e-commerce, civic, education</li>
+          <li>How to choose a project context: real problem, real users, real stakes</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Choose your project domain. Write a one-paragraph problem statement. Identify 3 types of users who would interact with this product or service.</div>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 2 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>User Research Methods</h3>
+        <ul>
+          <li>Structured interviews: question design, active listening, not leading the witness</li>
+          <li>Contextual inquiry: watching people do things, not asking what they would do</li>
+          <li>Research ethics: informed consent, privacy, working with vulnerable participants</li>
+          <li>Affinity mapping: turning 30 observations into 5 insights</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Write a 7-question interview guide for your project. Conduct 2 micro-interviews with willing participants from outside the room. Synthesize 3 insights on a physical affinity map.</div>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 3 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>Personas, Journey Maps, and Problem Definition</h3>
+        <ul>
+          <li>Building evidence-based personas: what the data says, not who you imagine</li>
+          <li>Journey mapping: every step a user takes, digital and physical, from first contact to goal completion</li>
+          <li>Pain point scoring: frequency × severity = where to focus</li>
+          <li>From insights to a sharp, testable problem statement (HMW framing)</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Build one primary persona and one journey map (minimum 6 steps) from your interview data. Score 3 pain points. Write a "How Might We" statement.</div>
+      </div>
+
+      <div class="deliverable">Module 1 Deliverable: Research synthesis document — 3+ user insights, 1 persona, 1 journey map, 1 HMW problem statement.</div>
+
+      <!-- Expert Session 1 -->
+      <div class="expert-card">
+        <div class="expert-label">Expert Session 1 &nbsp;·&nbsp; 2 hrs</div>
+        <h3>Research and Discovery in Practice</h3>
+        <p><strong>Format:</strong> Practitioner talk → Q&amp;A → application workshop</p>
+        <ul>
+          <li>How to run user research inside a company that doesn't believe in it</li>
+          <li>What good discovery looks like on a real product team</li>
+          <li>A specific research failure and what it cost — and what it taught</li>
+          <li>How to present research findings so they actually influence decisions</li>
+        </ul>
+        <div class="workshop-note" style="margin-top:16px"><strong>Application Workshop (30 min):</strong> Participants review their own research from Module 1. Identify one thing they would do differently in light of the practitioner's experience. Write it as a specific, actionable revision.</div>
+        <p style="margin-top:14px;font-size:0.85rem;color:var(--muted)"><strong style="color:var(--paper)">Expert profile:</strong> Senior UX researcher, product manager, or design lead with 8+ years experience at a product-first company. I will source and brief all speakers; confirmed with REVA.</p>
+      </div>
+
+      <!-- Module 2 -->
+      <div class="module-header">
+        <span class="module-title">Module 2: Structure and Visual Design</span>
+        <span class="module-meta">Sessions 4–6 &nbsp;·&nbsp; 9 Hours</span>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 4 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>Information Architecture and Task Flows</h3>
+        <ul>
+          <li>What IA is: the skeleton of any digital product</li>
+          <li>Site maps and content hierarchies: what lives where and why</li>
+          <li>Task flows: mapping the path from user intent to completed goal — including decision points, errors, and dead ends</li>
+          <li>Card sorting: letting users organise content, not guessing how they will</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Draft a site map or task flow for your product's primary use case. Run a 5-person paper card sort. Note where participants disagreed with your original structure.</div>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 5 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>Visual Design and UI Principles</h3>
+        <ul>
+          <li>Norman's affordances: objects that communicate how they work</li>
+          <li>Gestalt principles in layouts: proximity, hierarchy, alignment, repetition</li>
+          <li>Typography in UI: scale, weight, and line length for readability</li>
+          <li>Colour in UI: contrast ratios (WCAG AA), semantic colour, accessible palettes</li>
+          <li>Design systems: what they are, why they exist, how to use one</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Evaluate any app or website you use regularly against Nielsen's 10 usability heuristics. Find and document 5 violations with severity ratings (1–4 scale).</div>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 6 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>Interaction Patterns and Design for India</h3>
+        <ul>
+          <li>Common UI patterns: navigation, forms, onboarding, empty states, error messages</li>
+          <li>Gesture, voice, and haptic interaction: when each mode earns its place</li>
+          <li>Designing for India's reality: variable connectivity, low-end devices, multilingual users, mixed literacy</li>
+          <li>Inclusive design: not a constraint, the default condition</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Apply 3 UI patterns to your product. Produce annotated mid-fidelity wireframes (paper or digital) for your 2 most critical screens.</div>
+      </div>
+
+      <div class="deliverable">Module 2 Deliverable: Annotated wireframes for the primary task flow + heuristic audit with severity scores.</div>
+
+      <!-- Module 3 -->
+      <div class="module-header">
+        <span class="module-title">Module 3: Prototyping and Testing</span>
+        <span class="module-meta">Sessions 7–10 &nbsp;·&nbsp; 12 Hours</span>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 7 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>Figma and Prototyping Fundamentals</h3>
+        <ul>
+          <li>Figma environment: frames, layers, components, variants, auto-layout</li>
+          <li>Building a design system from scratch: colour tokens, type styles, component library</li>
+          <li>Interactive prototyping: connecting screens, triggers, transitions</li>
+          <li>Fidelity decisions: when paper is the right tool, when Figma is, when code is</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Build a complete clickable Figma prototype for your primary task flow — minimum 5 connected screens, using a component library you create during the session.</div>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 8 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>Usability Testing Methods</h3>
+        <ul>
+          <li>Moderated usability testing: facilitator role, task writing, think-aloud protocol</li>
+          <li>Unmoderated testing: when to use it and what you miss</li>
+          <li>Metrics that matter: task success rate, time-on-task, error rate, System Usability Scale (SUS)</li>
+          <li>Recruiting participants: how to find 5 people who are not your friends</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Write a 5-task usability test script for your prototype. Conduct one moderated test session with a participant from outside your team. Document findings on a structured observation sheet.</div>
+      </div>
+
+      <!-- Expert Session 2 -->
+      <div class="expert-card">
+        <div class="expert-label">Expert Session 2 &nbsp;·&nbsp; 2 hrs</div>
+        <h3>Building Products and Designing at Scale</h3>
+        <p><strong>Format:</strong> Practitioner talk → Q&amp;A → application workshop</p>
+        <ul>
+          <li>What it is like to design inside a fast-growing Indian startup vs. a large enterprise</li>
+          <li>How design decisions get made when time and resources are constrained</li>
+          <li>A project where the first design failed — and how they knew it failed</li>
+          <li>What the first 90 days in a UX role actually look like</li>
+          <li>What portfolio reviewers are actually looking for</li>
+        </ul>
+        <div class="workshop-note" style="margin-top:16px"><strong>Application Workshop (30 min):</strong> Participants review their own prototype and test data. Each identifies the one decision in their project they are least confident about and writes a plan to test or validate it.</div>
+        <p style="margin-top:14px;font-size:0.85rem;color:var(--muted)"><strong style="color:var(--paper)">Expert profile:</strong> Product designer, UX lead, or Head of Design with direct experience shipping consumer or enterprise products. May be drawn from my professional network or sourced through REVA's industry connections.</p>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 9 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>AI in UX: Tools, Workflows, and Critical Thinking</h3>
+        <ul>
+          <li>How AI is reshaping the UX workflow right now: generation, evaluation, and automation</li>
+          <li>AI-assisted research: using LLMs to synthesise interview notes, generate affinity maps, and identify patterns — and where they hallucinate or flatten nuance</li>
+          <li>AI-assisted design: Figma AI, Uizard, Galileo, Relume — what they produce, what still requires a designer's judgment</li>
+          <li>Prompt-driven prototyping: generating UI components and flows with AI tools, then stress-testing the output against real user needs</li>
+          <li>AI in usability testing: automated heuristic analysis (Attention Insight, Useberry AI), sentiment analysis on feedback — what the tools miss that a human moderator catches</li>
+          <li>The designer's new job: knowing when to use AI output, when to override it, and how to explain that decision to a client or team</li>
+          <li>Ethics of AI in UX: bias in generated interfaces, over-reliance on AI personas vs. real user research, transparency with clients about AI use</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Take one screen from your Figma prototype. Generate an AI alternative using a tool of your choice. Side-by-side critique: what did the AI get right, what did it get wrong, and why? Document your findings as a 1-page design decision note.</div>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 10 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>Iteration Lab</h3>
+        <ul>
+          <li>Reading test data without over-reading it: separating signal from noise</li>
+          <li>Structured critique: before/after comparison from evidence, not from opinion</li>
+          <li>Version management: annotated change logs as part of your process document</li>
+          <li>What "done" looks like: criteria for a complete, testable design</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Apply a minimum of 3 changes to your prototype driven directly by usability test findings. Document each change: what the finding was, what you changed, why.</div>
+      </div>
+
+      <div class="deliverable">Module 3 Deliverable: Tested and iterated Figma prototype + usability test report (n ≥ 5, success rate and SUS score documented) + AI design decision note.</div>
+
+      <!-- Expert Session 3 -->
+      <div class="expert-card">
+        <div class="expert-label">Expert Session 3 &nbsp;·&nbsp; 2 hrs</div>
+        <h3>Career, Portfolio, and the Design Industry in India</h3>
+        <p><strong>Format:</strong> Panel (2–3 practitioners) → open Q&amp;A → portfolio review session. I will moderate.</p>
+        <ul>
+          <li>What the design job market in India looks like right now — roles, salaries, paths</li>
+          <li>What separates a portfolio that gets interviews from one that doesn't</li>
+          <li>Common mistakes junior designers make in the first 6 months of a job</li>
+          <li>How to break into UX from a non-design background</li>
+          <li>What skills are hardest to teach on the job (answer: usually research)</li>
+        </ul>
+        <div class="workshop-note" style="margin-top:16px"><strong>Application Workshop (30 min):</strong> Each participant shares their draft case study structure (1 page, no visuals required). Peers and practitioners give structured feedback on clarity and evidence strength. Participants leave with 3 specific revisions to make before final submission.</div>
+        <p style="margin-top:14px;font-size:0.85rem;color:var(--muted)"><strong style="color:var(--paper)">Expert profile:</strong> 2–3 practitioners from diverse sectors. At least one should have hired junior designers in the past 2 years. I will moderate the panel.</p>
+      </div>
+
+      <!-- Module 4 -->
+      <div class="module-header">
+        <span class="module-title">Module 4: Portfolio and Presentation</span>
+        <span class="module-meta">Sessions 11–12 &nbsp;·&nbsp; 6 Hours</span>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 11 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>Case Study Construction and Portfolio Practice</h3>
+        <ul>
+          <li>The portfolio case study as an evidence document, not a mood board</li>
+          <li>Structure: problem → research → decisions → prototype → test results → outcomes</li>
+          <li>Writing interaction rationale: "I did this because the data showed..." not "I did this because it looks better"</li>
+          <li>Formatting for different audiences: portfolio website vs. job interview vs. client presentation</li>
+          <li>What to include when you only have student projects: honesty about constraints is a strength</li>
+        </ul>
+        <div class="workshop-note"><strong>Workshop:</strong> Write your complete case study in long form. Every design decision must have a one-sentence rationale grounded in research or test data. Peer review in pairs: does the evidence support each claim?</div>
+      </div>
+
+      <div class="session-card">
+        <span class="session-duration">Session 12 &nbsp;·&nbsp; 3 hrs</span>
+        <h3>Final Jury</h3>
+        <ul>
+          <li>Formal presentation of completed prototype and process documentation</li>
+          <li>Jury panel: myself + REVA faculty member + at least one invited industry practitioner</li>
+          <li><strong>Format:</strong> 8 minutes presentation + 7 minutes Q&amp;A per participant or team</li>
+          <li>Certificates issued to participants meeting passing thresholds on all components</li>
+        </ul>
+      </div>
+
+      <div class="deliverable">Module 4 Deliverable: Final working prototype + complete portfolio case study + jury presentation.</div>
+    </section>
+
+    <!-- 5. Project Domains -->
+    <section class="section" id="domains">
+      <p class="section-num">05</p>
+      <h2 class="section-title">Project Domains</h2>
+
+      <p>Participants choose a project domain at Session 1. The domain must involve a real digital product or service used by — or needed by — real people. It does not need to exist yet. Many of the best projects are redesigns of things that exist poorly, or new solutions to real problems participants have directly observed.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Domain</th>
+              <th>Example Project Ideas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Fintech / Financial Services</td><td>Loan application flow, bill payment experience, insurance onboarding for first-time users</td></tr>
+            <tr><td>Education / Edtech</td><td>Student portal redesign, peer learning platform, exam preparation interface</td></tr>
+            <tr><td>E-commerce and Retail</td><td>Product discovery experience, checkout flow, return and refund process</td></tr>
+            <tr><td>Campus and Institutional</td><td>College fee payment, library system, hostel complaint management</td></tr>
+            <tr><td>Social and Community</td><td>Neighbourhood safety app, local event discovery, volunteer coordination tool</td></tr>
+            <tr><td>Any domain you know from experience</td><td>The best research comes from problems you have already observed at first hand</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>There is no wrong domain. The requirement is: real users, real problem, testable solution.</p>
+    </section>
+
+    <!-- 6. Expert Sessions -->
+    <section class="section" id="expert-sessions">
+      <p class="section-num">06</p>
+      <h2 class="section-title">Expert Sessions — Full Specification</h2>
+
+      <p>Expert Sessions are not guest lectures. They are structured industry-exposure components that connect classroom work to the reality of professional practice. Participants come in mid-project; they hear how practitioners navigated similar problems; they immediately apply one takeaway to their own work. The 30-minute application workshop at the end of every Expert Session is mandatory and assessed.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Session</th>
+              <th>Timing</th>
+              <th>Topic</th>
+              <th>Format</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Expert Session 1</td><td>After Module 1</td><td>Research and Discovery in Practice</td><td>Solo practitioner + Q&amp;A + workshop</td></tr>
+            <tr><td>Expert Session 2</td><td>After Session 8</td><td>Building Products and Designing at Scale</td><td>Solo practitioner + Q&amp;A + workshop</td></tr>
+            <tr><td>Expert Session 3</td><td>After Session 10</td><td>Career, Portfolio, and the Design Industry in India</td><td>Panel (2–3 practitioners) + Q&amp;A + portfolio review</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Speaker Sourcing and Briefing</h3>
+      <ul>
+        <li>I will identify and confirm all speakers at least 3 weeks before each session</li>
+        <li>REVA may nominate additional speakers from its industry network; I will confirm fit and brief all speakers</li>
+        <li>Each speaker receives a 1-page brief: what the cohort has covered so far, what participants are building, what the session must accomplish</li>
+        <li>Speakers are briefed that the 30-minute application workshop is not optional — they are expected to remain present and engage with participant work</li>
+      </ul>
+
+      <h3>Contingency</h3>
+      <ul>
+        <li>If a confirmed speaker is unable to attend within 48 hours of the session, I will deliver the session from my own practice</li>
+        <li>Or the session is rescheduled to within 1 week, if the program timeline permits</li>
+      </ul>
+    </section>
+
+    <!-- 7. Assessment -->
+    <section class="section" id="assessment">
+      <p class="section-num">07</p>
+      <h2 class="section-title">Assessment</h2>
+
+      <h3>Assessment Split</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Weight</th>
+              <th>Timing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Session deliverables (ongoing; one per core session)</td><td>25%</td><td>Sessions 1–11</td></tr>
+            <tr><td>Expert Session application workshops (3 × assessed)</td><td>10%</td><td>After Expert Sessions 1, 2, and 3</td></tr>
+            <tr><td>Module 2 mid-program review (wireframes + audit)</td><td>20%</td><td>End of Session 6</td></tr>
+            <tr><td>Final prototype + usability test report</td><td>35%</td><td>Session 12</td></tr>
+            <tr><td>Portfolio case study</td><td>10%</td><td>Submitted at Session 12</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>100%</strong></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Minimum Evidence Standards</h3>
+      <p>The following thresholds must be met for a passing outcome:</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Phase</th><th>Minimum Requirement</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>User research</td><td>5 user interviews OR 3 contextual observations, with written synthesis</td></tr>
+            <tr><td>Structure validation</td><td>Card sort or tree test, n ≥ 8</td></tr>
+            <tr><td>Prototype</td><td>Clickable Figma prototype covering a complete task flow (minimum 5 screens)</td></tr>
+            <tr><td>Usability testing</td><td>n ≥ 5 participants; task success rate and SUS score documented</td></tr>
+            <tr><td>Iteration</td><td>Minimum 3 design changes traceable to specific research or test findings</td></tr>
+            <tr><td>Expert Session engagement</td><td>Application workshop completed and submitted after each of the 3 Expert Sessions</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Work that does not meet these thresholds is incomplete regardless of visual quality or effort.</p>
+
+      <h3>Grading Dimensions</h3>
+      <p>Each deliverable is evaluated on three equal dimensions:</p>
+      <ol>
+        <li><strong>Evidence quality:</strong> Is the design decision supported by observation or data, not assumption or preference?</li>
+        <li><strong>Design reasoning:</strong> Does the decision follow logically from the evidence, and is the logic explained?</li>
+        <li><strong>Execution:</strong> Is the prototype functional and testable by a stranger with no prior briefing?</li>
+      </ol>
+    </section>
+
+    <!-- 8. Teaching Methodology -->
+    <section class="section" id="methodology">
+      <p class="section-num">08</p>
+      <h2 class="section-title">Teaching Methodology</h2>
+
+      <h3>Task-First, Theory-Second</h3>
+      <p>The program does not front-load theory and then apply it. Theory enters at the moment the task demands it. Week 1 begins with a real problem and real users. Concepts are introduced because participants need them to proceed, not because they appear next in a syllabus.</p>
+
+      <h3>30 / 70 Ratio</h3>
+      <p>30% structured input. 70% workshop, testing, and critique. This ratio is protected. Lecture time is not expanded to fill workshop time.</p>
+
+      <h3>Evidence Culture</h3>
+      <p>Every design decision requires a one-sentence rationale grounded in research or test data. "It looks better" is not a rationale. "Two out of five test participants missed the button because it lacked sufficient contrast" is a rationale.</p>
+
+      <h3>Team Structure</h3>
+      <ul>
+        <li>Research phases (Module 1): individual or pairs</li>
+        <li>Design and prototype (Modules 2–3): teams of 2–3, mixed backgrounds where possible</li>
+        <li>Final portfolio and jury: individual</li>
+      </ul>
+
+      <h3>Tools</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Purpose</th><th>Tool</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Interface design and prototyping</td><td>Figma / FigJam</td></tr>
+            <tr><td>Collaborative mapping</td><td>Miro / FigJam</td></tr>
+            <tr><td>Usability testing (remote or unmoderated)</td><td>Maze / Lyssna</td></tr>
+            <tr><td>Accessibility auditing</td><td>axe DevTools, Chrome Lighthouse</td></tr>
+            <tr><td>Code-based prototypes (optional advanced track)</td><td>HTML, CSS, JavaScript</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Paper and whiteboard remain the default when speed of iteration matters more than fidelity. Participants are not required to purchase any software; all tools operate on free or student tiers.</p>
+    </section>
+
+    <!-- 9. Faculty Profile -->
+    <section class="section" id="faculty">
+      <p class="section-num">09</p>
+      <h2 class="section-title">Faculty Profile</h2>
+
+      <p><strong>Arun Murugesan</strong><br>
+      Head of Design, MoneyView<br>
+      MS, Computer Software Engineering — BITS Pilani<br>
+      BCA — Christ University, Bangalore</p>
+
+      <h3>Industry Experience (20+ years)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Organisation</th><th>Role / Relevant Contribution</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>MoneyView (current)</td><td>Head of Design: trust, clarity, and inclusive design at national scale — measured in conversion and retention data for India's largest personal finance platform</td></tr>
+            <tr><td>Rupeek</td><td>Built design function from 1 to 22 people; established user research lab; designed for low-income Indian households navigating gold-loan products</td></tr>
+            <tr><td>Cisco</td><td>SRM enterprise platform: complex multi-role workflows translated into navigable, usable interfaces</td></tr>
+            <tr><td>DTALK</td><td>Design consulting across 30+ brands: prototype fast, validate quickly, cut scope without losing the user</td></tr>
+            <tr><td>SAP (7 years)</td><td>Enterprise software design across four product lines; Employee of the Year 2010</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Current Academic Engagement:</strong> Visiting Faculty, REVA University — M25DA304D: Human-Computer Interaction, M.Arch III Semester</p>
+      <p><a href="https://www.linkedin.com/in/arunmaroon/" target="_blank">linkedin.com/in/arunmaroon</a></p>
+    </section>
+
+    <!-- 10. Resource Requirements -->
+    <section class="section" id="resources">
+      <p class="section-num">10</p>
+      <h2 class="section-title">Resource Requirements</h2>
+
+      <h3>Facilities</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Requirement</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Classroom / workshop space (capacity 30)</td><td>Moveable seating for pair and team configurations; wall or board space for affinity mapping pin-ups</td></tr>
+            <tr><td>Projection and display screen</td><td>For lecture segments, critique sessions, and Expert Session presentations</td></tr>
+            <tr><td>Whiteboard (minimum 2 large panels)</td><td>For live mapping, wireframing exercises, and critique</td></tr>
+            <tr><td>Power outlets (per participant)</td><td>Participants bring own laptops</td></tr>
+            <tr><td>Stable Wi-Fi</td><td>Required for Figma, Maze, and hybrid Expert Sessions</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Software</h3>
+      <p>No institutional procurement required. All tools run on free or student-tier accounts:</p>
+      <ul>
+        <li>Figma (free Education tier)</li>
+        <li>Miro (free tier)</li>
+        <li>Maze (free tier for testing)</li>
+        <li>Chrome browser + axe DevTools extension (free)</li>
+      </ul>
+
+      <h3>Expert Session Logistics</h3>
+      <ul>
+        <li>3 Expert Sessions × 2 hours = 6 hours total</li>
+        <li>Sessions may be delivered in-person or via video call (hybrid room setup required for remote speakers)</li>
+        <li>I will handle all speaker identification, briefing, and logistics</li>
+        <li>REVA to confirm A/V readiness and room booking for each Expert Session date</li>
+      </ul>
+    </section>
+
+    <!-- 11. Certificate -->
+    <section class="section" id="certificate">
+      <p class="section-num">11</p>
+      <h2 class="section-title">Certificate and Credit Recognition</h2>
+
+      <div class="cert-callout">
+        <div class="cert-title">Certified UI/UX Designer</div>
+        <div class="cert-meta">
+          Issued by REVA University<br>
+          36 Hours &nbsp;·&nbsp; 3 Credits<br>
+          Awarded on successful completion of all assessment components
+        </div>
+      </div>
+
+      <h3>Credit Recognition Pathway</h3>
+      <p>It is proposed that REVA recognise these 3 credits as:</p>
+      <ul>
+        <li><strong>Open elective credit</strong> applicable toward any UG or PG degree program at REVA (students from any department), <strong>or</strong></li>
+        <li><strong>Continuing education / professional development credit</strong> for external / industry participants</li>
+      </ul>
+      <p>Both pathways may operate simultaneously within the same cohort. Credit recognition modalities to be confirmed by the Board of Studies.</p>
+    </section>
+
+    <!-- 12. Schedule -->
+    <section class="section" id="schedule">
+      <p class="section-num">12</p>
+      <h2 class="section-title">Proposed Schedule Overview</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Sessions</th><th>Component</th><th>Key Milestone</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1–3</td><td>Module 1: User Research</td><td>Research synthesis document submitted</td></tr>
+            <tr><td>—</td><td>Expert Session 1</td><td>Application workshop: revise research approach</td></tr>
+            <tr><td>4–6</td><td>Module 2: Structure and Visual Design</td><td>Wireframes + heuristic audit (Mid-Program Review)</td></tr>
+            <tr><td>7–8</td><td>Module 3: Prototyping</td><td>Working Figma prototype</td></tr>
+            <tr><td>—</td><td>Expert Session 2</td><td>Application workshop: identify and plan one validation gap</td></tr>
+            <tr><td>9–10</td><td>Module 3: Testing and Iteration</td><td>Usability test report + iterated prototype</td></tr>
+            <tr><td>—</td><td>Expert Session 3</td><td>Portfolio review workshop; 3 revision notes per participant</td></tr>
+            <tr><td>11</td><td>Module 4: Portfolio</td><td>Complete case study drafted</td></tr>
+            <tr><td>12</td><td>Module 4: Final Jury</td><td>Prototype + case study + jury presentation</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Total:</strong> 12 core sessions (3 hrs each) + 3 Expert Sessions (2 hrs each) = <strong>36 contact hours</strong></p>
+
+      <h3>Scheduling Options</h3>
+      <ul>
+        <li><strong>Intensive:</strong> 3 sessions per week over 5 weeks</li>
+        <li><strong>Semester-integrated:</strong> 1–2 sessions per week over 10–12 weeks</li>
+        <li>Expert Sessions can be scheduled as standalone evening events if convenient for speakers and participants</li>
+      </ul>
+    </section>
+
+  </div><!-- /content -->
+</main>
+
+<footer>
+  <div class="page">
+    <div class="footer-inner">
+      <div class="footer-name">Arun Murugesan</div>
+      <div class="footer-role">Head of Design, MoneyView &nbsp;·&nbsp; Visiting Faculty, REVA University (M25DA304D)</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/arunmaroon/" target="_blank">linkedin.com/in/arunmaroon</a>
+        <a href="mailto:arun.murugesan@moneyview.in">arun.murugesan@moneyview.in</a>
+      </div>
+      <div class="footer-date">August 2026</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (scrolled / total * 100) + '%';
+  }, { passive: true });
+</script>
+
+</body>
+</html>
