@@ -412,49 +412,6 @@ No institutional procurement required. All tools run on free or student-tier acc
 
 ---
 
-## 11. Certificate and Credit Recognition
-
-### Proposed Certificate Title
-
-> **Certified UI/UX Designer**  
-> Issued by: REVA University  
-> Duration: 36 Hours · 3 Credits  
-> Awarded on: Successful completion of all assessment components (see Section 7)
-
-### Credit Recognition Pathway
-
-It is proposed that REVA recognise these 3 credits as:
-
-- **Open elective credit** applicable toward any UG or PG degree program at REVA (students from any department), **or**
-- **Continuing education / professional development credit** for external / industry participants
-
-Both pathways may operate simultaneously within the same cohort. Credit recognition modalities to be confirmed by the Board of Studies.
-
----
-
-## 12. Proposed Schedule Overview
-
-| Sessions | Component | Key Milestone |
-|---|---|---|
-| 1–3 | Module 1: User Research | Research synthesis document submitted |
-| - | Expert Session 1 | Application workshop: revise research approach |
-| 4–6 | Module 2: Structure and Visual Design | Wireframes + heuristic audit (Mid-Program Review) |
-| 7–8 | Module 3: Prototyping | Working Figma prototype |
-| - | Expert Session 2 | Application workshop: identify and plan one validation gap |
-| 9–10 | Module 3: Testing and Iteration | Usability test report + iterated prototype |
-| - | Expert Session 3 | Portfolio review workshop; 3 revision notes per participant |
-| 11 | Module 4: Portfolio | Complete case study drafted |
-| 12 | Module 4: Final Jury | Prototype + case study + jury presentation |
-
-**Total:** 12 core sessions (3 hrs each) + 3 Expert Sessions (2 hrs each) = **36 contact hours**
-
-**Scheduling options:**
-- **Intensive:** 3 sessions per week over 5 weeks
-- **Semester-integrated:** 1–2 sessions per week over 10–12 weeks
-- Expert Sessions can be scheduled as standalone evening events if convenient for speakers and participants
-
----
-
 
 *Submitted by:*
 
