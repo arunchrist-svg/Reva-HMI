@@ -84,6 +84,26 @@
     border-radius: 100px;
   }
 
+  .nav-pdf {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--edge);
+    padding: 5px 14px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .nav-pdf:hover {
+    background: var(--surface);
+    border-color: var(--ink);
+  }
+
   /* ── Layout ── */
   .page {
     max-width: calc(var(--col) + 120px);
@@ -526,7 +546,7 @@
 
   /* ── Print ── */
   @media print {
-    #progress, nav { display: none !important; }
+    #progress, nav, .nav-pdf { display: none !important; }
 
     html { font-size: 11pt; }
 
@@ -646,7 +666,10 @@
 <nav>
   <div class="nav-inner">
     <span class="nav-brand">REVA University &nbsp;/&nbsp; <span>Certificate Program</span></span>
-    <span class="nav-pill">Proposal</span>
+    <div style="display:flex;gap:10px;align-items:center">
+      <button onclick="window.print()" class="nav-pdf">Download PDF</button>
+      <span class="nav-pill">Proposal</span>
+    </div>
   </div>
 </nav>
 
