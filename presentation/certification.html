@@ -532,16 +532,76 @@
   }
 
   /* ── Responsive ── */
-  @media (max-width: 600px) {
+  /* ── Mobile ── */
+  @media (max-width: 680px) {
     html { font-size: 16px; }
-    .hero { padding: 48px 0 36px; }
-    .meta-card { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
-    .session-card, .expert-card { padding: 18px 20px; }
-    .stat-row { grid-template-columns: 1fr 1fr; }
-    .cert-callout { padding: 28px 20px; }
-    .cert-callout .cert-title { font-size: 1.6rem; }
-    .nav-inner { padding: 0 16px; }
-    .page { padding: 0 16px; }
+
+    /* Nav */
+    .nav-inner { padding: 0 16px; height: 52px; }
+    .nav-brand { font-size: 12px; }
+    .nav-pdf { display: none; }
+
+    /* Layout */
+    .page { padding: 0 18px; }
+
+    /* Hero */
+    .hero { padding: 40px 0 32px; margin-bottom: 40px; }
+    .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); margin-bottom: 16px; }
+    .hero-sub { font-size: 1rem; margin-bottom: 28px; }
+
+    /* Meta card */
+    .meta-card {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 18px 20px;
+    }
+
+    /* Sections */
+    .section { padding: 36px 0; }
+    h2.section-title { font-size: 1.6rem; margin-bottom: 20px; }
+    h3 { font-size: 1.1rem; margin: 28px 0 10px; }
+
+    /* Paragraphs and lists */
+    p { font-size: 0.97rem; line-height: 1.72; }
+    li { font-size: 0.93rem; }
+
+    /* Tables: scroll horizontally, min readable width */
+    .table-wrap { border-radius: 6px; }
+    table { font-size: 0.82rem; min-width: 480px; }
+    thead th { padding: 9px 12px; font-size: 8px; }
+    tbody td { padding: 10px 12px; }
+
+    /* Session and expert cards */
+    .session-card { padding: 18px 18px; margin: 14px 0; }
+    .session-card h3 { font-size: 1rem; }
+    .session-card li { font-size: 0.88rem; }
+    .workshop-note { font-size: 0.84rem; padding: 10px 12px; }
+    .expert-card { padding: 18px 18px; margin: 20px 0; }
+    .expert-card h3 { font-size: 1rem; }
+
+    /* Module header: stack title + meta */
+    .module-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      margin: 36px 0 6px;
+    }
+    .module-title { font-size: 1.2rem; }
+
+    /* Deliverable */
+    .deliverable { font-size: 0.84rem; padding: 11px 14px; }
+
+    /* Stats: 3 cols still but smaller */
+    .stat-row { gap: 10px; }
+    .stat-box { padding: 14px 10px; }
+    .stat-num { font-size: 1.7rem; }
+    .stat-label { font-size: 0.68rem; }
+
+    /* Footer */
+    footer { padding: 32px 0 44px; }
+    .footer-name { font-size: 1.1rem; }
+    .footer-links { gap: 14px; }
+    .footer-links a { font-size: 0.78rem; }
   }
 
   /* ── Print ── */
@@ -862,7 +922,7 @@
           <li>How to present research findings so they actually influence decisions</li>
         </ul>
         <div class="workshop-note" style="margin-top:16px"><strong>Application Workshop (30 min):</strong> Participants review their own research from Module 1. Identify one thing they would do differently in light of the practitioner's experience. Write it as a specific, actionable revision.</div>
-        <p style="margin-top:14px;font-size:0.85rem;color:var(--muted)"><strong style="color:var(--paper)">Expert profile:</strong> Senior UX researcher, product manager, or design lead with 8+ years experience at a product-first company. I will source and brief all speakers; confirmed with REVA.</p>
+        <p style="margin-top:14px;font-size:0.85rem;color:var(--muted)"><strong style="color:var(--ink)">Expert profile:</strong> Senior UX researcher, product manager, or design lead with 8+ years experience at a product-first company. I will source and brief all speakers; confirmed with REVA.</p>
       </div>
 
       <!-- Module 2 -->
@@ -953,7 +1013,7 @@
           <li>What portfolio reviewers are actually looking for</li>
         </ul>
         <div class="workshop-note" style="margin-top:16px"><strong>Application Workshop (30 min):</strong> Participants review their own prototype and test data. Each identifies the one decision in their project they are least confident about and writes a plan to test or validate it.</div>
-        <p style="margin-top:14px;font-size:0.85rem;color:var(--muted)"><strong style="color:var(--paper)">Expert profile:</strong> Product designer, UX lead, or Head of Design with direct experience shipping consumer or enterprise products. May be drawn from my professional network or sourced through REVA's industry connections.</p>
+        <p style="margin-top:14px;font-size:0.85rem;color:var(--muted)"><strong style="color:var(--ink)">Expert profile:</strong> Product designer, UX lead, or Head of Design with direct experience shipping consumer or enterprise products. May be drawn from my professional network or sourced through REVA's industry connections.</p>
       </div>
 
       <div class="session-card">
@@ -998,7 +1058,7 @@
           <li>What skills are hardest to teach on the job (answer: usually research)</li>
         </ul>
         <div class="workshop-note" style="margin-top:16px"><strong>Application Workshop (30 min):</strong> Each participant shares their draft case study structure (1 page, no visuals required). Peers and practitioners give structured feedback on clarity and evidence strength. Participants leave with 3 specific revisions to make before final submission.</div>
-        <p style="margin-top:14px;font-size:0.85rem;color:var(--muted)"><strong style="color:var(--paper)">Expert profile:</strong> 2–3 practitioners from diverse sectors. At least one should have hired junior designers in the past 2 years. I will moderate the panel.</p>
+        <p style="margin-top:14px;font-size:0.85rem;color:var(--muted)"><strong style="color:var(--ink)">Expert profile:</strong> 2–3 practitioners from diverse sectors. At least one should have hired junior designers in the past 2 years. I will moderate the panel.</p>
       </div>
 
       <!-- Module 4 -->
