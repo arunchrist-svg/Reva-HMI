@@ -9,18 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:       #ffffff;
-    --surface:  #f5f5f3;
-    --edge:     #e2e2de;
-    --ink:      #111111;
-    --muted:    #767676;
-    --faint:    #e8e8e5;
-    --accent:   #1a1a1a;
-    --green:    #2d7a3a;
-    --green-bg: #f0f7f1;
-    --serif:    "Playfair Display", Georgia, serif;
-    --sans:     "Manrope", system-ui, sans-serif;
-    --col:      700px;
+    --bg:      #ffffff;
+    --surface: #f6f6f4;
+    --edge:    #d8d8d4;
+    --faint:   #ebebea;
+    --ink:     #111111;
+    --mid:     #444444;
+    --muted:   #888888;
+    --serif:   "Playfair Display", Georgia, serif;
+    --sans:    "Manrope", system-ui, sans-serif;
+    --col:     700px;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -217,7 +215,7 @@
   em { font-style: italic; }
 
   a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-  a:hover { color: var(--green); }
+  a:hover { color: var(--mid); }
 
   /* ── Lists ── */
   ul, ol {
@@ -324,15 +322,15 @@
   .workshop-note {
     margin-top: 14px;
     padding: 11px 15px;
-    background: var(--green-bg);
+    background: var(--surface);
     border-radius: 6px;
-    border: 1px solid #c8e6cc;
+    border: 1px solid var(--edge);
     font-size: 0.86rem;
     line-height: 1.6;
-    color: #1a3a1e;
+    color: var(--mid);
   }
 
-  .workshop-note strong { color: var(--green); }
+  .workshop-note strong { color: var(--ink); }
 
   /* ── Expert session cards ── */
   .expert-card {
@@ -588,8 +586,8 @@
     }
 
     .workshop-note {
-      background: #f0f7f1;
-      border: 0.5pt solid #aaccaa;
+      background: #f0f0ee;
+      border: 0.5pt solid #ccc;
       padding: 8pt 10pt;
     }
 
