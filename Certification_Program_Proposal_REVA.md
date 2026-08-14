@@ -17,11 +17,11 @@
 
 This proposal describes a 36-hour, 3-credit Certificate Program in UI/UX Design open to students and professionals from **any academic background**. No prior design experience is required. Participants who complete the program earn the designation **Certified UI/UX Designer**, issued by REVA University.
 
-The program teaches how to research real users, structure information clearly, design usable interfaces, test them with evidence, and build a working prototype - skills in demand across every sector that has a digital product, service, or system.
+The program addresses where UX is heading - not just where it has been. Participants engage with **AI-native design workflows**, human-machine interaction for automated environments, invisible and Zero-UI paradigms, and frameworks for ethical, biophilic, and bias-aware design. Every session is grounded in a hands-on project; every design decision must be supported by observation, data, or structured critique.
 
-The program is **task-based and data-backed**. Every session produces a deliverable. Every design decision must be supported by observation or measurement. Participants leave with a working prototype, a documented research process, an industry-standard portfolio case study, and direct exposure to practitioners actively building products through structured **Expert Sessions** embedded in the curriculum.
+The program is **task-based and evidence-backed**. Every session produces a deliverable. Participants leave with a tested prototype, a documented research and iteration process, an industry-standard portfolio case study, and direct exposure to practitioners working at the frontier of design through structured **Expert Sessions** embedded in the curriculum.
 
-I, Arun Murugesan, bring 18+ years of product design practice across SAP, Cisco, Rupeek, and MoneyView, an MS in Computer Software Engineering from BITS Pilani, and current visiting faculty engagement at REVA University (M25DA304D, HCI, M.Arch III Semester). This program extends that practice into an open-access certification format.
+I, Arun Murugesan, bring 18+ years of product design practice across SAP, Cisco, Rupeek, and MoneyView, an MS in Computer Software Engineering from BITS Pilani, and current visiting faculty engagement at REVA University (M25DA304D, HCI, M.Arch III Semester). This program extends that practice into an open-access certification that prepares participants for where the industry is moving.
 
 ---
 
