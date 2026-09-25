@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class notes: UI/UX Design in Practice · Session 1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#101116;--paper:#ece9e1;--muted:#5c5b58;--lime:#6b7a1f;--line:#d4d1c8;--serif:"Playfair Display",Georgia,serif;--sans:"Manrope",Arial,sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.65}
+    .wrap{max-width:740px;margin:0 auto;padding:2.5rem 1.5rem 5rem}
+    header{border-bottom:1px solid var(--line);padding-bottom:1.35rem;margin-bottom:2rem}
+    .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--lime);margin:0 0 .6rem}
+    h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.03em}
+    h1{font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.12;margin:0}
+    h2{font-size:1.35rem;margin:2.4rem 0 .55rem}
+    h3{font-size:1.08rem;margin:1.4rem 0 .4rem}
+    p,li{font-size:1.02rem;color:#24252b}
+    .lede{color:var(--muted);margin:.85rem 0 0;font-size:.95rem}
+    .def{margin:0 0 1rem;padding:.9rem 1rem;border-left:4px solid var(--lime);background:#fff}
+    .def strong{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin-bottom:.35rem;font-family:var(--sans)}
+    table{width:100%;border-collapse:collapse;margin:1rem 0 1.35rem;font-size:.95rem}
+    th,td{border-top:1px solid var(--line);padding:.75rem .55rem .75rem 0;text-align:left;vertical-align:top}
+    th{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+    ol,ul{padding-left:1.25rem}li{margin:.4rem 0}
+    footer{margin-top:2.75rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+    @media print{body{background:#fff}.wrap{padding:0;max-width:none}}
+  </style>
+</head>
+<body>
+  <article class="wrap">
+    <header>
+      <p class="kicker">REVA University · UI/UX Design in Practice · Session 1</p>
+      <h1>Class notes: Human–Computer Interaction foundations</h1>
+      <p class="lede">Arun Murugesan · Head of Design, Moneyview. Shared after studio. Use these definitions in examinations.</p>
+    </header>
+
+    <h2>1. Human–Computer Interaction (HCI)</h2>
+    <p class="def"><strong>Definition</strong>Human–Computer Interaction is the study of how people interact with computational systems, and of how those systems should be designed so that interaction is effective, efficient, and satisfying.</p>
+    <p>HCI is not limited to desktop computers. It includes kiosks, mobile devices, building interfaces, wearables, and physical objects that mediate a digital or transactional task (for example a wallet used to complete a payment).</p>
+    <p>HCI draws on computer science, psychology, ergonomics, and design. In architecture, the same questions apply when a spatial programme includes screens, access control, wayfinding, or service delivery.</p>
+
+    <h2>2. User experience (UX)</h2>
+    <p class="def"><strong>Definition (ISO 9241-210)</strong>User experience is a person’s perceptions and responses that result from the use and/or anticipated use of a product, system, or service.</p>
+    <p>Perceptions and responses include emotion, belief, preference, physical and psychological responses, behaviour, and accomplishment. They occur <em>before</em> use (expectation), <em>during</em> use, and <em>after</em> use (memory, trust, willingness to return).</p>
+    <p>Don Norman popularised the term to cover more than usability of a screen: the entire encounter with a product or service, including industrial design, graphics, interface, interaction, and manual.</p>
+    <h3>What UX is not</h3>
+    <ul>
+      <li>UX is not visual styling, colour, or “making it look modern.”</li>
+      <li>UX is not the same as UI (see §3).</li>
+      <li>UX cannot be claimed from the designer’s intention; it is observed in use.</li>
+    </ul>
+    <h3>How UX is judged</h3>
+    <p>A design succeeds when a representative user can complete the intended <strong>task</strong> with acceptable effort, without unexplained help. If the designer must speak for the product to work, the experience has failed.</p>
+
+    <h2>3. User interface (UI)</h2>
+    <p class="def"><strong>Definition</strong>A user interface is the point of contact through which a person operates a product or system: the controls, displays, materials, layout, and feedback that make action possible.</p>
+    <p>UI may be graphical (screens, buttons, type), physical (folds, slots, handles, kiosks), or mixed. UI is a subset of the larger experience. A well-finished interface can still produce a poor experience if the task structure is wrong.</p>
+
+    <h2>4. UX and UI compared</h2>
+    <table>
+      <thead>
+        <tr><th></th><th>User interface (UI)</th><th>User experience (UX)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Focus</td><td>The object of interaction</td><td>The person’s journey and outcome</td></tr>
+        <tr><td>Questions</td><td>What is seen and touched? How is it labelled?</td><td>Can the task be completed? How does it feel?</td></tr>
+        <tr><td>Scope</td><td>Layout, colour, type, components, physical form</td><td>Goals, context, emotion, errors, time, trust</td></tr>
+        <tr><td>Failure mode</td><td>Unclear control, poor contrast, awkward grip</td><td>Cannot finish; needs explanation; will not return</td></tr>
+        <tr><td>Paper wallet</td><td>Pockets, size, how it opens, where notes sit</td><td>Paying in a queue without emptying the purse</td></tr>
+      </tbody>
+    </table>
+    <p><strong>Examination line:</strong> UI is the means of interaction. UX is the consequence of interaction over time.</p>
+
+    <h2>5. Usability</h2>
+    <p class="def"><strong>Definition (ISO 9241-11)</strong>Usability is the extent to which a system, product, or service can be used by specified users to achieve specified goals with effectiveness, efficiency, and satisfaction in a specified context of use.</p>
+    <ul>
+      <li><strong>Effectiveness</strong> — accuracy and completeness of goal achievement.</li>
+      <li><strong>Efficiency</strong> — resources expended (time, steps, errors) relative to completeness.</li>
+      <li><strong>Satisfaction</strong> — freedom from discomfort and positive attitudes toward use.</li>
+    </ul>
+    <p>Usability is a major component of UX, not the whole of UX. UX also includes anticipation, brand trust, and after-use memory.</p>
+
+    <h2>6. Human-centered design (HCD)</h2>
+    <p class="def"><strong>Definition (Don Norman)</strong>Human-centered design is an approach that puts people and their needs at the centre of the process: (1) focus on people, (2) solve the right problem, (3) think of the work as a system, not an isolated object.</p>
+    <p>HCD refuses to treat a symptom (an ugly fold, an ugly screen) when the root problem is elsewhere (anxiety in a queue, unclear payment sequence). Local optimisation of one part can worsen the whole system.</p>
+
+    <h2>7. Core terms</h2>
+    <p class="def"><strong>Affordance</strong>A perceived possibility for action. The object should communicate how it can be used (a slot that reads as “card goes here”; a fold that reads as “open here”). Coined for HCI by Norman, after Gibson.</p>
+    <p class="def"><strong>Signifier</strong>A perceivable signal (label, mark, shape) that points to an affordance. Affordances exist in the object; signifiers make them discoverable.</p>
+    <p class="def"><strong>Feedback</strong>Information returned to the user after an action, confirming what the system did (a note seated in a slot; a screen stating “paid”).</p>
+    <p class="def"><strong>Mental model</strong>The user’s internal explanation of how something works. Design should match that model, or teach a better one without a spoken tour.</p>
+    <p class="def"><strong>Primary task</strong>The single goal against which the design is tested. Example: “A classmate can pay at the canteen without emptying the purse.” Not “redesign money.”</p>
+    <p class="def"><strong>Error / failure state</strong>The designed behaviour when the happy path breaks: wrong denomination, empty slot, jammed fold. Errors are part of the interface, not an afterthought.</p>
+    <p class="def"><strong>Prototype</strong>A testable representation of a design, at any fidelity. Paper is a valid prototype if a person can attempt the task with it.</p>
+    <p class="def"><strong>Usability test (stranger test)</strong>An empirical method: a person who did not design the artefact attempts specified tasks while thinking aloud. The facilitator does not instruct. Observation is logged (success, failure, location of hesitation).</p>
+
+    <h2>8. Process: Evidence-to-Experience</h2>
+    <p>Design decisions must be traceable to observation, not preference.</p>
+    <ol>
+      <li><strong>Observe</strong> — interview or watch a real person performing a real task. Do not ask “Would you like this?”</li>
+      <li><strong>State the task</strong> — “A [user] can [goal] without [barrier].”</li>
+      <li><strong>Prototype</strong> — make only what is needed to attempt the task (here: a physical paper wallet or money purse).</li>
+      <li><strong>Test</strong> — silent trial; log done / stuck / where.</li>
+      <li><strong>Iterate</strong> — change the artefact from the log; test again.</li>
+    </ol>
+    <p>A definition that has not been tested in use remains a hypothesis.</p>
+
+    <h2>9. Session 1 studio — three wallet versions</h2>
+    <p>Students design a <strong>physical paper wallet or money purse</strong> three times from issued paper (tape, scissors), for one classmate:</p>
+    <ol>
+      <li><strong>Version 01</strong> — before any UX definition is taught.</li>
+      <li><strong>Version 02</strong> — rebuilt after user experience is defined (ISO 9241-210): task, journey, error — not decoration.</li>
+      <li><strong>Version 03</strong> — rebuilt after UI is distinguished from UX and after a short interview with the classmate.</li>
+    </ol>
+    <p>All three versions stay visible. Learning is the difference between them and the final one-sentence definition of UX.</p>
+
+    <h2>10. Suggested examination answers</h2>
+    <p><strong>Define UX.</strong> User experience (ISO 9241-210) is a person’s perceptions and responses resulting from the use or anticipated use of a product, system, or service, including emotion, behaviour, and accomplishment before, during, and after use.</p>
+    <p><strong>Distinguish UX and UI.</strong> UI is the interface — the visible and tangible means of control. UX is the experienced outcome of using that interface in context. UI is necessary but not sufficient for good UX.</p>
+    <p><strong>What is usability?</strong> The extent to which specified users can achieve specified goals with effectiveness, efficiency, and satisfaction in a specified context (ISO 9241-11).</p>
+    <p><strong>What is an affordance?</strong> A perceived possibility for action offered by an object; in design, the object should make appropriate actions discoverable, often with signifiers.</p>
+
+    <footer>
+      UI/UX Design in Practice · Session 1 class notes · Arun Murugesan · arun.jpeg@gmail.com
+    </footer>
+  </article>
+</body>
+</html>
