@@ -21,12 +21,10 @@ Open [http://localhost:8080](http://localhost:8080) (site), [http://localhost:80
 
 **Live (Vercel)**
 
-- **Full site:** [https://arun-hmi.vercel.app/](https://arun-hmi.vercel.app/)
-- **Slide deck:** [https://arun-hmi.vercel.app/deck](https://arun-hmi.vercel.app/deck)
-- **One-day sprint (teaching):** [https://arun-hmi.vercel.app/sprint](https://arun-hmi.vercel.app/sprint)
+- **Full site:** [https://reva-ux-sprint.vercel.app/](https://reva-ux-sprint.vercel.app/)
+- **Slide deck:** [https://reva-ux-sprint.vercel.app/deck](https://reva-ux-sprint.vercel.app/deck)
+- **One-day sprint (teaching):** [https://reva-ux-sprint.vercel.app/sprint](https://reva-ux-sprint.vercel.app/sprint)
 
-Connected to `main` on GitHub. Every push to `main` redeploys automatically.
+Connected to `main` on GitHub (`arunchrist-svg/Reva-HMI`). Every push to `main` redeploys automatically.
 
-**Project dashboard:** [arun-hmi on Vercel](https://vercel.com/arunchrist-svgs-projects/arun-hmi)
-
-If `arun-hmi.vercel.app` shows a 404, open the dashboard → **Deployments** and confirm a production deploy exists. If the project is new, use **Settings → Git** to connect `arunchrist-svg/Reva-HMI` and deploy `main` (root directory `.`, framework **Other**; `vercel.json` handles the rest).
+**Project dashboard:** [reva-ux-sprint on Vercel](https://vercel.com/arunchrist-svgs-projects/reva-ux-sprint)
