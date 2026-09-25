@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" role="img" aria-labelledby="uxFeedbackTitle">
+  <title id="uxFeedbackTitle">Feedback: silent failure versus clear confirmation</title>
+  <rect width="920" height="320" fill="#1b1d24"/>
+  <text x="230" y="36" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="3" text-anchor="middle">POOR UX</text>
+  <text x="690" y="36" fill="#d4f169" font-family="system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="3" text-anchor="middle">GOOD UX</text>
+  <!-- Bad: UPI / tap no feedback -->
+  <rect x="90" y="80" width="280" height="170" rx="12" fill="#2a2d36" stroke="#a4a3a0" stroke-width="2"/>
+  <rect x="120" y="110" width="220" height="36" rx="6" fill="#3d4049"/>
+  <text x="230" y="133" fill="#707070" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Pay ¹120&</text>
+  <circle cx="230" cy="190" r="22" fill="none" stroke="#707070" stroke-width="3" stroke-dasharray="4 6"/>
+  <text x="230" y="300" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">No signal  did it work?</text>
+  <!-- Good: clear success + wallet latch -->
+  <rect x="550" y="80" width="280" height="170" rx="12" fill="#2a2d36" stroke="#d4f169" stroke-width="2"/>
+  <circle cx="690" cy="145" r="28" fill="#d4f169" opacity=".2" stroke="#d4f169" stroke-width="3"/>
+  <path d="M678 145 L686 153 L704 133" fill="none" stroke="#d4f169" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="690" y="200" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Paid · note visible</text>
+  <rect x="620" y="218" width="140" height="8" rx="4" fill="#d4f169" opacity=".5"/>
+  <text x="690" y="300" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Feedback before you leave the queue</text>
+  <line x1="460" y1="50" x2="460" y2="290" stroke="#40434d" stroke-width="2" stroke-dasharray="6 8"/>
+</svg>

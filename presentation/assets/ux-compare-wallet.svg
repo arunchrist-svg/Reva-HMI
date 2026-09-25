@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 320" role="img" aria-labelledby="uxWalletTitle">
+  <title id="uxWalletTitle">Paper wallet: chaotic pouch versus organised pay flow</title>
+  <rect width="920" height="320" fill="#1b1d24"/>
+  <text x="230" y="36" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="3" text-anchor="middle">POOR UX</text>
+  <text x="690" y="36" fill="#d4f169" font-family="system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="3" text-anchor="middle">GOOD UX</text>
+  <!-- Bad wallet -->
+  <path d="M100 240 L100 100 Q230 70 360 100 L360 240 Q230 270 100 240 Z" fill="#ece9e1" opacity=".15" stroke="#a4a3a0" stroke-width="2"/>
+  <circle cx="180" cy="160" r="14" fill="#a4a3a0"/>
+  <rect x="210" y="130" width="50" height="28" rx="3" fill="#a4a3a0" transform="rotate(25 235 144)"/>
+  <rect x="250" y="170" width="45" height="22" rx="3" fill="#707070" transform="rotate(-15 272 181)"/>
+  <text x="230" y="300" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Everything dumps out to pay</text>
+  <!-- Good wallet -->
+  <path d="M560 240 L560 110 L820 110 L820 240 Z" fill="#ece9e1" opacity=".12" stroke="#d4f169" stroke-width="2"/>
+  <rect x="580" y="130" width="70" height="90" rx="3" fill="none" stroke="#ece9e1" stroke-width="2"/>
+  <text x="615" y="182" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="11" text-anchor="middle">NOTES</text>
+  <rect x="660" y="130" width="55" height="90" rx="3" fill="none" stroke="#ece9e1" stroke-width="2"/>
+  <text x="687" y="182" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="11" text-anchor="middle">COINS</text>
+  <rect x="725" y="155" width="75" height="65" rx="3" fill="#d4f169" opacity=".25" stroke="#d4f169" stroke-width="2"/>
+  <text x="762" y="195" fill="#d4f169" font-family="system-ui,sans-serif" font-size="11" font-weight="700" text-anchor="middle">PAY</text>
+  <path d="M762 218 L762 248 M752 238 L762 248 L772 238" stroke="#d4f169" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <text x="690" y="300" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">One pocket for the canteen task</text>
+  <line x1="460" y1="50" x2="460" y2="290" stroke="#40434d" stroke-width="2" stroke-dasharray="6 8"/>
+</svg>

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="deck.css?v=10">
+  <link rel="stylesheet" href="deck.css?v=15">
   <link rel="stylesheet" href="mobile.css?v=4">
 </head>
 <body data-deck-title="UI/UX Design in Practice">
@@ -79,17 +79,10 @@
       </div>
     </section>
 
-    <section class="slide approach-intro" data-title="What is UX">
-      <div class="slide-meta"><span>02</span><span>QUESTION</span></div>
+    <section class="slide approach-intro" data-title="Present wallet v1">
+      <div class="slide-meta"><span>04</span><span>VERSION 01</span></div>
       <div class="approach-intro-content">
-        <h2>What is <em>UX</em>?</h2>
-      </div>
-    </section>
-
-    <section class="slide quote-slide" data-title="Ask after v1">
-      <div class="slide-meta"><span>05</span><span>QUESTION</span></div>
-      <div class="quote-wrap">
-        <blockquote>What is UX?</blockquote>
+        <h2>Present your <em>wallet.</em></h2>
       </div>
     </section>
 
@@ -127,6 +120,147 @@
         </div>
         <div class="video-frame">
           <iframe src="https://www.youtube.com/embed/9BdtGjoIN4E?rel=0&amp;modestbranding=1" title="Don Norman: The Term UX" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="UX in practice">
+      <div class="slide-meta"><span>DOET</span><span>UX IN USE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>UX is how use feels.</h2>
+          <p class="lp-subtitle">From Don Norman, <em>The Design of Everyday Things</em>.</p>
+        </div>
+        <p class="lp-brief-text notes-keep-lead">People blame themselves when a door, wallet, or screen confuses them. Often the object failed to communicate how it works — that is a user experience problem, not user error.</p>
+        <div class="lp-cols">
+          <div>
+            <p class="lp-col-label">Good UX</p>
+            <ul class="lp-list">
+              <li><span>You know what to do next</span></li>
+              <li><span>Mistakes are recoverable</span></li>
+              <li><span>The object matches how you think it works</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="lp-col-label">Poor UX</p>
+            <ul class="lp-list">
+              <li><span>You need a spoken tour</span></li>
+              <li><span>Wrong action feels “natural”</span></li>
+              <li><span>Embarrassment or delay in public</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-compare ux-compare-ask" data-title="Mug question">
+      <div class="slide-meta"><span>EXAMPLE</span><span>QUESTION</span></div>
+      <div class="ux-compare-body">
+        <h2>What&rsquo;s wrong?</h2>
+        <figure class="ux-compare-figure ux-compare-photo">
+          <img src="assets/ux-mug-product.png" alt="Novelty mug with pointed ceramic ears above the handle">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide ux-compare" data-title="Mug bad UX">
+      <div class="slide-meta"><span>EXAMPLE</span><span>BAD UX</span></div>
+      <div class="ux-compare-body">
+        <h2>Decoration blocked the task.</h2>
+        <figure class="ux-compare-figure ux-compare-photo">
+          <img src="assets/ux-mug-bad-use.png" alt="Person drinking from mug; pointed ear pokes them in the eye">
+        </figure>
+        <p class="ux-compare-caption">The ears sit where your face goes when you tip the mug. Cute to look at — painful to use. That is bad user experience.</p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask" data-title="Example door ask">
+      <div class="slide-meta"><span>EXAMPLE</span><span>01 · DOOR</span></div>
+      <div class="ux-example-body">
+        <h2>Building door</h2>
+        <figure class="ux-example-panel is-bad ux-example-single">
+          <img src="assets/ux-door-bad.jpg" alt="Confusing door with ambiguous flat handle">
+          <figcaption>Problem</figcaption>
+        </figure>
+        <p class="ux-example-question">Do you know push vs pull without reading a sign?</p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-reveal" data-title="Example door solution">
+      <div class="slide-meta"><span>EXAMPLE</span><span>01 · DOOR</span></div>
+      <div class="ux-example-body">
+        <h2>Better solution</h2>
+        <figure class="ux-example-panel is-better ux-example-single">
+          <img src="assets/ux-door-good.jpg" alt="Door with clear pull handle and push bar">
+          <figcaption>Better solution</figcaption>
+        </figure>
+        <p class="ux-example-solution">Signifiers match the action — pull handles for pull, push bars for push. Fix the door, not the person.</p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask" data-title="Example stove ask">
+      <div class="slide-meta"><span>EXAMPLE</span><span>02 · STOVE</span></div>
+      <div class="ux-example-body">
+        <h2>Stove knobs</h2>
+        <figure class="ux-example-panel is-bad ux-example-single">
+          <img src="assets/ux-stove-bad.jpg" alt="Stovetop with knobs in a line, not aligned to burners">
+          <figcaption>Problem</figcaption>
+        </figure>
+        <p class="ux-example-question">Can you tell which burner you turned on?</p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-reveal" data-title="Example stove solution">
+      <div class="slide-meta"><span>EXAMPLE</span><span>02 · STOVE</span></div>
+      <div class="ux-example-body">
+        <h2>Better solution</h2>
+        <figure class="ux-example-panel is-better ux-example-single">
+          <img src="assets/ux-stove-good.jpg" alt="Gas stove with knobs laid out to match burner positions">
+          <figcaption>Better solution</figcaption>
+        </figure>
+        <p class="ux-example-solution">Map controls to the layout people see — each knob sits where its burner is.</p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Example wallet ask">
+      <div class="slide-meta"><span>EXAMPLE</span><span>03 · WALLET</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">In your paper wallet, what already works — and what does not?</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Wallet v2 invite">
+      <div class="slide-meta"><span>STUDIO</span><span>VERSION 02</span></div>
+      <div class="approach-intro-content">
+        <h2>Let&rsquo;s design a better design for your <em>wallet.</em></h2>
+        <p class="approach-intro-lede">Shall we?</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="DOET vocabulary">
+      <div class="slide-meta"><span>DOET</span><span>KEY IDEAS</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Words from the book.</h2>
+          <p class="lp-subtitle">Use these when you rebuild wallet version 02.</p>
+        </div>
+        <div class="lp-deliverables-grid">
+          <div class="lp-deliverable">
+            <div><p class="lp-deliverable-num">Affordance</p><h3>What the object allows</h3></div>
+            <p>A slot affords inserting a card; a flap affords opening — if the hand can discover it.</p>
+          </div>
+          <div class="lp-deliverable">
+            <div><p class="lp-deliverable-num">Signifier</p><h3>What shows where to act</h3></div>
+            <p>Colour, notch, or fold that says “open here” — like a handle that says “pull.”</p>
+          </div>
+          <div class="lp-deliverable">
+            <div><p class="lp-deliverable-num">Feedback</p><h3>What confirms the action</h3></div>
+            <p>Click of a latch, note visible in the right compartment, coin not falling out.</p>
+          </div>
+          <div class="lp-deliverable">
+            <div><p class="lp-deliverable-num">Conceptual model</p><h3>How the user thinks it works</h3></div>
+            <p>“Notes live here, change here, pay from here” — your folds teach that model or fight it.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -178,28 +312,127 @@
       </div>
     </section>
 
-    <section class="slide lesson-plan" data-title="Research">
-      <div class="slide-meta"><span>11</span><span>RESEARCH</span></div>
-      <div class="lp-body">
-        <div class="lp-heading">
-          <h2>Interview your classmate.</h2>
-          <p class="lp-subtitle">Before wallet version 03.</p>
-        </div>
-        <ol class="worksheet-questions">
-          <li>Walk me through the last time you paid — start to finish.</li>
-          <li>What did your hands do first?</li>
-          <li>What do you hide from the person next to you?</li>
-          <li>When has a wallet or purse embarrassed you?</li>
-          <li>If one thing could be faster, what would it be?</li>
-        </ol>
+    <section class="slide approach-intro" data-title="User research">
+      <div class="slide-meta"><span>11</span><span>USER RESEARCH</span></div>
+      <div class="approach-intro-content">
+        <h2>User <em>research.</em></h2>
+        <p class="approach-intro-lede">Listen to real people before you rebuild. Task 3 is not for you — it is for someone you interview.</p>
       </div>
     </section>
 
-    <section class="slide approach-intro" data-title="Wallet v3">
-      <div class="slide-meta"><span>12</span><span>VERSION 03</span></div>
+    <section class="slide approach-intro" data-title="Start research">
+      <div class="slide-meta"><span>STUDIO</span><span>GO</span></div>
       <div class="approach-intro-content">
-        <h2>Wallet <em>version 03.</em></h2>
-        <p class="approach-intro-lede">Rebuild from their words — UI and UX together.</p>
+        <h2>Start user <em>research.</em></h2>
+        <p class="approach-intro-lede">Find someone in the room. Listen before you design.</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Research defined">
+      <div class="slide-meta"><span>RESEARCH</span><span>01 · WHY</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>User research</h2>
+          <p class="lp-subtitle">Evidence about real behaviour — not taste, not guessing.</p>
+        </div>
+        <p class="lp-brief-text notes-keep-lead">Version 03 is for someone else. You need to understand how <strong>they</strong> pay, carry money, and feel in public — before you fold paper for them.</p>
+        <div class="lp-cols">
+          <div>
+            <p class="lp-col-label">Research is</p>
+            <ul class="lp-list">
+              <li><span>Watching and listening to a real person</span></li>
+              <li><span>Asking about what they already do</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="lp-col-label">Research is not</p>
+            <ul class="lp-list">
+              <li><span>“Do you like my wallet?”</span></li>
+              <li><span>Designing for yourself with extra steps</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Research interview how">
+      <div class="slide-meta"><span>RESEARCH</span><span>02 · INTERVIEW</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>How to interview</h2>
+        </div>
+        <p class="lp-brief-text notes-keep-lead">One person in the room — a classmate or neighbour. Talk about <strong>paying and carrying money</strong>. Do not lead with your paper wallet or ask them to praise it.</p>
+        <ul class="lp-list">
+          <li><span><strong>Open past behaviour</strong> — “Walk me through the last time you paid…”</span></li>
+          <li><span><strong>Hands and context</strong> — queue, canteen, who is watching</span></li>
+          <li><span><strong>Write their words</strong> — short quotes you can point to later</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Research listen">
+      <div class="slide-meta"><span>RESEARCH</span><span>03 · LISTEN</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>What to listen for</h2>
+        </div>
+        <div class="lp-deliverables-grid">
+          <div class="lp-deliverable">
+            <div><p class="lp-deliverable-num">Task</p><h3>Start to finish</h3></div>
+            <p>How payment actually happens — not the ideal story.</p>
+          </div>
+          <div class="lp-deliverable">
+            <div><p class="lp-deliverable-num">Friction</p><h3>Embarrassment &amp; delay</h3></div>
+            <p>When a purse or wallet failed them in public.</p>
+          </div>
+          <div class="lp-deliverable">
+            <div><p class="lp-deliverable-num">Contents</p><h3>Cash, coins, cards</h3></div>
+            <p>What must stay separate; what they need fast.</p>
+          </div>
+          <div class="lp-deliverable">
+            <div><p class="lp-deliverable-num">Trust</p><h3>Before they walk away</h3></div>
+            <p>How they know the right note or change left the purse.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Research to design">
+      <div class="slide-meta"><span>RESEARCH</span><span>04 · USE IT</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>From research to folds</h2>
+        </div>
+        <p class="lp-brief-text notes-keep-lead">Every slot and flap in version 03 should trace to something they said. If you cannot quote them, you are still designing for yourself.</p>
+        <div class="lp-assignment">
+          <p class="lp-assignment-label">Ready when</p>
+          <p>One person chosen · notes in your hand · you can name their primary pay task in one sentence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Wallet v3">
+      <div class="slide-meta"><span>13</span><span>TASK 3</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <p class="eyebrow">Studio task</p>
+          <h2>Wallet version 03.</h2>
+          <p class="lp-subtitle">Design for the person you interviewed — not for yourself.</p>
+        </div>
+        <div class="lp-brief-grid">
+          <div>
+            <p class="lp-rules-label">The brief</p>
+            <p class="lp-brief-text">Rebuild the paper wallet so it fits how <strong>they</strong> pay, what they carry, and what they told you. You should be able to point to a quote when someone asks why a fold or slot exists.</p>
+          </div>
+          <div>
+            <p class="lp-rules-label">Task 3 rules</p>
+            <ol class="lp-rules">
+              <li><span class="lp-rule-num">01</span><span><strong>One person.</strong> The same someone you just interviewed.</span></li>
+              <li><span class="lp-rule-num">02</span><span><strong>Their task.</strong> Match their canteen or payment habit — not yours.</span></li>
+              <li><span class="lp-rule-num">03</span><span><strong>Keep all three.</strong> Versions 01, 02, and 03 stay on the table.</span></li>
+            </ol>
+          </div>
+        </div>
       </div>
     </section>
 

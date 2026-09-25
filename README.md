@@ -17,13 +17,14 @@ Teaching brief and frontend presentation for **Human-Computer Interaction (M25DA
 cd presentation && python3 -m http.server 8080
 ```
 
-Open [http://localhost:8080](http://localhost:8080) (site), [http://localhost:8080/deck.html](http://localhost:8080/deck.html) (faculty deck), or [http://localhost:8080/sprint.html](http://localhost:8080/sprint.html) (one-day UX sprint teaching deck).
+Open [http://localhost:8080](http://localhost:8080) (site), [http://localhost:8080/deck.html](http://localhost:8080/deck.html) (faculty deck), [http://localhost:8080/sprint.html](http://localhost:8080/sprint.html) (one-day UX sprint teaching deck), or [http://localhost:8080/notes.html](http://localhost:8080/notes.html) (class notes, date-wise nav).
 
 **Live (Vercel)**
 
 - **Full site:** [https://arun-hmi.vercel.app/](https://arun-hmi.vercel.app/)
 - **Slide deck:** [https://arun-hmi.vercel.app/deck](https://arun-hmi.vercel.app/deck)
 - **One-day sprint (teaching):** [https://arun-hmi.vercel.app/sprint](https://arun-hmi.vercel.app/sprint)
+- **Class notes:** [https://arun-hmi.vercel.app/notes](https://arun-hmi.vercel.app/notes)
 
 Also available at [https://reva-hmi.vercel.app/](https://reva-hmi.vercel.app/) (same **arun-hmi** project).
 
