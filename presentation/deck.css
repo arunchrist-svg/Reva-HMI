@@ -128,6 +128,18 @@
 .notes-keep-lead{margin-bottom:1rem;max-width:1080px}
 .notes-keep-link{color:var(--lime);font-weight:700;text-decoration:none;font-size:clamp(1rem,1.6vw,1.35rem)}
 .notes-keep-link:hover{text-decoration:underline}
+.wallet-v3-focus{background:var(--lime);color:var(--ink)}
+.wallet-v3-focus .slide-meta{color:rgba(16,17,22,.62)}
+.wallet-v3-focus .eyebrow,
+.wallet-v3-focus .lp-rules-label,
+.wallet-v3-focus .lp-rule-num{color:#46511d}
+.wallet-v3-focus .lp-subtitle,
+.wallet-v3-focus .lp-brief-text,
+.wallet-v3-focus .lp-rules li{color:rgba(16,17,22,.78)}
+.wallet-v3-focus .lp-rules strong{color:var(--ink)}
+.wallet-v3-focus .lp-brief-grid,
+.wallet-v3-focus .lp-rules li,
+.wallet-v3-focus .lp-rules li:first-child{border-color:rgba(16,17,22,.28)}
 .sprint-method .method-steps li{min-height:200px}
 .cs-phases-compact{grid-template-columns:repeat(4,1fr)!important}
 .sprint-agenda-grid-4{grid-template-columns:repeat(4,1fr)}
