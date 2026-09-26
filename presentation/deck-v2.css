@@ -1,0 +1,258 @@
+/**
+ * Presentation v2 — large-type mode for classroom / back rows.
+ * Load after deck.css on body.deck-v2
+ */
+body.deck-v2 {
+  --v2-text: 1.42;
+  --v2-title: 1.22;
+}
+
+body.deck-v2 .slide {
+  padding: 2rem 4.5vw 3rem;
+}
+
+body.deck-v2 .slide-meta {
+  font-size: 12px;
+}
+
+body.deck-v2 .eyebrow {
+  font-size: 14px;
+  letter-spacing: 0.17em;
+  margin-bottom: 1rem;
+}
+
+body.deck-v2 h1 {
+  font-size: clamp(4.4rem, 8.6vw, 9.5rem);
+}
+
+body.deck-v2 h2 {
+  font-size: clamp(3.1rem, 5.8vw, 6.4rem);
+}
+
+body.deck-v2 .title-only h1 {
+  font-size: clamp(5rem, 10vw, 10.5rem);
+}
+
+body.deck-v2 .approach-intro h2 {
+  font-size: clamp(4.8rem, 8.8vw, 9.8rem);
+  line-height: 0.92;
+}
+
+body.deck-v2 .approach-intro-lede {
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  line-height: 1.28;
+}
+
+body.deck-v2 .approach-intro .eyebrow {
+  font-size: 15px;
+}
+
+body.deck-v2 .ux-compare-ask h2,
+body.deck-v2 .ux-example-question-only .ux-example-question {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+}
+
+body.deck-v2 .lp-heading h2 {
+  font-size: clamp(2.85rem, 4.6vw, 5rem);
+}
+
+body.deck-v2 .lp-subtitle {
+  font-size: clamp(1.15rem, 1.75vw, 1.55rem);
+  line-height: 1.45;
+  margin-top: 0.85rem;
+}
+
+body.deck-v2 .lp-brief-text,
+body.deck-v2 .notes-keep-lead {
+  font-size: clamp(1.15rem, 1.85vw, 1.55rem);
+  line-height: 1.55;
+}
+
+body.deck-v2 .lp-rules-label,
+body.deck-v2 .lp-col-label,
+body.deck-v2 .lp-assignment-label {
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+}
+
+body.deck-v2 .lp-cols,
+body.deck-v2 .lp-brief-grid,
+body.deck-v2 .lp-rules-standalone {
+  padding-top: 1.75rem;
+}
+
+body.deck-v2 .lp-rules li,
+body.deck-v2 .lp-list li {
+  font-size: clamp(1.28rem, 1.9vw, 1.62rem);
+  line-height: 1.5;
+  gap: 1rem;
+}
+
+body.deck-v2 .lp-list li {
+  grid-template-columns: 12px 1fr;
+}
+
+body.deck-v2 .lp-list li::before {
+  width: 8px;
+  height: 8px;
+  margin-top: 0.5rem;
+}
+
+body.deck-v2 .lp-rules li {
+  grid-template-columns: 34px 1fr;
+  padding: 0.95rem 0;
+}
+
+body.deck-v2 .lp-rule-num {
+  font-size: 15px;
+}
+
+body.deck-v2 .lp-rules strong {
+  font-size: 1.05em;
+}
+
+body.deck-v2 .lp-deliverable h3 {
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+body.deck-v2 .lp-deliverable p,
+body.deck-v2 .lp-deliverable-num {
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+}
+
+body.deck-v2 .lp-assignment p {
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  line-height: 1.5;
+}
+
+body.deck-v2 .worksheet-questions li {
+  font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+  grid-template-columns: 36px 1fr;
+  gap: 1rem;
+}
+
+body.deck-v2 .worksheet-questions li::before {
+  font-size: 13px;
+}
+
+body.deck-v2 .bridge-heading .section-title,
+body.deck-v2 .section-title {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  line-height: 1.08;
+}
+
+body.deck-v2 .bridge-table .row {
+  font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+  line-height: 1.45;
+  padding: 1rem 0;
+}
+
+body.deck-v2 .bridge-table .row.head {
+  font-size: 11px;
+}
+
+body.deck-v2 .ux-example-body h2 {
+  font-size: clamp(2.2rem, 3.5vw, 3rem);
+}
+
+body.deck-v2 .ux-example-question {
+  font-size: clamp(1.65rem, 2.6vw, 2.35rem);
+  line-height: 1.35;
+}
+
+body.deck-v2 .ux-example-solution {
+  font-size: clamp(1.05rem, 1.45vw, 1.3rem);
+  line-height: 1.55;
+}
+
+body.deck-v2 .ux-compare-caption {
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  line-height: 1.55;
+}
+
+body.deck-v2 .ux-example-panel figcaption {
+  font-size: 11px;
+}
+
+body.deck-v2 .video-slide-copy h2 {
+  font-size: clamp(2.5rem, 4.2vw, 4rem);
+}
+
+body.deck-v2 .quote-wrap blockquote {
+  font-size: clamp(2.6rem, 4.8vw, 5rem);
+}
+
+body.deck-v2 .arun-intro h2 {
+  font-size: clamp(4.5rem, 8vw, 8.8rem);
+}
+
+body.deck-v2 .arun-statement {
+  font-size: clamp(1.5rem, 2.4vw, 2.45rem);
+}
+
+body.deck-v2 .credential-card strong {
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+}
+
+body.deck-v2 .credential-card span {
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.45;
+}
+
+body.deck-v2 .timeline-strip div {
+  font-size: clamp(0.95rem, 1.25vw, 1.1rem);
+}
+
+body.deck-v2 .timeline-strip strong {
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+body.deck-v2 .timeline-strip small {
+  font-size: clamp(0.9rem, 1.15vw, 1.05rem);
+}
+
+body.deck-v2 .notes-keep-link {
+  font-size: clamp(1.2rem, 1.9vw, 1.6rem);
+}
+
+body.deck-v2 .closing-content h2 {
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+}
+
+body.deck-v2 .contact a {
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+}
+
+body.deck-v2 .controls {
+  font-size: 13px;
+  gap: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+
+body.deck-v2 .controls button {
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+}
+
+body.deck-v2 .counter {
+  font-size: 13px;
+  min-width: 5.25rem;
+  text-align: center;
+}
+
+body.deck-v2.wallet-v3-focus .lp-heading h2,
+body.deck-v2 .wallet-v3-focus .lp-heading h2 {
+  font-size: clamp(2.85rem, 4.6vw, 5rem);
+}
+
+@media (max-width: 800px) {
+  body.deck-v2 .lp-body {
+    margin-top: 3.5rem;
+  }
+
+  body.deck-v2 .approach-intro h2 {
+    font-size: clamp(3.5rem, 14vw, 5.5rem);
+  }
+}
