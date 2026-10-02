@@ -175,6 +175,15 @@ body.deck-v2 .ux-example-panel figcaption {
   font-size: 11px;
 }
 
+body.deck-v2 .case-photo-copy h2 {
+  font-size: clamp(2.4rem, 4.2vw, 4.2rem);
+  line-height: 1.02;
+}
+
+body.deck-v2 .case-photo-frame figcaption {
+  font-size: 11px;
+}
+
 body.deck-v2 .video-slide-copy h2 {
   font-size: clamp(2.5rem, 4.2vw, 4rem);
 }
