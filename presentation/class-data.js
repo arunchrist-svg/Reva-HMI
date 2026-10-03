@@ -1,5 +1,5 @@
 /**
- * Class gallery — single source of truth.
+ * Class gallery: single source of truth.
  * To add Session 3: copy a session object, update fields, and (optionally) add an assignment.
  * Published at: /  (arun-hmi.vercel.app)
  */
@@ -17,7 +17,7 @@ window.CLASS_GALLERY = {
       number: "01",
       date: "25 September 2026",
       title: "HCI foundations",
-      focus: "UX, UI, usability — learned through three paper wallet versions.",
+      focus: "UX, UI, usability, learned through three paper wallet versions.",
       status: "published",
       slides: [
         { label: "Sprint deck", href: "sprint.html", note: "Standard" },
@@ -31,7 +31,7 @@ window.CLASS_GALLERY = {
       number: "02",
       date: "2 October 2026",
       title: "User research",
-      focus: "Evidence before design — interviews, methods, synthesis, research sheet.",
+      focus: "Evidence before design: interviews, methods, synthesis, research sheet.",
       status: "published",
       slides: [
         { label: "Session 2 deck", href: "session-2.html", note: "Large type" }
