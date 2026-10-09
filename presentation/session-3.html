@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101116">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Working with AI: Session 3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="deck.css?v=22">
+  <link rel="stylesheet" href="deck-v2.css?v=10">
+  <link rel="stylesheet" href="mobile.css?v=9">
+  <style>
+    /* Classroom / last-bench: prompts & secondary copy must read from the back */
+    body.deck-v2 .prompt-slide .lp-heading h2 {
+      font-size: clamp(2.2rem, 3.4vw, 3.4rem);
+    }
+    body.deck-v2 .prompt-block {
+      margin-top: 1.15rem;
+      padding: 1.25rem 1.4rem;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--lime);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      white-space: pre-wrap;
+      font-family: var(--sans);
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
+      font-weight: 550;
+      line-height: 1.48;
+      color: #f0ede5;
+      max-width: 1100px;
+      user-select: text;
+      -webkit-user-select: text;
+    }
+    body.deck-v2 .prompt-slide { overflow-y: auto; }
+    body.deck-v2 .prompt-slide .lp-subtitle {
+      font-size: clamp(1.35rem, 2vw, 1.75rem);
+    }
+    /* Long brief prompts: labeled, scannable, no crop */
+    body.deck-v2 .prompt-slide.prompt-brief {
+      justify-content: flex-start;
+      padding-top: 3.25rem;
+      padding-bottom: 1.5rem;
+    }
+    body.deck-v2 .prompt-slide.prompt-brief .lp-heading {
+      margin-bottom: 0.85rem;
+    }
+    body.deck-v2 .prompt-slide.prompt-brief .lp-heading h2 {
+      font-size: clamp(1.85rem, 2.6vw, 2.55rem);
+      letter-spacing: -0.015em;
+      max-width: 36ch;
+    }
+    body.deck-v2 .prompt-slide.prompt-brief .lp-subtitle {
+      font-size: clamp(1.1rem, 1.55vw, 1.35rem);
+      line-height: 1.4;
+      max-width: 52ch;
+    }
+    body.deck-v2 .prompt-spec {
+      margin-top: 0.85rem;
+      padding: 1.1rem 1.35rem 1.2rem;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--lime);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      max-width: min(1180px, 100%);
+      max-height: min(68vh, 720px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      user-select: text;
+      -webkit-user-select: text;
+      font-family: var(--sans);
+      color: #f0ede5;
+    }
+    body.deck-v2 .prompt-spec .ps-row {
+      display: grid;
+      grid-template-columns: 7.5rem 1fr;
+      gap: 0.75rem 1rem;
+      align-items: start;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: clamp(1.12rem, 1.55vw, 1.38rem);
+      line-height: 1.42;
+      font-weight: 500;
+    }
+    body.deck-v2 .prompt-spec .ps-row:last-child { border-bottom: 0; }
+    body.deck-v2 .prompt-spec .ps-label {
+      color: var(--lime);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.82em;
+      padding-top: 0.18em;
+    }
+    body.deck-v2 .prompt-spec .ps-body { color: #f0ede5; }
+    body.deck-v2 .prompt-spec .ps-body strong {
+      color: #fff;
+      font-weight: 750;
+    }
+    body.deck-v2 .prompt-spec .ps-list {
+      margin: 0.35rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    body.deck-v2 .prompt-spec .ps-list li {
+      display: grid;
+      grid-template-columns: 1.6rem 1fr;
+      gap: 0.45rem;
+    }
+    body.deck-v2 .prompt-spec .ps-list li span:first-child {
+      color: var(--lime);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    body.deck-v2 .prompt-spec .ps-note {
+      margin: 0.55rem 0 0;
+      padding-top: 0.55rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+      line-height: 1.4;
+      color: #c9c5ba;
+    }
+    @media (max-width: 900px) {
+      body.deck-v2 .prompt-spec .ps-row {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+      }
+    }
+    body.deck-v2 .cover .lede-line {
+      margin-top: 1.2rem;
+      font-family: var(--sans);
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      color: var(--muted);
+      max-width: 780px;
+    }
+    body.deck-v2 .cc-slide {
+      padding: 3.5rem 5.7vw 2.5rem;
+      justify-content: flex-start;
+    }
+    body.deck-v2 .cc-slide .slide-meta { top: 3.5rem; }
+    body.deck-v2 .cc-body {
+      width: 100%;
+      max-width: 1320px;
+      margin: 4.5rem auto 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
+      gap: clamp(1.25rem, 3vw, 2.75rem);
+      align-items: start;
+      min-height: 0;
+    }
+    body.deck-v2 .cc-body.is-solo {
+      grid-template-columns: 1fr;
+      max-width: 900px;
+    }
+    body.deck-v2 .cc-kicker {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin: 0 0 0.75rem;
+    }
+    body.deck-v2 .cc-body h2 {
+      font-size: clamp(2.1rem, 3.4vw, 3.2rem);
+      line-height: 1.08;
+      margin: 0 0 0.9rem;
+      max-width: 28ch;
+    }
+    body.deck-v2 .cc-note {
+      font-size: clamp(1.25rem, 1.85vw, 1.55rem);
+      color: var(--muted);
+      line-height: 1.5;
+      margin: 0 0 1rem;
+      max-width: 42ch;
+    }
+    body.deck-v2 .cc-prompt {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      white-space: pre-wrap;
+      font-family: var(--sans);
+      font-size: clamp(1.28rem, 1.9vw, 1.65rem);
+      font-weight: 550;
+      line-height: 1.48;
+      color: #f0ede5;
+      user-select: text;
+    }
+    body.deck-v2 .cc-app-scroll .cc-prompt {
+      font-size: clamp(1.32rem, 2vw, 1.72rem);
+    }
+    body.deck-v2 .cc-list {
+      list-style: none;
+      margin: 0.95rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    body.deck-v2 .cc-list li {
+      display: grid;
+      grid-template-columns: 2rem 1fr;
+      gap: 0.65rem;
+      font-size: clamp(1.25rem, 1.85vw, 1.6rem);
+      line-height: 1.4;
+      color: #e4e1d8;
+    }
+    body.deck-v2 .cc-list li span:first-child {
+      color: var(--lime);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+    /* Color-coded prompt map (left label ↔ right line) */
+    body.deck-v2 {
+      --pe-role: #ff6b6b;
+      --pe-context: #ffd166;
+      --pe-people: #4ecdc4;
+      --pe-decision: #74b9ff;
+      --pe-constraints: #d4f169;
+    }
+    body.deck-v2 .cc-map .cc-list li[data-pe="role"],
+    body.deck-v2 .cc-map .cc-list li[data-pe="role"] span:first-child,
+    body.deck-v2 .pe-role { color: var(--pe-role); }
+    body.deck-v2 .cc-map .cc-list li[data-pe="context"],
+    body.deck-v2 .cc-map .cc-list li[data-pe="context"] span:first-child,
+    body.deck-v2 .pe-context { color: var(--pe-context); }
+    body.deck-v2 .cc-map .cc-list li[data-pe="people"],
+    body.deck-v2 .cc-map .cc-list li[data-pe="people"] span:first-child,
+    body.deck-v2 .pe-people { color: var(--pe-people); }
+    body.deck-v2 .cc-map .cc-list li[data-pe="decision"],
+    body.deck-v2 .cc-map .cc-list li[data-pe="decision"] span:first-child,
+    body.deck-v2 .pe-decision { color: var(--pe-decision); }
+    body.deck-v2 .cc-map .cc-list li[data-pe="constraints"],
+    body.deck-v2 .cc-map .cc-list li[data-pe="constraints"] span:first-child,
+    body.deck-v2 .pe-constraints { color: var(--pe-constraints); }
+    body.deck-v2 .cc-prompt .pe-line {
+      display: block;
+      margin: 0 0 0.55rem;
+      font-weight: 650;
+    }
+    body.deck-v2 .cc-prompt .pe-line:last-child { margin-bottom: 0; }
+    body.deck-v2 .cc-body.cc-map {
+      max-width: 1480px;
+      grid-template-columns: minmax(0, 0.72fr) minmax(420px, 1.35fr);
+    }
+    body.deck-v2 .cc-map .cc-app {
+      max-height: none;
+    }
+    body.deck-v2 .cc-map .cc-app-scroll {
+      overflow: visible;
+    }
+    body.deck-v2 .cc-map .cc-app-scroll .cc-prompt {
+      font-size: clamp(1.15rem, 1.65vw, 1.45rem);
+      line-height: 1.42;
+      white-space: normal;
+    }
+    body.deck-v2 .cc-map .cc-prompt .pe-line {
+      margin: 0 0 0.35rem;
+    }
+    body.deck-v2 .cc-app {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #16181f;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      max-height: min(70vh, 620px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+    body.deck-v2 .cc-app-top {
+      padding: 0.95rem 1.15rem 0.85rem;
+      border-bottom: 1px solid var(--line);
+      flex-shrink: 0;
+    }
+    body.deck-v2 .cc-app-top strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(1.45rem, 2.1vw, 1.85rem);
+      letter-spacing: -0.02em;
+    }
+    body.deck-v2 .cc-app-top em {
+      display: block;
+      margin-top: 0.3rem;
+      font-style: normal;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lime);
+      font-weight: 700;
+    }
+    body.deck-v2 .cc-app-scroll {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 1.1rem 1.2rem 1.35rem;
+      overscroll-behavior: contain;
+    }
+    body.deck-v2 .cc-app-scroll h3 {
+      margin: 0.95rem 0 0.4rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--lime);
+      font-weight: 800;
+    }
+    body.deck-v2 .cc-app-scroll h3:first-child { margin-top: 0; }
+    body.deck-v2 .cc-app-scroll p,
+    body.deck-v2 .cc-app-scroll li {
+      margin: 0;
+      font-size: clamp(1.2rem, 1.7vw, 1.45rem);
+      line-height: 1.5;
+      color: #ddd9cf;
+    }
+    body.deck-v2 .cc-app-scroll ul {
+      margin: 0.4rem 0 0;
+      padding-left: 1.2rem;
+    }
+    body.deck-v2 .cc-app-scroll li + li { margin-top: 0.4rem; }
+    body.deck-v2 .ux-example-question {
+      font-size: clamp(1.85rem, 2.9vw, 2.65rem);
+    }
+    body.deck-v2 .approach-intro-lede {
+      font-size: clamp(2.15rem, 3.4vw, 3.15rem);
+    }
+    @media (max-width: 900px) {
+      body.deck-v2 .cc-body {
+        grid-template-columns: 1fr;
+      }
+      body.deck-v2 .cc-body.cc-map {
+        grid-template-columns: 1fr;
+      }
+      body.deck-v2 .cc-app {
+        max-height: min(48vh, 420px);
+      }
+      body.deck-v2 .cc-map .cc-app {
+        max-height: none;
+      }
+    }
+  </style>
+</head>
+<body class="deck-v2" data-deck-title="Session 3 · Working with AI">
+  <main class="deck" aria-live="polite">
+    <section class="slide cover title-only is-active" data-title="Working with AI">
+      <div class="grid-lines"></div>
+      <div class="slide-meta"><span>REVA UNIVERSITY</span><span>UX DESIGN</span></div>
+      <div class="cover-content">
+        <h1>Working<br>with AI.</h1>
+        <p class="lede-line">From Prompt to Published Research Plan</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Opening question">
+      <div class="slide-meta"><span>QUESTION</span><span>OPEN</span></div>
+      <div class="approach-intro-content">
+        <h2>How do you currently use AI when doing design or research work?</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask" data-title="Your idea">
+      <div class="slide-meta"><span>NOW</span><span>YOUR IDEA</span></div>
+      <div class="ux-example-body">
+        <h2>Write your project idea in one rough line.</h2>
+        <p class="ux-example-question">A real problem you care about. Keep it on your note for every task today.</p>
+      </div>
+    </section>
+
+    <!-- Parallel example appears AFTER students write their own idea -->
+    <section class="slide cc-slide" data-title="Campus Cart brief">
+      <div class="slide-meta"><span>EXAMPLE</span><span>AFTER YOU</span></div>
+      <div class="cc-body">
+        <div>
+          <p class="cc-kicker">Running example</p>
+          <h2>Campus Cart.</h2>
+        </div>
+        <aside class="cc-app" aria-label="Prompt">
+          <div class="cc-app-top">
+            <strong>Prompt</strong>
+            <em>Scroll</em>
+          </div>
+          <div class="cc-app-scroll">
+            <pre class="cc-prompt">Campus Cart: students need a safe, geofenced way to buy and sell items specifically with other verified students on their own campus.</pre>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PARTNER -->
+    <section class="slide approach-intro" data-title="Try partner">
+      <div class="slide-meta"><span>TRY</span><span>YOUR IDEA</span></div>
+      <div class="approach-intro-content">
+        <h2>Ask AI for three research questions about your idea.</h2>
+      </div>
+    </section>
+
+    <!-- After students try — Campus Cart first ask (prompt on the right only) -->
+    <section class="slide cc-slide" data-title="Campus Cart first prompt">
+      <div class="slide-meta"><span>EXAMPLE</span><span>PARALLEL</span></div>
+      <div class="cc-body">
+        <div>
+          <p class="cc-kicker">Campus Cart · first ask</p>
+          <h2>Ask AI for three research questions.</h2>
+        </div>
+        <aside class="cc-app" aria-label="Prompt">
+          <div class="cc-app-top">
+            <strong>Prompt</strong>
+            <em>Scroll</em>
+          </div>
+          <div class="cc-app-scroll">
+            <pre class="cc-prompt">give me 3 research questions for campus cart app</pre>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Try partner next">
+      <div class="slide-meta"><span>TRY</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>Keep only one question. Cross out the other two.</h2>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Look partner">
+      <div class="slide-meta"><span>LOOK</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>Who decided which question was worth asking?</h2>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Name partner">
+      <div class="slide-meta"><span>NAME</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>AI is a thinking <em>partner</em>.</h2>
+        <p class="approach-intro-lede">You stay in charge. (HITL)</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Look previous prompts">
+      <div class="slide-meta"><span>LOOK</span><span>PROMPTS</span></div>
+      <div class="approach-intro-content">
+        <h2>What was not good in the previous prompts?</h2>
+      </div>
+    </section>
+
+    <section class="slide cc-slide" data-title="Dissect bad prompt">
+      <div class="slide-meta"><span>DISSECT</span><span>BAD PROMPT</span></div>
+      <div class="cc-body">
+        <div>
+          <p class="cc-kicker">Campus Cart · why this ask fails</p>
+          <h2>A bad prompt for this scenario.</h2>
+          <ul class="cc-list">
+            <li><span>01</span><span>Vague — “campus cart app” with no problem or people.</span></li>
+            <li><span>02</span><span>No who — who will you interview?</span></li>
+            <li><span>03</span><span>No decision — what should the answers help you choose?</span></li>
+            <li><span>04</span><span>No rules — invites leading, opinion, and feature lists.</span></li>
+          </ul>
+        </div>
+        <aside class="cc-app" aria-label="Prompt">
+          <div class="cc-app-top">
+            <strong>Prompt</strong>
+            <em>Bad</em>
+          </div>
+          <div class="cc-app-scroll">
+            <pre class="cc-prompt">give me 3 research questions for campus cart app</pre>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Best practice prompt">
+      <div class="slide-meta"><span>NAME</span><span>BEST PRACTICE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>What a strong prompt includes.</h2>
+          <p class="lp-subtitle">For research questions on your idea — write these into the ask.</p>
+        </div>
+        <ul class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span><strong>Role</strong> — who the AI should act as (e.g. UX researcher).</span></li>
+          <li><span class="lp-rule-num">02</span><span><strong>Context</strong> — your idea in one clear line.</span></li>
+          <li><span class="lp-rule-num">03</span><span><strong>People</strong> — who you will actually talk to.</span></li>
+          <li><span class="lp-rule-num">04</span><span><strong>Decision</strong> — what the answers must help you decide.</span></li>
+          <li><span class="lp-rule-num">05</span><span><strong>Constraints</strong> — non-leading; real past behaviour; no feature wish-list.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECOND PROMPT — students improve their own -->
+    <section class="slide approach-intro" data-title="Try second prompt">
+      <div class="slide-meta"><span>TRY</span><span>YOUR IDEA</span></div>
+      <div class="approach-intro-content">
+        <h2>Ask again for three research questions.</h2>
+        <p class="approach-intro-lede">This time add: who you will talk to, and what decision the answers should help.</p>
+      </div>
+    </section>
+
+    <!-- Better prompt fixing the first Campus Cart ask -->
+    <section class="slide cc-slide" data-title="Campus Cart better prompt">
+      <div class="slide-meta"><span>EXAMPLE</span><span>PARALLEL</span></div>
+      <div class="cc-body cc-map">
+        <div>
+          <p class="cc-kicker">Campus Cart · second ask</p>
+          <h2>Strong prompt elements.</h2>
+          <ul class="cc-list">
+            <li data-pe="role"><span>01</span><span><strong>Role</strong></span></li>
+            <li data-pe="context"><span>02</span><span><strong>Context</strong></span></li>
+            <li data-pe="people"><span>03</span><span><strong>People</strong></span></li>
+            <li data-pe="decision"><span>04</span><span><strong>Decision</strong></span></li>
+            <li data-pe="constraints"><span>05</span><span><strong>Constraints</strong></span></li>
+          </ul>
+        </div>
+        <aside class="cc-app" aria-label="Prompt">
+          <div class="cc-app-top">
+            <strong>Prompt</strong>
+            <em>Color map</em>
+          </div>
+          <div class="cc-app-scroll">
+            <div class="cc-prompt" role="text"><span class="pe-line pe-role">Act as a UX researcher.</span><span class="pe-line pe-context">I am designing Campus Cart: a campus-only, geofenced marketplace for verified students to buy and sell with each other.</span><span class="pe-line pe-people">I will interview 2nd–4th year students who have bought or sold something on campus in the last year.</span><span class="pe-line pe-decision">I need three research questions that help me decide whether verification + on-campus meetup is enough for students to feel safe.</span><span class="pe-line pe-constraints">Avoid leading questions. Focus on real past behaviour.</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Look second prompt">
+      <div class="slide-meta"><span>LOOK</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>Compare to your first three. What got more useful?</h2>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Name second prompt">
+      <div class="slide-meta"><span>NAME</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>A clearer prompt changes the output.</h2>
+        <p class="approach-intro-lede">Same idea. Better ask. You steer.</p>
+      </div>
+    </section>
+
+    <!-- GROUPS + REAL-WORLD OPTIONS -->
+    <section class="slide lesson-plan" data-title="Form groups">
+      <div class="slide-meta"><span>NOW</span><span>GROUPS OF 5</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Form groups of 5.</h2>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span>Sit in groups of <strong>5</strong> (per batch).</span></li>
+          <li><span class="lp-rule-num">02</span><span>Each person shares their idea in one line.</span></li>
+          <li><span class="lp-rule-num">03</span><span>Discuss. <strong>Choose 1</strong> idea for the group.</span></li>
+          <li><span class="lp-rule-num">04</span><span>Not happy with any of yours? Pick a <strong>real-world project</strong> from the next slides.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide cc-slide" data-title="Real world Accent Stone">
+      <div class="slide-meta"><span>REAL WORLD</span><span>PROJECT 01</span></div>
+      <div class="cc-body">
+        <div>
+          <p class="cc-kicker">SV@COE × REVA</p>
+          <h2>Accent Stone Initiative.</h2>
+          <p class="cc-note">Aesthetic differentiation, premium brand, and better cost/lead-time vs artisanal sourcing.</p>
+        </div>
+        <aside class="cc-app" aria-label="Brief">
+          <div class="cc-app-top">
+            <strong>Brief</strong>
+            <em>Pick if you want</em>
+          </div>
+          <div class="cc-app-scroll">
+            <h3>Objective</h3>
+            <p>Jointly evaluate how SV@COE's 3D-forming stone capabilities can be introduced across residential projects to drive aesthetic differentiation, premium brand positioning, and better cost/lead-time economics compared to traditional artisanal sourcing.</p>
+            <h3>Common areas</h3>
+            <p>Entrance gates, reception feature walls, lift lobbies, clubhouse amenities (bars, spas, gyms), and landscape elements (benches, water feature surrounds).</p>
+            <h3>Dwelling units</h3>
+            <p>Main door surrounds, bathroom feature walls, shower niches, vanity counters, kitchen backsplashes/island insets, and bedroom headboard accents.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="slide cc-slide" data-title="Real world Hospital Feedback">
+      <div class="slide-meta"><span>REAL WORLD</span><span>PROJECT 02</span></div>
+      <div class="cc-body">
+        <div>
+          <p class="cc-kicker">Chandrasekara Hospital</p>
+          <h2>Patient feedback system.</h2>
+          <p class="cc-note">What patients and staff need at each touchpoint — and what makes feedback feel heard and closed.</p>
+        </div>
+        <aside class="cc-app" aria-label="Brief">
+          <div class="cc-app-top">
+            <strong>Brief</strong>
+            <em>Pick if you want</em>
+          </div>
+          <div class="cc-app-scroll">
+            <pre class="cc-prompt">A unified, real-time patient experience and operational closure platform. It bridges patient voice and admin action across IP, OP, diagnostics, pharmacy, and support services.
+
+Capture via mobile and iPad. Enterprise-wide visibility. WhatsApp reporting for stakeholder accountability.</pre>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- GROUP BRIEF IN AI CHAT -->
+    <section class="slide lesson-plan" data-title="Group brief in AI">
+      <div class="slide-meta"><span>NOW</span><span>GROUP AI CHAT</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Make your project brief the best.</h2>
+          <p class="lp-subtitle">One shared AI chat per group. Prompt the right way — define every detail.</p>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span>Open <strong>one shared chat</strong> (ChatGPT, Gemini, or Claude).</span></li>
+          <li><span class="lp-rule-num">02</span><span>Prompt with <strong>Role · Context · People · Decision · Constraints</strong>.</span></li>
+          <li><span class="lp-rule-num">03</span><span>Ask AI to expand your idea into a full <strong>project brief</strong>.</span></li>
+          <li><span class="lp-rule-num">04</span><span>Push until problem, people, goals, and scope are sharp — no vague lines.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan prompt-slide prompt-brief" data-title="Brief prompt">
+      <div class="slide-meta"><span>TRY</span><span>PROJECT BRIEF</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Run this in your group chat.</h2>
+          <p class="lp-subtitle">Paste your idea in Context. Iterate until every section is concrete.</p>
+        </div>
+        <div class="prompt-spec" role="text">
+          <div class="ps-row"><span class="ps-label">Role</span><span class="ps-body">Act as an experienced UX strategist.</span></div>
+          <div class="ps-row"><span class="ps-label">Context</span><span class="ps-body">[paste your group’s chosen idea or real-world brief].</span></div>
+          <div class="ps-row"><span class="ps-label">Task</span><span class="ps-body">Write a sharp project brief that can guide the full project — research through build, deploy, and test.</span></div>
+          <div class="ps-row">
+            <span class="ps-label">Format</span>
+            <div class="ps-body">
+              Fill every section with concrete detail:
+              <ul class="ps-list">
+                <li><span>1</span><span><strong>Problem</strong> — who is hurt, what is hard today, where it happens, why it matters (one tight paragraph).</span></li>
+                <li><span>2</span><span><strong>People</strong> — 2–3 interviewable user types; for each: role, situation, what to learn.</span></li>
+                <li><span>3</span><span><strong>Goals</strong> — 3 measurable user outcomes + 1 decision this research must unlock.</span></li>
+                <li><span>4</span><span><strong>Scope</strong> — In: 3–5 items. Out: 3 items. Constraints: time, campus/city, access.</span></li>
+                <li><span>5</span><span><strong>Roadmap</strong> — for each phase write What we do + Deliverable + Done when: Brief → Research → Define → Design → Build → Deploy → Test.</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="ps-note"><strong>Constraints:</strong> Specific names and places. Researchable this term. No buzzwords. No feature wish-list. No vague “improve UX” lines.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Project roadmap">
+      <div class="slide-meta"><span>PROJECT</span><span>ROADMAP</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Full project roadmap.</h2>
+          <p class="lp-subtitle">End-to-end UX process — from brief to build, deploy, and test.</p>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span><strong>Brief</strong> — problem, people, goals, scope</span></li>
+          <li><span class="lp-rule-num">02</span><span><strong>Research</strong> — plan, discussion guide, interviews, insights</span></li>
+          <li><span class="lp-rule-num">03</span><span><strong>Define</strong> — HMW, opportunities, success metrics</span></li>
+          <li><span class="lp-rule-num">04</span><span><strong>Design</strong> — flows, wireframes, prototype</span></li>
+          <li><span class="lp-rule-num">05</span><span><strong>Build</strong> — working product in scope</span></li>
+          <li><span class="lp-rule-num">06</span><span><strong>Deploy</strong> — live for real users</span></li>
+          <li><span class="lp-rule-num">07</span><span><strong>Test</strong> — usability, learn, iterate</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan prompt-slide prompt-brief" data-title="Campus Cart brief prompt">
+      <div class="slide-meta"><span>EXAMPLE</span><span>PARALLEL</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Campus Cart — same prompt, filled in.</h2>
+          <p class="lp-subtitle">Same structure as yours. Compare. Then go back and sharpen.</p>
+        </div>
+        <div class="prompt-spec" role="text">
+          <div class="ps-row"><span class="ps-label">Role</span><span class="ps-body">Act as an experienced UX strategist.</span></div>
+          <div class="ps-row"><span class="ps-label">Context</span><span class="ps-body">Campus Cart — students need a safe, geofenced way to buy and sell items specifically with other verified students on their own campus.</span></div>
+          <div class="ps-row"><span class="ps-label">Task</span><span class="ps-body">Write a sharp project brief that can guide the full project — research through build, deploy, and test.</span></div>
+          <div class="ps-row">
+            <span class="ps-label">Format</span>
+            <div class="ps-body">
+              Fill every section with concrete detail:
+              <ul class="ps-list">
+                <li><span>1</span><span><strong>Problem</strong> — who is hurt, what is hard today, where it happens, why it matters (one tight paragraph).</span></li>
+                <li><span>2</span><span><strong>People</strong> — 2–3 interviewable user types; for each: role, situation, what to learn.</span></li>
+                <li><span>3</span><span><strong>Goals</strong> — 3 measurable user outcomes + 1 decision this research must unlock.</span></li>
+                <li><span>4</span><span><strong>Scope</strong> — In: 3–5 items. Out: 3 items. Constraints: time, campus/city, access.</span></li>
+                <li><span>5</span><span><strong>Roadmap</strong> — for each phase write What we do + Deliverable + Done when: Brief → Research → Define → Design → Build → Deploy → Test.</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="ps-note"><strong>Constraints:</strong> Specific to REVA campus. Researchable this term. No buzzwords. No feature wish-list. Focus on verification + on-campus meetup safety.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HELPS -->
+    <section class="slide ux-example ux-example-ask" data-title="Try helps">
+      <div class="slide-meta"><span>TRY</span><span></span></div>
+      <div class="ux-example-body">
+        <h2>Ask AI to turn your idea into five interview topics.</h2>
+        <p class="ux-example-question">Paste your line. Take what is useful. Drop the rest.</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Look helps">
+      <div class="slide-meta"><span>LOOK</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>What did it finish faster than you would have?</h2>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Name helps">
+      <div class="slide-meta"><span>NAME</span><span></span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>When it helps.</h2>
+        </div>
+        <ul class="lp-list">
+          <li><span>Secondary research</span></li>
+          <li><span>Structuring questions</span></li>
+          <li><span>First drafts</span></li>
+          <li><span>Exploring variations</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- NEEDS YOU -->
+    <section class="slide ux-example ux-example-ask" data-title="Try needs you">
+      <div class="slide-meta"><span>TRY</span><span></span></div>
+      <div class="ux-example-body">
+        <h2>Ask: “Would people love a solution for my idea?”</h2>
+        <p class="ux-example-question">Paste your line after that question.</p>
+      </div>
+    </section>
+
+    <!-- PUBLISHING -->
+    <section class="slide approach-intro" data-title="Publish early">
+      <div class="slide-meta"><span>NAME</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>Publishing is part of the work.</h2>
+        <p class="approach-intro-lede">Start the final page early. Do not wait for perfect.</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Pick platform">
+      <div class="slide-meta"><span>NOW</span><span>PICK ONE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Choose one. Do not switch later.</h2>
+        </div>
+        <ul class="lp-list">
+          <li><span>Notion — fastest if you are unsure</span></li>
+          <li><span>Google Sites</span></li>
+          <li><span>Canva website</span></li>
+          <li><span>GitHub Pages</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Notion steps">
+      <div class="slide-meta"><span>NOTION</span><span>STEPS</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Notion — go live.</h2>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span>New page. Title it with your problem name</span></li>
+          <li><span class="lp-rule-num">02</span><span>Three headings: Project Plan · Research Plan · Discussion Guide</span></li>
+          <li><span class="lp-rule-num">03</span><span>Paste your content under each</span></li>
+          <li><span class="lp-rule-num">04</span><span>Share → Publish to web → copy the public link</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Clean page">
+      <div class="slide-meta"><span>PAGE</span><span></span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Keep the page clean.</h2>
+        </div>
+        <ul class="lp-list">
+          <li><span>One problem statement at the top</span></li>
+          <li><span>Clear headings</span></li>
+          <li><span>Short paragraphs</span></li>
+          <li><span>No walls of text</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Content freeze">
+      <div class="slide-meta"><span>RULE</span><span>FREEZE</span></div>
+      <div class="approach-intro-content">
+        <h2>Content freeze before the end.</h2>
+        <p class="approach-intro-lede">After that, only publishing and link pasting. No more rewriting.</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Submit">
+      <div class="slide-meta"><span>SUBMIT</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>Paste your public link in the shared class sheet.</h2>
+        <p class="approach-intro-lede">That is the submission.</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Incognito check">
+      <div class="slide-meta"><span>CHECK</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>Open your link in a private window.</h2>
+        <p class="approach-intro-lede">If a stranger gets the project in twenty seconds, you are done.</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Full process">
+      <div class="slide-meta"><span>CLOSE</span><span></span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>The full process.</h2>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span>Write the prompt</span></li>
+          <li><span class="lp-rule-num">02</span><span>Improve it</span></li>
+          <li><span class="lp-rule-num">03</span><span>Build the three documents</span></li>
+          <li><span class="lp-rule-num">04</span><span>Publish</span></li>
+          <li><span class="lp-rule-num">05</span><span>Share the live link</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Closing">
+      <div class="slide-meta"><span>CLOSE</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>You are still the <em>designer</em>.</h2>
+        <p class="approach-intro-lede">AI made you faster. Keep the judgment with you.</p>
+      </div>
+    </section>
+
+    <section class="slide closing" data-title="Thank you">
+      <div class="grid-lines"></div>
+      <div class="slide-meta"><span>REVA UNIVERSITY</span><span>UX DESIGN</span></div>
+      <div class="closing-content">
+        <h2>Thank you.</h2>
+        <div class="contact">
+          <a href="session-3-guide.html?v=cc2">Prompt sheet</a>
+          <a href="mailto:arun.jpeg@gmail.com">arun.jpeg@gmail.com</a>
+          <a href="session-2.html">Session 2</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="controls" aria-label="Slide navigation">
+    <button class="prev" aria-label="Previous slide">←</button>
+    <span class="counter">01 / 01</span>
+    <button class="next" aria-label="Next slide">→</button>
+  </aside>
+  <div class="progress"><span></span></div>
+  <script src="deck.js"></script>
+  <script>
+    document.querySelectorAll(".cc-app-scroll").forEach(function (el) {
+      el.addEventListener("wheel", function (event) {
+        event.stopPropagation();
+      }, { passive: true });
+      el.addEventListener("touchstart", function (event) {
+        event.stopPropagation();
+      }, { passive: true });
+      el.addEventListener("touchend", function (event) {
+        event.stopPropagation();
+      }, { passive: true });
+    });
+  </script>
+</body>
+</html>

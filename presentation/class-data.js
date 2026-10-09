@@ -38,6 +38,21 @@ window.CLASS_GALLERY = {
       ],
       notes: { label: "Class notes", href: "notes.html#session-2" },
       assignmentIds: ["assign-research-sheet"]
+    },
+    {
+      id: "session-3",
+      number: "03",
+      date: "9 October 2026",
+      title: "Working with AI",
+      focus: "From prompt to published research plan.",
+      status: "draft",
+      slides: [
+        { label: "Before class setup", href: "setup-guide.html", note: "Gemini + GitHub" },
+        { label: "Session 3 deck", href: "session-3.html?v=short", note: "Classroom short" },
+        { label: "Session 3 (full)", href: "session-3-v2.html?v=full", note: "Full deck" },
+        { label: "Prompt sheet", href: "session-3-guide.html?v=cc2", note: "Copy prompts" }
+      ],
+      assignmentIds: ["assign-project-page"]
     }
   ],
   assignments: [
@@ -56,6 +71,14 @@ window.CLASS_GALLERY = {
       due: "End of Session 2 lab",
       summary: "One research question, two interviews, five quotes, three insights, one HMW.",
       href: "notes.html#s2-deliverable"
+    },
+    {
+      id: "assign-project-page",
+      session: "03",
+      title: "Published research plan",
+      due: "End of Session 3",
+      summary: "Groups publish a project plan, research plan, and discussion guide as one public link.",
+      href: "session-3-guide.html?v=rtf"
     }
   ]
 };
