@@ -48,8 +48,8 @@ window.CLASS_GALLERY = {
       status: "draft",
       slides: [
         { label: "Before class setup", href: "setup-guide.html", note: "Gemini + GitHub" },
-        { label: "Session 3 deck", href: "session-3.html?v=short", note: "Classroom short" },
-        { label: "Session 3 (full)", href: "session-3-v2.html?v=full", note: "Full deck" },
+        { label: "Session 3 deck", href: "session-3.html?v=md1", note: "Classroom short" },
+        { label: "Session 3 (full)", href: "session-3-v2.html?v=md1", note: "Full deck" },
         { label: "Prompt sheet", href: "session-3-guide.html?v=cc2", note: "Copy prompts" }
       ],
       assignmentIds: ["assign-project-page"]

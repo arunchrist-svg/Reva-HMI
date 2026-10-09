@@ -694,16 +694,204 @@ Capture via mobile and iPad. Enterprise-wide visibility. WhatsApp reporting for 
       </div>
     </section>
 
-    <!-- HELPS -->
-    <section class="slide ux-example ux-example-ask" data-title="Try helps">
-      <div class="slide-meta"><span>TRY</span><span></span></div>
-      <div class="ux-example-body">
-        <h2>Ask AI to turn your idea into five interview topics.</h2>
-        <p class="ux-example-question">Paste your line. Take what is useful. Drop the rest.</p>
+    <!-- 01 BRIEF ARTIFACTS — one prompt each -->
+    <section class="slide lesson-plan prompt-slide prompt-brief" data-title="Prompt problem">
+      <div class="slide-meta"><span>01 BRIEF</span><span>PROBLEM</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Prompt for the problem.</h2>
+          <p class="lp-subtitle">One paragraph. No solution. Paste your idea. Run. Cut anything vague.</p>
+        </div>
+        <div class="prompt-spec" role="text">
+          <div class="ps-row"><span class="ps-label">Role</span><span class="ps-body">Act as an experienced UX researcher who writes problem statements for fieldwork.</span></div>
+          <div class="ps-row"><span class="ps-label">Context</span><span class="ps-body">[paste your group’s idea or real-world brief].</span></div>
+          <div class="ps-row"><span class="ps-label">Task</span><span class="ps-body">Write only the problem. Do not propose a product or feature.</span></div>
+          <div class="ps-row">
+            <span class="ps-label">Format</span>
+            <div class="ps-body">
+              <ul class="ps-list">
+                <li><span>1</span><span><strong>Who</strong> is hurt — named type of person, not “users”.</span></li>
+                <li><span>2</span><span><strong>What</strong> is hard today — a real task, in a real place.</span></li>
+                <li><span>3</span><span><strong>Where / when</strong> it happens.</span></li>
+                <li><span>4</span><span><strong>Why it matters</strong> — cost, risk, time, dignity, or missed opportunity.</span></li>
+                <li><span>5</span><span><strong>If we do nothing</strong> — one sentence on what stays broken.</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="ps-note"><strong>Constraints:</strong> One tight paragraph + the five labelled lines. Specific names and places. No buzzwords. No “poor UX”. No feature list.</p>
+        </div>
       </div>
     </section>
 
-    <section class="slide approach-intro" data-title="Look helps">
+    <section class="slide lesson-plan prompt-slide prompt-brief" data-title="Prompt people">
+      <div class="slide-meta"><span>01 BRIEF</span><span>PEOPLE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Prompt for the people.</h2>
+          <p class="lp-subtitle">Who you can actually interview this term.</p>
+        </div>
+        <div class="prompt-spec" role="text">
+          <div class="ps-row"><span class="ps-label">Role</span><span class="ps-body">Act as an experienced UX researcher planning recruitment.</span></div>
+          <div class="ps-row"><span class="ps-label">Context</span><span class="ps-body">Problem so far: [paste your problem paragraph]. Idea: [paste your idea].</span></div>
+          <div class="ps-row"><span class="ps-label">Task</span><span class="ps-body">Name 2–3 people we can actually talk to. Not personas. Not “all students”.</span></div>
+          <div class="ps-row">
+            <span class="ps-label">Format</span>
+            <div class="ps-body">
+              For each person type:
+              <ul class="ps-list">
+                <li><span>1</span><span><strong>Who</strong> — role + situation (one line).</span></li>
+                <li><span>2</span><span><strong>Where we find them</strong> this week.</span></li>
+                <li><span>3</span><span><strong>What we must learn</strong> from them.</span></li>
+                <li><span>4</span><span><strong>Disqualify if</strong> — who we will not interview.</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="ps-note"><strong>Constraints:</strong> People we can reach on campus or at the real site. No fake names. No “end users in general”.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan prompt-slide prompt-brief" data-title="Prompt goals">
+      <div class="slide-meta"><span>01 BRIEF</span><span>GOALS</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Prompt for the goals.</h2>
+          <p class="lp-subtitle">What must be true for people — and what research must unlock.</p>
+        </div>
+        <div class="prompt-spec" role="text">
+          <div class="ps-row"><span class="ps-label">Role</span><span class="ps-body">Act as an experienced UX strategist writing goals a student team can test.</span></div>
+          <div class="ps-row"><span class="ps-label">Context</span><span class="ps-body">Problem: [paste]. People: [paste].</span></div>
+          <div class="ps-row"><span class="ps-label">Task</span><span class="ps-body">Write goals for the project. Tie each to the problem. Do not list features.</span></div>
+          <div class="ps-row">
+            <span class="ps-label">Format</span>
+            <div class="ps-body">
+              <ul class="ps-list">
+                <li><span>1</span><span><strong>3 user outcomes</strong> — each measurable (time, error, safety, completion, trust).</span></li>
+                <li><span>2</span><span><strong>How we will know</strong> — one evidence line per outcome.</span></li>
+                <li><span>3</span><span><strong>1 research decision</strong> — the question this research must settle before we design.</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="ps-note"><strong>Constraints:</strong> No “improve engagement”. No “make it user-friendly”. If it cannot be observed, rewrite it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan prompt-slide prompt-brief" data-title="Prompt scope">
+      <div class="slide-meta"><span>01 BRIEF</span><span>SCOPE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Prompt for the scope.</h2>
+          <p class="lp-subtitle">Draw the line. In, out, and what “done this term” means.</p>
+        </div>
+        <div class="prompt-spec" role="text">
+          <div class="ps-row"><span class="ps-label">Role</span><span class="ps-body">Act as an experienced product designer scoping a student studio project.</span></div>
+          <div class="ps-row"><span class="ps-label">Context</span><span class="ps-body">Problem, people, and goals: [paste]. Time: this academic term. Team: 5 students.</span></div>
+          <div class="ps-row"><span class="ps-label">Task</span><span class="ps-body">Set a realistic scope. Protect the team from building everything.</span></div>
+          <div class="ps-row">
+            <span class="ps-label">Format</span>
+            <div class="ps-body">
+              <ul class="ps-list">
+                <li><span>1</span><span><strong>In</strong> — 3–5 things we will research and design.</span></li>
+                <li><span>2</span><span><strong>Out</strong> — 3 things we will not do (and why).</span></li>
+                <li><span>3</span><span><strong>Constraints</strong> — time, place, access, tools.</span></li>
+                <li><span>4</span><span><strong>Done this term</strong> — the smallest shippable: research + prototype + test, not a full company product.</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="ps-note"><strong>Constraints:</strong> Must fit 5 people this term. No payments platform, no hospital-wide IT, no CNC factory. Be ruthless.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 RESEARCH ARTIFACTS — one prompt each -->
+    <section class="slide lesson-plan prompt-slide prompt-brief" data-title="Prompt research plan">
+      <div class="slide-meta"><span>02 RESEARCH</span><span>PLAN</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Prompt for the research plan.</h2>
+          <p class="lp-subtitle">Aim, people, method, use. Doable from this room.</p>
+        </div>
+        <div class="prompt-spec" role="text">
+          <div class="ps-row"><span class="ps-label">Role</span><span class="ps-body">Act as an experienced UX researcher writing a one-week field plan.</span></div>
+          <div class="ps-row"><span class="ps-label">Context</span><span class="ps-body">Brief so far: [paste problem, people, goals, scope].</span></div>
+          <div class="ps-row"><span class="ps-label">Task</span><span class="ps-body">Write a research plan we can run. Interviews first. No survey as the main method.</span></div>
+          <div class="ps-row">
+            <span class="ps-label">Format</span>
+            <div class="ps-body">
+              <ul class="ps-list">
+                <li><span>1</span><span><strong>Aim</strong> — one sentence. The decision this study must help.</span></li>
+                <li><span>2</span><span><strong>People</strong> — who, how many (3–6), how we recruit this week.</span></li>
+                <li><span>3</span><span><strong>Method</strong> — 1:1 interviews; where; 30 minutes; what we observe if we can.</span></li>
+                <li><span>4</span><span><strong>Questions the study must answer</strong> — 3, not 15.</span></li>
+                <li><span>5</span><span><strong>Use</strong> — how findings change the brief / design.</span></li>
+                <li><span>6</span><span><strong>Ethics</strong> — consent, recording, what we will not ask.</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="ps-note"><strong>Constraints:</strong> Realistic this week. Named recruit places. No “n=100”. No leading research questions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan prompt-slide prompt-brief" data-title="Prompt discussion guide">
+      <div class="slide-meta"><span>02 RESEARCH</span><span>GUIDE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Prompt for the discussion guide.</h2>
+          <p class="lp-subtitle">A 30-minute 1:1 you would actually take into the room.</p>
+        </div>
+        <div class="prompt-spec" role="text">
+          <div class="ps-row"><span class="ps-label">Role</span><span class="ps-body">Act as an experienced UX researcher writing a non-leading interview guide.</span></div>
+          <div class="ps-row"><span class="ps-label">Context</span><span class="ps-body">Research plan: [paste]. People: [paste who we will interview].</span></div>
+          <div class="ps-row"><span class="ps-label">Task</span><span class="ps-body">Write a discussion guide for a 30-minute 1:1. Past behaviour only.</span></div>
+          <div class="ps-row">
+            <span class="ps-label">Format</span>
+            <div class="ps-body">
+              <ul class="ps-list">
+                <li><span>1</span><span><strong>Open</strong> — 2 warm questions (3 min). Easy, specific, recent.</span></li>
+                <li><span>2</span><span><strong>Core</strong> — 6 questions. Each has 2 probes (“Tell me about the last time…” / “What did you do next?”).</span></li>
+                <li><span>3</span><span><strong>Close</strong> — 2 questions (what we missed; anything else).</span></li>
+                <li><span>4</span><span><strong>Timebox</strong> — minutes next to each block.</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="ps-note"><strong>Constraints:</strong> Non-leading. Neutral. No “would you use”. No “do you like”. No feature wish-list. Suitable for people we can actually meet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan prompt-slide prompt-brief" data-title="Prompt interviews">
+      <div class="slide-meta"><span>02 RESEARCH</span><span>INTERVIEWS</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Prompt for how we run interviews.</h2>
+          <p class="lp-subtitle">Recruit, consent, roles, what to capture. The session itself.</p>
+        </div>
+        <div class="prompt-spec" role="text">
+          <div class="ps-row"><span class="ps-label">Role</span><span class="ps-body">Act as an experienced UX researcher coaching a student team in the field.</span></div>
+          <div class="ps-row"><span class="ps-label">Context</span><span class="ps-body">Guide: [paste]. People: [paste]. We are 5 students. 30-minute interviews.</span></div>
+          <div class="ps-row"><span class="ps-label">Task</span><span class="ps-body">Write the interview operating sheet — how we run the session, not more questions.</span></div>
+          <div class="ps-row">
+            <span class="ps-label">Format</span>
+            <div class="ps-body">
+              <ul class="ps-list">
+                <li><span>1</span><span><strong>Recruit script</strong> — 4 sentences we can send or say.</span></li>
+                <li><span>2</span><span><strong>Consent</strong> — what we say before recording or notes.</span></li>
+                <li><span>3</span><span><strong>Roles</strong> — who talks, who notes, who keeps time.</span></li>
+                <li><span>4</span><span><strong>Minute-by-minute flow</strong> — 0–30.</span></li>
+                <li><span>5</span><span><strong>Capture</strong> — quotes, last-time stories, workarounds, exact words for objects/places.</span></li>
+                <li><span>6</span><span><strong>Stop</strong> — what we do if they go generic or start designing features.</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="ps-note"><strong>Constraints:</strong> Two people in the room with the participant, max. Stay quiet after a question. No pitching our idea.</p>
+        </div>
+      </div>
+    </section>
+
+        <!-- HELPS -->
+        <section class="slide approach-intro" data-title="Look helps">
       <div class="slide-meta"><span>LOOK</span><span></span></div>
       <div class="approach-intro-content">
         <h2>What did it finish faster than you would have?</h2>
@@ -725,16 +913,23 @@ Capture via mobile and iPad. Enterprise-wide visibility. WhatsApp reporting for 
       </div>
     </section>
 
-    <!-- NEEDS YOU -->
-    <section class="slide ux-example ux-example-ask" data-title="Try needs you">
-      <div class="slide-meta"><span>TRY</span><span></span></div>
-      <div class="ux-example-body">
-        <h2>Ask: “Would people love a solution for my idea?”</h2>
-        <p class="ux-example-question">Paste your line after that question.</p>
+    <!-- PUBLISHING -->
+    <section class="slide lesson-plan" data-title="One markdown file">
+      <div class="slide-meta"><span>NOW</span><span>ONE FILE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Put everything into one .md file.</h2>
+          <p class="lp-subtitle">That file is what you publish. Not the chat. Not screenshots.</p>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span>New file: <strong>project.md</strong> (VS Code, Notion export, or GitHub).</span></li>
+          <li><span class="lp-rule-num">02</span><span>Headings in this order: Problem · People · Goals · Scope · Research plan · Discussion guide · Interview sheet.</span></li>
+          <li><span class="lp-rule-num">03</span><span>Paste the <strong>best</strong> version of each from your group chat. Cut filler.</span></li>
+          <li><span class="lp-rule-num">04</span><span>One file. Clear markdown. Then publish that page.</span></li>
+        </ol>
       </div>
     </section>
 
-    <!-- PUBLISHING -->
     <section class="slide approach-intro" data-title="Publish early">
       <div class="slide-meta"><span>NAME</span><span></span></div>
       <div class="approach-intro-content">
