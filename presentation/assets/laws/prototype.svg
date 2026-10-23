@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Prototype: the verb lands</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <rect x="80" y="220" width="220" height="280" rx="28" fill="#101116" stroke="#ece9e1" stroke-opacity=".25"/>
+  <rect x="155" y="240" width="70" height="8" rx="4" fill="#ece9e1" opacity=".25"/>
+  <text x="190" y="310" fill="#ece9e1" font-family="Georgia,serif" font-size="20" text-anchor="middle">Pay the mess</text>
+  <rect x="110" y="430" width="160" height="40" rx="8" fill="#d4f169"/>
+  <text x="190" y="456" fill="#101116" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+  <path d="M300 450 C 360 450, 400 330, 430 300" fill="none" stroke="#d4f169" stroke-width="4"/>
+  <polygon points="430,300 416,312 440,316" fill="#d4f169"/>
+  <rect x="420" y="220" width="220" height="280" rx="28" fill="#101116" stroke="#d4f169" stroke-opacity=".55" stroke-width="2"/>
+  <rect x="495" y="240" width="70" height="8" rx="4" fill="#ece9e1" opacity=".25"/>
+  <text x="530" y="310" fill="#ece9e1" font-family="Georgia,serif" font-size="20" text-anchor="middle">Paid</text>
+  <text x="530" y="350" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" text-anchor="middle">Rs 80  12:14</text>
+  <rect x="450" y="430" width="160" height="40" rx="8" fill="#d4f169"/>
+  <text x="530" y="456" fill="#101116" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Done</text>
+</svg>

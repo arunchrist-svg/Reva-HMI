@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Postel: accept a real number</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <path d="M140 180 L580 180 L500 360 L220 360 Z" fill="#101116" stroke="#d4f169" stroke-width="3"/>
+  <text x="360" y="230" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="18" text-anchor="middle">arun @okaxis</text>
+  <text x="360" y="270" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" text-anchor="middle">space  crumpled  real</text>
+  <rect x="250" y="430" width="220" height="70" rx="12" fill="#d4f169"/>
+  <text x="360" y="472" fill="#101116" font-family="system-ui,sans-serif" font-size="18" font-weight="700" text-anchor="middle">still sends</text>
+  <text x="360" y="560" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" letter-spacing="2" text-anchor="middle">STRICT AFTER YOU STORE IT</text>
+</svg>

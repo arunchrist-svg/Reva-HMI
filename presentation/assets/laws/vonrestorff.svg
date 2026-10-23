@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Von Restorff: the odd one is remembered</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <rect x="90" y="280" width="90" height="160" fill="#3a3d46"/>
+  <rect x="200" y="280" width="90" height="160" fill="#3a3d46"/>
+  <rect x="310" y="240" width="100" height="200" fill="#d4f169"/>
+  <rect x="430" y="280" width="90" height="160" fill="#3a3d46"/>
+  <rect x="540" y="280" width="90" height="160" fill="#3a3d46"/>
+  <text x="360" y="350" fill="#101116" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle">PAY</text>
+  <text x="360" y="520" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" letter-spacing="2" text-anchor="middle">ONE RED BAG ON A RACK OF BLACK</text>
+</svg>

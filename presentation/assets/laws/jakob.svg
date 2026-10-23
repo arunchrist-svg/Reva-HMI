@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Jakob: like products they already know</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <rect x="150" y="180" width="180" height="240" rx="16" fill="#101116" stroke="#ece9e1" stroke-opacity=".35"/>
+  <text x="240" y="230" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">1  CARD</text>
+  <text x="240" y="300" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">2  PIN</text>
+  <text x="240" y="370" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">3  CASH</text>
+  <rect x="390" y="180" width="180" height="240" rx="16" fill="#101116" stroke="#d4f169" stroke-opacity=".7" stroke-width="2"/>
+  <text x="480" y="230" fill="#d4f169" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">1  LABEL</text>
+  <text x="480" y="300" fill="#d4f169" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">2  FIELD</text>
+  <text x="480" y="370" fill="#d4f169" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">3  PAY</text>
+  <text x="360" y="500" fill="#ece9e1" font-family="Georgia,serif" font-size="22" text-anchor="middle">Same dance.</text>
+  <text x="360" y="560" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" letter-spacing="2" text-anchor="middle">THE DANCE THEY ALREADY KNOW</text>
+</svg>

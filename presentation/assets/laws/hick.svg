@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Hick: equal options freeze the hand</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <g fill="#ece9e1" opacity=".2">
+    <rect x="90" y="150" width="540" height="36" rx="6"/>
+    <rect x="90" y="200" width="540" height="36" rx="6"/>
+    <rect x="90" y="250" width="540" height="36" rx="6"/>
+    <rect x="90" y="300" width="540" height="36" rx="6"/>
+    <rect x="90" y="350" width="540" height="36" rx="6"/>
+    <rect x="90" y="400" width="540" height="36" rx="6"/>
+    <rect x="90" y="450" width="540" height="36" rx="6"/>
+  </g>
+  <rect x="90" y="250" width="540" height="36" rx="6" fill="#d4f169"/>
+  <text x="360" y="274" fill="#101116" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle">UPI  last used</text>
+  <text x="360" y="560" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" letter-spacing="2" text-anchor="middle">ONE DEFAULT. THE REST WAIT.</text>
+</svg>

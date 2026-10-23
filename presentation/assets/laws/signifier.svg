@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Signifier: it looks tappable</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <text x="210" y="280" fill="#ece9e1" font-family="Georgia,serif" font-size="36" text-anchor="middle">Pay</text>
+  <text x="210" y="500" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" letter-spacing="2" text-anchor="middle">A SENTENCE</text>
+  <rect x="390" y="230" width="240" height="90" rx="14" fill="#d4f169"/>
+  <text x="510" y="286" fill="#101116" font-family="system-ui,sans-serif" font-size="28" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+  <text x="510" y="500" fill="#d4f169" font-family="system-ui,sans-serif" font-size="14" letter-spacing="2" text-anchor="middle">A TAP</text>
+  <path d="M330 275 L370 275" stroke="#a4a3a0" stroke-width="2"/>
+  <polygon points="370,275 360,269 360,281" fill="#a4a3a0"/>
+</svg>

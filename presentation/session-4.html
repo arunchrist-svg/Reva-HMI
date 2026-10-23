@@ -225,6 +225,65 @@
       border: 1px solid var(--line);
       margin-top: 1.6rem;
     }
+    .slide.law-poster { display: none; }
+    .slide.law-poster.is-active {
+      display: flex;
+      justify-content: center;
+    }
+    .law-poster {
+      padding: 3.5rem 5.7vw 3rem;
+    }
+    .law-poster .slide-meta { top: 3.5rem; }
+    .law-poster-body {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.95fr) 1.05fr;
+      gap: clamp(1.5rem, 4vw, 4rem);
+      align-items: center;
+      width: 100%;
+      max-width: 1280px;
+      margin: auto;
+    }
+    .law-poster figure {
+      margin: 0;
+      background: #101116;
+      border: 1px solid var(--line);
+    }
+    .law-poster img {
+      display: block;
+      width: 100%;
+      height: min(64vh, 560px);
+      object-fit: contain;
+      background: #101116;
+    }
+    .law-poster .eyebrow {
+      margin-bottom: 0.85rem;
+    }
+    .law-poster h2 {
+      font-size: clamp(3rem, 5.6vw, 5.8rem);
+      line-height: 0.92;
+      max-width: 12ch;
+    }
+    .law-poster .law-def {
+      margin-top: 1.25rem;
+      max-width: 22ch;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2vw, 1.75rem);
+      line-height: 1.28;
+      color: var(--paper);
+    }
+    .law-poster .law-take {
+      margin-top: 1.5rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--line);
+      max-width: 28ch;
+      font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+      line-height: 1.4;
+      color: var(--muted);
+    }
+    .law-poster .law-take strong {
+      color: var(--lime);
+      font-weight: 800;
+    }
     .best-grid article {
       background: var(--surface);
       min-height: 188px;
@@ -356,6 +415,8 @@
       .see-one img { height: min(52vh, 420px); }
       .see-one.see-flow { width: min(100%, 92vw); }
       .see-one.see-flow img { height: min(42vh, 340px); }
+      .law-poster-body { grid-template-columns: 1fr; }
+      .law-poster img { height: min(42vh, 340px); }
     }
   </style>
 </head>
@@ -1227,39 +1288,250 @@
       </div>
     </section>
 
-    <section class="slide lesson-plan" data-title="Names you earned">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>POINT AT THE FRAME</span></div>
-      <div class="lp-body">
-        <div class="lp-heading">
-          <h2>These names must live on your screen.</h2>
+    <section class="slide approach-intro" data-title="The names">
+      <div class="slide-meta"><span>WALL</span><span>ONE PICTURE EACH</span></div>
+      <div class="approach-intro-content">
+        <p class="eyebrow">After you tried</p>
+        <h2>The names.<br>One picture each.</h2>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Hierarchy">
+      <div class="slide-meta"><span>UI</span><span>01 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/hierarchy.svg" alt="Pay the mess as a huge bar, Rs 80 as a caption">
+        </figure>
+        <div>
+          <p class="eyebrow">Hierarchy</p>
+          <h2>The job is biggest.</h2>
+          <p class="law-def">You get the crash from across the canteen. You do not get the classifieds.</p>
+          <p class="law-take"><strong>On yours.</strong> Pay the mess is the crash. Lunch Rs 80 is the caption.</p>
         </div>
-        <div class="lp-cols">
-          <div>
-            <p class="lp-col-label">UI fundamentals</p>
-            <ul class="lp-list">
-              <li><span>Hierarchy — the job is biggest</span></li>
-              <li><span>Contrast — if you squint, it still reads</span></li>
-              <li><span>Proximity — the label sits on the field</span></li>
-              <li><span>Signifier — it looks tappable</span></li>
-              <li><span>One primary — one lime, the rest quiet</span></li>
-              <li><span>Empty / after — the system still speaks</span></li>
-              <li><span>Way out — they are not trapped</span></li>
-              <li><span>Prototype — the verb goes somewhere</span></li>
-            </ul>
-          </div>
-          <div>
-            <p class="lp-col-label">UX laws</p>
-            <ul class="lp-list">
-              <li><span>Fitts — bigger, closer, faster</span></li>
-              <li><span>Hick — equal options freeze the hand</span></li>
-              <li><span>Jakob — like products they already know</span></li>
-              <li><span>Miller — few items this step</span></li>
-              <li><span>Postel — accept real input</span></li>
-              <li><span>Tesler — do not dump complexity on them</span></li>
-              <li><span>Von Restorff — the odd one is remembered</span></li>
-              <li><span>Feedback — say what the system did</span></li>
-            </ul>
-          </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Contrast">
+      <div class="slide-meta"><span>UI</span><span>02 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/contrast.svg" alt="Grey Pay that disappears versus paper Pay that still reads">
+        </figure>
+        <div>
+          <p class="eyebrow">Contrast</p>
+          <h2>If you squint, it still reads.</h2>
+          <p class="law-def">Chalk on a dusty board dies at the last bench. Marker on white still reads.</p>
+          <p class="law-take"><strong>On yours.</strong> Grey Pay dies in the courtyard at 1pm. Lime on dark still reads from the back row.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Proximity">
+      <div class="slide-meta"><span>UI</span><span>03 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/proximity.svg" alt="UPI label sitting on its field versus a label hunting a distant box">
+        </figure>
+        <div>
+          <p class="eyebrow">Proximity</p>
+          <h2>What belongs together, sits together.</h2>
+          <p class="law-def">Salt sits with the food. Salt at the sink is a hunt.</p>
+          <p class="law-take"><strong>On yours.</strong> UPI ID sits on the box. A label at the top and a field at the thumb are strangers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Signifier">
+      <div class="slide-meta"><span>UI</span><span>04 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/signifier.svg" alt="The word Pay as a sentence versus a filled lime tap">
+        </figure>
+        <div>
+          <p class="eyebrow">Signifier</p>
+          <h2>It looks tappable.</h2>
+          <p class="law-def">A handle says pull. A flat plate says push. A blank door makes you look stupid.</p>
+          <p class="law-take"><strong>On yours.</strong> A filled lime block looks like a tap. The word Pay as a sentence is a poster.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="One primary">
+      <div class="slide-meta"><span>UI</span><span>05 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/primary.svg" alt="One large lime Pay among quiet grey circles">
+        </figure>
+        <div>
+          <p class="eyebrow">One primary</p>
+          <h2>One lime. The rest stay quiet.</h2>
+          <p class="law-def">One cash counter open. Five equal counters, and the queue splits into a fight.</p>
+          <p class="law-take"><strong>On yours.</strong> One lime Pay Rs 80. Help and Offers stay lines of type.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Empty after">
+      <div class="slide-meta"><span>UI</span><span>06 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/empty.svg" alt="Nothing due today with a See history tap">
+        </figure>
+        <div>
+          <p class="eyebrow">Empty / after</p>
+          <h2>The system still speaks.</h2>
+          <p class="law-def">Empty fridge, a note: Milk. Here's the list. A blank fridge, you just stare.</p>
+          <p class="law-take"><strong>On yours.</strong> Nothing due still has a tap. After Pay: Paid. Rs 80. 12:14. Done.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Way out">
+      <div class="slide-meta"><span>UI</span><span>07 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/wayout.svg" alt="A paid screen with an open door marked Done">
+        </figure>
+        <div>
+          <p class="eyebrow">Way out</p>
+          <h2>They are not trapped.</h2>
+          <p class="law-def">A lift that will not open. You paid. You are trapped.</p>
+          <p class="law-take"><strong>On yours.</strong> Done, Back, or Skip on every frame. A pay screen with no exit is a locked counter.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Prototype">
+      <div class="slide-meta"><span>UI</span><span>08 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/prototype.svg" alt="A lime string from Pay Rs 80 landing on Paid">
+        </figure>
+        <div>
+          <p class="eyebrow">Prototype</p>
+          <h2>The verb goes somewhere.</h2>
+          <p class="law-def">A light switch that is not wired. You flip it. The room stays dark.</p>
+          <p class="law-take"><strong>On yours.</strong> Play. Tap Pay Rs 80. Land on Paid. If nothing moves, you drew a poster.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Fitts">
+      <div class="slide-meta"><span>LAW</span><span>01 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/fitts.svg" alt="A small far target versus a large Pay the thumb can hit">
+        </figure>
+        <div>
+          <p class="eyebrow">Fitts</p>
+          <h2>Bigger, closer, faster.</h2>
+          <p class="law-def">The time to hit a target is how far it is, and how small it is.</p>
+          <p class="law-take"><strong>On yours.</strong> Pay Rs 80 is wide at the thumb. A speck Go in the corner is a miss.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Hick">
+      <div class="slide-meta"><span>LAW</span><span>02 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/hick.svg" alt="A stack of equal rows with UPI last used highlighted">
+        </figure>
+        <div>
+          <p class="eyebrow">Hick</p>
+          <h2>Equal options freeze the hand.</h2>
+          <p class="law-def">Two chutneys, you pick. A thali with eighteen bowls, you freeze.</p>
+          <p class="law-take"><strong>On yours.</strong> UPI last used is already chosen. Eight equal payment rows stall lunch.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Jakob">
+      <div class="slide-meta"><span>LAW</span><span>03 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/jakob.svg" alt="An ATM of card PIN cash beside a form of label field Pay">
+        </figure>
+        <div>
+          <p class="eyebrow">Jakob</p>
+          <h2>Like products they already know.</h2>
+          <p class="law-def">Every ATM: card, PIN, cash. The one that invents a new dance loses the queue.</p>
+          <p class="law-take"><strong>On yours.</strong> Label above the field, like every UPI they have used.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Miller">
+      <div class="slide-meta"><span>LAW</span><span>04 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/miller.svg" alt="A crowd of dots versus three chunks you can hold">
+        </figure>
+        <div>
+          <p class="eyebrow">Miller</p>
+          <h2>Few items this step.</h2>
+          <p class="law-def">A phone number in chunks: 98765 43210. Ten digits in one blob, you lose the middle.</p>
+          <p class="law-take"><strong>On yours.</strong> This screen asks for one fact. Twelve boxes is a crowd working memory cannot hold.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Postel">
+      <div class="slide-meta"><span>LAW</span><span>05 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/postel.svg" alt="Messy input pouring into a funnel that still sends">
+        </figure>
+        <div>
+          <p class="eyebrow">Postel</p>
+          <h2>Accept a real number.</h2>
+          <p class="law-def">The canteen still takes a crumpled note. They do not send you back for a crisp one.</p>
+          <p class="law-take"><strong>On yours.</strong> A real UPI with a space still sends. Rejecting arun @okaxis is strict in the wrong place.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Tesler">
+      <div class="slide-meta"><span>LAW</span><span>06 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/tesler.svg" alt="Complexity dumped on the person versus held in the system">
+        </figure>
+        <div>
+          <p class="eyebrow">Tesler</p>
+          <h2>Keep the complexity in the system.</h2>
+          <p class="law-def">The cashier already knows the thali is Rs 80. Asking you to add it up is their homework on your time.</p>
+          <p class="law-take"><strong>On yours.</strong> The mess already knows Rs 80. Making them type the amount again is your complexity on their thumb.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Von Restorff">
+      <div class="slide-meta"><span>LAW</span><span>07 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/vonrestorff.svg" alt="One lime Pay standing out from a row of grey bars">
+        </figure>
+        <div>
+          <p class="eyebrow">Von Restorff</p>
+          <h2>The odd one is remembered.</h2>
+          <p class="law-def">One red bag on a rack of black. That is the one you find.</p>
+          <p class="law-take"><strong>On yours.</strong> One lime Pay. Two lime buttons cancel each other.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide law-poster" data-title="Feedback">
+      <div class="slide-meta"><span>LAW</span><span>08 / 08</span></div>
+      <div class="law-poster-body">
+        <figure>
+          <img src="assets/laws/feedback.svg" alt="A dead button versus a lift button that lights">
+        </figure>
+        <div>
+          <p class="eyebrow">Feedback</p>
+          <h2>Say what the system did.</h2>
+          <p class="law-def">You press the lift. It lights. You wait. A dead button, you press it six times.</p>
+          <p class="law-take"><strong>On yours.</strong> After tap: Paid. Rs 80. 12:14. Show this at the door. Error 422 then OK says nothing.</p>
         </div>
       </div>
     </section>

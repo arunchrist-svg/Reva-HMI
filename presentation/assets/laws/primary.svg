@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>One primary: one lime, the rest stay quiet</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <circle cx="160" cy="360" r="28" fill="#3a3d46"/>
+  <circle cx="250" cy="360" r="28" fill="#3a3d46"/>
+  <circle cx="360" cy="360" r="54" fill="#d4f169"/>
+  <circle cx="470" cy="360" r="28" fill="#3a3d46"/>
+  <circle cx="560" cy="360" r="28" fill="#3a3d46"/>
+  <text x="360" y="368" fill="#101116" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle">PAY</text>
+  <text x="360" y="520" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" letter-spacing="3" text-anchor="middle">ONE CASH COUNTER OPEN</text>
+</svg>

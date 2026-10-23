@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Proximity: what belongs together sits together</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <text x="200" y="200" fill="#d4f169" font-family="system-ui,sans-serif" font-size="16" font-weight="700" letter-spacing="2" text-anchor="middle">UPI ID</text>
+  <rect x="90" y="220" width="220" height="70" rx="10" fill="#101116" stroke="#d4f169" stroke-opacity=".7" stroke-width="2"/>
+  <text x="200" y="262" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="18" text-anchor="middle">arun@okaxis</text>
+  <text x="200" y="330" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">sits on the field</text>
+  <circle cx="200" cy="420" r="8" fill="#d4f169"/>
+  <circle cx="230" cy="420" r="8" fill="#d4f169"/>
+  <circle cx="215" cy="448" r="8" fill="#d4f169"/>
+  <text x="520" y="200" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" font-weight="700" letter-spacing="2" text-anchor="middle">UPI ID</text>
+  <rect x="430" y="380" width="220" height="70" rx="10" fill="#101116" stroke="#ece9e1" stroke-opacity=".25"/>
+  <text x="540" y="422" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="18" text-anchor="middle">arun@okaxis</text>
+  <text x="540" y="490" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">a hunt</text>
+  <circle cx="500" cy="280" r="8" fill="#a4a3a0"/>
+  <circle cx="580" cy="250" r="8" fill="#a4a3a0"/>
+  <circle cx="540" cy="320" r="8" fill="#a4a3a0"/>
+</svg>

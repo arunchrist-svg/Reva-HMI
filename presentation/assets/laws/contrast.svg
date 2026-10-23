@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Contrast: if you squint it still reads</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <rect x="90" y="210" width="250" height="250" rx="8" fill="#181a20"/>
+  <text x="215" y="350" fill="#32353e" font-family="Georgia,serif" font-size="28" text-anchor="middle">Pay</text>
+  <rect x="380" y="210" width="250" height="250" rx="8" fill="#101116" stroke="#d4f169" stroke-width="3"/>
+  <text x="505" y="350" fill="#ece9e1" font-family="Georgia,serif" font-size="42" text-anchor="middle">Pay</text>
+  <text x="215" y="520" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" letter-spacing="2" text-anchor="middle">GREY ON GREY</text>
+  <text x="505" y="520" fill="#d4f169" font-family="system-ui,sans-serif" font-size="14" letter-spacing="2" text-anchor="middle">STILL READS</text>
+</svg>

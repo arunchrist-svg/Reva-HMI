@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Feedback: say what the system did</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <circle cx="250" cy="340" r="70" fill="#2a2d36"/>
+  <circle cx="250" cy="340" r="18" fill="#101116"/>
+  <text x="250" y="460" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" letter-spacing="2" text-anchor="middle">DEAD</text>
+  <circle cx="490" cy="340" r="70" fill="#d4f169"/>
+  <circle cx="490" cy="340" r="18" fill="#101116"/>
+  <circle cx="490" cy="340" r="90" fill="none" stroke="#d4f169" stroke-opacity=".35" stroke-width="8"/>
+  <text x="490" y="460" fill="#d4f169" font-family="system-ui,sans-serif" font-size="14" letter-spacing="2" text-anchor="middle">IT LIGHTS</text>
+  <text x="360" y="560" fill="#ece9e1" font-family="Georgia,serif" font-size="22" text-anchor="middle">Paid. Rs 80. 12:14.</text>
+</svg>

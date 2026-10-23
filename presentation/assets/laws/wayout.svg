@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Way out: they are not trapped</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <rect x="160" y="160" width="400" height="400" rx="16" fill="#101116" stroke="#ece9e1" stroke-opacity=".2"/>
+  <rect x="430" y="280" width="80" height="160" fill="#1b1d24" stroke="#d4f169" stroke-width="3"/>
+  <circle cx="490" cy="360" r="7" fill="#d4f169"/>
+  <text x="360" y="230" fill="#ece9e1" font-family="Georgia,serif" font-size="36" text-anchor="middle">Paid</text>
+  <text x="360" y="270" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="18" text-anchor="middle">Rs 80  12:14</text>
+  <text x="360" y="620" fill="#d4f169" font-family="system-ui,sans-serif" font-size="16" letter-spacing="3" text-anchor="middle">DONE IS THE DOOR</text>
+</svg>

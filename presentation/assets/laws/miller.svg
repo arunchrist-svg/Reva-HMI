@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Miller: few items this step</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <g fill="#ece9e1" opacity=".18">
+    <circle cx="140" cy="220" r="18"/>
+    <circle cx="200" cy="220" r="18"/>
+    <circle cx="260" cy="220" r="18"/>
+    <circle cx="320" cy="220" r="18"/>
+    <circle cx="380" cy="220" r="18"/>
+    <circle cx="440" cy="220" r="18"/>
+    <circle cx="500" cy="220" r="18"/>
+    <circle cx="560" cy="220" r="18"/>
+    <circle cx="170" cy="280" r="18"/>
+    <circle cx="230" cy="280" r="18"/>
+    <circle cx="290" cy="280" r="18"/>
+    <circle cx="350" cy="280" r="18"/>
+  </g>
+  <text x="360" y="340" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" letter-spacing="2" text-anchor="middle">A CROWD</text>
+  <rect x="160" y="400" width="400" height="80" rx="12" fill="#101116" stroke="#d4f169" stroke-width="2"/>
+  <circle cx="240" cy="440" r="18" fill="#d4f169"/>
+  <circle cx="360" cy="440" r="18" fill="#d4f169"/>
+  <circle cx="480" cy="440" r="18" fill="#d4f169"/>
+  <text x="360" y="540" fill="#ece9e1" font-family="Georgia,serif" font-size="22" text-anchor="middle">This step. One fact.</text>
+  <text x="360" y="580" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" letter-spacing="2" text-anchor="middle">98765  43210</text>
+</svg>

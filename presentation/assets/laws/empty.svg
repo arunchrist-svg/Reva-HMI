@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img">
+  <title>Empty still has a next tap</title>
+  <rect width="720" height="720" fill="#101116"/>
+  <rect x="28" y="28" width="664" height="664" rx="8" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".17"/>
+  <rect x="180" y="140" width="360" height="440" rx="36" fill="#101116" stroke="#d4f169" stroke-opacity=".55" stroke-width="2"/>
+  <rect x="330" y="162" width="60" height="8" rx="4" fill="#ece9e1" opacity=".25"/>
+  <text x="360" y="250" fill="#ece9e1" font-family="Georgia,serif" font-size="28" text-anchor="middle">Pay the mess</text>
+  <text x="360" y="360" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="20" text-anchor="middle">Nothing due today.</text>
+  <text x="360" y="392" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" text-anchor="middle">Come back at lunch.</text>
+  <rect x="220" y="500" width="280" height="48" rx="10" fill="#d4f169"/>
+  <text x="360" y="531" fill="#101116" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle">See history</text>
+</svg>
