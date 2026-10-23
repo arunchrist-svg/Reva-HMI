@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101116">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Make the screen: Session 4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="deck.css?v=22">
+  <link rel="stylesheet" href="deck-v2.css?v=10">
+  <link rel="stylesheet" href="mobile.css?v=9">
+  <style>
+    body.deck-v2 .cover .lede-line {
+      margin-top: 1.2rem;
+      font-family: var(--sans);
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      color: var(--muted);
+      max-width: 780px;
+    }
+    body.deck-v2 .ux-example-question {
+      font-size: clamp(1.85rem, 2.9vw, 2.65rem);
+    }
+    body.deck-v2 .ux-example-panel img {
+      height: min(52vh, 460px);
+      object-fit: contain;
+      background: #101116;
+    }
+    body.deck-v2 .ux-example-grid:has(.ux-example-single) {
+      grid-template-columns: minmax(220px, 320px);
+    }
+    body.deck-v2 .figma-link {
+      color: var(--lime);
+      font-weight: 800;
+      text-decoration: none;
+    }
+    body.deck-v2 .figma-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body class="deck-v2" data-deck-title="Session 4 · Make the screen">
+  <main class="deck" aria-live="polite">
+
+    <section class="slide cover title-only is-active" data-title="Make the screen">
+      <div class="grid-lines"></div>
+      <div class="slide-meta"><span>SESSION 04</span><span>FIGMA</span></div>
+      <div class="cover-content">
+        <h1>Make the<br>screen.</h1>
+        <p class="lede-line">One phone frame. Your project’s primary task.</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Opening question">
+      <div class="slide-meta"><span>QUESTION</span><span>OPEN</span></div>
+      <div class="approach-intro-content">
+        <h2>What is a UI <em>component</em>?</h2>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Task sentence">
+      <div class="slide-meta"><span>NOW</span><span>YOUR PROJECT</span></div>
+      <div class="approach-intro-content">
+        <h2>Write the task in one sentence.</h2>
+        <p class="approach-intro-lede">A [person] can [task] without [barrier].</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Not the landing page">
+      <div class="slide-meta"><span>RULE</span><span>SCOPE</span></div>
+      <div class="approach-intro-content">
+        <h2>This class is the <em>payment moment</em>.</h2>
+        <p class="approach-intro-lede">Not the landing page. Not the whole app.</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Studio brief">
+      <div class="slide-meta"><span>03</span><span>STUDIO BRIEF</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <p class="eyebrow">Studio task</p>
+          <h2>Design that one screen in Figma.</h2>
+          <p class="lp-subtitle">A phone frame. Someone completes the task without you talking.</p>
+        </div>
+        <div class="lp-brief-grid">
+          <div>
+            <p class="lp-rules-label">The Brief</p>
+            <p class="lp-brief-text">Open your project. Design the screen where the main action happens. If a stranger cannot tap the right thing, the screen has failed.</p>
+          </div>
+          <div>
+            <p class="lp-rules-label">The Studio Rules</p>
+            <ol class="lp-rules">
+              <li><span class="lp-rule-num">01</span><span><strong>One file per group.</strong> Two people at the keyboard, max.</span></li>
+              <li><span class="lp-rule-num">02</span><span><strong>One frame.</strong> 390 × 844. Name it with the task.</span></li>
+              <li><span class="lp-rule-num">03</span><span><strong>Draw it.</strong> Rectangles and text. No UI kit. No AI layout.</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Open Figma">
+      <div class="slide-meta"><span>FIGMA</span><span>OPEN</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Open Figma now.</h2>
+          <p class="lp-subtitle">Keep the <a class="figma-link" href="session-4-guide.html">Figma sheet</a> on a phone. Work on the laptop.</p>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span>Go to <strong>figma.com</strong>. Sign in. Education plan if you have it.</span></li>
+          <li><span class="lp-rule-num">02</span><span><strong>Design file</strong> → press <strong>F</strong> → Phone / 390 × 844.</span></li>
+          <li><span class="lp-rule-num">03</span><span>Rename the frame with your task sentence.</span></li>
+          <li><span class="lp-rule-num">04</span><span>Stuck on the tool? Sit with a neighbour. Do not wait for a tour.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Version 1">
+      <div class="slide-meta"><span>VERSION 01</span><span>12 MINUTES</span></div>
+      <div class="approach-intro-content">
+        <h2>Design the screen.</h2>
+        <p class="approach-intro-lede">No component names yet. Make it. Then we look.</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Where tap">
+      <div class="slide-meta"><span>LOOK</span><span>VERSION 01</span></div>
+      <div class="approach-intro-content">
+        <h2>Where do I tap <em>first</em>?</h2>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="If wrong">
+      <div class="slide-meta"><span>LOOK</span><span>VERSION 01</span></div>
+      <div class="approach-intro-content">
+        <h2>What happens if I am <em>wrong</em>?</h2>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Name components">
+      <div class="slide-meta"><span>NAME</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>Those rectangles are <em>components</em>.</h2>
+        <p class="approach-intro-lede">A component is a reusable piece of UI with a job.</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="The six">
+      <div class="slide-meta"><span>KIT</span><span>ONLY THESE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>The kit. Only these six.</h2>
+          <p class="lp-subtitle">If you invent a seventh pattern, ask which of these it actually is.</p>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span><strong>Button.</strong> The action. One primary. Everything else is quieter.</span></li>
+          <li><span class="lp-rule-num">02</span><span><strong>Input + label + helper.</strong> A field the person can fill without guessing.</span></li>
+          <li><span class="lp-rule-num">03</span><span><strong>List / card.</strong> Choose one of several things.</span></li>
+          <li><span class="lp-rule-num">04</span><span><strong>Navigation.</strong> Where am I. How do I get back.</span></li>
+          <li><span class="lp-rule-num">05</span><span><strong>Empty state.</strong> First use. Nothing there yet. What now?</span></li>
+          <li><span class="lp-rule-num">06</span><span><strong>Error / success.</strong> What the system did. What to do next.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask" data-title="Tap ask">
+      <div class="slide-meta"><span>EXAMPLE</span><span>01 · TAP</span></div>
+      <div class="ux-example-body">
+        <h2>Campus Cart · first screen</h2>
+        <p class="ux-example-question">Where do you tap to finish?</p>
+        <div class="ux-example-grid">
+          <figure class="ux-example-panel ux-example-single">
+            <img src="assets/ui-tap-bad.svg?v=2" alt="Phone screen with a tiny OK button">
+            <figcaption>Version 1 instinct</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-reveal" data-title="Tap better">
+      <div class="slide-meta"><span>EXAMPLE</span><span>01 · TAP</span></div>
+      <div class="ux-example-body">
+        <h2>Better solution</h2>
+        <p class="ux-example-question">One large target, near the thumb.</p>
+        <div class="ux-example-grid">
+          <figure class="ux-example-panel">
+            <img src="assets/ui-tap-bad.svg?v=2" alt="Tiny OK button">
+            <figcaption>Hard to hit</figcaption>
+          </figure>
+          <figure class="ux-example-panel is-better">
+            <img src="assets/ui-tap-good.svg?v=2" alt="Large Post listing button">
+            <figcaption>Primary action</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask" data-title="Choices ask">
+      <div class="slide-meta"><span>EXAMPLE</span><span>02 · CHOICES</span></div>
+      <div class="ux-example-body">
+        <h2>Now this screen</h2>
+        <p class="ux-example-question">What is the task?</p>
+        <div class="ux-example-grid">
+          <figure class="ux-example-panel ux-example-single">
+            <img src="assets/ui-hick-bad.svg?v=2" alt="Six equal buttons">
+            <figcaption>Six equal actions</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-reveal" data-title="Choices better">
+      <div class="slide-meta"><span>EXAMPLE</span><span>02 · CHOICES</span></div>
+      <div class="ux-example-body">
+        <h2>Better solution</h2>
+        <p class="ux-example-question">One job on this screen. The rest can wait.</p>
+        <div class="ux-example-grid">
+          <figure class="ux-example-panel">
+            <img src="assets/ui-hick-bad.svg?v=2" alt="Six equal buttons">
+            <figcaption>Freeze</figcaption>
+          </figure>
+          <figure class="ux-example-panel is-better">
+            <img src="assets/ui-hick-good.svg?v=2" alt="One primary Post listing button">
+            <figcaption>One primary</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask" data-title="Form ask">
+      <div class="slide-meta"><span>EXAMPLE</span><span>03 · FIELDS</span></div>
+      <div class="ux-example-body">
+        <h2>Can this be filled without a tour?</h2>
+        <p class="ux-example-question">What is each box for? Why did the number fail?</p>
+        <div class="ux-example-grid">
+          <figure class="ux-example-panel ux-example-single">
+            <img src="assets/ui-form-bad.svg?v=2" alt="Unlabelled form fields and a strict error">
+            <figcaption>No labels · fussy error</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-reveal" data-title="Form better">
+      <div class="slide-meta"><span>EXAMPLE</span><span>03 · FIELDS</span></div>
+      <div class="ux-example-body">
+        <h2>Better solution</h2>
+        <p class="ux-example-question">Label. Helper. Only the fields this step needs. Accept a real phone number.</p>
+        <div class="ux-example-grid">
+          <figure class="ux-example-panel">
+            <img src="assets/ui-form-bad.svg?v=2" alt="Unlabelled fields">
+            <figcaption>Guessing</figcaption>
+          </figure>
+          <figure class="ux-example-panel is-better">
+            <img src="assets/ui-form-good.svg?v=2" alt="Labelled phone and meetup fields">
+            <figcaption>This step only</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Version 2">
+      <div class="slide-meta"><span>VERSION 02</span><span>REBUILD</span></div>
+      <div class="approach-intro-content">
+        <h2>Rebuild with the <em>kit</em>.</h2>
+        <p class="approach-intro-lede">Same task. Name every control. One primary button.</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Three frames">
+      <div class="slide-meta"><span>VERSION 02</span><span>THREE FRAMES</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Three frames. Same task.</h2>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span><strong>Happy path.</strong> They complete the task.</span></li>
+          <li><span class="lp-rule-num">02</span><span><strong>Empty.</strong> First use. Nothing there yet. What should they do?</span></li>
+          <li><span class="lp-rule-num">03</span><span><strong>Error or success.</strong> What the system did. What to do next.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Walk language">
+      <div class="slide-meta"><span>WALK</span><span>ONLY THIS</span></div>
+      <div class="approach-intro-content">
+        <h2>Too many choices. I cannot hit that. I have never seen that control.</h2>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Name laws">
+      <div class="slide-meta"><span>NAME</span><span>LAWS</span></div>
+      <div class="approach-intro-content">
+        <h2>Now we name what you <em>felt</em>.</h2>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Five laws">
+      <div class="slide-meta"><span>LAWS</span><span>FIVE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Five laws. For this screen.</h2>
+          <p class="lp-subtitle">Each one is a sentence you can point at on the frame.</p>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span><strong>Fitts.</strong> Time to hit a target grows when it is small or far. Make the primary big and close.</span></li>
+          <li><span class="lp-rule-num">02</span><span><strong>Hick.</strong> Time to choose grows with equal options. One primary. Hide or delay the rest.</span></li>
+          <li><span class="lp-rule-num">03</span><span><strong>Jakob.</strong> People spend more time on other screens than yours. Use a pattern they already know.</span></li>
+          <li><span class="lp-rule-num">04</span><span><strong>Miller.</strong> Working memory is small. Do not dump twelve fields on one step.</span></li>
+          <li><span class="lp-rule-num">05</span><span><strong>Postel.</strong> Be generous on input, strict on what you store. Do not reject a real phone number for a space.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Norman already">
+      <div class="slide-meta"><span>SESSION 01</span><span>STILL TRUE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>You already have these words.</h2>
+        </div>
+        <div class="lp-cols">
+          <div>
+            <p class="lp-col-label">From the wallet</p>
+            <ul class="lp-list">
+              <li><span>Affordance</span></li>
+              <li><span>Signifier</span></li>
+              <li><span>Feedback</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="lp-col-label">On this screen</p>
+            <ul class="lp-list">
+              <li><span>Does the control look tappable?</span></li>
+              <li><span>Does the label say the action?</span></li>
+              <li><span>Does the system answer after the tap?</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Stranger test">
+      <div class="slide-meta"><span>TEST</span><span>SWAP</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Stranger test.</h2>
+          <p class="lp-subtitle">Same rule as the wallet. You stay quiet.</p>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span>Swap with another group. Share the Figma file, view only.</span></li>
+          <li><span class="lp-rule-num">02</span><span>They attempt the task on the phone frame. No spoken tour.</span></li>
+          <li><span class="lp-rule-num">03</span><span>Log: done / stuck / where.</span></li>
+          <li><span class="lp-rule-num">04</span><span>Original group changes three things. Each change names a law.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Deliverable">
+      <div class="slide-meta"><span>EVIDENCE</span><span>LEAVES THE ROOM</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>What leaves the room.</h2>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span><strong>Figma link</strong> — anyone with the link can view.</span></li>
+          <li><span class="lp-rule-num">02</span><span><strong>Version 1</strong> and <strong>Version 2</strong> on the same page, labelled.</span></li>
+          <li><span class="lp-rule-num">03</span><span><strong>Empty</strong> and <strong>error/success</strong> frames.</span></li>
+          <li><span class="lp-rule-num">04</span><span><strong>Three sticky notes</strong> on Version 2: the change, and the law.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Share link">
+      <div class="slide-meta"><span>FIGMA</span><span>SHARE</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Share the file.</h2>
+        </div>
+        <ol class="lp-rules lp-rules-standalone">
+          <li><span class="lp-rule-num">01</span><span><strong>Share</strong> → Anyone with the link can <strong>view</strong>.</span></li>
+          <li><span class="lp-rule-num">02</span><span>Copy the link. Paste it in the class sheet.</span></li>
+          <li><span class="lp-rule-num">03</span><span>Open the link in a private window. If a stranger sees the three frames, you are done.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Closing">
+      <div class="slide-meta"><span>CLOSE</span><span></span></div>
+      <div class="approach-intro-content">
+        <h2>You are still the <em>designer</em>.</h2>
+        <p class="approach-intro-lede">Figma is the paper. The laws explain the folds.</p>
+      </div>
+    </section>
+
+    <section class="slide closing" data-title="Thank you">
+      <div class="grid-lines"></div>
+      <div class="slide-meta"><span>SESSION 04</span><span>FIGMA</span></div>
+      <div class="closing-content">
+        <h2>Thank you.</h2>
+        <div class="contact">
+          <a href="session-4-guide.html">Figma sheet</a>
+          <a href="notes.html#session-4">Class notes · Session 4</a>
+          <a href="session-3.html">Session 3</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="controls" aria-label="Slide navigation">
+    <button class="prev" aria-label="Previous slide">←</button>
+    <span class="counter">01 / 01</span>
+    <button class="next" aria-label="Next slide">→</button>
+  </aside>
+  <div class="progress"><span></span></div>
+  <script src="deck.js"></script>
+</body>
+</html>

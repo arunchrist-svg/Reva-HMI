@@ -124,6 +124,12 @@
       line-height: 1.4;
       color: #c9c5ba;
     }
+    body.deck-v2 .prompt-spec code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 0.92em;
+      font-weight: 650;
+      color: var(--lime);
+    }
     @media (max-width: 900px) {
       body.deck-v2 .prompt-spec .ps-row {
         grid-template-columns: 1fr;
@@ -914,19 +920,32 @@ Capture via mobile and iPad. Enterprise-wide visibility. WhatsApp reporting for 
     </section>
 
     <!-- PUBLISHING -->
-    <section class="slide lesson-plan" data-title="One markdown file">
+    <section class="slide lesson-plan prompt-slide prompt-brief" data-title="One markdown file">
       <div class="slide-meta"><span>NOW</span><span>ONE FILE</span></div>
       <div class="lp-body">
         <div class="lp-heading">
           <h2>Put everything into one .md file.</h2>
-          <p class="lp-subtitle">That file is what you publish. Not the chat. Not screenshots.</p>
+          <p class="lp-subtitle">Paste your best sections. This file is what you publish — not the chat.</p>
         </div>
-        <ol class="lp-rules lp-rules-standalone">
-          <li><span class="lp-rule-num">01</span><span>New file: <strong>project.md</strong> (VS Code, Notion export, or GitHub).</span></li>
-          <li><span class="lp-rule-num">02</span><span>Headings in this order: Problem · People · Goals · Scope · Research plan · Discussion guide · Interview sheet.</span></li>
-          <li><span class="lp-rule-num">03</span><span>Paste the <strong>best</strong> version of each from your group chat. Cut filler.</span></li>
-          <li><span class="lp-rule-num">04</span><span>One file. Clear markdown. Then publish that page.</span></li>
-        </ol>
+        <div class="prompt-spec" role="text">
+          <div class="ps-row"><span class="ps-label">Role</span><span class="ps-body">Act as an experienced UX editor assembling a student team’s public project page.</span></div>
+          <div class="ps-row"><span class="ps-label">Context</span><span class="ps-body">Paste our best versions below. Do not invent missing research. If a section is weak, tighten it — do not pad it.<br>Problem: [paste]<br>People: [paste]<br>Goals: [paste]<br>Scope: [paste]<br>Research plan: [paste]<br>Discussion guide: [paste]<br>Interview sheet: [paste]</span></div>
+          <div class="ps-row"><span class="ps-label">Task</span><span class="ps-body">Write one clean Markdown file we can publish as-is. Filename: project.md</span></div>
+          <div class="ps-row">
+            <span class="ps-label">Format</span>
+            <div class="ps-body">
+              Use these headings, in this order, nothing else at the top:
+              <ul class="ps-list">
+                <li><span>1</span><span><code># [Project title]</code> — 6 words or fewer, from the problem, not a brand name.</span></li>
+                <li><span>2</span><span><code>## Problem</code> · <code>## People</code> · <code>## Goals</code> · <code>## Scope</code></span></li>
+                <li><span>3</span><span><code>## Research plan</code> · <code>## Discussion guide</code> · <code>## Interview sheet</code></span></li>
+                <li><span>4</span><span>Scope must have <strong>In</strong>, <strong>Out</strong>, <strong>Constraints</strong> as subheadings.</span></li>
+                <li><span>5</span><span>Discussion guide must keep Open / Core (with probes) / Close.</span></li>
+              </ul>
+            </div>
+          </div>
+          <p class="ps-note"><strong>Constraints:</strong> Valid Markdown only. Short paragraphs. No chat filler. No “as an AI”. No screenshots. No new features. Keep our evidence. Output the full file in one code block.</p>
+        </div>
       </div>
     </section>
 

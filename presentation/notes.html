@@ -119,6 +119,7 @@
       <a class="notes-nav-back" href="sprint.html" style="margin-top:.35rem;display:inline-block">← Sprint deck</a>
       <a class="notes-nav-back" href="sprint-v2.html" style="margin-top:.35rem;display:inline-block">← Session 1 (large type)</a>
       <a class="notes-nav-back" href="session-2.html" style="margin-top:.35rem;display:inline-block">← Session 2 deck</a>
+      <a class="notes-nav-back" href="session-4.html" style="margin-top:.35rem;display:inline-block">← Session 4 deck</a>
       <p class="notes-nav-title">Class notes</p>
 
       <div class="notes-nav-date">
@@ -156,6 +157,20 @@
           <li class="is-sub"><a href="#s2-interview">Interview method</a></li>
           <li class="is-sub"><a href="#s2-deliverable">Research sheet</a></li>
           <li class="is-sub"><a href="#s2-exam">Examination answers</a></li>
+        </ul>
+      </div>
+
+      <div class="notes-nav-date">
+        <p class="notes-nav-date-label">24 October 2026</p>
+        <ul>
+          <li class="is-section"><a href="#session-4">Session 4</a></li>
+          <li class="is-sub"><a href="#s4-structure">Session flow</a></li>
+          <li class="is-sub"><a href="#s4-component">UI component</a></li>
+          <li class="is-sub"><a href="#s4-kit">The six</a></li>
+          <li class="is-sub"><a href="#s4-laws">Five laws</a></li>
+          <li class="is-sub"><a href="#s4-figma">Figma rules</a></li>
+          <li class="is-sub"><a href="#s4-assignment">Assignment</a></li>
+          <li class="is-sub"><a href="#s4-exam">Examination answers</a></li>
         </ul>
       </div>
     </nav>
@@ -613,6 +628,131 @@
 
         <footer>
           UI/UX Design in Practice · 2 October 2026 · Session 2 · Arun Murugesan · arun.jpeg@gmail.com
+        </footer>
+      </article>
+
+      <article class="wrap" id="session-4">
+        <header>
+          <p class="kicker">24 October 2026 · REVA University · UI/UX Design in Practice</p>
+          <h1>Session 4: Make the screen</h1>
+          <p class="lede">One Figma phone frame for the project’s primary task. Components first as making tools. UX laws named after the screen fails.</p>
+          <div class="hero-grid" aria-label="Session summary">
+            <div class="hero-chip"><strong>Studio focus</strong><span>Primary-task screen in Figma</span></div>
+            <div class="hero-chip"><strong>Method</strong><span>Version 1, name the kit, rebuild, test</span></div>
+            <div class="hero-chip"><strong>Exam lens</strong><span>Component + law, tied to a task</span></div>
+          </div>
+        </header>
+
+        <h2 id="s4-structure">1. How this session runs</h2>
+        <p>The wallet taught that looking good is not the same as working. This session is the same loop on a phone screen. Figma is the paper. The project’s primary task is the canteen payment.</p>
+        <div class="version-map" aria-label="Two version teaching structure">
+          <section class="version-card">
+            <strong>Version 1</strong>
+            <h3>Instinct</h3>
+            <p>Draw the screen before components or laws are named. Then ask: where do I tap first? What happens if I am wrong?</p>
+          </section>
+          <section class="version-card">
+            <strong>Version 2</strong>
+            <h3>Kit + laws</h3>
+            <p>Rebuild with six components. Include empty and error/success. Change three things. Each change names a law.</p>
+          </section>
+          <section class="version-card">
+            <strong>Test</strong>
+            <h3>Stranger</h3>
+            <p>Swap files. Stay quiet. Log done / stuck / where. Same rule as the wallet.</p>
+          </section>
+        </div>
+        <p class="callout"><strong>Scope:</strong> this class is the payment moment of the project — not the landing page, not the whole product.</p>
+
+        <h2 id="s4-component">2. UI component</h2>
+        <p class="def"><strong>Definition</strong>A UI component is a reusable piece of interface with a job: a button submits, an input collects, a card presents a choice. It is not decoration. It is a named control a person can act through.</p>
+        <p>UI is still the object of interaction from Session 1. Components are how that object is built in software. A well-styled component can still produce a poor experience if the task is wrong — same as a beautiful fold that dumps coins in a queue.</p>
+        <p><strong>Examination line:</strong> A component is defined by the action it supports, not by how it looks.</p>
+
+        <h2 id="s4-kit">3. The six</h2>
+        <p>Students may use only these six on the primary screen. A seventh pattern must be restated as one of these.</p>
+        <table>
+          <thead>
+            <tr><th>Component</th><th>Job</th><th>Failure</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Button</td><td>Commit to an action</td><td>Tiny, far, or many equals — no primary</td></tr>
+            <tr><td>Input + label + helper</td><td>Collect one fact</td><td>No label; helper missing; field not needed yet</td></tr>
+            <tr><td>List / card</td><td>Choose one of several</td><td>Cannot tell items apart; tap target unclear</td></tr>
+            <tr><td>Navigation</td><td>Orient and go back</td><td>No way out; unclear where I am</td></tr>
+            <tr><td>Empty state</td><td>First use when there is nothing</td><td>Blank screen; no next action</td></tr>
+            <tr><td>Error / success</td><td>Say what the system did, and next</td><td>Silence after tap; blame without a fix</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="s4-laws">4. Five laws</h2>
+        <p>Laws enter after Version 1 fails. They are not a catalog to memorise before drawing. Each law is a sentence you can point at on the frame.</p>
+        <p class="def"><strong>Fitts’s Law</strong>The time to acquire a target is a function of the distance to the target and its size. On a phone, the primary button should be large and within thumb reach. A speck labelled “OK” in a corner fails Fitts.</p>
+        <p class="def"><strong>Hick’s Law</strong>The time to choose grows with the number and equality of options. Six identical buttons freeze the person. One primary; secondary actions are quieter or later.</p>
+        <p class="def"><strong>Jakob’s Law</strong>Users spend most of their time on other products. They expect your screen to work like screens they already know. An invented control (a rotary dial to confirm a listing) costs learning you have not earned.</p>
+        <p class="def"><strong>Miller’s Law</strong>Working memory holds a small number of items. A step with twelve unlabelled fields exceeds it. Ask only what this step needs.</p>
+        <p class="def"><strong>Postel’s Law (robustness principle)</strong>Be conservative in what you send, liberal in what you accept. A form that rejects a real Indian mobile number because of a space or missing <code>+91</code> is strict in the wrong place.</p>
+        <p>From Session 1, still required in critique: <strong>affordance, signifier, feedback</strong>. If the designer must speak for the screen, it has failed.</p>
+        <p class="callout">Do not add Aesthetic-Usability, Peak-End, Doherty, Tesler, or Von Restorff in this session. Those wait until a later screen needs them.</p>
+
+        <h2 id="s4-figma">5. Figma rules</h2>
+        <p>Figma is the paper of this studio. It is not the subject of the class.</p>
+        <ul>
+          <li>One file per group. Two people at the keyboard, maximum.</li>
+          <li>Frame size: <strong>390 × 844</strong> (phone). Name the frame with the task sentence.</li>
+          <li>Draw with rectangles and text. No downloaded UI kit. No AI-generated layout. If they cannot explain a control, it goes.</li>
+          <li>Version 2 needs three frames: happy path, empty, error or success.</li>
+          <li>Share: anyone with the link can <strong>view</strong>. Check in a private window.</li>
+        </ul>
+        <p>Keyboard: <strong>F</strong> frame, <strong>R</strong> rectangle, <strong>T</strong> text. Education login at figma.com/education if they have a student email. A free Figma account is enough for this class.</p>
+
+        <h2 id="s4-assignment">6. Assignment: Primary screen in Figma</h2>
+        <p class="callout"><strong>Submission goal:</strong> A stranger can complete the project’s primary task on one phone screen without a spoken tour. Each change from Version 1 to Version 2 names a UX law.</p>
+
+        <h3>Project brief</h3>
+        <p>Design the primary-action screen of your group project in Figma. The screen must help a named user complete one task in a real context. It is not a homepage and not a design system.</p>
+
+        <h3>Requirements</h3>
+        <table>
+          <thead>
+            <tr><th>Area</th><th>Requirement</th><th>Evidence expected</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Task</td><td>One sentence: “A [person] can [task] without [barrier].”</td><td>Written at the top of the Figma page.</td></tr>
+            <tr><td>Version 1</td><td>Instinct screen, before the kit is applied.</td><td>Labelled frame, left on the page.</td></tr>
+            <tr><td>Version 2</td><td>Rebuild using only the six components. One primary button.</td><td>Labelled frame.</td></tr>
+            <tr><td>Empty + error/success</td><td>Two extra frames for the same task.</td><td>Visible on the page.</td></tr>
+            <tr><td>Laws</td><td>Three changes from test or critique.</td><td>Sticky note: change + named law.</td></tr>
+            <tr><td>Share</td><td>Anyone with the link can view.</td><td>Link in the class sheet; private-window check.</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Evaluation rubric</h3>
+        <table>
+          <thead>
+            <tr><th>Criteria</th><th>Weight</th><th>What good work shows</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Task focus</td><td>20%</td><td>One primary action. Not a landing page.</td></tr>
+            <tr><td>Components</td><td>20%</td><td>Controls are named and doing a job. Empty and error exist.</td></tr>
+            <tr><td>Laws</td><td>25%</td><td>Three changes, each tied to Fitts, Hick, Jakob, Miller, or Postel — or to affordance / signifier / feedback.</td></tr>
+            <tr><td>Stranger test</td><td>20%</td><td>Log of done / stuck / where. No spoken tour.</td></tr>
+            <tr><td>Share</td><td>15%</td><td>A stranger can open the file and find the three frames.</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="s4-exam">7. Suggested examination answers</h2>
+        <p><strong>What is a UI component?</strong> A reusable piece of interface defined by the action it supports (button, input, card), not by visual style.</p>
+        <p><strong>Distinguish UI and a component.</strong> UI is the whole point of contact. A component is a named part of that contact with one job.</p>
+        <p><strong>Fitts’s Law, in one line.</strong> Larger, closer targets are faster to hit; the primary action on a phone should be large and near the thumb.</p>
+        <p><strong>Hick’s Law, in one line.</strong> Choice time grows with equal options; show one primary action and defer the rest.</p>
+        <p><strong>Jakob’s Law, in one line.</strong> People expect your product to work like products they already use; do not invent a new control without a reason.</p>
+        <p><strong>Miller’s Law, in one line.</strong> Working memory is limited; ask only the fields this step needs.</p>
+        <p><strong>Postel’s Law, in one line.</strong> Accept messy real-world input; be strict about what you store and show back.</p>
+        <p><strong>Why Version 1 before the kit?</strong> The same as the wallet: first instinct reveals the maker. Vocabulary improves the next version only after failure is visible.</p>
+
+        <footer>
+          UI/UX Design in Practice · 24 October 2026 · Session 4 · Arun Murugesan · arun.jpeg@gmail.com
         </footer>
       </article>
     </main>

@@ -45,7 +45,7 @@ window.CLASS_GALLERY = {
       date: "9 October 2026",
       title: "Working with AI",
       focus: "From prompt to published research plan.",
-      status: "draft",
+      status: "published",
       slides: [
         { label: "Before class setup", href: "setup-guide.html", note: "Gemini + GitHub" },
         { label: "Session 3 deck", href: "session-3.html?v=md1", note: "Classroom short" },
@@ -53,6 +53,20 @@ window.CLASS_GALLERY = {
         { label: "Prompt sheet", href: "session-3-guide.html?v=cc2", note: "Copy prompts" }
       ],
       assignmentIds: ["assign-project-page"]
+    },
+    {
+      id: "session-4",
+      number: "04",
+      date: "24 October 2026",
+      title: "Make the screen",
+      focus: "One Figma phone frame for the project's primary task. Components, then UX laws, from what failed.",
+      status: "published",
+      slides: [
+        { label: "Session 4 deck", href: "session-4.html", note: "Classroom" },
+        { label: "Figma sheet", href: "session-4-guide.html", note: "Keep open" }
+      ],
+      notes: { label: "Class notes", href: "notes.html#session-4" },
+      assignmentIds: ["assign-primary-screen"]
     }
   ],
   assignments: [
@@ -79,6 +93,14 @@ window.CLASS_GALLERY = {
       due: "End of Session 3",
       summary: "Groups publish a project plan, research plan, and discussion guide as one public link.",
       href: "session-3-guide.html?v=rtf"
+    },
+    {
+      id: "assign-primary-screen",
+      session: "04",
+      title: "Primary screen in Figma",
+      due: "End of Session 4",
+      summary: "One phone frame. Version 1, Version 2, empty and error frames, three law-backed changes. Share a view link.",
+      href: "notes.html#s4-assignment"
     }
   ]
 };
