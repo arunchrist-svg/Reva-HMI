@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>After tap the screen is silent</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".2"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="48" y="92" fill="#ece9e1" font-family="Georgia,serif" font-size="22">Pay the mess</text>
+  <text x="48" y="128" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14">Rs 80  lunch</text>
+  <text x="48" y="180" fill="#c45c5c" font-family="system-ui,sans-serif" font-size="13">Error 422</text>
+  <rect x="48" y="430" width="184" height="52" rx="10" fill="#ece9e1" opacity=".12"/>
+  <text x="140" y="462" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle">OK</text>
+</svg>

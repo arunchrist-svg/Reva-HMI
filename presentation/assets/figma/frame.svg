@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
+  <title>F draws a phone frame. 390 by 844.</title>
+  <rect width="1200" height="640" fill="#101116"/>
+  <rect x="16" y="16" width="1168" height="608" rx="12" fill="#1a1c22" stroke="#2a2d36"/>
+  <rect x="16" y="16" width="1168" height="44" rx="12" fill="#14161c"/>
+  <rect x="16" y="48" width="1168" height="12" fill="#14161c"/>
+  <text x="36" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">V</text>
+  <rect x="56" y="26" width="28" height="22" rx="5" fill="#d4f169"/>
+  <text x="70" y="42" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="800" text-anchor="middle">F</text>
+  <text x="98" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">R</text>
+  <text x="126" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">T</text>
+  <rect x="16" y="60" width="200" height="564" fill="#16181e"/>
+  <text x="36" y="92" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">LAYERS</text>
+  <text x="36" y="128" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12">Phone · 390 × 844</text>
+  <rect x="216" y="60" width="740" height="564" fill="#101116"/>
+  <rect x="468" y="92" width="236" height="500" rx="28" fill="#1b1d24" stroke="#d4f169" stroke-opacity=".7"/>
+  <rect x="560" y="108" width="52" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="586" y="360" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">your task</text>
+  <rect x="956" y="60" width="228" height="564" fill="#16181e"/>
+  <text x="976" y="92" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">FRAME</text>
+  <text x="976" y="128" fill="#d4f169" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Phone</text>
+  <text x="976" y="156" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">W  390</text>
+  <text x="1084" y="156" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">H  844</text>
+  <text x="976" y="196" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Tablet</text>
+  <text x="976" y="224" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Desktop</text>
+</svg>

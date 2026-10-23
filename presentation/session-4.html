@@ -5,31 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101116">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Make the screen: Session 4</title>
+  <title>Open an app: Session 4</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="deck.css?v=22">
-  <link rel="stylesheet" href="deck-v2.css?v=10">
+  <link rel="stylesheet" href="deck.css?v=23">
+  <link rel="stylesheet" href="deck-v2.css?v=11">
   <link rel="stylesheet" href="mobile.css?v=9">
   <style>
-    body.deck-v2 .cover .lede-line {
-      margin-top: 1.2rem;
-      font-family: var(--sans);
-      font-size: clamp(1.35rem, 2vw, 1.7rem);
-      color: var(--muted);
-      max-width: 780px;
-    }
-    body.deck-v2 .ux-example-question {
-      font-size: clamp(1.85rem, 2.9vw, 2.65rem);
-    }
-    body.deck-v2 .ux-example-panel img {
-      height: min(52vh, 460px);
-      object-fit: contain;
-      background: #101116;
-    }
-    body.deck-v2 .ux-example-grid:has(.ux-example-single) {
-      grid-template-columns: minmax(220px, 320px);
+    body.deck-v2 .cover .lede {
+      margin-top: 1.6rem;
+      max-width: 920px;
     }
     body.deck-v2 .figma-link {
       color: var(--lime);
@@ -37,368 +23,1314 @@
       text-decoration: none;
     }
     body.deck-v2 .figma-link:hover { text-decoration: underline; }
+
+    .slide.studio-make { display: none; }
+    .slide.studio-make.is-active {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+    .studio-make h2 {
+      font-size: clamp(2.6rem, 4.6vw, 5.2rem);
+      line-height: 0.98;
+      max-width: 16ch;
+    }
+    .studio-make p {
+      margin-top: 1rem;
+      max-width: 34ch;
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 1.9vw, 1.7rem);
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    .studio-key {
+      display: inline-block;
+      margin-top: 1.1rem;
+      border: 1px solid var(--line);
+      padding: 0.35rem 0.7rem;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lime);
+    }
+    .ux-example-question-only .studio-key {
+      margin-top: 1.4rem;
+    }
+    body.deck-v2 .studio-make .time-box strong {
+      font-size: clamp(4.2rem, 8vw, 7.5rem);
+    }
+    body.deck-v2 .studio-make .time-box span {
+      font-size: 12px;
+    }
+
+    .studio-split {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.85fr) 1.15fr;
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+      align-items: center;
+      width: 100%;
+      max-width: 1280px;
+      margin: auto;
+    }
+    .studio-split h2 {
+      font-size: clamp(2.4rem, 4.2vw, 4.6rem);
+      line-height: 1.02;
+    }
+    .studio-split .lede-soft {
+      margin-top: 1.1rem;
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+      line-height: 1.4;
+      color: var(--muted);
+      max-width: 28ch;
+    }
+    .studio-phones {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+    }
+    .studio-phones figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 0.55rem 0.55rem 0.7rem;
+    }
+    .studio-phones img {
+      display: block;
+      width: 100%;
+      height: min(48vh, 420px);
+      object-fit: contain;
+      background: #101116;
+    }
+    .studio-phones figcaption {
+      margin-top: 0.4rem;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .studio-phones .is-better {
+      border-color: rgba(212, 241, 105, 0.45);
+    }
+    .studio-phones .is-better figcaption { color: var(--lime); }
+
+    .slide.see-pair,
+    .slide.best-slide,
+    .slide.observe { display: none; }
+    .slide.observe.is-active {
+      display: grid;
+      grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+      gap: clamp(1.5rem, 4vw, 3.2rem);
+      align-items: center;
+      padding: 3.2rem 5.7vw 3rem;
+    }
+    .observe .see-one { width: min(280px, 26vw); }
+    .observe .see-one img { height: min(70vh, 640px); }
+    .observe-copy { min-width: 0; }
+    .observe-list {
+      list-style: none;
+      margin: 0.4rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+    .observe-list li {
+      margin: 0;
+      border-top: 1px solid var(--line);
+      padding-top: 0.75rem;
+    }
+    .observe-list span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--muted);
+    }
+    .observe-list p {
+      margin: 0.3rem 0 0;
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.9vw, 1.7rem);
+      line-height: 1.28;
+      color: var(--paper);
+      max-width: 22ch;
+    }
+    .observe.is-better .see-one figure {
+      border-color: rgba(212, 241, 105, 0.5);
+    }
+    .observe.is-better .see-one figcaption,
+    .observe.is-better .observe-list span { color: var(--lime); }
+    .slide.see-pair.is-active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3.2rem 5.7vw 3rem;
+    }
+    .see-one {
+      width: min(420px, 34vw);
+      margin: auto;
+    }
+    .see-one figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 0.7rem 0.7rem 0.85rem;
+    }
+    .see-one img {
+      display: block;
+      width: 100%;
+      height: min(78vh, 740px);
+      object-fit: contain;
+      background: #101116;
+    }
+    .see-one figcaption {
+      margin-top: 0.55rem;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+    .see-one.is-better figure {
+      border-color: rgba(212, 241, 105, 0.5);
+    }
+    .see-one.is-better figcaption { color: var(--lime); }
+    .see-one.see-flow { width: min(720px, 64vw); }
+    .see-one.see-flow img { height: min(72vh, 620px); }
+
+    .slide.best-slide.is-active {
+      display: flex;
+      justify-content: center;
+      padding: 3.5rem 5.7vw 3rem;
+    }
+    .best-body {
+      width: 100%;
+      max-width: 1280px;
+      margin: auto;
+    }
+    .best-body h2 {
+      font-size: clamp(2.2rem, 3.8vw, 4.2rem);
+      line-height: 1.02;
+      max-width: 18ch;
+    }
+    .best-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 1.6rem;
+    }
+    .best-grid article {
+      background: var(--surface);
+      min-height: 188px;
+      padding: 1.2rem 1.25rem 1.35rem;
+    }
+    .best-grid span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--muted);
+    }
+    .best-grid .is-best {
+      background: #1f2218;
+    }
+    .best-grid .is-best span { color: var(--lime); }
+    .best-grid h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2vw, 1.85rem);
+      line-height: 1.08;
+      margin: 0.85rem 0 0.55rem;
+    }
+    .best-grid p {
+      font-size: clamp(0.86rem, 1.15vw, 1rem);
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .best-yours {
+      margin-top: 1.35rem;
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+      line-height: 1.35;
+      color: var(--paper);
+      max-width: 42ch;
+    }
+
+    .name-slide {
+      background: var(--lime);
+      color: var(--ink);
+      padding: 3.5rem 5.7vw 4rem;
+    }
+    .name-slide.is-active { justify-content: center; }
+    .name-slide .slide-meta { color: rgba(16, 17, 22, 0.55); top: 3.5rem; }
+    .name-slide .approach-intro-content {
+      width: 100%;
+      max-width: 1280px;
+      margin: auto;
+    }
+    .studio-crit.is-active { justify-content: center; }
+    .studio-crit { padding: 3.5rem 5.7vw 3rem; }
+    .name-slide .eyebrow { color: #46511d; }
+    .name-kicker {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #46511d;
+      margin-bottom: 1rem;
+    }
+    .name-slide h2 {
+      font-size: clamp(3.4rem, 6.4vw, 7rem);
+      line-height: 0.92;
+      max-width: 16ch;
+    }
+    .name-slide p {
+      margin-top: 1.6rem;
+      max-width: 28ch;
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2.1vw, 1.9rem);
+      line-height: 1.3;
+      border-top: 1px solid rgba(16, 17, 22, 0.28);
+      padding-top: 1.1rem;
+    }
+
+    body.deck-v2 .ux-example-panel img {
+      height: min(50vh, 440px);
+      object-fit: contain;
+      background: #101116;
+    }
+    body.deck-v2 .ux-example-grid:has(.ux-example-single) {
+      grid-template-columns: minmax(240px, 340px);
+    }
+    body.deck-v2 .ux-example-copy h2 {
+      font-size: clamp(2.2rem, 3.8vw, 4rem);
+      line-height: 1.02;
+      max-width: 16ch;
+    }
+    body.deck-v2 .ux-example-copy p {
+      margin-top: 1rem;
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+      line-height: 1.4;
+      color: var(--muted);
+      max-width: 32ch;
+    }
+    body.deck-v2 .figma-shots .ux-example-grid {
+      grid-template-columns: minmax(240px, 0.9fr) 1.2fr;
+      align-items: center;
+      width: 100%;
+      max-width: 1280px;
+      margin: auto;
+    }
+    body.deck-v2 .figma-shots .ux-example-panel { max-width: none; }
+    body.deck-v2 .figma-shots img {
+      height: min(58vh, 540px);
+      width: 100%;
+      object-fit: contain;
+      background: #0c0c0e;
+    }
+    body.deck-v2 .film-wide .ux-example-grid {
+      grid-template-columns: minmax(220px, 0.7fr) 1.4fr;
+    }
+    body.deck-v2 .film-wide .ux-example-panel img {
+      height: min(52vh, 480px);
+    }
+
+    @media (max-width: 800px) {
+      .slide.studio-make.is-active, .studio-split, .studio-phones, .best-grid,
+      .slide.observe.is-active,
+      body.deck-v2 .figma-shots .ux-example-grid,
+      body.deck-v2 .film-wide .ux-example-grid {
+        grid-template-columns: 1fr;
+      }
+      .observe .see-one { width: min(220px, 58vw); }
+      .observe .see-one img { height: min(42vh, 340px); }
+      .studio-phones img { height: min(32vh, 260px); }
+      .see-one { width: min(280px, 78vw); }
+      .see-one img { height: min(52vh, 420px); }
+      .see-one.see-flow { width: min(100%, 92vw); }
+      .see-one.see-flow img { height: min(42vh, 340px); }
+    }
   </style>
 </head>
-<body class="deck-v2" data-deck-title="Session 4 · Make the screen">
+<body class="deck-v2" data-deck-title="Session 4 · Open an app">
   <main class="deck" aria-live="polite">
 
-    <section class="slide cover title-only is-active" data-title="Make the screen">
+    <section class="slide cover title-only is-active" data-title="Open an app">
       <div class="grid-lines"></div>
-      <div class="slide-meta"><span>SESSION 04</span><span>FIGMA</span></div>
+      <div class="slide-meta"><span>SESSION 04</span><span>STUDIO · 4 HOURS</span></div>
       <div class="cover-content">
-        <h1>Make the<br>screen.</h1>
-        <p class="lede-line">One phone frame. Your project’s primary task.</p>
+        <h1>Open an<br>app.</h1>
       </div>
     </section>
 
-    <section class="slide approach-intro" data-title="Opening question">
-      <div class="slide-meta"><span>QUESTION</span><span>OPEN</span></div>
+    <section class="slide studio-make" data-title="Open a screen">
+      <div class="slide-meta"><span>NOW</span><span>YOUR PHONE</span></div>
+      <div class="time-box" aria-hidden="true"><strong>30</strong><span>seconds</span></div>
+      <div>
+        <h2>Open a screen<br>you had to finish.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Stay on one">
+      <div class="slide-meta"><span>NOW</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Stay on one screen. Do not scroll. Do not explain yet.</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="What is it">
+      <div class="slide-meta"><span>LOOK</span><span>WHAT IS IT</span></div>
       <div class="approach-intro-content">
-        <h2>What is a UI <em>component</em>?</h2>
+        <h2>What is this <em>screen</em>?</h2>
       </div>
     </section>
 
-    <section class="slide approach-intro" data-title="Task sentence">
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Not the brand">
+      <div class="slide-meta"><span>LOOK</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Not the brand. Not “home.” The thing this page is.</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Why is it">
+      <div class="slide-meta"><span>LOOK</span><span>WHY IS IT</span></div>
+      <div class="approach-intro-content">
+        <h2>Why does it <em>exist</em>?</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="If deleted">
+      <div class="slide-meta"><span>LOOK</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">If this screen was deleted tonight, what job would fail tomorrow?</p>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Neighbour">
+      <div class="slide-meta"><span>SAY IT</span><span>60 SECONDS</span></div>
+      <div class="time-box" aria-hidden="true"><strong>60</strong><span>seconds</span></div>
+      <div>
+        <h2>Tell your neighbour.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="No design words">
+      <div class="slide-meta"><span>SAY IT</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">No design words. If you need “UI” or “UX” to say it, you do not know it yet.</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="The tap">
+      <div class="slide-meta"><span>LOOK AGAIN</span><span>THE TAP</span></div>
+      <div class="approach-intro-content">
+        <h2>Where do they tap to <em>finish</em>?</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Point">
+      <div class="slide-meta"><span>LOOK AGAIN</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Point. Do not describe. If you cannot point, the screen is a poster.</p>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="The ask">
+      <div class="slide-meta"><span>LOOK AGAIN</span><span>THE ASK</span></div>
+      <div class="approach-intro-content">
+        <h2>What does this screen still <em>need</em> from them?</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Fact or choice">
+      <div class="slide-meta"><span>LOOK AGAIN</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">A fact? A choice? Nothing — just a tap?</p>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="One lunch">
+      <div class="slide-meta"><span>WALL</span><span>SEE</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-observe-mess.svg" alt="Phone screen: Pay the mess, lunch Rs 80, Pay Rs 80">
+          <figcaption>Look</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide observe" data-title="Heard this">
+      <div class="slide-meta"><span>WALL</span><span>WEAK</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-observe-mess.svg" alt="Same mess pay screen">
+          <figcaption>Heard this</figcaption>
+        </figure>
+      </div>
+      <div class="observe-copy">
+        <p class="eyebrow">A weak reading</p>
+        <ol class="observe-list">
+          <li>
+            <span>What</span>
+            <p>It's PhonePe. Home.</p>
+          </li>
+          <li>
+            <span>Why</span>
+            <p>Good UI. The brand needs a screen.</p>
+          </li>
+          <li>
+            <span>Tap</span>
+            <p>The green button.</p>
+          </li>
+          <li>
+            <span>Need</span>
+            <p>More options. A menu.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide observe is-better" data-title="Write this">
+      <div class="slide-meta"><span>WALL</span><span>SHARP</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-observe-mess.svg" alt="Same mess pay screen">
+          <figcaption>Write this</figcaption>
+        </figure>
+      </div>
+      <div class="observe-copy">
+        <p class="eyebrow">A sharp reading</p>
+        <ol class="observe-list">
+          <li>
+            <span>What</span>
+            <p>Pay today's mess lunch.</p>
+          </li>
+          <li>
+            <span>Why</span>
+            <p>If this is gone, they cannot pay at the counter without cash.</p>
+          </li>
+          <li>
+            <span>Tap</span>
+            <p>Pay Rs 80.</p>
+          </li>
+          <li>
+            <span>Need</span>
+            <p>Nothing. The amount is known. Just the tap.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="slide approach-intro" data-title="Your project">
       <div class="slide-meta"><span>NOW</span><span>YOUR PROJECT</span></div>
       <div class="approach-intro-content">
-        <h2>Write the task in one sentence.</h2>
-        <p class="approach-intro-lede">A [person] can [task] without [barrier].</p>
+        <h2>Same two questions.<br>Your <em>product</em>.</h2>
       </div>
     </section>
 
-    <section class="slide approach-intro" data-title="Not the landing page">
-      <div class="slide-meta"><span>RULE</span><span>SCOPE</span></div>
-      <div class="approach-intro-content">
-        <h2>This class is the <em>payment moment</em>.</h2>
-        <p class="approach-intro-lede">Not the landing page. Not the whole app.</p>
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="If you cannot">
+      <div class="slide-meta"><span>NOW</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">What is the screen? Why does it exist? If you cannot answer, do not draw yet.</p>
       </div>
     </section>
 
-    <section class="slide lesson-plan" data-title="Studio brief">
-      <div class="slide-meta"><span>03</span><span>STUDIO BRIEF</span></div>
+    <section class="slide studio-make" data-title="Write both">
+      <div class="slide-meta"><span>WRITE</span><span>THEN FIGMA</span></div>
+      <div class="time-box" aria-hidden="true"><strong>06</strong><span>minutes</span></div>
+      <div>
+        <h2>Write both answers.<br>Then open Figma.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="The sentence">
+      <div class="slide-meta"><span>WRITE</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">A [person] can [task] without [barrier].</p>
+        <span class="studio-key">figma.com · education plan if you have a student email</span>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="The phone is the brief">
+      <div class="slide-meta"><span>1 · CONSTRAIN</span><span>FIGMA · F</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Problem 1</p>
+          <h2>The phone is the brief.</h2>
+          <p>Loose rectangles on an infinite canvas are not a product. Press <strong>F</strong>. Size <strong>390 × 844</strong>. Name the frame with your sentence.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma/constrain.svg" alt="Infinite canvas of loose rectangles versus a named 390 by 844 phone frame">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Put a phone down">
+      <div class="slide-meta"><span>1 · CONSTRAIN</span><span>YOUR FILE</span></div>
+      <div class="time-box" aria-hidden="true"><strong>08</strong><span>minutes</span></div>
+      <div>
+        <h2>Put one phone<br>on the canvas.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="If you get lost">
+      <div class="slide-meta"><span>1 · CONSTRAIN</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">If you get lost, press V. Zoom with ⌘0. Undo with ⌘Z.</p>
+        <span class="studio-key">F · 390 × 844 · name it the sentence</span>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Type only">
+      <div class="slide-meta"><span>2 · TYPE</span><span>YOUR FILE</span></div>
+      <div class="time-box" aria-hidden="true"><strong>08</strong><span>minutes</span></div>
+      <div>
+        <h2>Type only.<br>No boxes yet.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Three lines">
+      <div class="slide-meta"><span>2 · TYPE</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">On that phone, write three lines: the job, one fact, what happens next. Nothing else.</p>
+        <span class="studio-key">T · type · then change the size on the right</span>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Type weak">
+      <div class="slide-meta"><span>2 · TYPE</span><span>SEE</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-type-flat.svg" alt="Mess pay screen where every line of type is the same size">
+          <figcaption>All type the same</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Type better">
+      <div class="slide-meta"><span>2 · TYPE</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ui-type-rank.svg" alt="Mess pay screen with a large job, a small fact, and a pay button">
+          <figcaption>Job · fact · verb</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Hierarchy and Miller">
+      <div class="slide-meta"><span>2 · TYPE</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>The better screen has a job you can read from two metres.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>Every word equal</h3>
+            <p>The eye has nowhere to land. Eight lines feel like eight tasks.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>Job, fact, verb</h3>
+            <p>Big type is the job. Small type is the helper. One commit at the thumb.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>Hierarchy · Miller</h3>
+            <p>UI ranks what matters. Miller: working memory cannot hold a crowd of equals. Make the job biggest on yours.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. If a stranger cannot see the verb from two metres, the type is not doing UI yet.</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Size is hierarchy">
+      <div class="slide-meta"><span>2 · TYPE</span><span>FIGMA · T</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">The right panel</p>
+          <h2>Size is how Figma ranks the job.</h2>
+          <p>Select the line. Change the number. Do not hunt fonts. Hierarchy is a size decision.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma/type-size.svg" alt="Figma text tool selected, type size 32 on the right panel">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="One verb">
+      <div class="slide-meta"><span>3 · COMMIT</span><span>YOUR FILE</span></div>
+      <div class="time-box" aria-hidden="true"><strong>08</strong><span>minutes</span></div>
+      <div>
+        <h2>Add one verb<br>a thumb can hit.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="One rectangle">
+      <div class="slide-meta"><span>3 · COMMIT</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">One rectangle. One word from your sentence. Bottom of the phone. Wide.</p>
+        <span class="studio-key">R · rectangle · fill it · T on top of it</span>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Commit weak">
+      <div class="slide-meta"><span>3 · COMMIT</span><span>SEE</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-tiny-go.svg" alt="Pay the mess with a tiny Go button in the corner">
+          <figcaption>The job is hiding</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Commit better">
+      <div class="slide-meta"><span>3 · COMMIT</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ui-thumb-pay.svg" alt="Pay the mess with a wide Pay Rs 80 button at the bottom">
+          <figcaption>Thumb. Named verb</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Commit and Fitts">
+      <div class="slide-meta"><span>3 · COMMIT</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>If they cannot hit it, they cannot finish.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>A speck in the corner</h3>
+            <p>“Go” does not name the job. The thumb cannot reach a tiny target far away.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>Wide. Bottom. The verb</h3>
+            <p>Pay Rs 80 is the sentence. The control looks tappable. The thumb lands on it.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>Button · Fitts · Von Restorff</h3>
+            <p>UI: the commit is a button with a verb. Fitts: bigger, closer, faster. Von Restorff: the odd one is remembered. One lime. The rest stay quiet.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. Is the verb a speck, or the thing the thumb wants?</p>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="One question">
+      <div class="slide-meta"><span>4 · ASK</span><span>YOUR FILE</span></div>
+      <div class="time-box" aria-hidden="true"><strong>10</strong><span>minutes</span></div>
+      <div>
+        <h2>What does the system not know yet?</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="One field">
+      <div class="slide-meta"><span>4 · ASK</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Draw one field. Label above it. One line of help under it. Delete every field this step does not need.</p>
+        <span class="studio-key">R for the box · T for the question</span>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Ask weak">
+      <div class="slide-meta"><span>4 · ASK</span><span>SEE</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-ask-mute.svg" alt="Three empty boxes and a Go button with no labels">
+          <figcaption>Silent boxes</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Ask better">
+      <div class="slide-meta"><span>4 · ASK</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ui-ask-clear.svg" alt="One labelled UPI field and a Pay Rs 80 button">
+          <figcaption>One question. Then the verb</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Ask, Jakob, Miller">
+      <div class="slide-meta"><span>4 · ASK</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>A box is not a question. A label is.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>Mute fields</h3>
+            <p>Three boxes. No label. You have to speak for the screen. Extra fields this step does not need.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>One labelled fact</h3>
+            <p>Label above. Helper below. Then the verb. It looks like a form they already know.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>Input · Jakob · Tesler</h3>
+            <p>UI: label, field, helper. Jakob: forms they already know. Tesler: do not dump the system's work on them. Miller: this step only. Delete the rest.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. If you have to speak the label, the screen is mute.</p>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Choose or skip">
+      <div class="slide-meta"><span>4 · ASK</span><span>YOUR FILE</span></div>
+      <div class="time-box" aria-hidden="true"><strong>08</strong><span>minutes</span></div>
+      <div>
+        <h2>Must they pick,<br>or can they skip?</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Two or three">
+      <div class="slide-meta"><span>4 · ASK</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">If they must pick, draw two or three. Mark a default. If they can skip, write that on the frame. Do not invent eight equals.</p>
+        <span class="studio-key">⌘D · duplicate one row · change the words</span>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Choice weak">
+      <div class="slide-meta"><span>4 · ASK</span><span>SEE</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-choice-noise.svg" alt="Eight equal payment methods stacked as identical rows">
+          <figcaption>Eight equals</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Choice better">
+      <div class="slide-meta"><span>4 · ASK</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ui-choice-one.svg" alt="UPI last used as default, with use a card instead as quieter option">
+          <figcaption>Default. One other</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Choice and Hick">
+      <div class="slide-meta"><span>4 · ASK</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>Equal options freeze the hand.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>Eight equals</h3>
+            <p>Every row looks as important as every other. The person stalls. The job waits.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>Default. One other</h3>
+            <p>Last used is already chosen. A quieter way out. Skip is allowed. The verb stays primary.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>List · Hick</h3>
+            <p>UI: a list or cards is a choice, not a catalogue. Hick: time to choose grows with equal options. Mark a default on yours, or write skip.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. Is there a default, or a menu of everything?</p>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Three frames">
+      <div class="slide-meta"><span>5 · STATES</span><span>YOUR FILE</span></div>
+      <div class="time-box" aria-hidden="true"><strong>15</strong><span>minutes</span></div>
+      <div>
+        <h2>Make a film of<br>the same screen.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Duplicate twice">
+      <div class="slide-meta"><span>5 · STATES</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Duplicate the phone twice. One: nothing is there yet. One: they already tapped. Change only what happened.</p>
+        <span class="studio-key">select the frame · ⌘D · ⌘D</span>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Empty weak">
+      <div class="slide-meta"><span>5 · STATES</span><span>SEE</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-empty-mess-bad.svg" alt="Pay the mess with nothing here and no next action">
+          <figcaption>Blank first use</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Empty better">
+      <div class="slide-meta"><span>5 · STATES</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ui-empty-mess-good.svg" alt="Nothing due today with a See history button">
+          <figcaption>Still a task</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Empty and next">
+      <div class="slide-meta"><span>5 · STATES</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>First use is still a job. Do not leave a hole.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>Nothing here</h3>
+            <p>A blank phone. No next action. The person thinks the product is broken.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>Say why. Give a tap</h3>
+            <p>Nothing due today. Come back at lunch. See history is still a way through.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>Empty · feedback</h3>
+            <p>UI: empty is a state with a verb. Norman: the system must speak. Duplicate your frame. Delete the stuff. Keep a tap.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. If they open it the first time, can they still do something?</p>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="After weak">
+      <div class="slide-meta"><span>5 · STATES</span><span>SEE</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-after-mute.svg" alt="Pay the mess with Error 422 and an OK button">
+          <figcaption>Silent after tap</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="After better">
+      <div class="slide-meta"><span>5 · STATES</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ui-after-clear.svg" alt="Paid screen with time, confirmation, and Done">
+          <figcaption>What happened. What next</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Feedback and Postel">
+      <div class="slide-meta"><span>5 · STATES</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>After they tap, the screen must say what the system did.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>Error 422 · OK</h3>
+            <p>Blame with a code. No fix. They do not know if lunch was paid.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>Paid. Show this.</h3>
+            <p>What happened. When. What to do at the door. Done is the way out.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>Error / success · Postel</h3>
+            <p>UI: after is feedback. Postel: accept a real UPI; be strict in what you store. If a real number failed, the form was strict in the wrong place.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. Duplicate the frame. Change only what happened.</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Duplicate the frame">
+      <div class="slide-meta"><span>5 · STATES</span><span>FIGMA · ⌘D</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">The move</p>
+          <h2>Duplicate. Then change what happened.</h2>
+          <p>Do not redraw the phone. Select the frame. ⌘D. Keep the job. Change the state.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma/duplicate-film.svg" alt="Three phone frames duplicated in Figma with command D between them">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="A way out">
+      <div class="slide-meta"><span>5 · STATES</span><span>ONE MORE LINE</span></div>
       <div class="lp-body">
         <div class="lp-heading">
-          <p class="eyebrow">Studio task</p>
-          <h2>Design that one screen in Figma.</h2>
-          <p class="lp-subtitle">A phone frame. Someone completes the task without you talking.</p>
-        </div>
-        <div class="lp-brief-grid">
-          <div>
-            <p class="lp-rules-label">The Brief</p>
-            <p class="lp-brief-text">Open your project. Design the screen where the main action happens. If a stranger cannot tap the right thing, the screen has failed.</p>
-          </div>
-          <div>
-            <p class="lp-rules-label">The Studio Rules</p>
-            <ol class="lp-rules">
-              <li><span class="lp-rule-num">01</span><span><strong>One file per group.</strong> Two people at the keyboard, max.</span></li>
-              <li><span class="lp-rule-num">02</span><span><strong>One frame.</strong> 390 × 844. Name it with the task.</span></li>
-              <li><span class="lp-rule-num">03</span><span><strong>Draw it.</strong> Rectangles and text. No UI kit. No AI layout.</span></li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide lesson-plan" data-title="Open Figma">
-      <div class="slide-meta"><span>FIGMA</span><span>OPEN</span></div>
-      <div class="lp-body">
-        <div class="lp-heading">
-          <h2>Open Figma now.</h2>
-          <p class="lp-subtitle">Keep the <a class="figma-link" href="session-4-guide.html">Figma sheet</a> on a phone. Work on the laptop.</p>
-        </div>
-        <ol class="lp-rules lp-rules-standalone">
-          <li><span class="lp-rule-num">01</span><span>Go to <strong>figma.com</strong>. Sign in. Education plan if you have it.</span></li>
-          <li><span class="lp-rule-num">02</span><span><strong>Design file</strong> → press <strong>F</strong> → Phone / 390 × 844.</span></li>
-          <li><span class="lp-rule-num">03</span><span>Rename the frame with your task sentence.</span></li>
-          <li><span class="lp-rule-num">04</span><span>Stuck on the tool? Sit with a neighbour. Do not wait for a tour.</span></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="slide approach-intro" data-title="Version 1">
-      <div class="slide-meta"><span>VERSION 01</span><span>12 MINUTES</span></div>
-      <div class="approach-intro-content">
-        <h2>Design the screen.</h2>
-        <p class="approach-intro-lede">No component names yet. Make it. Then we look.</p>
-      </div>
-    </section>
-
-    <section class="slide approach-intro" data-title="Where tap">
-      <div class="slide-meta"><span>LOOK</span><span>VERSION 01</span></div>
-      <div class="approach-intro-content">
-        <h2>Where do I tap <em>first</em>?</h2>
-      </div>
-    </section>
-
-    <section class="slide approach-intro" data-title="If wrong">
-      <div class="slide-meta"><span>LOOK</span><span>VERSION 01</span></div>
-      <div class="approach-intro-content">
-        <h2>What happens if I am <em>wrong</em>?</h2>
-      </div>
-    </section>
-
-    <section class="slide approach-intro" data-title="Name components">
-      <div class="slide-meta"><span>NAME</span><span></span></div>
-      <div class="approach-intro-content">
-        <h2>Those rectangles are <em>components</em>.</h2>
-        <p class="approach-intro-lede">A component is a reusable piece of UI with a job.</p>
-      </div>
-    </section>
-
-    <section class="slide lesson-plan" data-title="The six">
-      <div class="slide-meta"><span>KIT</span><span>ONLY THESE</span></div>
-      <div class="lp-body">
-        <div class="lp-heading">
-          <h2>The kit. Only these six.</h2>
-          <p class="lp-subtitle">If you invent a seventh pattern, ask which of these it actually is.</p>
-        </div>
-        <ol class="lp-rules lp-rules-standalone">
-          <li><span class="lp-rule-num">01</span><span><strong>Button.</strong> The action. One primary. Everything else is quieter.</span></li>
-          <li><span class="lp-rule-num">02</span><span><strong>Input + label + helper.</strong> A field the person can fill without guessing.</span></li>
-          <li><span class="lp-rule-num">03</span><span><strong>List / card.</strong> Choose one of several things.</span></li>
-          <li><span class="lp-rule-num">04</span><span><strong>Navigation.</strong> Where am I. How do I get back.</span></li>
-          <li><span class="lp-rule-num">05</span><span><strong>Empty state.</strong> First use. Nothing there yet. What now?</span></li>
-          <li><span class="lp-rule-num">06</span><span><strong>Error / success.</strong> What the system did. What to do next.</span></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask" data-title="Tap ask">
-      <div class="slide-meta"><span>EXAMPLE</span><span>01 · TAP</span></div>
-      <div class="ux-example-body">
-        <h2>Campus Cart · first screen</h2>
-        <p class="ux-example-question">Where do you tap to finish?</p>
-        <div class="ux-example-grid">
-          <figure class="ux-example-panel ux-example-single">
-            <img src="assets/ui-tap-bad.svg?v=2" alt="Phone screen with a tiny OK button">
-            <figcaption>Version 1 instinct</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-reveal" data-title="Tap better">
-      <div class="slide-meta"><span>EXAMPLE</span><span>01 · TAP</span></div>
-      <div class="ux-example-body">
-        <h2>Better solution</h2>
-        <p class="ux-example-question">One large target, near the thumb.</p>
-        <div class="ux-example-grid">
-          <figure class="ux-example-panel">
-            <img src="assets/ui-tap-bad.svg?v=2" alt="Tiny OK button">
-            <figcaption>Hard to hit</figcaption>
-          </figure>
-          <figure class="ux-example-panel is-better">
-            <img src="assets/ui-tap-good.svg?v=2" alt="Large Post listing button">
-            <figcaption>Primary action</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask" data-title="Choices ask">
-      <div class="slide-meta"><span>EXAMPLE</span><span>02 · CHOICES</span></div>
-      <div class="ux-example-body">
-        <h2>Now this screen</h2>
-        <p class="ux-example-question">What is the task?</p>
-        <div class="ux-example-grid">
-          <figure class="ux-example-panel ux-example-single">
-            <img src="assets/ui-hick-bad.svg?v=2" alt="Six equal buttons">
-            <figcaption>Six equal actions</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-reveal" data-title="Choices better">
-      <div class="slide-meta"><span>EXAMPLE</span><span>02 · CHOICES</span></div>
-      <div class="ux-example-body">
-        <h2>Better solution</h2>
-        <p class="ux-example-question">One job on this screen. The rest can wait.</p>
-        <div class="ux-example-grid">
-          <figure class="ux-example-panel">
-            <img src="assets/ui-hick-bad.svg?v=2" alt="Six equal buttons">
-            <figcaption>Freeze</figcaption>
-          </figure>
-          <figure class="ux-example-panel is-better">
-            <img src="assets/ui-hick-good.svg?v=2" alt="One primary Post listing button">
-            <figcaption>One primary</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask" data-title="Form ask">
-      <div class="slide-meta"><span>EXAMPLE</span><span>03 · FIELDS</span></div>
-      <div class="ux-example-body">
-        <h2>Can this be filled without a tour?</h2>
-        <p class="ux-example-question">What is each box for? Why did the number fail?</p>
-        <div class="ux-example-grid">
-          <figure class="ux-example-panel ux-example-single">
-            <img src="assets/ui-form-bad.svg?v=2" alt="Unlabelled form fields and a strict error">
-            <figcaption>No labels · fussy error</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-reveal" data-title="Form better">
-      <div class="slide-meta"><span>EXAMPLE</span><span>03 · FIELDS</span></div>
-      <div class="ux-example-body">
-        <h2>Better solution</h2>
-        <p class="ux-example-question">Label. Helper. Only the fields this step needs. Accept a real phone number.</p>
-        <div class="ux-example-grid">
-          <figure class="ux-example-panel">
-            <img src="assets/ui-form-bad.svg?v=2" alt="Unlabelled fields">
-            <figcaption>Guessing</figcaption>
-          </figure>
-          <figure class="ux-example-panel is-better">
-            <img src="assets/ui-form-good.svg?v=2" alt="Labelled phone and meetup fields">
-            <figcaption>This step only</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide approach-intro" data-title="Version 2">
-      <div class="slide-meta"><span>VERSION 02</span><span>REBUILD</span></div>
-      <div class="approach-intro-content">
-        <h2>Rebuild with the <em>kit</em>.</h2>
-        <p class="approach-intro-lede">Same task. Name every control. One primary button.</p>
-      </div>
-    </section>
-
-    <section class="slide lesson-plan" data-title="Three frames">
-      <div class="slide-meta"><span>VERSION 02</span><span>THREE FRAMES</span></div>
-      <div class="lp-body">
-        <div class="lp-heading">
-          <h2>Three frames. Same task.</h2>
-        </div>
-        <ol class="lp-rules lp-rules-standalone">
-          <li><span class="lp-rule-num">01</span><span><strong>Happy path.</strong> They complete the task.</span></li>
-          <li><span class="lp-rule-num">02</span><span><strong>Empty.</strong> First use. Nothing there yet. What should they do?</span></li>
-          <li><span class="lp-rule-num">03</span><span><strong>Error or success.</strong> What the system did. What to do next.</span></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="slide approach-intro" data-title="Walk language">
-      <div class="slide-meta"><span>WALK</span><span>ONLY THIS</span></div>
-      <div class="approach-intro-content">
-        <h2>Too many choices. I cannot hit that. I have never seen that control.</h2>
-      </div>
-    </section>
-
-    <section class="slide approach-intro" data-title="Name laws">
-      <div class="slide-meta"><span>NAME</span><span>LAWS</span></div>
-      <div class="approach-intro-content">
-        <h2>Now we name what you <em>felt</em>.</h2>
-      </div>
-    </section>
-
-    <section class="slide lesson-plan" data-title="Five laws">
-      <div class="slide-meta"><span>LAWS</span><span>FIVE</span></div>
-      <div class="lp-body">
-        <div class="lp-heading">
-          <h2>Five laws. For this screen.</h2>
-          <p class="lp-subtitle">Each one is a sentence you can point at on the frame.</p>
-        </div>
-        <ol class="lp-rules lp-rules-standalone">
-          <li><span class="lp-rule-num">01</span><span><strong>Fitts.</strong> Time to hit a target grows when it is small or far. Make the primary big and close.</span></li>
-          <li><span class="lp-rule-num">02</span><span><strong>Hick.</strong> Time to choose grows with equal options. One primary. Hide or delay the rest.</span></li>
-          <li><span class="lp-rule-num">03</span><span><strong>Jakob.</strong> People spend more time on other screens than yours. Use a pattern they already know.</span></li>
-          <li><span class="lp-rule-num">04</span><span><strong>Miller.</strong> Working memory is small. Do not dump twelve fields on one step.</span></li>
-          <li><span class="lp-rule-num">05</span><span><strong>Postel.</strong> Be generous on input, strict on what you store. Do not reject a real phone number for a space.</span></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="slide lesson-plan" data-title="Norman already">
-      <div class="slide-meta"><span>SESSION 01</span><span>STILL TRUE</span></div>
-      <div class="lp-body">
-        <div class="lp-heading">
-          <h2>You already have these words.</h2>
+          <h2>Add where they are, and a way out.</h2>
         </div>
         <div class="lp-cols">
           <div>
-            <p class="lp-col-label">From the wallet</p>
+            <p class="lp-col-label">On every frame</p>
             <ul class="lp-list">
-              <li><span>Affordance</span></li>
-              <li><span>Signifier</span></li>
-              <li><span>Feedback</span></li>
+              <li><span>A title that matches the sentence</span></li>
+              <li><span>Back, or close, or skip</span></li>
             </ul>
           </div>
           <div>
-            <p class="lp-col-label">On this screen</p>
+            <p class="lp-col-label">Then it has a name</p>
             <ul class="lp-list">
-              <li><span>Does the control look tappable?</span></li>
-              <li><span>Does the label say the action?</span></li>
-              <li><span>Does the system answer after the tap?</span></li>
+              <li><span>That is navigation</span></li>
+              <li><span>Without it, they are trapped in the job</span></li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="slide lesson-plan" data-title="Stranger test">
-      <div class="slide-meta"><span>TEST</span><span>SWAP</span></div>
-      <div class="lp-body">
-        <div class="lp-heading">
-          <h2>Stranger test.</h2>
-          <p class="lp-subtitle">Same rule as the wallet. You stay quiet.</p>
-        </div>
-        <ol class="lp-rules lp-rules-standalone">
-          <li><span class="lp-rule-num">01</span><span>Swap with another group. Share the Figma file, view only.</span></li>
-          <li><span class="lp-rule-num">02</span><span>They attempt the task on the phone frame. No spoken tour.</span></li>
-          <li><span class="lp-rule-num">03</span><span>Log: done / stuck / where.</span></li>
-          <li><span class="lp-rule-num">04</span><span>Original group changes three things. Each change names a law.</span></li>
-        </ol>
+    <section class="slide studio-make" data-title="Pay then paid">
+      <div class="slide-meta"><span>6 · PLAY</span><span>YOUR FILE</span></div>
+      <div class="time-box" aria-hidden="true"><strong>10</strong><span>minutes</span></div>
+      <div>
+        <h2>Pay.<br>Then paid.</h2>
       </div>
     </section>
 
-    <section class="slide lesson-plan" data-title="Deliverable">
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="One noodle">
+      <div class="slide-meta"><span>6 · PLAY</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Prototype tab. Drag from the verb to the after frame. Press play.</p>
+        <span class="studio-key">one noodle · no Smart Animate</span>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Proto weak">
+      <div class="slide-meta"><span>6 · PLAY</span><span>SEE</span></div>
+      <div class="see-one see-flow">
+        <figure>
+          <img src="assets/ui-proto-dead.svg" alt="Pay the mess and Paid sitting apart with no tap between them">
+          <figcaption>A poster. The tap dies</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Proto better">
+      <div class="slide-meta"><span>6 · PLAY</span><span>BETTER</span></div>
+      <div class="see-one see-flow is-better">
+        <figure>
+          <img src="assets/ui-proto-pay.svg" alt="Arrow from Pay Rs 80 to the Paid screen">
+          <figcaption>Pay goes to Paid</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Prototype and feedback">
+      <div class="slide-meta"><span>6 · PLAY</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>If the tap does nothing, it is still a poster.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>Two pictures</h3>
+            <p>The frames sit. They tap Pay. Nothing moves. A stranger cannot finish.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>Pay. Then paid.</h3>
+            <p>The verb goes to after. Done is a way out. That is a simple pay UX they can play.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>Prototype · feedback</h3>
+            <p>UI: a prototype is a tap that lands. Feedback: they feel what the system did. Wire yours. Play it.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. Press play. If the verb does not land, it is not a product yet.</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="The Prototype tab">
+      <div class="slide-meta"><span>6 · PLAY</span><span>FIGMA · PLAY</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">The move</p>
+          <h2>One string from the verb.</h2>
+          <p>Top right: <strong>Prototype</strong>. Click the verb. Drag to the after frame. Press the triangle. One flow.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma/prototype-wire.svg" alt="Figma Prototype tab with a wire from Pay Rs 80 to Paid">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Three checks">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>YOUR FILE</span></div>
+      <div class="time-box" aria-hidden="true"><strong>08</strong><span>minutes</span></div>
+      <div>
+        <h2>Three checks<br>on the same phone.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Squint">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Can you read it if you squint? Does the label sit on the field? Does the tap look like a tap?</p>
+        <span class="studio-key">no new frame · fix the one you have</span>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Contrast weak">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>SEE</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-contrast-weak.svg" alt="Mess pay with type so faint it almost disappears">
+          <figcaption>If you squint, it is gone</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Contrast better">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ui-contrast-good.svg" alt="Mess pay with high contrast type and a lime Pay button">
+          <figcaption>If you squint, the job remains</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Contrast">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>If you squint and the job vanishes, contrast has failed.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>Grey on grey</h3>
+            <p>Pretty in a dark room. Dead in sun, from the back row, or with tired eyes.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>The job still reads</h3>
+            <p>Paper on ink. Lime on dark. Helper is quieter, not invisible.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>Contrast</h3>
+            <p>UI fundamental: type must beat the background. Not decoration. If they cannot read it, there is no interface.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. Squint. If the verb disappears, raise the contrast.</p>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Group weak">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>SEE</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-group-weak.svg" alt="UPI label far from the field, helper far below">
+          <figcaption>Scattered</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Group better">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ui-group-good.svg" alt="Label, field and helper stacked as one group">
+          <figcaption>What belongs, sits together</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Proximity">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>The eye groups what sits together. Use that.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>Label here. Field there</h3>
+            <p>The question and the box are strangers. The helper is an orphan at the bottom.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>One cluster</h3>
+            <p>Label, field, helper as one unit. Then a gap. Then the verb.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>Proximity · Gestalt</h3>
+            <p>UI: grouping is meaning. Gestalt proximity: nearness says “these belong.” Pull the label onto the field on yours.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. If a label could belong to two boxes, the grouping has failed.</p>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Signifier weak">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>SEE</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ui-sign-weak.svg" alt="Pay the mess as a list of words with nothing that looks tappable">
+          <figcaption>Nothing looks like a tap</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Signifier better">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ui-sign-good.svg" alt="Lime Pay button that looks tappable, with help as quiet text">
+          <figcaption>It looks tappable. It is the odd one</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Signifier">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>If you have to say “tap here,” the signifier has failed.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>Words pretending</h3>
+            <p>Pay, Help, Offers. All type. None of them look like a control. The wallet already taught this.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>Looks like a tap</h3>
+            <p>A filled rectangle. A verb. One odd colour. Help stays a line of type.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>Signifier · affordance</h3>
+            <p>Affordance: it can be tapped. Signifier: it looks like it can. Von Restorff: the odd one is the one they remember. Make one thing look like the job.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. Could a stranger tap without you pointing?</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Names you earned">
+      <div class="slide-meta"><span>7 · CRAFT</span><span>POINT AT THE FRAME</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>These names must live on your screen.</h2>
+        </div>
+        <div class="lp-cols">
+          <div>
+            <p class="lp-col-label">UI fundamentals</p>
+            <ul class="lp-list">
+              <li><span>Hierarchy — the job is biggest</span></li>
+              <li><span>Contrast — if you squint, it still reads</span></li>
+              <li><span>Proximity — the label sits on the field</span></li>
+              <li><span>Signifier — it looks tappable</span></li>
+              <li><span>One primary — one lime, the rest quiet</span></li>
+              <li><span>Empty / after — the system still speaks</span></li>
+              <li><span>Way out — they are not trapped</span></li>
+              <li><span>Prototype — the verb goes somewhere</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="lp-col-label">UX laws</p>
+            <ul class="lp-list">
+              <li><span>Fitts — bigger, closer, faster</span></li>
+              <li><span>Hick — equal options freeze the hand</span></li>
+              <li><span>Jakob — like products they already know</span></li>
+              <li><span>Miller — few items this step</span></li>
+              <li><span>Postel — accept real input</span></li>
+              <li><span>Tesler — do not dump complexity on them</span></li>
+              <li><span>Von Restorff — the odd one is remembered</span></li>
+              <li><span>Feedback — say what the system did</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Desk language">
+      <div class="slide-meta"><span>WALK</span><span>FACULTY</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>When I stop at your desk, I will only ask this.</h2>
+        </div>
+        <div class="lp-cols">
+          <div>
+            <p class="lp-col-label">On the phone</p>
+            <ul class="lp-list">
+              <li><span>What is the verb? Can they hit it? Fitts. Signifier.</span></li>
+              <li><span>Squint. Contrast. Does the label sit on the field? Proximity.</span></li>
+              <li><span>What does the system not know? Jakob. Miller. Tesler.</span></li>
+              <li><span>Must they pick, or skip? Hick. One primary — Von Restorff.</span></li>
+              <li><span>Nothing there? After they tap? Feedback. Postel. Way out.</span></li>
+              <li><span>Play it. Does the verb land? Prototype.</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="lp-col-label">On Figma</p>
+            <ul class="lp-list">
+              <li><span>Show me the frame size</span></li>
+              <li><span>Show me the type sizes</span></li>
+              <li><span>Show me the three frames in a row</span></li>
+              <li><span>Show me play. Tap the verb.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide output-slide" data-title="Stay quiet">
+      <div class="slide-meta"><span>SWAP</span><span>12 MINUTES</span></div>
+      <div class="output-content">
+        <p class="eyebrow">The ritual</p>
+        <h2>Give the file.<br>Stay quiet.</h2>
+        <p class="output-subtitle">They tap your verb. You do not talk. Log: done / stuck / where. Then three stickies: the change, and a name from the wall — a UI fundamental or a law.</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Done when">
       <div class="slide-meta"><span>EVIDENCE</span><span>LEAVES THE ROOM</span></div>
       <div class="lp-body">
         <div class="lp-heading">
-          <h2>What leaves the room.</h2>
+          <h2>You are done when a stranger sees this.</h2>
         </div>
-        <ol class="lp-rules lp-rules-standalone">
-          <li><span class="lp-rule-num">01</span><span><strong>Figma link</strong> — anyone with the link can view.</span></li>
-          <li><span class="lp-rule-num">02</span><span><strong>Version 1</strong> and <strong>Version 2</strong> on the same page, labelled.</span></li>
-          <li><span class="lp-rule-num">03</span><span><strong>Empty</strong> and <strong>error/success</strong> frames.</span></li>
-          <li><span class="lp-rule-num">04</span><span><strong>Three sticky notes</strong> on Version 2: the change, and the law.</span></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="slide lesson-plan" data-title="Share link">
-      <div class="slide-meta"><span>FIGMA</span><span>SHARE</span></div>
-      <div class="lp-body">
-        <div class="lp-heading">
-          <h2>Share the file.</h2>
+        <div class="lp-grading">
+          <div class="lp-grade-item"><p class="lp-grade-pct">01</p><p class="lp-grade-label">The sentence. V1 and V2, same page</p></div>
+          <div class="lp-grade-item"><p class="lp-grade-pct">02</p><p class="lp-grade-label">Empty. After. Play Pay to after</p></div>
+          <div class="lp-grade-item"><p class="lp-grade-pct">03</p><p class="lp-grade-label">Three stickies: change + law</p></div>
+          <div class="lp-grade-item"><p class="lp-grade-pct">04</p><p class="lp-grade-label">View link. Private window</p></div>
         </div>
-        <ol class="lp-rules lp-rules-standalone">
-          <li><span class="lp-rule-num">01</span><span><strong>Share</strong> → Anyone with the link can <strong>view</strong>.</span></li>
-          <li><span class="lp-rule-num">02</span><span>Copy the link. Paste it in the class sheet.</span></li>
-          <li><span class="lp-rule-num">03</span><span>Open the link in a private window. If a stranger sees the three frames, you are done.</span></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="slide approach-intro" data-title="Closing">
-      <div class="slide-meta"><span>CLOSE</span><span></span></div>
-      <div class="approach-intro-content">
-        <h2>You are still the <em>designer</em>.</h2>
-        <p class="approach-intro-lede">Figma is the paper. The laws explain the folds.</p>
+        <div class="lp-assignment" style="margin-top:1.5rem">
+          <p class="lp-assignment-label">Share</p>
+          <p>Share → anyone with the link can <strong>view</strong>. Paste it. Open it in a private window. If they can tap the verb and see what happened, stop.</p>
+        </div>
       </div>
     </section>
 
     <section class="slide closing" data-title="Thank you">
       <div class="grid-lines"></div>
-      <div class="slide-meta"><span>SESSION 04</span><span>FIGMA</span></div>
+      <div class="slide-meta"><span>SESSION 04</span><span>YOUR PROJECT</span></div>
       <div class="closing-content">
-        <h2>Thank you.</h2>
+        <h2>You are still<br>the designer.</h2>
+        <p>The file is the evidence. The names wait until the job works.</p>
         <div class="contact">
-          <a href="session-4-guide.html">Figma sheet</a>
+          <a href="session-4-guide.html">Studio sheet</a>
           <a href="notes.html#session-4">Class notes · Session 4</a>
           <a href="session-3.html">Session 3</a>
         </div>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
+  <title>Prototype tab. Drag from Pay to Paid. Press play.</title>
+  <rect width="1200" height="640" fill="#101116"/>
+  <rect x="16" y="16" width="1168" height="608" rx="12" fill="#1a1c22" stroke="#2a2d36"/>
+  <rect x="16" y="16" width="1168" height="44" rx="12" fill="#14161c"/>
+  <rect x="16" y="48" width="1168" height="12" fill="#14161c"/>
+  <text x="36" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">V</text>
+  <text x="64" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">F</text>
+  <text x="92" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">R</text>
+  <text x="120" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">T</text>
+  <text x="900" y="42" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" font-weight="700">Design</text>
+  <rect x="968" y="24" width="92" height="22" rx="5" fill="#d4f169"/>
+  <text x="1014" y="40" fill="#101116" font-family="system-ui,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Prototype</text>
+  <polygon points="1088,28 1104,35 1088,42" fill="#d4f169"/>
+  <rect x="216" y="80" width="200" height="500" rx="24" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".25"/>
+  <text x="316" y="120" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11" text-anchor="middle">READY</text>
+  <text x="236" y="168" fill="#ece9e1" font-family="Georgia,serif" font-size="16">Pay the mess</text>
+  <text x="236" y="196" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Rs 80  lunch</text>
+  <rect x="236" y="500" width="160" height="36" rx="8" fill="#d4f169"/>
+  <text x="316" y="524" fill="#101116" font-family="system-ui,sans-serif" font-size="12" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+  <rect x="784" y="80" width="200" height="500" rx="24" fill="#1b1d24" stroke="#d4f169" stroke-opacity=".55"/>
+  <text x="884" y="120" fill="#d4f169" font-family="system-ui,sans-serif" font-size="11" text-anchor="middle">AFTER</text>
+  <text x="804" y="168" fill="#ece9e1" font-family="Georgia,serif" font-size="16">Paid</text>
+  <text x="804" y="196" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Rs 80  12:14 pm</text>
+  <rect x="804" y="500" width="160" height="36" rx="8" fill="#d4f169"/>
+  <text x="884" y="524" fill="#101116" font-family="system-ui,sans-serif" font-size="12" font-weight="700" text-anchor="middle">Done</text>
+  <path d="M396 518 C 520 518, 620 280, 784 160" fill="none" stroke="#d4f169" stroke-width="3"/>
+  <polygon points="784,160 770,174 798,168" fill="#d4f169"/>
+  <circle cx="396" cy="518" r="7" fill="#d4f169"/>
+  <text x="590" y="360" fill="#d4f169" font-family="system-ui,sans-serif" font-size="13" font-weight="700" text-anchor="middle">On tap  Navigate to</text>
+</svg>

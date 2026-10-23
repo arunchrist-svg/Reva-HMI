@@ -58,12 +58,12 @@ window.CLASS_GALLERY = {
       id: "session-4",
       number: "04",
       date: "24 October 2026",
-      title: "Make the screen",
-      focus: "One Figma phone frame for the project's primary task. Components, then UX laws, from what failed.",
+      title: "Open an app",
+      focus: "Phone first: what is this screen, why does it exist. Then draw that job in Figma.",
       status: "published",
       slides: [
         { label: "Session 4 deck", href: "session-4.html", note: "Classroom" },
-        { label: "Figma sheet", href: "session-4-guide.html", note: "Keep open" }
+        { label: "Studio sheet", href: "session-4-guide.html", note: "Keep open" }
       ],
       notes: { label: "Class notes", href: "notes.html#session-4" },
       assignmentIds: ["assign-primary-screen"]
@@ -99,7 +99,7 @@ window.CLASS_GALLERY = {
       session: "04",
       title: "Primary screen in Figma",
       due: "End of Session 4",
-      summary: "One phone frame. Version 1, Version 2, empty and error frames, three law-backed changes. Share a view link.",
+      summary: "One phone frame. Version 1, Version 2, empty and after, a playable Pay-to-after prototype, three law-backed changes. Share a view link.",
       href: "notes.html#s4-assignment"
     }
   ]

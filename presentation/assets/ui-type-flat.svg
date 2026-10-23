@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>All type the same size. No hierarchy.</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".2"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <g fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14">
+    <text x="48" y="88">Mess pay</text>
+    <text x="48" y="120">Today</text>
+    <text x="48" y="152">Rs 80</text>
+    <text x="48" y="184">UPI</text>
+    <text x="48" y="216">Pay</text>
+    <text x="48" y="248">Help</text>
+    <text x="48" y="280">History</text>
+    <text x="48" y="312">Offers</text>
+  </g>
+  <text x="140" y="510" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11" text-anchor="middle">Everything equal. Nothing is the job.</text>
+</svg>

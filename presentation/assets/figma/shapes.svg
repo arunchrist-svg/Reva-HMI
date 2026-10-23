@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
+  <title>R draws a rectangle. Fill it. That is a button.</title>
+  <rect width="1200" height="640" fill="#101116"/>
+  <rect x="16" y="16" width="1168" height="608" rx="12" fill="#1a1c22" stroke="#2a2d36"/>
+  <rect x="16" y="16" width="1168" height="44" rx="12" fill="#14161c"/>
+  <rect x="16" y="48" width="1168" height="12" fill="#14161c"/>
+  <text x="36" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">V</text>
+  <text x="64" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">F</text>
+  <rect x="84" y="26" width="28" height="22" rx="5" fill="#d4f169"/>
+  <text x="98" y="42" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="800" text-anchor="middle">R</text>
+  <text x="126" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">T</text>
+  <rect x="216" y="60" width="740" height="564" fill="#101116"/>
+  <rect x="468" y="92" width="236" height="500" rx="28" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".18"/>
+  <rect x="560" y="108" width="52" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="496" y="180" fill="#ece9e1" font-family="Georgia,serif" font-size="18">Post this item</text>
+  <rect x="496" y="210" width="180" height="96" rx="8" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/>
+  <rect x="496" y="500" width="180" height="48" rx="10" fill="#d4f169"/>
+  <text x="586" y="530" fill="#101116" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Post listing</text>
+  <rect x="956" y="60" width="228" height="564" fill="#16181e"/>
+  <text x="976" y="92" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">FILL</text>
+  <rect x="976" y="112" width="28" height="28" rx="6" fill="#d4f169"/>
+  <text x="1016" y="132" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12">Lime</text>
+  <text x="976" y="176" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">A button is a rectangle</text>
+  <text x="976" y="198" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">plus text on top.</text>
+</svg>

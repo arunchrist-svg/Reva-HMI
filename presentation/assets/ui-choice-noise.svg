@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>Too many equal choices</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".2"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="48" y="80" fill="#ece9e1" font-family="Georgia,serif" font-size="18">How will you pay</text>
+  <g font-family="system-ui,sans-serif" font-size="13" fill="#ece9e1">
+    <rect x="48" y="108" width="184" height="40" rx="8" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/>
+    <text x="64" y="133">UPI</text>
+    <rect x="48" y="156" width="184" height="40" rx="8" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/>
+    <text x="64" y="181">Card</text>
+    <rect x="48" y="204" width="184" height="40" rx="8" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/>
+    <text x="64" y="229">Net banking</text>
+    <rect x="48" y="252" width="184" height="40" rx="8" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/>
+    <text x="64" y="277">Wallet</text>
+    <rect x="48" y="300" width="184" height="40" rx="8" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/>
+    <text x="64" y="325">Cash later</text>
+    <rect x="48" y="348" width="184" height="40" rx="8" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/>
+    <text x="64" y="373">Campus card</text>
+    <rect x="48" y="396" width="184" height="40" rx="8" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/>
+    <text x="64" y="421">Someone else</text>
+    <rect x="48" y="444" width="184" height="40" rx="8" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/>
+    <text x="64" y="469">Skip for now</text>
+  </g>
+</svg>

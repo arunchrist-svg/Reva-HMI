@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
+  <title>In Figma, type size on the right is hierarchy</title>
+  <rect width="1200" height="640" fill="#101116"/>
+  <rect x="16" y="16" width="1168" height="608" rx="12" fill="#1a1c22" stroke="#2a2d36"/>
+  <rect x="16" y="16" width="1168" height="44" rx="12" fill="#14161c"/>
+  <rect x="16" y="48" width="1168" height="12" fill="#14161c"/>
+  <text x="36" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">V</text>
+  <text x="64" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">F</text>
+  <text x="92" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">R</text>
+  <rect x="112" y="26" width="28" height="22" rx="5" fill="#d4f169"/>
+  <text x="126" y="42" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="800" text-anchor="middle">T</text>
+  <rect x="216" y="60" width="740" height="564" fill="#101116"/>
+  <rect x="458" y="100" width="256" height="480" rx="28" fill="#1b1d24" stroke="#d4f169" stroke-opacity=".55"/>
+  <text x="486" y="168" fill="#ece9e1" font-family="Georgia,serif" font-size="26">Pay the mess</text>
+  <text x="486" y="208" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14">Rs 80  lunch</text>
+  <rect x="486" y="500" width="200" height="44" rx="10" fill="#d4f169"/>
+  <text x="586" y="528" fill="#101116" font-family="system-ui,sans-serif" font-size="15" font-weight="700" text-anchor="middle">Pay</text>
+  <rect x="956" y="60" width="228" height="564" fill="#16181e"/>
+  <text x="976" y="92" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">TEXT</text>
+  <text x="976" y="132" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Size</text>
+  <text x="976" y="168" fill="#d4f169" font-family="system-ui,sans-serif" font-size="28" font-weight="700">32</text>
+  <text x="976" y="208" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Job = big. Helper = small.</text>
+  <text x="976" y="236" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">The right panel is hierarchy.</text>
+</svg>
