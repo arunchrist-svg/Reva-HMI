@@ -98,7 +98,7 @@ window.CLASS_GALLERY = {
       id: "assign-primary-screen",
       session: "04",
       title: "Primary screen in Figma",
-      due: "End of Session 4",
+      due: "Before Session 5",
       summary: "One phone frame. Version 1, Version 2, empty and after, a playable Pay-to-after prototype, three law-backed changes. Share a view link.",
       href: "notes.html#s4-assignment"
     }

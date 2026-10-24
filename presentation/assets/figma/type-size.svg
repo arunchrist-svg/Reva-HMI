@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
-  <title>In Figma, type size on the right is hierarchy</title>
+  <title>Click Pay the mess. Change Size to 32</title>
   <rect width="1200" height="640" fill="#101116"/>
   <rect x="16" y="16" width="1168" height="608" rx="12" fill="#1a1c22" stroke="#2a2d36"/>
   <rect x="16" y="16" width="1168" height="44" rx="12" fill="#14161c"/>
@@ -20,6 +20,6 @@
   <text x="976" y="92" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">TEXT</text>
   <text x="976" y="132" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Size</text>
   <text x="976" y="168" fill="#d4f169" font-family="system-ui,sans-serif" font-size="28" font-weight="700">32</text>
-  <text x="976" y="208" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Job = big. Helper = small.</text>
-  <text x="976" y="236" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">The right panel is hierarchy.</text>
+  <text x="976" y="208" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">This line is the job.</text>
+  <text x="976" y="236" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Lunch stays 14.</text>
 </svg>

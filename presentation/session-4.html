@@ -321,12 +321,17 @@
       max-width: 42ch;
     }
 
+    .slide.name-slide { display: none; }
+    .slide.name-slide.is-active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
     .name-slide {
       background: var(--lime);
       color: var(--ink);
       padding: 3.5rem 5.7vw 4rem;
     }
-    .name-slide.is-active { justify-content: center; }
     .name-slide .slide-meta { color: rgba(16, 17, 22, 0.55); top: 3.5rem; }
     .name-slide .approach-intro-content {
       width: 100%;
@@ -336,27 +341,107 @@
     .studio-crit.is-active { justify-content: center; }
     .studio-crit { padding: 3.5rem 5.7vw 3rem; }
     .name-slide .eyebrow { color: #46511d; }
-    .name-kicker {
+    .name-slide .name-kicker { display: none; }
+    body.deck-v2 .name-slide h2,
+    .name-slide h2 {
+      font-size: clamp(3.6rem, 8vw, 8.2rem);
+      line-height: 0.88;
+      max-width: 14ch;
+      letter-spacing: -0.045em;
+    }
+    .name-slide .law-def {
+      margin-top: 1.25rem;
+      max-width: 42ch;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2vw, 1.85rem);
+      line-height: 1.28;
+      border: 0;
+      padding: 0;
+    }
+    .name-slide .take-label {
+      display: block;
+      margin: 1.5rem 0 0.55rem;
       font-size: 11px;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       font-weight: 800;
       color: #46511d;
-      margin-bottom: 1rem;
     }
-    .name-slide h2 {
-      font-size: clamp(3.4rem, 6.4vw, 7rem);
-      line-height: 0.92;
-      max-width: 16ch;
-    }
-    .name-slide p {
-      margin-top: 1.6rem;
-      max-width: 28ch;
-      font-family: var(--serif);
-      font-size: clamp(1.35rem, 2.1vw, 1.9rem);
-      line-height: 1.3;
+    .name-slide .takeaways {
+      list-style: none;
+      margin: 0;
+      padding: 0.75rem 0 0;
       border-top: 1px solid rgba(16, 17, 22, 0.28);
-      padding-top: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+      max-width: 52ch;
+    }
+    .name-slide .takeaways li {
+      font-size: clamp(0.88rem, 1.2vw, 1.08rem);
+      line-height: 1.35;
+      color: var(--ink);
+    }
+    .slide.law-ex { display: none; }
+    .slide.law-ex.is-active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .law-ex { padding: 3.5rem 5.7vw 3rem; }
+    .law-ex-body {
+      width: 100%;
+      max-width: 1280px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: minmax(240px, 0.85fr) 1.15fr;
+      gap: clamp(1.4rem, 3.5vw, 3rem);
+      align-items: center;
+    }
+    .law-ex figure {
+      margin: 0;
+      background: #101116;
+      border: 1px solid var(--line);
+    }
+    .law-ex figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .law-ex .eyebrow { color: var(--lime); }
+    .law-ex h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+      line-height: 1.05;
+      margin: 0.25rem 0 1.1rem;
+    }
+    .ex-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .ex-grid article {
+      background: var(--surface);
+      padding: 1.05rem 1.15rem 1.15rem;
+    }
+    .ex-grid span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--lime);
+    }
+    .ex-grid p {
+      margin: 0.35rem 0 0;
+      font-family: var(--serif);
+      font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+      line-height: 1.3;
+      color: var(--paper);
+    }
+    @media (max-width: 800px) {
+      .law-ex-body { grid-template-columns: 1fr; }
     }
 
     body.deck-v2 .ux-example-panel img {
@@ -605,20 +690,6 @@
       </div>
     </section>
 
-    <section class="slide figma-shots ux-example" data-title="The phone is the brief">
-      <div class="slide-meta"><span>1 · CONSTRAIN</span><span>FIGMA · F</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Problem 1</p>
-          <h2>The phone is the brief.</h2>
-          <p>Loose rectangles on an infinite canvas are not a product. Press <strong>F</strong>. Size <strong>390 × 844</strong>. Name the frame with your sentence.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma/constrain.svg" alt="Infinite canvas of loose rectangles versus a named 390 by 844 phone frame">
-        </figure>
-      </div>
-    </section>
-
     <section class="slide studio-make" data-title="Put a phone down">
       <div class="slide-meta"><span>1 · CONSTRAIN</span><span>YOUR FILE</span></div>
       <div class="time-box" aria-hidden="true"><strong>08</strong><span>minutes</span></div>
@@ -697,16 +768,53 @@
       </div>
     </section>
 
+    <section class="slide name-slide" data-title="Law Miller">
+      <div class="slide-meta"><span>THE LAW</span><span>MILLER'S LAW</span></div>
+      <div class="approach-intro-content">
+        <h2>Miller's Law</h2>
+        <p class="law-def">The average person can only keep 7 (plus or minus 2) items in their working memory.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>Don't use the "magical number seven" to justify unnecessary design limitations.</li>
+          <li>Organize content into smaller chunks to help users process, understand, and memorize easily.</li>
+          <li>Remember that short-term memory capacity will vary per individual, based on their prior knowledge and situational context.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Miller examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>MILLER'S LAW</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/miller.svg" alt="A crowd of dots versus three chunks you can hold">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>Chunk it, or they lose the middle.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>A phone number in chunks: 98765 43210. Ten digits in one blob, you lose the middle.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>This screen asks for one fact. Twelve boxes is a crowd working memory cannot hold.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide figma-shots ux-example" data-title="Size is hierarchy">
       <div class="slide-meta"><span>2 · TYPE</span><span>FIGMA · T</span></div>
       <div class="ux-example-grid">
         <div class="ux-example-copy">
-          <p class="eyebrow">The right panel</p>
-          <h2>Size is how Figma ranks the job.</h2>
-          <p>Select the line. Change the number. Do not hunt fonts. Hierarchy is a size decision.</p>
+          <p class="eyebrow">The move</p>
+          <h2>The job is 32. The fact is 14.</h2>
+          <p>Click Pay the mess. Change Size. Leave lunch small. A new font is not hierarchy.</p>
         </div>
         <figure class="ux-example-panel">
-          <img src="assets/figma/type-size.svg" alt="Figma text tool selected, type size 32 on the right panel">
+          <img src="assets/figma/type-size.svg" alt="Pay the mess set to size 32. Lunch stays 14.">
         </figure>
       </div>
     </section>
@@ -773,6 +881,81 @@
       </div>
     </section>
 
+    <section class="slide name-slide" data-title="Law Fitts">
+      <div class="slide-meta"><span>THE LAW</span><span>FITTS'S LAW</span></div>
+      <div class="approach-intro-content">
+        <h2>Fitts's Law</h2>
+        <p class="law-def">The time to acquire a target is a function of the distance to and size of the target.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>Touch targets should be large enough for users to accurately select them.</li>
+          <li>Touch targets should have ample spacing between them.</li>
+          <li>Touch targets should be placed in areas of an interface that allow them to be easily acquired.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Fitts examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>FITTS'S LAW</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/fitts.svg" alt="A small far target versus a large Pay the thumb can hit">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>Bigger and closer is faster.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>The big red stop button on the bus. The tiny bell on the ceiling. The thumb goes to the big one.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>Pay Rs 80 is wide at the thumb. A speck Go in the corner is slow and missable.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Law Von Restorff">
+      <div class="slide-meta"><span>THE LAW</span><span>VON RESTORFF EFFECT</span></div>
+      <div class="approach-intro-content">
+        <h2>Von Restorff Effect</h2>
+        <p class="law-def">The Von Restorff effect, also known as The Isolation Effect, predicts that when multiple similar objects are present, the one that differs from the rest is most likely to be remembered.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>Make important information or key actions visually distinctive.</li>
+          <li>Use restraint when placing emphasis on visual elements to avoid them competing with one another and to ensure salient items don't get mistakenly identified as ads.</li>
+          <li>Don't exclude those with a color vision deficiency or low vision by relying exclusively on color to communicate contrast.</li>
+          <li>Carefully consider users with motion sensitivity when using motion to communicate contrast.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Von Restorff examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>VON RESTORFF EFFECT</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/vonrestorff.svg" alt="One lime Pay standing out from a row of grey bars">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>The odd one is the one they find.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>One red bag on a rack of black. That is the one you remember.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>One lime Pay. Two lime buttons cancel each other. The odd colour is the job.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide studio-make" data-title="One question">
       <div class="slide-meta"><span>4 · ASK</span><span>YOUR FILE</span></div>
       <div class="time-box" aria-hidden="true"><strong>10</strong><span>minutes</span></div>
@@ -832,6 +1015,81 @@
           </article>
         </div>
         <p class="best-yours">Look at yours. If you have to speak the label, the screen is mute.</p>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Law Jakob">
+      <div class="slide-meta"><span>THE LAW</span><span>JAKOB'S LAW</span></div>
+      <div class="approach-intro-content">
+        <h2>Jakob's Law</h2>
+        <p class="law-def">Users spend most of their time on other sites. This means that users prefer your site to work the same way as all the other sites they already know.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>Users will transfer expectations they have built around one familiar product to another that appears similar.</li>
+          <li>By leveraging existing mental models, we can create superior user experiences in which the users can focus on their tasks rather than on learning new models.</li>
+          <li>When making changes, minimize discord by empowering users to continue using a familiar version for a limited time.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Jakob examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>JAKOB'S LAW</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/jakob.svg" alt="An ATM of card PIN cash beside a form of label field Pay">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>Work like the thing they already use.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>Every ATM: card, PIN, cash. The one that invents a new dance loses the queue.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>Label above the field, like every UPI they have used. A new control is a new dance.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Law Tesler">
+      <div class="slide-meta"><span>THE LAW</span><span>TESLER'S LAW</span></div>
+      <div class="approach-intro-content">
+        <h2>Tesler's Law</h2>
+        <p class="law-def">Tesler's Law, also known as The Law of Conservation of Complexity, states that for any system there is a certain amount of complexity which cannot be reduced.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>All processes have a core of complexity that cannot be designed away and therefore must be assumed by either the system or the user.</li>
+          <li>Ensure as much as possible of the burden is lifted from users by dealing with inherent complexity during design and development.</li>
+          <li>Remember to not build products and services for an idealized, rational user, because people don't always behave rationally in real life.</li>
+          <li>Make guidance accessible and fit within the context of use so that it can help these active new users, no matter what path they choose to take.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Tesler examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>TESLER'S LAW</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/tesler.svg" alt="Complexity dumped on the person versus held in the system">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>The system does the homework.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>The cashier already knows the thali is Rs 80. Asking you to add it up is their work on your time.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>The mess already knows Rs 80. Making them type the amount again is your complexity on their thumb.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -897,6 +1155,45 @@
       </div>
     </section>
 
+    <section class="slide name-slide" data-title="Law Hick">
+      <div class="slide-meta"><span>THE LAW</span><span>HICK'S LAW</span></div>
+      <div class="approach-intro-content">
+        <h2>Hick's Law</h2>
+        <p class="law-def">The time it takes to make a decision increases with the number and complexity of choices.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>Minimize choices when response times are critical to decrease decision time.</li>
+          <li>Break complex tasks into smaller steps in order to decrease cognitive load.</li>
+          <li>Avoid overwhelming users by highlighting recommended options.</li>
+          <li>Use progressive onboarding to minimize cognitive load for new users.</li>
+          <li>Be careful not to simplify to the point of abstraction.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Hick examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>HICK'S LAW</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/hick.svg" alt="A stack of equal rows with UPI last used highlighted">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>Equal options freeze the hand.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>Two chutneys, you pick. A thali with eighteen bowls, you freeze.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>UPI last used is already chosen. Eight equal payment rows stall lunch.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide studio-make" data-title="Three frames">
       <div class="slide-meta"><span>5 · STATES</span><span>YOUR FILE</span></div>
       <div class="time-box" aria-hidden="true"><strong>15</strong><span>minutes</span></div>
@@ -959,6 +1256,43 @@
       </div>
     </section>
 
+    <section class="slide name-slide" data-title="Law Feedback">
+      <div class="slide-meta"><span>THE LAW</span><span>FEEDBACK</span></div>
+      <div class="approach-intro-content">
+        <h2>Feedback</h2>
+        <p class="law-def">The system should always keep people informed about what is going on, through timely and appropriate feedback.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>Every state still speaks: empty, loading, error, success.</li>
+          <li>Say what happened, not a code.</li>
+          <li>Give a next tap. Silence feels like a broken product.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Feedback examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>FEEDBACK</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/empty.svg" alt="Nothing due today with a See history tap">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>A blank screen is not a state. It is a hole.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>Empty fridge, a note: Milk. Here's the list. A blank fridge, you just stare.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>Nothing due still has a tap. Nothing here, with no next action, feels broken.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide see-pair" data-title="After weak">
       <div class="slide-meta"><span>5 · STATES</span><span>SEE</span></div>
       <div class="see-one">
@@ -1005,6 +1339,44 @@
       </div>
     </section>
 
+    <section class="slide name-slide" data-title="Law Postel">
+      <div class="slide-meta"><span>THE LAW</span><span>POSTEL'S LAW</span></div>
+      <div class="approach-intro-content">
+        <h2>Postel's Law</h2>
+        <p class="law-def">Be liberal in what you accept, and conservative in what you send.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>Be empathetic to, flexible about, and tolerant of any of the various actions the user could take or any input they might provide.</li>
+          <li>Anticipate virtually anything in terms of input, access, and capability while providing a reliable and accessible interface.</li>
+          <li>The more we can anticipate and plan for in design, the more resilient the design will be.</li>
+          <li>Accept variable input from users, translating that input to meet your requirements, defining boundaries for input, and providing clear feedback to the user.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Postel examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>POSTEL'S LAW</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/postel.svg" alt="Messy input pouring into a funnel that still sends">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>Accept a real number. Be strict in what you store.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>The canteen still takes a crumpled note. They do not send you back for a crisp one.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>A real UPI with a space still sends. Rejecting arun @okaxis is strict in the wrong place.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide figma-shots ux-example" data-title="Duplicate the frame">
       <div class="slide-meta"><span>5 · STATES</span><span>FIGMA · ⌘D</span></div>
       <div class="ux-example-grid">
@@ -1044,84 +1416,8 @@
       </div>
     </section>
 
-    <section class="slide studio-make" data-title="Pay then paid">
-      <div class="slide-meta"><span>6 · PLAY</span><span>YOUR FILE</span></div>
-      <div class="time-box" aria-hidden="true"><strong>10</strong><span>minutes</span></div>
-      <div>
-        <h2>Pay.<br>Then paid.</h2>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="One noodle">
-      <div class="slide-meta"><span>6 · PLAY</span><span>HINT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Prototype tab. Drag from the verb to the after frame. Press play.</p>
-        <span class="studio-key">one noodle · no Smart Animate</span>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="Proto weak">
-      <div class="slide-meta"><span>6 · PLAY</span><span>SEE</span></div>
-      <div class="see-one see-flow">
-        <figure>
-          <img src="assets/ui-proto-dead.svg" alt="Pay the mess and Paid sitting apart with no tap between them">
-          <figcaption>A poster. The tap dies</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="Proto better">
-      <div class="slide-meta"><span>6 · PLAY</span><span>BETTER</span></div>
-      <div class="see-one see-flow is-better">
-        <figure>
-          <img src="assets/ui-proto-pay.svg" alt="Arrow from Pay Rs 80 to the Paid screen">
-          <figcaption>Pay goes to Paid</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide best-slide" data-title="Prototype and feedback">
-      <div class="slide-meta"><span>6 · PLAY</span><span>THE BEST</span></div>
-      <div class="best-body">
-        <p class="eyebrow">The improvement</p>
-        <h2>If the tap does nothing, it is still a poster.</h2>
-        <div class="best-grid">
-          <article>
-            <span>Failed</span>
-            <h3>Two pictures</h3>
-            <p>The frames sit. They tap Pay. Nothing moves. A stranger cannot finish.</p>
-          </article>
-          <article class="is-best">
-            <span>Best</span>
-            <h3>Pay. Then paid.</h3>
-            <p>The verb goes to after. Done is a way out. That is a simple pay UX they can play.</p>
-          </article>
-          <article>
-            <span>UI + law</span>
-            <h3>Prototype · feedback</h3>
-            <p>UI: a prototype is a tap that lands. Feedback: they feel what the system did. Wire yours. Play it.</p>
-          </article>
-        </div>
-        <p class="best-yours">Look at yours. Press play. If the verb does not land, it is not a product yet.</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="The Prototype tab">
-      <div class="slide-meta"><span>6 · PLAY</span><span>FIGMA · PLAY</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">The move</p>
-          <h2>One string from the verb.</h2>
-          <p>Top right: <strong>Prototype</strong>. Click the verb. Drag to the after frame. Press the triangle. One flow.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma/prototype-wire.svg" alt="Figma Prototype tab with a wire from Pay Rs 80 to Paid">
-        </figure>
-      </div>
-    </section>
-
     <section class="slide studio-make" data-title="Three checks">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>YOUR FILE</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>YOUR FILE</span></div>
       <div class="time-box" aria-hidden="true"><strong>08</strong><span>minutes</span></div>
       <div>
         <h2>Three checks<br>on the same phone.</h2>
@@ -1129,7 +1425,7 @@
     </section>
 
     <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Squint">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>HINT</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>HINT</span></div>
       <div class="ux-example-body">
         <p class="ux-example-question">Can you read it if you squint? Does the label sit on the field? Does the tap look like a tap?</p>
         <span class="studio-key">no new frame · fix the one you have</span>
@@ -1137,7 +1433,7 @@
     </section>
 
     <section class="slide see-pair" data-title="Contrast weak">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>SEE</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>SEE</span></div>
       <div class="see-one">
         <figure>
           <img src="assets/ui-contrast-weak.svg" alt="Mess pay with type so faint it almost disappears">
@@ -1147,7 +1443,7 @@
     </section>
 
     <section class="slide see-pair" data-title="Contrast better">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>BETTER</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>BETTER</span></div>
       <div class="see-one is-better">
         <figure>
           <img src="assets/ui-contrast-good.svg" alt="Mess pay with high contrast type and a lime Pay button">
@@ -1157,7 +1453,7 @@
     </section>
 
     <section class="slide best-slide" data-title="Contrast">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>THE BEST</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>THE BEST</span></div>
       <div class="best-body">
         <p class="eyebrow">The improvement</p>
         <h2>If you squint and the job vanishes, contrast has failed.</h2>
@@ -1182,8 +1478,45 @@
       </div>
     </section>
 
+    <section class="slide name-slide" data-title="Law Contrast">
+      <div class="slide-meta"><span>THE LAW</span><span>CONTRAST</span></div>
+      <div class="approach-intro-content">
+        <h2>Contrast</h2>
+        <p class="law-def">Type and controls must beat the background enough that the job still reads under glare, distance, and tired eyes.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>If you squint and the job vanishes, contrast has failed.</li>
+          <li>Helper type can be quieter. It cannot be invisible.</li>
+          <li>Pretty in a dark room is not the test. The courtyard at 1pm is.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Contrast examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>CONTRAST</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/contrast.svg" alt="Grey Pay that disappears versus paper Pay that still reads">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>If you squint, it still reads.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>Chalk on a dusty board dies at the last bench. Marker on white still reads.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>Grey Pay dies in the courtyard at 1pm. Lime on dark still reads from the back row.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide see-pair" data-title="Group weak">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>SEE</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>SEE</span></div>
       <div class="see-one">
         <figure>
           <img src="assets/ui-group-weak.svg" alt="UPI label far from the field, helper far below">
@@ -1193,7 +1526,7 @@
     </section>
 
     <section class="slide see-pair" data-title="Group better">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>BETTER</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>BETTER</span></div>
       <div class="see-one is-better">
         <figure>
           <img src="assets/ui-group-good.svg" alt="Label, field and helper stacked as one group">
@@ -1203,7 +1536,7 @@
     </section>
 
     <section class="slide best-slide" data-title="Proximity">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>THE BEST</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>THE BEST</span></div>
       <div class="best-body">
         <p class="eyebrow">The improvement</p>
         <h2>The eye groups what sits together. Use that.</h2>
@@ -1228,8 +1561,45 @@
       </div>
     </section>
 
+    <section class="slide name-slide" data-title="Law Proximity">
+      <div class="slide-meta"><span>THE LAW</span><span>LAW OF PROXIMITY</span></div>
+      <div class="approach-intro-content">
+        <h2>Law of Proximity</h2>
+        <p class="law-def">Objects that are near, or proximate to each other, tend to be grouped together.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>Proximity helps to establish a relationship with nearby objects.</li>
+          <li>Elements in close proximity are perceived to share similar functionality or traits.</li>
+          <li>Proximity helps users understand and organize information faster and more efficiently.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Proximity examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>LAW OF PROXIMITY</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/proximity.svg" alt="UPI label sitting on its field versus a label hunting a distant box">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>What sits together, belongs together.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>Salt sits with the food. Salt at the sink is a hunt.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>UPI ID sits on the box. A label at the top and a field at the thumb are strangers.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide see-pair" data-title="Signifier weak">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>SEE</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>SEE</span></div>
       <div class="see-one">
         <figure>
           <img src="assets/ui-sign-weak.svg" alt="Pay the mess as a list of words with nothing that looks tappable">
@@ -1239,7 +1609,7 @@
     </section>
 
     <section class="slide see-pair" data-title="Signifier better">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>BETTER</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>BETTER</span></div>
       <div class="see-one is-better">
         <figure>
           <img src="assets/ui-sign-good.svg" alt="Lime Pay button that looks tappable, with help as quiet text">
@@ -1249,7 +1619,7 @@
     </section>
 
     <section class="slide best-slide" data-title="Signifier">
-      <div class="slide-meta"><span>7 · CRAFT</span><span>THE BEST</span></div>
+      <div class="slide-meta"><span>6 · CRAFT</span><span>THE BEST</span></div>
       <div class="best-body">
         <p class="eyebrow">The improvement</p>
         <h2>If you have to say “tap here,” the signifier has failed.</h2>
@@ -1271,6 +1641,156 @@
           </article>
         </div>
         <p class="best-yours">Look at yours. Could a stranger tap without you pointing?</p>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Law Signifier">
+      <div class="slide-meta"><span>THE LAW</span><span>SIGNIFIER</span></div>
+      <div class="approach-intro-content">
+        <h2>Signifier</h2>
+        <p class="law-def">A signifier communicates where the action should take place. Affordance is what is possible. The signifier is how they know.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>If you have to say "tap here," the signifier has failed.</li>
+          <li>One control should look like a tap. The rest can stay type.</li>
+          <li>Don't make every line look equally tappable.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Signifier examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>SIGNIFIER</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/signifier.svg" alt="The word Pay as a sentence versus a filled lime tap">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>It looks tappable.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>A handle says pull. A flat plate says push. A blank door makes you look stupid.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>A filled lime block looks like a tap. The word Pay as a sentence is a poster.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Pay then paid">
+      <div class="slide-meta"><span>7 · PLAY</span><span>YOUR FILE</span></div>
+      <div class="time-box" aria-hidden="true"><strong>12</strong><span>minutes</span></div>
+      <div>
+        <h2>Pay.<br>Then paid.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="One noodle">
+      <div class="slide-meta"><span>7 · PLAY</span><span>HINT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Prototype tab. Drag from the verb to the after frame. Press play.</p>
+        <span class="studio-key">one noodle · no Smart Animate</span>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Proto weak">
+      <div class="slide-meta"><span>7 · PLAY</span><span>SEE</span></div>
+      <div class="see-one see-flow">
+        <figure>
+          <img src="assets/ui-proto-dead.svg" alt="Pay the mess and Paid sitting apart with no tap between them">
+          <figcaption>A poster. The tap dies</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Proto better">
+      <div class="slide-meta"><span>7 · PLAY</span><span>BETTER</span></div>
+      <div class="see-one see-flow is-better">
+        <figure>
+          <img src="assets/ui-proto-pay.svg" alt="Arrow from Pay Rs 80 to the Paid screen">
+          <figcaption>Pay goes to Paid</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Prototype and feedback">
+      <div class="slide-meta"><span>7 · PLAY</span><span>THE BEST</span></div>
+      <div class="best-body">
+        <p class="eyebrow">The improvement</p>
+        <h2>If the tap does nothing, it is still a poster.</h2>
+        <div class="best-grid">
+          <article>
+            <span>Failed</span>
+            <h3>Two pictures</h3>
+            <p>The frames sit. They tap Pay. Nothing moves. A stranger cannot finish.</p>
+          </article>
+          <article class="is-best">
+            <span>Best</span>
+            <h3>Pay. Then paid.</h3>
+            <p>The verb goes to after. Done is a way out. That is a simple pay UX they can play.</p>
+          </article>
+          <article>
+            <span>UI + law</span>
+            <h3>Prototype · feedback</h3>
+            <p>UI: a prototype is a tap that lands. Feedback: they feel what the system did. Wire yours. Play it.</p>
+          </article>
+        </div>
+        <p class="best-yours">Look at yours. Press play. If the verb does not land, it is not a product yet.</p>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Law tap lands">
+      <div class="slide-meta"><span>THE LAW</span><span>FEEDBACK</span></div>
+      <div class="approach-intro-content">
+        <h2>Feedback</h2>
+        <p class="law-def">The system should always keep people informed about what is going on, through timely and appropriate feedback.</p>
+        <span class="take-label">Takeaways</span>
+        <ul class="takeaways">
+          <li>A tap that does nothing feels broken.</li>
+          <li>They must feel what happened, and what to do next.</li>
+          <li>Play the flow. If the verb does not land, it is a poster.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Tap lands examples">
+      <div class="slide-meta"><span>EXAMPLES</span><span>FEEDBACK</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/laws/prototype.svg" alt="A lime string from Pay Rs 80 landing on Paid">
+        </figure>
+        <div>
+          <p class="eyebrow">Examples</p>
+          <h2>The tap must land.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>World</span>
+              <p>A light switch that is not wired. You flip it. The room stays dark. You stop trusting the next switch.</p>
+            </article>
+            <article>
+              <span>On yours</span>
+              <p>Play. Tap Pay Rs 80. Land on Paid. If nothing moves, you drew a poster.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="The Prototype tab">
+      <div class="slide-meta"><span>7 · PLAY</span><span>FIGMA · PLAY</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">The move</p>
+          <h2>One string from the verb.</h2>
+          <p>Top right: <strong>Prototype</strong>. Click the verb. Drag to the after frame. Press the triangle. One flow.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma/prototype-wire.svg" alt="Figma Prototype tab with a wire from Pay Rs 80 to Paid">
+        </figure>
       </div>
     </section>
 
@@ -1562,21 +2082,53 @@
       </div>
     </section>
 
-    <section class="slide lesson-plan" data-title="Done when">
-      <div class="slide-meta"><span>EVIDENCE</span><span>LEAVES THE ROOM</span></div>
+    <section class="slide output-slide" data-title="Assignment">
+      <div class="slide-meta"><span>ASSIGNMENT 04</span><span>EVERYONE</span></div>
+      <div class="output-content">
+        <p class="eyebrow">Take this home</p>
+        <h2>Primary screen<br>in Figma.</h2>
+        <p class="output-subtitle">Your project. One task. A stranger taps the verb and sees what happened. Due before Session 5.</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Submit this">
+      <div class="slide-meta"><span>ASSIGNMENT 04</span><span>WHAT YOU SUBMIT</span></div>
       <div class="lp-body">
         <div class="lp-heading">
-          <h2>You are done when a stranger sees this.</h2>
+          <h2>Everyone submits this.</h2>
         </div>
         <div class="lp-grading">
           <div class="lp-grade-item"><p class="lp-grade-pct">01</p><p class="lp-grade-label">The sentence. V1 and V2, same page</p></div>
-          <div class="lp-grade-item"><p class="lp-grade-pct">02</p><p class="lp-grade-label">Empty. After. Play Pay to after</p></div>
-          <div class="lp-grade-item"><p class="lp-grade-pct">03</p><p class="lp-grade-label">Three stickies: change + law</p></div>
-          <div class="lp-grade-item"><p class="lp-grade-pct">04</p><p class="lp-grade-label">View link. Private window</p></div>
+          <div class="lp-grade-item"><p class="lp-grade-pct">02</p><p class="lp-grade-label">Empty. After. Play: the verb lands</p></div>
+          <div class="lp-grade-item"><p class="lp-grade-pct">03</p><p class="lp-grade-label">Three stickies: the change, and a law</p></div>
+          <div class="lp-grade-item"><p class="lp-grade-pct">04</p><p class="lp-grade-label">View link. Opens in a private window</p></div>
         </div>
-        <div class="lp-assignment" style="margin-top:1.5rem">
-          <p class="lp-assignment-label">Share</p>
-          <p>Share → anyone with the link can <strong>view</strong>. Paste it. Open it in a private window. If they can tap the verb and see what happened, stop.</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Due">
+      <div class="slide-meta"><span>ASSIGNMENT 04</span><span>BEFORE SESSION 5</span></div>
+      <div class="lp-body">
+        <div class="lp-heading">
+          <h2>Due before next class.</h2>
+        </div>
+        <div class="lp-cols">
+          <div>
+            <p class="lp-col-label">Share</p>
+            <ul class="lp-list">
+              <li><span>Share → anyone with the link can <strong>view</strong></span></li>
+              <li><span>Paste the link in the class sheet</span></li>
+              <li><span>Open it in a private window. Tap the verb yourself</span></li>
+            </ul>
+          </div>
+          <div>
+            <p class="lp-col-label">Pass when</p>
+            <ul class="lp-list">
+              <li><span>A stranger finishes the task without a spoken tour</span></li>
+              <li><span>Each of the three changes names a law from the wall</span></li>
+              <li><span>If play does nothing, it is still a poster. Do not submit it</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -1586,11 +2138,11 @@
       <div class="slide-meta"><span>SESSION 04</span><span>YOUR PROJECT</span></div>
       <div class="closing-content">
         <h2>You are still<br>the designer.</h2>
-        <p>The file is the evidence. The names wait until the job works.</p>
+        <p>The file is the evidence. Submit the view link before Session 5.</p>
         <div class="contact">
           <a href="session-4-guide.html">Studio sheet</a>
+          <a href="notes.html#s4-assignment">Assignment 04</a>
           <a href="notes.html#session-4">Class notes · Session 4</a>
-          <a href="session-3.html">Session 3</a>
         </div>
       </div>
     </section>
