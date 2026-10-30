@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>First open: pick an intent, then begin</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#161C18" stroke="#3a4a40"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#E8EDE6" opacity=".22"/>
+  <text x="48" y="88" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12">First open</text>
+  <text x="48" y="132" fill="#E8EDE6" font-family="Georgia,serif" font-size="24">What do you</text>
+  <text x="48" y="164" fill="#E8EDE6" font-family="Georgia,serif" font-size="24">need tonight?</text>
+  <rect x="48" y="210" width="184" height="48" rx="10" fill="#B7D4A8"/>
+  <text x="140" y="240" fill="#161C18" font-family="system-ui,sans-serif" font-size="15" font-weight="700" text-anchor="middle">Stress</text>
+  <rect x="48" y="268" width="184" height="48" rx="10" fill="#1f2822"/>
+  <text x="140" y="298" fill="#E8EDE6" font-family="system-ui,sans-serif" font-size="15" text-anchor="middle">Sleep</text>
+  <rect x="48" y="326" width="184" height="48" rx="10" fill="#1f2822"/>
+  <text x="140" y="356" fill="#E8EDE6" font-family="system-ui,sans-serif" font-size="15" text-anchor="middle">Focus</text>
+  <text x="140" y="430" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">Then a 5-minute start.</text>
+  <text x="140" y="452" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">Name can wait.</text>
+</svg>

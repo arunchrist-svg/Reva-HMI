@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="560" viewBox="0 0 280 560" role="img">
+  <title>Daily reminder as an immediate on or off switch</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#161C18" stroke="#3a4a40"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#E8EDE6" opacity=".22"/>
+  <text x="48" y="88" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12">Settings</text>
+  <text x="48" y="140" fill="#E8EDE6" font-family="Georgia,serif" font-size="22">Reminders</text>
+  <rect x="48" y="180" width="184" height="64" rx="12" fill="#1f2822"/>
+  <text x="62" y="208" fill="#E8EDE6" font-family="system-ui,sans-serif" font-size="13">Daily reminder</text>
+  <text x="62" y="226" fill="#8A9388" font-family="system-ui,sans-serif" font-size="10">Takes effect now</text>
+  <rect x="176" y="200" width="40" height="24" rx="12" fill="#B7D4A8"/>
+  <circle cx="204" cy="212" r="8" fill="#161C18"/>
+  <text x="48" y="280" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12">Not a quiz. Not a checkbox.</text>
+  <text x="48" y="302" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12">A switch: on, or off.</text>
+  <text x="48" y="500" fill="#5d6a60" font-family="system-ui,sans-serif" font-size="9">Teaching diagram - confirm in Android kit</text>
+</svg>

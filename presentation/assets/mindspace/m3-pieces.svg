@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img">
+  <title>Material 3 pieces used on the calm Home</title>
+  <rect width="720" height="420" fill="#101116"/>
+  <text x="32" y="40" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12" letter-spacing="3">LEARN WITH MATERIAL  -  NAME THE PIECES</text>
+  <g>
+    <rect x="32" y="70" width="200" height="120" rx="16" fill="#161C18" stroke="#3a4a40"/>
+    <text x="48" y="100" fill="#8A9388" font-family="system-ui,sans-serif" font-size="11">TOP APP BAR</text>
+    <text x="48" y="132" fill="#E8EDE6" font-family="Georgia,serif" font-size="20">Good afternoon</text>
+    <text x="48" y="158" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12">Orients. Does not sell.</text>
+  </g>
+  <g>
+    <rect x="252" y="70" width="200" height="120" rx="16" fill="#161C18" stroke="#3a4a40"/>
+    <text x="268" y="100" fill="#8A9388" font-family="system-ui,sans-serif" font-size="11">HEADLINE</text>
+    <text x="268" y="132" fill="#E8EDE6" font-family="Georgia,serif" font-size="20">8 minutes.</text>
+    <text x="268" y="158" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12">The job, in type.</text>
+  </g>
+  <g>
+    <rect x="472" y="70" width="216" height="120" rx="16" fill="#161C18" stroke="#B7D4A8" stroke-opacity=".5"/>
+    <text x="488" y="100" fill="#8A9388" font-family="system-ui,sans-serif" font-size="11">FILLED BUTTON</text>
+    <rect x="488" y="114" width="160" height="40" rx="10" fill="#B7D4A8"/>
+    <text x="568" y="140" fill="#161C18" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Begin</text>
+    <text x="488" y="174" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12">One primary. Von Restorff.</text>
+  </g>
+  <g>
+    <rect x="32" y="214" width="310" height="120" rx="16" fill="#161C18" stroke="#3a4a40"/>
+    <text x="48" y="244" fill="#8A9388" font-family="system-ui,sans-serif" font-size="11">NAVIGATION BAR</text>
+    <text x="48" y="278" fill="#B7D4A8" font-family="system-ui,sans-serif" font-size="16">Home</text>
+    <text x="118" y="278" fill="#5d6a60" font-family="system-ui,sans-serif" font-size="16">Discover</text>
+    <text x="210" y="278" fill="#5d6a60" font-family="system-ui,sans-serif" font-size="16">Journal</text>
+    <text x="48" y="308" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12">Four destinations. Always the same.</text>
+  </g>
+  <g>
+    <rect x="362" y="214" width="326" height="120" rx="16" fill="#161C18" stroke="#3a4a40"/>
+    <text x="378" y="244" fill="#8A9388" font-family="system-ui,sans-serif" font-size="11">TEXT BUTTON</text>
+    <text x="378" y="278" fill="#B7D4A8" font-family="system-ui,sans-serif" font-size="16">or pick another</text>
+    <text x="378" y="308" fill="#8A9388" font-family="system-ui,sans-serif" font-size="12">Secondary. Quiet. Still tappable.</text>
+  </g>
+  <text x="32" y="372" fill="#8A9388" font-family="system-ui,sans-serif" font-size="13">Teaching diagram of Material 3 roles. Open the live Material 3 kit in Figma in class - do not copy decoration from this picture.</text>
+  <text x="32" y="396" fill="#8A9388" font-family="system-ui,sans-serif" font-size="13">Learn with Material. Design with Mindspace.</text>
+</svg>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>Cluttered meditation home</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#161C18" stroke="#3a4a40"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#E8EDE6" opacity=".22"/>
+  <text x="48" y="64" fill="#8A9388" font-family="system-ui,sans-serif" font-size="9">MINDSPACE</text>
+  <text x="48" y="88" fill="#E8EDE6" font-family="Georgia,serif" font-size="13">Welcome back to your</text>
+  <text x="48" y="106" fill="#E8EDE6" font-family="Georgia,serif" font-size="13">inner peace journey</text>
+  <rect x="48" y="118" width="184" height="28" rx="6" fill="#1f2822" stroke="#3a4a40"/>
+  <text x="58" y="136" fill="#8A9388" font-family="system-ui,sans-serif" font-size="10">Search sessions, teachers...</text>
+  <rect x="48" y="154" width="88" height="52" rx="8" fill="#1f2822"/>
+  <text x="58" y="176" fill="#E8EDE6" font-family="system-ui,sans-serif" font-size="11">Streak 12</text>
+  <text x="58" y="192" fill="#8A9388" font-family="system-ui,sans-serif" font-size="9">Don't break it</text>
+  <rect x="144" y="154" width="88" height="52" rx="8" fill="#1f2822"/>
+  <text x="154" y="176" fill="#E8EDE6" font-family="system-ui,sans-serif" font-size="11">Mood 6/10</text>
+  <text x="154" y="192" fill="#8A9388" font-family="system-ui,sans-serif" font-size="9">Log now</text>
+  <text x="48" y="228" fill="#8A9388" font-family="system-ui,sans-serif" font-size="9">FOR YOU</text>
+  <rect x="48" y="236" width="56" height="56" rx="8" fill="#243028"/>
+  <rect x="110" y="236" width="56" height="56" rx="8" fill="#243028"/>
+  <rect x="172" y="236" width="56" height="56" rx="8" fill="#243028"/>
+  <text x="76" y="268" fill="#8A9388" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">Vipassana</text>
+  <text x="138" y="268" fill="#8A9388" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">Mantra</text>
+  <text x="200" y="268" fill="#8A9388" font-family="system-ui,sans-serif" font-size="8" text-anchor="middle">Yoga nidra</text>
+  <rect x="48" y="302" width="184" height="32" rx="6" fill="#B7D4A8"/>
+  <text x="140" y="322" fill="#161C18" font-family="system-ui,sans-serif" font-size="10" font-weight="700" text-anchor="middle">Start daily ritual</text>
+  <rect x="48" y="340" width="88" height="28" rx="6" fill="#243028"/>
+  <rect x="144" y="340" width="88" height="28" rx="6" fill="#243028"/>
+  <text x="92" y="358" fill="#E8EDE6" font-family="system-ui,sans-serif" font-size="9" text-anchor="middle">Shop mala</text>
+  <text x="188" y="358" fill="#E8EDE6" font-family="system-ui,sans-serif" font-size="9" text-anchor="middle">Invite a friend</text>
+  <text x="48" y="390" fill="#8A9388" font-family="system-ui,sans-serif" font-size="9">QUOTE OF THE DAY</text>
+  <text x="48" y="408" fill="#E8EDE6" font-family="Georgia,serif" font-size="10">Peace comes from within.</text>
+  <text x="48" y="422" fill="#E8EDE6" font-family="Georgia,serif" font-size="10">Do not seek it without.</text>
+  <rect x="48" y="436" width="184" height="1" fill="#E8EDE6" opacity=".12"/>
+  <text x="58" y="508" fill="#5d6a60" font-family="system-ui,sans-serif" font-size="8">Home</text>
+  <text x="108" y="508" fill="#5d6a60" font-family="system-ui,sans-serif" font-size="8">Discover</text>
+  <text x="168" y="508" fill="#5d6a60" font-family="system-ui,sans-serif" font-size="8">Journal</text>
+  <text x="216" y="508" fill="#5d6a60" font-family="system-ui,sans-serif" font-size="8">Profile</text>
+</svg>
