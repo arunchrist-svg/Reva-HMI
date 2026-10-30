@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img">
+  <title>Named layers nested in a frame</title>
+  <rect width="720" height="480" fill="#1e1e1e"/>
+  <text x="32" y="40" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="12" letter-spacing="2">LAYERS</text>
+  <rect x="20" y="60" width="680" height="56" rx="8" fill="#2c2c2c"/>
+  <text x="40" y="96" fill="#0d99ff" font-family="system-ui,sans-serif" font-size="22" font-weight="800">Slot</text>
+  <text x="620" y="96" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="16" text-anchor="end">Frame</text>
+  <rect x="48" y="132" width="652" height="52" rx="8" fill="#252525"/>
+  <text x="72" y="166" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="20" font-weight="700">Bar</text>
+  <text x="620" y="166" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="15" text-anchor="end">Instance</text>
+  <rect x="48" y="196" width="652" height="52" rx="8" fill="#252525"/>
+  <text x="72" y="230" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="20" font-weight="700">Card</text>
+  <text x="620" y="230" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="15" text-anchor="end">Instance</text>
+  <rect x="48" y="260" width="652" height="52" rx="8" fill="#252525"/>
+  <text x="72" y="294" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="20" font-weight="700">Field / Note</text>
+  <text x="620" y="294" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="15" text-anchor="end">Instance</text>
+  <rect x="48" y="324" width="652" height="52" rx="8" fill="#2f3a18"/>
+  <text x="72" y="358" fill="#d4f169" font-family="system-ui,sans-serif" font-size="20" font-weight="800">Button / Book</text>
+  <text x="620" y="358" fill="#d4f169" font-family="system-ui,sans-serif" font-size="15" text-anchor="end">Instance</text>
+  <text x="32" y="430" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="18">Name it. Nest it. Rectangle 14 is a fail.</text>
+</svg>

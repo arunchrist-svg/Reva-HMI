@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img">
+  <title>Figma canvas, tools, layers, inspect</title>
+  <rect width="960" height="540" fill="#2c2c2c"/>
+  <rect x="0" y="0" width="960" height="44" fill="#1e1e1e"/>
+  <text x="24" y="28" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="13" font-weight="700" letter-spacing="1.4">FIGMA DESIGN</text>
+  <text x="220" y="28" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14" font-weight="800">Design</text>
+  <text x="300" y="28" fill="#7a7a7a" font-family="system-ui,sans-serif" font-size="14">Prototype</text>
+  <text x="420" y="28" fill="#7a7a7a" font-family="system-ui,sans-serif" font-size="14">Inspect</text>
+  <rect x="0" y="44" width="176" height="496" fill="#1e1e1e"/>
+  <text x="20" y="76" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="11" letter-spacing="2">LAYERS</text>
+  <text x="20" y="112" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16" font-weight="700">Job</text>
+  <text x="36" y="148" fill="#d4f169" font-family="system-ui,sans-serif" font-size="15">List</text>
+  <text x="36" y="180" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="15">Slot</text>
+  <rect x="784" y="44" width="176" height="496" fill="#1e1e1e"/>
+  <text x="804" y="76" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="11" letter-spacing="2">INSPECT</text>
+  <text x="804" y="112" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="15">W  390</text>
+  <text x="804" y="144" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="15">H  844</text>
+  <rect x="430" y="110" width="140" height="300" rx="18" fill="none" stroke="#0d99ff" stroke-width="3"/>
+  <text x="500" y="270" fill="#0d99ff" font-family="system-ui,sans-serif" font-size="18" font-weight="800" text-anchor="middle">F</text>
+  <text x="500" y="430" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="22" font-weight="800" text-anchor="middle">Canvas</text>
+  <text x="500" y="462" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">V  F  T  Space  Cmd+</text>
+</svg>

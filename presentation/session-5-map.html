@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <title>Meditation kit · Session 5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#171717;--muted:#71717a;--paper:#f7f6f2;--lime:#66751f;--lime-dark:#56631a;--line:#e2ded4;--sans:"Manrope",Arial,sans-serif}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.72}
+    .layout{display:grid;grid-template-columns:minmax(200px,240px) minmax(0,1fr);min-height:100vh}
+    nav{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;padding:1.3rem 1rem 2rem;background:#fbfaf7;border-right:1px solid var(--line)}
+    nav a.back{display:inline-block;margin-bottom:.8rem;border:1px solid var(--line);border-radius:999px;background:#fff;padding:.45rem .75rem;font-size:.82rem;font-weight:800;color:var(--ink);text-decoration:none}
+    nav p{margin:0 0 .8rem;font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--lime-dark)}
+    nav ul{list-style:none;margin:0;padding:0}
+    nav li{margin:.15rem 0}
+    nav ul a{display:block;padding:.4rem .55rem;border-radius:10px;color:#3a3b42;text-decoration:none;font-size:.86rem;font-weight:650}
+    main{padding:clamp(1.2rem,3vw,2.6rem) clamp(1rem,4vw,4rem) 4rem}
+    article{max-width:760px}
+    .kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--lime-dark);margin:0 0 .7rem}
+    h1{font-size:clamp(1.9rem,3.5vw,2.8rem);line-height:1.08;letter-spacing:-.04em;margin:0}
+    h2{font-size:clamp(1.25rem,2vw,1.55rem);letter-spacing:-.03em;margin:2.3rem 0 .55rem;scroll-margin-top:1.2rem}
+    h2:before{content:"";display:block;width:2rem;height:3px;border-radius:999px;background:var(--lime);margin:0 0 .65rem}
+    p,li{font-size:1.02rem;color:#2f2f35}
+    .lede{max-width:620px;color:var(--muted);margin:1rem 0 0}
+    .name{margin:1rem 0;padding:.85rem 1rem;border-left:5px solid var(--lime);background:#fff;border:1px solid var(--line);border-radius:12px}
+    .try{margin:.7rem 0;font-weight:700}
+    a.file{display:inline-block;margin:.45rem .55rem 0 0;border:1px solid var(--line);border-radius:999px;background:#fff;padding:.55rem 1rem;font-weight:800;color:var(--ink);text-decoration:none}
+    a.file.is-main{background:var(--lime);color:#fff;border-color:var(--lime)}
+    table{width:100%;border-collapse:collapse;margin:1rem 0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:.95rem}
+    th,td{text-align:left;padding:.7rem .85rem;border-bottom:1px solid var(--line);vertical-align:top}
+    th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--lime-dark)}
+    ol{padding-left:1.2rem}
+    .keys{display:inline-block;border:1px solid var(--line);border-radius:8px;padding:.05rem .4rem;background:#fff;font-weight:800;font-size:.9em}
+    footer{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+    a{color:var(--lime-dark);font-weight:700}
+    @media(max-width:800px){.layout{grid-template-columns:1fr}nav{position:relative;max-height:none;border-right:0;border-bottom:1px solid var(--line)}}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav aria-label="Sheet">
+      <a class="back" href="index.html">Class home</a>
+      <p>Session 5 · Kit</p>
+      <ul>
+        <li><a href="#file">The file</a></li>
+        <li><a href="#ds">DS style</a></li>
+        <li><a href="#job">The job</a></li>
+        <li><a href="#build">Build</a></li>
+        <li><a href="#play">Play</a></li>
+        <li><a href="#pass">Pass / fail</a></li>
+      </ul>
+    </nav>
+    <main>
+      <article>
+        <header>
+          <p class="kicker">Session 5 · the page to keep open</p>
+          <h1>Build the meditation app.</h1>
+          <p class="lede">Duplicate the kit. Instance the screens. Prototype one job. A stranger starts a calm session before you leave. Do not redraw. Do not open Make until play works.</p>
+          <a class="file is-main" href="https://www.figma.com/community/file/1380569285589400658/meditation-app-ui-kit" target="_blank" rel="noopener">Duplicate this kit</a>
+          <a class="file" href="https://www.figma.com/design/O3KGNG3BKiZkZx5SExLXUn/Meditation-App---UI-Kit--Community-?node-id=58-2064" target="_blank" rel="noopener">Exact designs (look)</a>
+        </header>
+
+        <h2 id="file">The file</h2>
+        <p>Work in <strong>your duplicate</strong>. Look at the class file only as the picture of what to assemble. Do not edit the community original.</p>
+        <ol>
+          <li>Open <a href="https://www.figma.com/community/file/1380569285589400658/meditation-app-ui-kit" target="_blank" rel="noopener">Meditation App UI Kit</a>.</li>
+          <li>Open in Figma → <strong>Duplicate</strong>. One file per group.</li>
+          <li>Keep this open beside you: <a href="https://www.figma.com/design/O3KGNG3BKiZkZx5SExLXUn/Meditation-App---UI-Kit--Community-?node-id=58-2064" target="_blank" rel="noopener">exact designs</a>.</li>
+          <li>In your copy, add a page: <strong>Our flow</strong>.</li>
+        </ol>
+        <p class="try">Light mode today. Dark mode, Sign in, Profile stay unused.</p>
+
+        <h2 id="ds">Build it DS-style</h2>
+        <p class="name">A design system is proven when changing one component moves every screen. If you detach, you have souvenirs.</p>
+        <ol>
+          <li>Assets panel. Drag <strong>instances</strong>. Never redraw a button.</li>
+          <li>Override text and images only. Do not explode the frame.</li>
+          <li>Auto layout stays. If you break it: <span class="keys">Shift+A</span>.</li>
+          <li>Variants: switch Light / state in the right sidebar. Do not restyle by hand.</li>
+          <li>Do not detach. <span class="keys">⌥⌘B</span> is last resort.</li>
+          <li>Mains live on the kit pages. Our flow only gets instances.</li>
+        </ol>
+
+        <h2 id="job">The job</h2>
+        <p>Start one calm session. Four phones only, 390 × 844.</p>
+        <table>
+          <thead>
+            <tr><th>Phone</th><th>From the kit</th><th>The tap</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Welcome</td><td>Get started / welcome screen</td><td>Get started</td></tr>
+            <tr><td>Home</td><td>Home with session cards</td><td>One session card</td></tr>
+            <tr><td>Session</td><td>Session detail</td><td>Start / Play</td></tr>
+            <tr><td>Player</td><td>Now playing</td><td>That is After. Stop.</td></tr>
+          </tbody>
+        </table>
+        <p class="name">Match the exact designs. Same type, same buttons, same cards. Do not invent a fifth screen.</p>
+
+        <h2 id="build">What they do</h2>
+        <ol>
+          <li>Page <strong>Our flow</strong>. Four frames, F · 390 × 844. Name them Welcome, Home, Session, Player.</li>
+          <li>From Assets, instance the matching kit screens onto those frames. Or copy the kit frame as an instance, then swap.</li>
+          <li>Map the parts you named this morning: Bar, Card, Button. Leftovers (tabs, search, FAB, dark mode) stay in the library.</li>
+          <li>If a screen is already a component in the kit, use that instance. Do not flatten it.</li>
+        </ol>
+        <p class="try">If it does not look like the class file, you redrew. Undo. Instance again.</p>
+
+        <h2 id="play">Prototype</h2>
+        <ol>
+          <li>Prototype tab. Flow starts on Welcome.</li>
+          <li>Get started → Navigate to Home. Instant.</li>
+          <li>One session card → Navigate to Session. Instant.</li>
+          <li>Start / Play → Navigate to Player. Instant.</li>
+          <li>Present. Give the laptop to the next group. Stay quiet.</li>
+        </ol>
+        <p class="name">Pass: a stranger starts a calm session without a spoken tour.</p>
+
+        <h2 id="pass">Pass / fail</h2>
+        <p>Pass: four phones from kit instances. Noodles work. Looks like the exact designs.</p>
+        <p>Fail: redrawn buttons. Detached souvenirs. Extra tabs. Sign-in wall. Make or Agent before play works.</p>
+      </article>
+      <footer>Session 5 · Meditation App UI Kit · 30 Oct 2026</footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>Spinner while booking</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="48" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Pin-up</text>
+  <circle cx="140" cy="260" r="22" fill="none" stroke="#3a3d46" stroke-width="4"/>
+  <path d="M162 260 a22 22 0 0 0 -22 -22" fill="none" stroke="#d4f169" stroke-width="4" stroke-linecap="round"/>
+  <text x="140" y="310" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Booking...</text>
+</svg>

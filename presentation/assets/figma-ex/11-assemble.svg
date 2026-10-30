@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
+  <title>Assemble four phones from instances.</title>
+  <rect width="1200" height="640" fill="#101116"/>
+  <rect x="16" y="16" width="1168" height="608" rx="12" fill="#1a1c22" stroke="#2a2d36"/>
+  <rect x="16" y="16" width="1168" height="44" rx="12" fill="#14161c"/>
+  <rect x="16" y="48" width="1168" height="12" fill="#14161c"/>
+  <text x="36" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">V</text><rect x="56" y="26" width="26" height="22" rx="5" fill="#d4f169"/><text x="69" y="42" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="800" text-anchor="middle">F</text><text x="92" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">R</text><text x="120" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">T</text>
+    <text x="1100" y="42" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" text-anchor="end">Design</text>
+  <rect x="70" y="100" width="150" height="320" rx="20" fill="#1b1d24" stroke="#0d99ff" stroke-width="2"/>
+  <text x="145" y="140" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="800" text-anchor="middle">List</text>
+  <rect x="88" y="160" width="114" height="28" rx="6" fill="#2a2d36"/>
+  <rect x="88" y="196" width="114" height="28" rx="6" fill="#2a2d36"/>
+  <rect x="88" y="232" width="114" height="28" rx="6" fill="#d4f169"/>
+  <rect x="280" y="100" width="150" height="320" rx="20" fill="#1b1d24" stroke="#3a3d46"/>
+  <text x="355" y="140" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Slot</text>
+  <rect x="298" y="170" width="114" height="70" rx="10" fill="#2a2d36"/>
+  <rect x="298" y="300" width="114" height="32" rx="8" fill="#d4f169"/>
+  <rect x="490" y="100" width="150" height="320" rx="20" fill="#1b1d24" stroke="#3a3d46"/>
+  <text x="565" y="140" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Sheet</text>
+  <rect x="508" y="250" width="114" height="90" rx="12" fill="#24262e"/>
+  <rect x="520" y="290" width="90" height="28" rx="6" fill="#d4f169"/>
+  <rect x="700" y="100" width="150" height="320" rx="20" fill="#1b1d24" stroke="#3a3d46"/>
+  <text x="775" y="140" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="800" text-anchor="middle">After</text>
+  <rect x="718" y="200" width="114" height="40" rx="8" fill="#d4f169"/>
+  <text x="775" y="226" fill="#101116" font-family="system-ui,sans-serif" font-size="9" font-weight="800" text-anchor="middle">On the wall</text>
+  <text x="70" y="460" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="15">Page Job. Four frames. Instances from Assets. Mains stay on Components.</text>
+  <text x="70" y="492" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="15">390 x 844. Auto layout down the phone.</text>
+
+</svg>

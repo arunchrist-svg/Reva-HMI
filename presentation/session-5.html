@@ -1,0 +1,1728 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101116">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Name the parts: Session 5</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="deck.css?v=27">
+  <link rel="stylesheet" href="deck-v2.css?v=20">
+  <link rel="stylesheet" href="mobile.css?v=11">
+  <style>
+    body.deck-v2 .cover .lede {
+      margin-top: 1.6rem;
+      max-width: 22ch;
+      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    }
+    body.deck-v2 .ux-example-question-only .ux-example-question {
+      font-size: clamp(2.6rem, 5.4vw, 5.2rem);
+      max-width: 16ch;
+      line-height: 1.05;
+    }
+    body.deck-v2 .name-slide h2, .name-slide h2 {
+      font-size: clamp(4.8rem, 11vw, 10rem);
+    }
+    body.deck-v2 .name-slide .law-def,
+    body.deck-v2 .approach-intro-content .law-def {
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      max-width: 18ch;
+    }
+    body.deck-v2 .output .output-list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    body.deck-v2 .figma-link {
+      color: var(--lime);
+      font-weight: 800;
+      text-decoration: none;
+    }
+    body.deck-v2 .figma-link:hover { text-decoration: underline; }
+    body.deck-v2 .output .output-list {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.4rem;
+    }
+    body.deck-v2 .output .output-list p {
+      font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+      line-height: 1.4;
+    }
+    body.deck-v2 .lp-grading { grid-template-columns: repeat(3, 1fr); }
+
+    .slide.photo-full { display: none; padding: 0; background: #e6e2da; }
+    .slide.photo-full.is-active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slide.photo-full .slide-meta {
+      color: rgba(16,17,22,.45);
+      top: 1.4rem;
+    }
+    .slide.photo-full img {
+      display: block;
+      width: 100%;
+      height: 100vh;
+      object-fit: contain;
+      background: #e6e2da;
+    }
+    .slide.photo-full .photo-credit {
+      position: absolute;
+      left: 5.7vw;
+      bottom: 1.4rem;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(16,17,22,.4);
+    }
+    .slide.photo-full.is-kit { background: #fff; }
+    .slide.photo-full.is-kit img { background: #fff; object-fit: contain; }
+    .law-ex figure.m3-shot {
+      background: #fff;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.2rem 1.6rem;
+    }
+    .law-ex figure.m3-shot img,
+    .see-one.m3-shot img {
+      object-fit: contain;
+      object-position: center;
+      background: #fff;
+      width: 100%;
+      max-height: min(62vh, 560px);
+    }
+
+    .slide.studio-make { display: none; }
+    .slide.studio-make.is-active {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: clamp(1.5rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+    .studio-make h2 {
+      font-size: clamp(2.6rem, 4.6vw, 5.2rem);
+      line-height: 0.98;
+      max-width: 16ch;
+    }
+    .studio-make p {
+      margin-top: 1rem;
+      max-width: 34ch;
+      font-family: var(--serif);
+      font-size: clamp(1.2rem, 1.9vw, 1.7rem);
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    .studio-key {
+      display: inline-block;
+      margin-top: 1.1rem;
+      border: 1px solid var(--line);
+      padding: 0.35rem 0.7rem;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--lime);
+    }
+    .ux-example-question-only .studio-key { margin-top: 1.4rem; }
+    body.deck-v2 .studio-make .time-box strong { font-size: clamp(4.2rem, 8vw, 7.5rem); }
+    body.deck-v2 .studio-make .time-box span { font-size: 12px; }
+
+    .slide.see-pair, .slide.observe { display: none; }
+    .slide.observe.is-active {
+      display: grid;
+      grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+      gap: clamp(1.5rem, 4vw, 3.2rem);
+      align-items: center;
+      padding: 3.2rem 5.7vw 3rem;
+    }
+    .observe .see-one { width: min(280px, 26vw); }
+    .observe .see-one img { height: min(70vh, 640px); }
+    .observe-list {
+      list-style: none;
+      margin: 0.4rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.85rem;
+    }
+    .observe-list li {
+      margin: 0;
+      border-top: 1px solid var(--line);
+      padding-top: 0.75rem;
+    }
+    .observe-list span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--muted);
+    }
+    .observe-list p {
+      margin: 0.3rem 0 0;
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.9vw, 1.7rem);
+      line-height: 1.28;
+      color: var(--paper);
+      max-width: 22ch;
+    }
+    .observe.is-better .see-one figure { border-color: rgba(212, 241, 105, 0.5); }
+    .observe.is-better .see-one figcaption,
+    .observe.is-better .observe-list span { color: var(--lime); }
+    .slide.see-pair.is-active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3.2rem 5.7vw 3rem;
+    }
+    .see-one {
+      width: min(420px, 34vw);
+      margin: auto;
+    }
+    .see-one figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 0.7rem 0.7rem 0.85rem;
+    }
+    .see-one img {
+      display: block;
+      width: 100%;
+      height: min(78vh, 740px);
+      object-fit: contain;
+      background: #101116;
+    }
+    .see-one figcaption {
+      margin-top: 0.55rem;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+    .see-one.is-better figure { border-color: rgba(212, 241, 105, 0.5); }
+    .see-one.is-better figcaption { color: var(--lime); }
+    .see-one.see-flow { width: min(960px, 86vw); }
+    .see-one.see-flow img { height: min(62vh, 520px); }
+
+    .slide.best-slide.is-active {
+      display: flex;
+      justify-content: center;
+      padding: 3.5rem 5.7vw 3rem;
+    }
+    .best-body { width: 100%; max-width: 1280px; margin: auto; }
+    .best-body h2 {
+      font-size: clamp(2.2rem, 3.8vw, 4.2rem);
+      line-height: 1.02;
+      max-width: 18ch;
+    }
+    .best-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 1.6rem;
+    }
+    .best-grid.is-four { grid-template-columns: repeat(4, 1fr); }
+    .best-grid article {
+      background: var(--surface);
+      min-height: 168px;
+      padding: 1.2rem 1.25rem 1.35rem;
+    }
+    .best-grid span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--muted);
+    }
+    .best-grid .is-best { background: #1f2218; }
+    .best-grid .is-best span { color: var(--lime); }
+    .best-grid h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2vw, 1.85rem);
+      line-height: 1.08;
+      margin: 0.85rem 0 0.55rem;
+    }
+    .best-grid p {
+      font-size: clamp(0.86rem, 1.15vw, 1rem);
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .best-yours {
+      margin-top: 1.35rem;
+      font-family: var(--serif);
+      font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+      line-height: 1.35;
+      color: var(--paper);
+      max-width: 42ch;
+    }
+
+    .slide.name-slide { display: none; }
+    .slide.name-slide.is-active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .name-slide {
+      background: var(--lime);
+      color: var(--ink);
+      padding: 3.5rem 5.7vw 4rem;
+    }
+    .name-slide .slide-meta { color: rgba(16, 17, 22, 0.55); top: 3.5rem; }
+    .name-slide .approach-intro-content { width: 100%; max-width: 1280px; margin: auto; }
+    body.deck-v2 .name-slide h2, .name-slide h2 {
+      font-size: clamp(3.6rem, 8vw, 8.2rem);
+      line-height: 0.88;
+      max-width: 14ch;
+      letter-spacing: -0.045em;
+    }
+    .name-slide .law-def {
+      margin-top: 1.25rem;
+      max-width: 42ch;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2vw, 1.85rem);
+      line-height: 1.28;
+      border: 0;
+      padding: 0;
+    }
+    .name-slide .take-label {
+      display: block;
+      margin: 1.5rem 0 0.55rem;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: #46511d;
+    }
+    .name-slide .takeaways {
+      list-style: none;
+      margin: 0;
+      padding: 0.75rem 0 0;
+      border-top: 1px solid rgba(16, 17, 22, 0.28);
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+      max-width: 52ch;
+    }
+    .name-slide .takeaways li {
+      font-size: clamp(0.88rem, 1.2vw, 1.08rem);
+      line-height: 1.35;
+      color: var(--ink);
+    }
+
+    .slide.law-ex { display: none; }
+    .slide.law-ex.is-active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .law-ex { padding: 3.5rem 5.7vw 3rem; }
+    .law-ex-body {
+      width: 100%;
+      max-width: 1280px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: minmax(240px, 0.85fr) 1.15fr;
+      gap: clamp(1.4rem, 3.5vw, 3rem);
+      align-items: center;
+    }
+    .law-ex figure {
+      margin: 0;
+      background: #101116;
+      border: 1px solid var(--line);
+    }
+    .law-ex figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .law-ex .eyebrow { color: var(--lime); }
+    .law-ex h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 3.8vw, 3.6rem);
+      line-height: 1.05;
+      margin: 0.25rem 0 1.1rem;
+    }
+    .ex-grid {
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+    .ex-grid article {
+      background: var(--surface);
+      padding: 1.05rem 1.15rem 1.15rem;
+    }
+    .ex-grid span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--muted);
+    }
+    .ex-grid p {
+      margin: 0.4rem 0 0;
+      font-family: var(--serif);
+      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      line-height: 1.3;
+      color: var(--paper);
+    }
+
+    body.deck-v2 .ux-example-copy h2 {
+      font-size: clamp(1.85rem, 3vw, 2.8rem);
+      line-height: 1.05;
+      max-width: 16ch;
+    }
+    body.deck-v2 .ux-example-copy p {
+      margin-top: 0.85rem;
+      max-width: 34ch;
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+      line-height: 1.4;
+      color: var(--muted);
+    }
+    body.deck-v2 .figma-shots .ux-example-grid {
+      grid-template-columns: 1fr 1.1fr;
+      align-items: center;
+    }
+    body.deck-v2 .figma-shots .ux-example-panel { max-width: none; }
+    body.deck-v2 .figma-shots img { height: min(64vh, 560px); object-fit: contain; background: #101116; }
+
+    body.deck-v2 .prompt-block {
+      margin-top: 1.15rem;
+      padding: 1.25rem 1.4rem;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--lime);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      white-space: pre-wrap;
+      font-family: var(--sans);
+      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      font-weight: 550;
+      line-height: 1.48;
+      color: #f0ede5;
+      max-width: 1100px;
+      user-select: text;
+    }
+    body.deck-v2 .prompt-slide { overflow-y: auto; }
+    body.deck-v2 .prompt-slide .lp-heading h2 {
+      font-size: clamp(2.2rem, 3.4vw, 3.4rem);
+    }
+    body.deck-v2 .weak-prompt {
+      margin-top: 1.2rem;
+      max-width: 28ch;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.6vw, 3.4rem);
+      line-height: 1.15;
+      color: var(--paper);
+    }
+
+    @media (max-width: 800px) {
+      .slide.studio-make.is-active,
+      .slide.observe.is-active,
+      .best-grid,
+      .best-grid.is-four,
+      .law-ex-body,
+      body.deck-v2 .figma-shots .ux-example-grid { grid-template-columns: 1fr; }
+      .observe .see-one { width: min(220px, 58vw); }
+      .observe .see-one img { height: min(42vh, 340px); }
+      .see-one { width: min(280px, 78vw); }
+      .see-one img { height: min(52vh, 420px); }
+      .see-one.see-flow { width: min(100%, 92vw); }
+      .see-one.see-flow img { height: min(36vh, 280px); }
+    }
+  </style>
+</head>
+<body class="deck-v2" data-deck-title="Session 5 · Name the parts">
+  <main class="deck" aria-live="polite">
+
+    <section class="slide photo-full is-active" data-title="Look">
+      <div class="slide-meta"><span>SESSION 05</span><span>LOOK</span></div>
+      <img src="assets/ds/golf-parts.jpg" alt="Every piece of a 1988 Volkswagen Golf CL, laid out">
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="What is this">
+      <div class="slide-meta"><span>LOOK</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">What is this?</p>
+      </div>
+    </section>
+
+    <section class="slide photo-full" data-title="The Golf">
+      <div class="slide-meta"><span>LOOK</span><span>SEE</span></div>
+      <img src="assets/ds/golf-parts.jpg" alt="Every piece of a 1988 Volkswagen Golf CL, laid out">
+      <p class="photo-credit">Hans Hansen · 1988 Golf CL · 6,843 parts</p>
+    </section>
+
+    <section class="slide name-slide" data-title="6843 parts">
+      <div class="slide-meta"><span>THE NAME</span><span>THE GOLF</span></div>
+      <div class="approach-intro-content">
+        <h2>6,843 parts.</h2>
+        <p class="law-def">Every piece has a name. Or it does not go back together.</p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Put it back">
+      <div class="slide-meta"><span>LOOK</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Could you put it back if you didn’t know the names?</p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="A phone">
+      <div class="slide-meta"><span>LOOK</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">What does a phone look like, taken apart?</p>
+      </div>
+    </section>
+
+    <section class="slide photo-full is-kit" data-title="Material-X parts">
+      <div class="slide-meta"><span>THE KIT</span><span>MATERIAL-X</span></div>
+      <img src="assets/mx/cover.png" alt="Material-X design system components laid out">
+      <p class="photo-credit">Setproduct · Material-X · Figma Community</p>
+    </section>
+
+    <section class="slide name-slide" data-title="Name the parts">
+      <div class="slide-meta"><span>THE NAME</span><span>TODAY</span></div>
+      <div class="approach-intro-content">
+        <h2>Name the parts.</h2>
+        <p class="law-def">Then we put one job back together. AI comes last.</p>
+      </div>
+    </section>
+
+    <section class="slide output" data-title="The outcome">
+      <div class="slide-meta"><span>TODAY ENDS WHEN</span><span>HARD OUTCOME</span></div>
+      <div class="output-content">
+        <p class="eyebrow">Playable before you leave.</p>
+        <h2>A stranger starts a session.</h2>
+        <div class="output-list">
+          <p><span>The job</span>Welcome → Home → Session → Player.</p>
+          <p><span>The proof</span>They hear the session start. No spoken tour.</p>
+          <p><span>The kit</span>Meditation App instances. Not redrawn souvenirs.</p>
+          <p><span>AI</span>Only after play works. Make, then Agent.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide output" data-title="Four hours">
+      <div class="slide-meta"><span>TODAY</span><span>FOUR HOURS</span></div>
+      <div class="output-content">
+        <p class="eyebrow">Show. Teach Figma. Then play. AI last.</p>
+        <h2>Look. Figma.<br>Play. Then AI.</h2>
+        <div class="output-list">
+          <p><span>1 · Look</span>Golf. Then name the parts. You guess. I name it.</p>
+          <p><span>2 · Figma</span>All 13 videos. Account to prototype. Meditation kit is the object.</p>
+          <p><span>3 · Play</span>Welcome → Home → Session → Player. A stranger starts it.</p>
+          <p><span>4 · AI</span>Only if play already works. Same job in Make, then Agent.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Five jobs">
+      <div class="slide-meta"><span>MATERIAL-X</span><span>FIVE JOBS</span></div>
+      <div class="approach-intro-content">
+        <h2>Five jobs.</h2>
+        <p class="law-def">Stay. Scan. Enter. Commit. After.</p>
+      </div>
+    </section>
+
+    <!-- STAY -->
+    <section class="slide approach-intro" data-title="Stay">
+      <div class="slide-meta"><span>1 · STAY</span><span>FAMILY</span></div>
+      <div class="approach-intro-content">
+        <h2>Stay.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="The strip">
+      <div class="slide-meta"><span>1 · STAY</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">The strip at the top of every screen. What job is it doing?</p>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Bar">
+      <div class="slide-meta"><span>1 · STAY</span><span>THE NAME</span></div>
+      <div class="approach-intro-content">
+        <h2>Bar.</h2>
+        <p class="law-def">Orients. One way out.</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Bar example">
+      <div class="slide-meta"><span>1 · STAY</span><span>EXAMPLE</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/bar.svg" alt="Material-X app bar">
+        </figure>
+        <div>
+          <p class="eyebrow">Where it sits</p>
+          <h2>Every frame of Pin-up.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>On this job</span>
+              <p>Pin-up. Back. That is the whole bar.</p>
+            </article>
+            <article>
+              <span>Not here</span>
+              <p>Five tabs. A second Book. A logo that does nothing.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Three icons">
+      <div class="slide-meta"><span>1 · STAY</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Three icons at the bottom. Same job as the bar?</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Tabs">
+      <div class="slide-meta"><span>1 · STAY</span><span>THE NAME</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/tabs.svg" alt="Material-X tab bar">
+        </figure>
+        <div>
+          <p class="eyebrow">Tabs</p>
+          <h2>Switch jobs.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>Where</span>
+              <p>An app that is several jobs. Home. Search. Me.</p>
+            </article>
+            <article>
+              <span>Not Pin-up</span>
+              <p>Today is one job. Tabs invent a product you did not design.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Magnifying glass">
+      <div class="slide-meta"><span>1 · STAY</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">A magnifying glass on a long list. What is it for?</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Search">
+      <div class="slide-meta"><span>1 · STAY</span><span>THE NAME</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/search.svg" alt="Material-X search">
+        </figure>
+        <div>
+          <p class="eyebrow">Search</p>
+          <h2>Find in a crowd.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>Where</span>
+              <p>A directory. Fifty studios. They already know the name.</p>
+            </article>
+            <article>
+              <span>Not Pin-up</span>
+              <p>Three slots is not a crowd. Scanning three rows is the job.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCAN -->
+    <section class="slide approach-intro" data-title="Scan">
+      <div class="slide-meta"><span>2 · SCAN</span><span>FAMILY</span></div>
+      <div class="approach-intro-content">
+        <h2>Scan.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Three blocks">
+      <div class="slide-meta"><span>2 · SCAN</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Three identical blocks. You tap one. What is that part?</p>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Row">
+      <div class="slide-meta"><span>2 · SCAN</span><span>THE NAME</span></div>
+      <div class="approach-intro-content">
+        <h2>Row.</h2>
+        <p class="law-def">Pick one of several. Same shape, different fact.</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Row example">
+      <div class="slide-meta"><span>2 · SCAN</span><span>EXAMPLE</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/row.svg" alt="Material-X list row">
+        </figure>
+        <div>
+          <p class="eyebrow">Where it sits</p>
+          <h2>The list of slots.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>On this job</span>
+              <p>10:00. 11:30. 14:00. Tap one. Go to Slot.</p>
+            </article>
+            <article>
+              <span>Not here</span>
+              <p>A shop of cards when three lines would do. The Book button as a row.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="One thing">
+      <div class="slide-meta"><span>2 · SCAN</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">One thing with an edge, a time, a room. Why is it not a row?</p>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Card">
+      <div class="slide-meta"><span>2 · SCAN</span><span>THE NAME</span></div>
+      <div class="approach-intro-content">
+        <h2>Card.</h2>
+        <p class="law-def">Hold one thing still so they can look at it.</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Card example">
+      <div class="slide-meta"><span>2 · SCAN</span><span>EXAMPLE</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/card.svg" alt="Material-X card">
+        </figure>
+        <div>
+          <p class="eyebrow">Where it sits</p>
+          <h2>The slot they picked.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>On this job</span>
+              <p>10:00 · Studio 2 · 2 seats. Then a field. Then Book.</p>
+            </article>
+            <article>
+              <span>Not here</span>
+              <p>A gallery of twelve cards to pick a time. A dialog pretending to be a card.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="A pill">
+      <div class="slide-meta"><span>2 · SCAN</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">A small pill that says Today. A 2 on the slot. Same part?</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Chip and badge">
+      <div class="slide-meta"><span>2 · SCAN</span><span>THE NAME</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/chip.svg" alt="Material-X chip">
+        </figure>
+        <div>
+          <p class="eyebrow">Chip · Badge</p>
+          <h2>Filter. Count.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>Chip</span>
+              <p>Today / Tomorrow. Narrow a long list. Not a heading in a pill.</p>
+            </article>
+            <article>
+              <span>Badge</span>
+              <p>A count on a thing. 2 seats. Not a button. Pin-up can skip both.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Nothing">
+      <div class="slide-meta"><span>2 · SCAN</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">The list has nothing in it. What should they see?</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Empty">
+      <div class="slide-meta"><span>2 · SCAN</span><span>THE NAME</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/mx/one/empty.svg" alt="Material-X empty state">
+        </figure>
+        <div>
+          <p class="eyebrow">Empty</p>
+          <h2>One sentence. One verb.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>Where</span>
+              <p>Nothing today. Crit is tomorrow. See tomorrow.</p>
+            </article>
+            <article>
+              <span>Not here</span>
+              <p>A mascot. A blank white phone. Search on an empty list.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENTER -->
+    <section class="slide approach-intro" data-title="Enter">
+      <div class="slide-meta"><span>3 · ENTER</span><span>FAMILY</span></div>
+      <div class="approach-intro-content">
+        <h2>Enter.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="They type">
+      <div class="slide-meta"><span>3 · ENTER</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">They type a note. What must sit on the box, or they will not know what to type?</p>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Field weak">
+      <div class="slide-meta"><span>3 · ENTER</span><span>WEAK</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ds/field-bare.svg" alt="A bare input with no label">
+          <figcaption>A box. No name.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Field better">
+      <div class="slide-meta"><span>3 · ENTER</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ds/field-named.svg" alt="A labelled field">
+          <figcaption>The box has a name.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Field">
+      <div class="slide-meta"><span>3 · ENTER</span><span>THE NAME</span></div>
+      <div class="approach-intro-content">
+        <h2>Field.</h2>
+        <p class="law-def">Collect one fact. The label stays.</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Field example">
+      <div class="slide-meta"><span>3 · ENTER</span><span>EXAMPLE</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/field.svg" alt="Material-X text field">
+        </figure>
+        <div>
+          <p class="eyebrow">Where it sits</p>
+          <h2>Slot. One fact.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>On this job</span>
+              <p>Note. Optional. Need wall near door.</p>
+            </article>
+            <article>
+              <span>Not here</span>
+              <p>Name, USN, phone, email, blood group. The job already knows who they are.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="On or off">
+      <div class="slide-meta"><span>3 · ENTER</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">On or off. Not a sentence. What is that control?</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Toggle">
+      <div class="slide-meta"><span>3 · ENTER</span><span>THE NAME</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/toggle.svg" alt="Material-X switch">
+        </figure>
+        <div>
+          <p class="eyebrow">Toggle · Check · Radio</p>
+          <h2>A setting. Not a form.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>Toggle</span>
+              <p>Remind me. Instant. On or off.</p>
+            </article>
+            <article>
+              <span>Check / radio</span>
+              <p>Many / one from a known set. Pin-up does not need them today.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Known list">
+      <div class="slide-meta"><span>3 · ENTER</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Pick a room from a known list without typing. Why not a field?</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Select">
+      <div class="slide-meta"><span>3 · ENTER</span><span>THE NAME</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/mx/one/select.svg" alt="Material-X select">
+        </figure>
+        <div>
+          <p class="eyebrow">Select</p>
+          <h2>The list already exists.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>Where</span>
+              <p>Studio 1, 2, Hall. Do not make them type the room name.</p>
+            </article>
+            <article>
+              <span>Not Pin-up</span>
+              <p>The slot already has a room. A select here is a second decision.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMIT -->
+    <section class="slide approach-intro" data-title="Commit">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>FAMILY</span></div>
+      <div class="approach-intro-content">
+        <h2>Commit.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Three greens">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Three green rectangles. Which one is the verb?</p>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Buttons equal">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>WEAK</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ds/buttons-equal.svg" alt="Three equal lime buttons">
+          <figcaption>Three verbs. None wins.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="One button">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ds/button-one.svg" alt="One primary button">
+          <figcaption>One verb.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Button">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>THE NAME</span></div>
+      <div class="approach-intro-content">
+        <h2>Button.</h2>
+        <p class="law-def">The tap that finishes the job. One on the screen.</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Button example">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>EXAMPLE</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/button.svg" alt="Material-X button">
+        </figure>
+        <div>
+          <p class="eyebrow">Where it sits</p>
+          <h2>Book. Then Booked.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>On this job</span>
+              <p>One verb. The word is Book.</p>
+            </article>
+            <article>
+              <span>Not here</span>
+              <p>Submit. Continue. Three greens of equal weight.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Floating circle">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">A circle floating over the list. Is that the verb?</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="FAB">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>THE NAME</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/fab.svg" alt="Material-X FAB">
+        </figure>
+        <div>
+          <p class="eyebrow">FAB</p>
+          <h2>Create. Easy to abuse.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>Where</span>
+              <p>Compose. Add a thing that did not exist. Mail. Notes.</p>
+            </article>
+            <article>
+              <span>Not Pin-up</span>
+              <p>The verb is Book, on the slot. A + invents a second job.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="New page">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">They tap Book. A whole new page says Confirm. Did they leave the job?</p>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="New page weak">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>WEAK</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ds/newpage.svg" alt="A new confirm page">
+          <figcaption>A new app called Are you sure.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Sheet better">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ds/sheet.svg" alt="A bottom sheet confirm">
+          <figcaption>Decide without leaving.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Sheet">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>THE NAME</span></div>
+      <div class="approach-intro-content">
+        <h2>Sheet.</h2>
+        <p class="law-def">Decide without leaving. The job is still under it.</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Sheet example">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>EXAMPLE</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/sheet.svg" alt="Material-X sheet">
+        </figure>
+        <div>
+          <p class="eyebrow">Where it sits</p>
+          <h2>Over Slot. Not a new app.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>On this job</span>
+              <p>Book 10:00? Studio 2 · tomorrow.</p>
+            </article>
+            <article>
+              <span>Not here</span>
+              <p>Terms of service. A carousel. Rate this app.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Hard stop">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">A box in the middle that stops everything. When is that fair?</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Dialog">
+      <div class="slide-meta"><span>4 · COMMIT</span><span>THE NAME</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/dialog.svg" alt="Material-X dialog">
+        </figure>
+        <div>
+          <p class="eyebrow">Dialog</p>
+          <h2>Hard stop. Rare.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>Where</span>
+              <p>Delete booking? This cannot be undone.</p>
+            </article>
+            <article>
+              <span>Not Book</span>
+              <p>Confirming Book is a sheet. A dialog for Book is theatre.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AFTER -->
+    <section class="slide approach-intro" data-title="After">
+      <div class="slide-meta"><span>5 · AFTER</span><span>FAMILY</span></div>
+      <div class="approach-intro-content">
+        <h2>After.</h2>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Confetti">
+      <div class="slide-meta"><span>5 · AFTER</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Confetti. Did the system tell them what happened, or congratulate itself?</p>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Confetti weak">
+      <div class="slide-meta"><span>5 · AFTER</span><span>WEAK</span></div>
+      <div class="see-one">
+        <figure>
+          <img src="assets/ds/confetti.svg" alt="Confetti success screen">
+          <figcaption>A party. No fact.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="Toast better">
+      <div class="slide-meta"><span>5 · AFTER</span><span>BETTER</span></div>
+      <div class="see-one is-better">
+        <figure>
+          <img src="assets/ds/toast.svg" alt="A toast with the result">
+          <figcaption>What happened. Stay.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Toast">
+      <div class="slide-meta"><span>5 · AFTER</span><span>THE NAME</span></div>
+      <div class="approach-intro-content">
+        <h2>Toast.</h2>
+        <p class="law-def">Say what happened. Stay on the job. Then leave.</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Toast example">
+      <div class="slide-meta"><span>5 · AFTER</span><span>EXAMPLE</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/toast.svg" alt="Material-X snack bar">
+        </figure>
+        <div>
+          <p class="eyebrow">Where it sits</p>
+          <h2>On the list. Verb is dead.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>On this job</span>
+              <p>You’re on the wall. Button reads Booked.</p>
+            </article>
+            <article>
+              <span>Not here</span>
+              <p>A new Success page. Share to Instagram. Take a survey.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Will not leave">
+      <div class="slide-meta"><span>5 · AFTER</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">A bar that will not leave until they deal with it. Same as a toast?</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Banner">
+      <div class="slide-meta"><span>5 · AFTER</span><span>THE NAME</span></div>
+      <div class="law-ex-body">
+        <figure>
+          <img src="assets/mx/one/toast.svg" alt="Material-X banner">
+        </figure>
+        <div>
+          <p class="eyebrow">Banner</p>
+          <h2>Stays until they deal.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>Where</span>
+              <p>Wi-Fi is down. Bookings may not save. Retry.</p>
+            </article>
+            <article>
+              <span>Not toast</span>
+              <p>You’re on the wall is a fact that can go. An error that blocks Book cannot.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Waiting">
+      <div class="slide-meta"><span>5 · AFTER</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">They tapped Book. Nothing yet. What should they see?</p>
+      </div>
+    </section>
+
+    <section class="slide law-ex" data-title="Spinner">
+      <div class="slide-meta"><span>5 · AFTER</span><span>THE NAME</span></div>
+      <div class="law-ex-body">
+        <figure class="m3-shot">
+          <img src="assets/mx/one/progress.svg" alt="Material-X progress">
+        </figure>
+        <div>
+          <p class="eyebrow">Spinner</p>
+          <h2>Stay on this screen.</h2>
+          <div class="ex-grid">
+            <article>
+              <span>Where</span>
+              <p>On the button, or over Slot. Booking…</p>
+            </article>
+            <article>
+              <span>Not here</span>
+              <p>A new Loading page. A skeleton of a different app.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Today vs leftover">
+      <div class="slide-meta"><span>CUT</span><span>WHAT WE USE</span></div>
+      <div class="best-body">
+        <h2>Seven on Pin-up. The rest you can name.</h2>
+        <div class="best-grid">
+          <article class="is-best">
+            <span>Today</span>
+            <h3>Bar · Row · Card · Field · Button · Sheet · Toast</h3>
+            <p>List, Slot, Commit, After. That is the whole app.</p>
+          </article>
+          <article>
+            <span>You can name</span>
+            <h3>Tabs · Search · Chip · Badge · Empty · Toggle · Select · FAB · Dialog · Banner · Spinner</h3>
+            <p>Put them on Pin-up only if the job needs them. Today it does not.</p>
+          </article>
+          <article>
+            <span>The test</span>
+            <h3>If you cannot say the job, it is leftover.</h3>
+            <p>Leftover is literacy. Using it anyway is decoration.</p>
+          </article>
+        </div>
+        <p class="best-yours">A seventh part on Job must be restated as one of the seven, or it stays off the phone.</p>
+      </div>
+    </section>
+
+    <!-- FIGMA DESIGN FOR BEGINNERS · 13 VIDEOS · ONE EXAMPLE EACH -->
+    <section class="slide approach-intro" data-title="1 Overview">
+      <div class="slide-meta"><span>FIGMA</span><span>01 / 13</span></div>
+      <div class="approach-intro-content">
+        <h2>Thirteen videos.</h2>
+        <p class="law-def">Official beginners course. One example each. Object is the meditation kit.</p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="What Figma is">
+      <div class="slide-meta"><span>01 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Figma Design is for what — apps, sites, pictures, or all of them?</p>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="Digital experiences">
+      <div class="slide-meta"><span>01 / 13</span><span>THE NAME</span></div>
+      <div class="approach-intro-content">
+        <h2>All of them.</h2>
+        <p class="law-def">Starter plan is enough. Browser or desktop. Education if you have a student email.</p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="No account">
+      <div class="slide-meta"><span>02 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">You logged in. Where does today’s work live?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="File browser">
+      <div class="slide-meta"><span>02 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">File browser</p>
+          <h2>Name it Calm.</h2>
+          <p>figma.com/signup. Recents. Duplicate the meditation kit. Do not edit the original. One file per group.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/02-file.svg" alt="Figma Recents with a file named Pin-up">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Open a file">
+      <div class="slide-meta"><span>02 / 13</span><span>10 MINUTES</span></div>
+      <div class="time-box" aria-hidden="true"><strong>10</strong><span>min</span></div>
+      <div>
+        <h2>Duplicate. Add page Our flow.</h2>
+        <p class="studio-key"><a class="figma-link" href="session-5-map.html">Keep this page open</a> · <a class="figma-link" href="https://www.figma.com/community/file/1380569285589400658/meditation-app-ui-kit" target="_blank" rel="noopener">Duplicate the kit</a></p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Four areas">
+      <div class="slide-meta"><span>03 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">The editor has four parts. Can you name them?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="The editor">
+      <div class="slide-meta"><span>03 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Toolbar · left · canvas · right</p>
+          <h2>List is selected.</h2>
+          <p>V F T. Space or H pan. ⌘+ zoom. Pages are free. Nudge 1 / Shift-arrow 10.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/03-editor.svg" alt="Figma editor with Pin-up List on the canvas">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Blue phone">
+      <div class="slide-meta"><span>04 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">The blue phone. Rectangle, or something else?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Frame example">
+      <div class="slide-meta"><span>04 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Layers · shapes · fill · text · frame</p>
+          <h2>F. 390 × 844. Name Home.</h2>
+          <p>R O T. Fill in the right sidebar. Nest Bar and session cards under Home. A grey R is a shape. It cannot play.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/04-frame.svg" alt="Phone frame named List with three time rows">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Bar flies">
+      <div class="slide-meta"><span>05 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">You stretch the phone. The bar flies off. Why?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Constraints example">
+      <div class="slide-meta"><span>05 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Presets · constraints · tidy · not a group</p>
+          <h2>Left + Right. Bar spans.</h2>
+          <p>F → Phone. Select Bar. Constraints: Left and Right. Stretch the phone — Bar still fills. Or skip: Shift+A. ⌘G is not a screen.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/05-constraints.svg?v=2" alt="Bar stays at top when the phone is stretched">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Word clips">
+      <div class="slide-meta"><span>06 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Book becomes Booked. The box stays short. Why is that a poster?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Auto layout example">
+      <div class="slide-meta"><span>06 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Flow · gap · pad · hug</p>
+          <h2>The word grows the control.</h2>
+          <p>Type Book. Shift+A. Pad 16 × 10. Radius 8. Hug both. Change the word. Then ⌘⌥K.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/06-autolayout.svg" alt="Book hugs. Booked hugs. Auto layout panel">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Two Books">
+      <div class="slide-meta"><span>07 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Book looks different on Slot and on the sheet. What did Figma invent?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Component example">
+      <div class="slide-meta"><span>07 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Main · instance · push · detach · variant</p>
+          <h2>One brain. Two Books.</h2>
+          <p>Assets onto Slot and Sheet. Push a better colour. Do not detach. Booked is State = off.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/07-component.svg" alt="Main Book component and two instances, detach as a fail">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="One thing">
+      <div class="slide-meta"><span>08 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Time, room, seats in one block. What is that part?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Card example">
+      <div class="slide-meta"><span>08 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Card · container · Components page</p>
+          <h2>10:00. Studio 2. Then Book.</h2>
+          <p>Shift+A on the card. Phone is the container. Move mains to page Components. Job only gets instances.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/08-card.svg" alt="Slot screen with card, note field, and Book">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Map the kit">
+      <div class="slide-meta"><span>08 / 13</span><span>15 MINUTES</span></div>
+      <div class="time-box" aria-hidden="true"><strong>15</strong><span>min</span></div>
+      <div>
+        <h2>Map the right part.</h2>
+        <p>Drag instances onto Our flow. Welcome, Home, Session, Player. No extra tabs. No FAB. Match the exact designs.</p>
+        <span class="studio-key">Instances only · from the meditation kit</span>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Strip">
+      <div class="slide-meta"><span>09 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">A strip at the top with the name Pin-up. Website nav, or something else?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Nav example">
+      <div class="slide-meta"><span>09 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Nav bar · footer</p>
+          <h2>On Pin-up that is Bar.</h2>
+          <p>Course: 1440 × 80, wordmark, links, button, auto gap. Phone: Material-X app bar. No website footer.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/09-nav.svg" alt="Website nav versus Pin-up app bar">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Two circles">
+      <div class="slide-meta"><span>10 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Two circles overlap. How do they become one shape?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Boolean example">
+      <div class="slide-meta"><span>10 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Boolean · vector · arc · swap</p>
+          <h2>Union. Subtract. Intersect.</h2>
+          <p>Boolean menu. Not on frames. Vector = move points. Arc = ellipse sweep. Swap instance in the right sidebar. Pin-up still uses Rows.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/10-boolean.svg" alt="Union subtract intersect on two circles">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Which parts">
+      <div class="slide-meta"><span>11 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Which kit screens sit on each phone?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Assemble example">
+      <div class="slide-meta"><span>11 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Assemble</p>
+          <h2>Four frames. Instances only.</h2>
+          <p>Welcome. Home with cards. Session detail. Player. Copy the kit. Do not redraw.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/11-assemble.svg" alt="Four Pin-up phones assembled from instances">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Build Pin-up">
+      <div class="slide-meta"><span>11 / 13</span><span>40 MINUTES</span></div>
+      <div class="time-box" aria-hidden="true"><strong>40</strong><span>min</span></div>
+      <div>
+        <h2>Build the four phones.</h2>
+        <p>Page Our flow. F · 390 × 844. Instance the kit screens. Do not redraw Start.</p>
+        <span class="studio-key">F · Shift+A · Assets · no detach</span>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Nothing happens">
+      <div class="slide-meta"><span>12 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">A stranger taps Get started. Nothing happens. What is missing?</p>
+      </div>
+    </section>
+
+    <section class="slide figma-shots ux-example" data-title="Prototype example">
+      <div class="slide-meta"><span>12 / 13</span><span>EXAMPLE</span></div>
+      <div class="ux-example-grid">
+        <div class="ux-example-copy">
+          <p class="eyebrow">Flow · trigger · action · overlay · play</p>
+          <h2>On tap. Navigate. Instant.</h2>
+          <p>Get started → Home. Card → Session. Start → Player. Present. Sticky / fixed / scroll to: named, not required today.</p>
+        </div>
+        <figure class="ux-example-panel">
+          <img src="assets/figma-ex/12-proto.svg" alt="Prototype noodle from List row to Slot, Play highlighted">
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Noodles">
+      <div class="slide-meta"><span>12 / 13</span><span>20 MINUTES</span></div>
+      <div class="time-box" aria-hidden="true"><strong>20</strong><span>min</span></div>
+      <div>
+        <h2>Noodles. Then present.</h2>
+        <p>Play. Start on Welcome. Finish on Player. Give the laptop to the next group.</p>
+        <span class="studio-key">If play does nothing, it is a poster</span>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Stranger">
+      <div class="slide-meta"><span>12 / 13</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">Give the laptop to the next group. Can they finish without you talking?</p>
+      </div>
+    </section>
+
+    <section class="slide name-slide" data-title="13 Summary">
+      <div class="slide-meta"><span>13 / 13</span><span>SUMMARY</span></div>
+      <div class="approach-intro-content">
+        <h2>You can start.</h2>
+        <p class="law-def">File to play. The session starting is the proof. Watch the playlist tonight if a move was fast.</p>
+      </div>
+    </section>
+
+    <!-- AI — only after play works -->
+    <section class="slide approach-intro" data-title="Same job in AI">
+      <div class="slide-meta"><span>THEN AI</span><span>ONLY AFTER PLAY</span></div>
+      <div class="approach-intro-content">
+        <h2>Play works.<br>Then AI.</h2>
+        <p class="law-def">If play does nothing, stop. Do not open Make.</p>
+      </div>
+    </section>
+
+    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Ask for a product">
+      <div class="slide-meta"><span>AI</span><span>WAIT</span></div>
+      <div class="ux-example-body">
+        <p class="ux-example-question">If you type “make a meditation app”, what will it invent?</p>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan prompt-slide" data-title="Weak prompt">
+      <div class="slide-meta"><span>AI</span><span>WEAK</span></div>
+      <div class="lp-heading">
+        <h2>A product prompt is a fail.</h2>
+        <p class="weak-prompt">Make a nice meditation app with a modern UI.</p>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="AI dump">
+      <div class="slide-meta"><span>AI</span><span>SEE</span></div>
+      <div class="see-one see-flow">
+        <figure>
+          <img src="assets/ds/ai-dump.svg" alt="AI dump with extra chrome">
+          <figcaption>Tabs. Search. FAB. A home feed.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan prompt-slide" data-title="The prompt">
+      <div class="slide-meta"><span>AI</span><span>COPY THIS</span></div>
+      <div class="lp-heading">
+        <h2>Ask for the job. Name the parts.</h2>
+        <pre class="prompt-block">Make a mobile flow, 390 × 844.
+
+Job: start one calm meditation session.
+
+Four screens only:
+1. Welcome — one Get started button.
+2. Home — title Home. Three session cards.
+3. Session — one card (name, length). One button: Start.
+4. Player — now playing. Pause. That is After.
+
+Do not add sign-in, tabs, search, FAB, or a profile.
+Use the Meditation App UI Kit.</pre>
+      </div>
+    </section>
+
+    <section class="slide studio-make" data-title="Make then kill">
+      <div class="slide-meta"><span>AI</span><span>20 MINUTES</span></div>
+      <div class="time-box" aria-hidden="true"><strong>20</strong><span>min</span></div>
+      <div>
+        <h2>Make. Then kill three.</h2>
+        <p>Paste the prompt in Figma Make. Screenshot the dump. Kill three chrome additions. Rebuild from your instances if Make invents a new Book.</p>
+        <span class="studio-key">Ask for a part. Never a product.</span>
+      </div>
+    </section>
+
+    <section class="slide see-pair" data-title="AI clean">
+      <div class="slide-meta"><span>AI</span><span>BETTER</span></div>
+      <div class="see-one see-flow">
+        <figure>
+          <img src="assets/ds/ai-clean.svg" alt="Clean four-screen Pin-up from AI after kills">
+          <figcaption>Four screens. The seven parts. Nothing else.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide best-slide" data-title="Agent ABC">
+      <div class="slide-meta"><span>AI</span><span>AGENT</span></div>
+      <div class="best-body">
+        <h2>Then Agent. Three asks.</h2>
+        <div class="best-grid">
+          <article>
+            <span>A · Dump</span>
+            <h3>“Design the meditation app.”</h3>
+            <p>Show the class what it invents. Name the leftovers out loud.</p>
+          </article>
+          <article>
+            <span>B · Constrain</span>
+            <h3>Paste today’s prompt.</h3>
+            <p>Same four screens. Same seven parts. Compare to A.</p>
+          </article>
+          <article class="is-best">
+            <span>C · You name</span>
+            <h3>“Replace every button with our kit Button instance.”</h3>
+            <p>If it cannot, you place the instance. Agent drafts. You own the kit.</p>
+          </article>
+        </div>
+        <p class="best-yours">A sticky of three kills. Search, tabs, extra CTA, mascot, Made with AI. Chrome without a job does not enter Job.</p>
+      </div>
+    </section>
+
+    <!-- ASSIGN -->
+    <section class="slide output" data-title="Assignment 05">
+      <div class="slide-meta"><span>ASSIGNMENT 05</span><span>BEFORE SESSION 6</span></div>
+      <div class="output-content">
+        <p class="eyebrow">The clickthrough is the pass.</p>
+        <h2>A stranger starts a session.</h2>
+        <div class="output-list">
+          <p><span>Play</span>Welcome → Home → Session → Player. That is the class.</p>
+          <p><span>File</span>390 × 844. Kit instances. Not redrawn buttons.</p>
+          <p><span>Pass</span>A stranger finishes without a spoken tour.</p>
+          <p><span>Then AI</span>Only after play works. Same job in Make, then Agent.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide lesson-plan" data-title="Share">
+      <div class="slide-meta"><span>ASSIGNMENT 05</span><span>PASS WHEN</span></div>
+      <div class="lp-heading">
+        <p class="lp-kicker">Submit the view link</p>
+        <h2>If play does nothing, do not submit it.</h2>
+      </div>
+      <div class="lp-grading">
+        <div>
+          <p class="lp-col-label">Share</p>
+          <ul class="lp-list">
+            <li><span>Share → anyone with the link can <strong>view</strong></span></li>
+            <li><span>Paste the link in the class sheet</span></li>
+            <li><span>Private window. Start on Welcome. Tap through Player</span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="lp-col-label">Pass when</p>
+          <ul class="lp-list">
+            <li><span>A stranger starts a session without a spoken tour</span></li>
+            <li><span>Start is an instance. Changing Kit moves Our flow</span></li>
+            <li><span>Leftover parts are named, and not on the phone</span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="lp-col-label">Fail when</p>
+          <ul class="lp-list">
+            <li><span>A kit page with no playable Job</span></li>
+            <li><span>Make or Agent before a stranger can tap Get started</span></li>
+            <li><span>Sign-in, tabs, FAB, or a detached souvenir</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide closing" data-title="Thank you">
+      <div class="grid-lines"></div>
+      <div class="slide-meta"><span>SESSION 05</span><span>THE JOB IS THE PROOF</span></div>
+      <div class="closing-content">
+        <h2>Start the session.</h2>
+        <p>A stranger taps Get started. Play works. Then — and only then — Make, then Agent. Submit that file before Session 6.</p>
+        <div class="contact">
+          <a href="session-5-map.html">Meditation kit</a>
+          <a href="session-5-guide.html">Studio sheet</a>
+          <a href="notes.html#s5-assignment">Assignment 05</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <aside class="controls" aria-label="Slide navigation">
+    <button class="prev" aria-label="Previous slide">←</button>
+    <span class="counter">01 / 01</span>
+    <button class="next" aria-label="Next slide">→</button>
+  </aside>
+  <div class="progress"><span></span></div>
+  <script src="deck.js"></script>
+</body>
+</html>

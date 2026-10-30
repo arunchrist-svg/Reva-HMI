@@ -67,6 +67,21 @@ window.CLASS_GALLERY = {
       ],
       notes: { label: "Class notes", href: "notes.html#session-4" },
       assignmentIds: ["assign-primary-screen"]
+    },
+    {
+      id: "session-5",
+      number: "05",
+      date: "29 October 2026",
+      title: "Name the parts",
+      focus: "Golf, then UI parts. Then Figma Design for beginners. Meditation app clickthrough from the kit before they leave. Make and Agent only after play works.",
+      status: "published",
+      slides: [
+        { label: "Session 5 deck", href: "session-5.html", note: "Classroom" },
+        { label: "Meditation kit", href: "session-5-map.html", note: "Keep open" },
+        { label: "Studio sheet", href: "session-5-guide.html", note: "Faculty" }
+      ],
+      notes: { label: "Class notes", href: "notes.html#session-5" },
+      assignmentIds: ["assign-mobile-flow"]
     }
   ],
   assignments: [
@@ -101,6 +116,14 @@ window.CLASS_GALLERY = {
       due: "Before Session 5",
       summary: "One phone frame. Version 1, Version 2, empty and after, a playable Pay-to-after prototype, three law-backed changes. Share a view link.",
       href: "notes.html#s4-assignment"
+    },
+    {
+      id: "assign-mobile-flow",
+      session: "05",
+      title: "Meditation flow, playable",
+      due: "Before Session 6",
+      summary: "Clickthrough: a stranger starts a calm session. Welcome → Home → Session → Player, from the Meditation App UI Kit. Make and Agent only after play works.",
+      href: "notes.html#s5-assignment"
     }
   ]
 };

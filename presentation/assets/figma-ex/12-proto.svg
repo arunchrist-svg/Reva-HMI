@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
+  <title>Prototype. On tap List row to Slot. Overlay the sheet.</title>
+  <rect width="1200" height="640" fill="#101116"/>
+  <rect x="16" y="16" width="1168" height="608" rx="12" fill="#1a1c22" stroke="#2a2d36"/>
+  <rect x="16" y="16" width="1168" height="44" rx="12" fill="#14161c"/>
+  <rect x="16" y="48" width="1168" height="12" fill="#14161c"/>
+  <text x="36" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">V</text><rect x="56" y="26" width="26" height="22" rx="5" fill="#d4f169"/><text x="69" y="42" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="800" text-anchor="middle">F</text><text x="92" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">R</text><text x="120" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">T</text>
+    <text x="900" y="42" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" font-weight="700">Design</text>
+  <rect x="968" y="24" width="92" height="22" rx="5" fill="#d4f169"/>
+  <text x="1014" y="40" fill="#101116" font-family="system-ui,sans-serif" font-size="12" font-weight="800" text-anchor="middle">Prototype</text>
+  <polygon points="1088,28 1104,35 1088,42" fill="#d4f169"/>
+  <rect x="120" y="90" width="160" height="340" rx="22" fill="#1b1d24" stroke="#0d99ff" stroke-width="3"/>
+  <text x="200" y="130" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14" font-weight="800" text-anchor="middle">List</text>
+  <rect x="140" y="160" width="120" height="32" rx="8" fill="#2a2d36"/>
+  <rect x="140" y="204" width="120" height="32" rx="8" fill="#d4f169"/>
+  <rect x="400" y="90" width="160" height="340" rx="22" fill="#1b1d24" stroke="#3a3d46"/>
+  <text x="480" y="130" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14" font-weight="800" text-anchor="middle">Slot</text>
+  <rect x="420" y="280" width="120" height="40" rx="10" fill="#d4f169"/>
+  <text x="480" y="306" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="800" text-anchor="middle">Book</text>
+  <path d="M280 220 C 330 220, 360 220, 400 220" fill="none" stroke="#d4f169" stroke-width="4"/>
+  <polygon points="400,220 388,214 388,226" fill="#d4f169"/>
+  <text x="340" y="208" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12" font-weight="800" text-anchor="middle">On tap</text>
+  <rect x="720" y="90" width="400" height="400" fill="#16181e"/>
+  <text x="740" y="122" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="700">INTERACTION</text>
+  <text x="740" y="160" fill="#d4f169" font-family="system-ui,sans-serif" font-size="16">Trigger  On tap</text>
+  <text x="740" y="196" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16">Action  Navigate to Slot</text>
+  <text x="740" y="232" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16">Animation  Instant</text>
+  <text x="740" y="280" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14">Sheet = Overlay. Not a new page.</text>
+  <text x="740" y="312" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14">Copy noodles across the three rows.</text>
+  <text x="740" y="360" fill="#d4f169" font-family="system-ui,sans-serif" font-size="16">Present  ·  Play</text>
+
+</svg>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>FAB floating over a list</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="48" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Pin-up</text>
+  <rect x="48" y="92" width="184" height="52" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <rect x="48" y="152" width="184" height="52" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <rect x="48" y="212" width="184" height="52" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <circle cx="204" cy="470" r="28" fill="#d4f169"/>
+  <text x="204" y="480" fill="#101116" font-family="system-ui,sans-serif" font-size="28" text-anchor="middle">+</text>
+</svg>

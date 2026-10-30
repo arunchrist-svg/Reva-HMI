@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
+  <title>File browser. Duplicate Material-X. Name it Pin-up.</title>
+  <rect width="1200" height="640" fill="#1e1e1e"/>
+  <rect x="0" y="0" width="220" height="640" fill="#161616"/>
+  <text x="24" y="40" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16" font-weight="800">Figma</text>
+  <text x="24" y="88" fill="#d4f169" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Recents</text>
+  <text x="24" y="118" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="14">Drafts</text>
+  <text x="24" y="148" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="14">Community</text>
+  <text x="260" y="48" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="22" font-weight="800">Recents</text>
+  <rect x="260" y="80" width="200" height="28" rx="8" fill="#2c2c2c"/>
+  <text x="272" y="100" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="13">Search</text>
+  <rect x="260" y="140" width="260" height="180" rx="12" fill="#2a2d36" stroke="#d4f169" stroke-width="3"/>
+  <rect x="280" y="160" width="220" height="100" rx="8" fill="#1b1d24"/>
+  <text x="390" y="218" fill="#d4f169" font-family="system-ui,sans-serif" font-size="16" font-weight="800" text-anchor="middle">Pin-up</text>
+  <text x="280" y="300" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Pin-up</text>
+  <text x="280" y="322" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="12">Edited just now  ·  you</text>
+  <rect x="548" y="140" width="260" height="180" rx="12" fill="#2a2d36"/>
+  <rect x="568" y="160" width="220" height="100" rx="8" fill="#1b1d24"/>
+  <text x="678" y="218" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Material-X</text>
+  <text x="568" y="300" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14">Material-X  ·  duplicate this</text>
+  <text x="260" y="400" fill="#a1a1a1" font-family="system-ui,sans-serif" font-size="16">Example: your group file is named Pin-up. Not Untitled.</text>
+</svg>

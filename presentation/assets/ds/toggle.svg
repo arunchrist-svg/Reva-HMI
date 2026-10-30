@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>Toggle, checkbox, radio</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="48" y="72" fill="#ece9e1" font-family="Georgia,serif" font-size="20">Notify me</text>
+  <text x="48" y="120" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">Remind 10 min before</text>
+  <rect x="176" y="104" width="48" height="28" rx="14" fill="#d4f169"/>
+  <circle cx="208" cy="118" r="10" fill="#101116"/>
+  <rect x="48" y="160" width="16" height="16" rx="3" fill="#d4f169"/>
+  <text x="74" y="173" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">Email</text>
+  <rect x="48" y="192" width="16" height="16" rx="3" fill="#101116" stroke="#3a3d46"/>
+  <text x="74" y="205" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">SMS</text>
+  <circle cx="56" cy="244" r="8" fill="none" stroke="#d4f169" stroke-width="2"/>
+  <circle cx="56" cy="244" r="4" fill="#d4f169"/>
+  <text x="74" y="249" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">This slot only</text>
+  <circle cx="56" cy="276" r="8" fill="none" stroke="#3a3d46" stroke-width="2"/>
+  <text x="74" y="281" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">All my bookings</text>
+</svg>

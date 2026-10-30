@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
+  <title>Component, two instances, detach fail, Booked variant.</title>
+  <rect width="1200" height="640" fill="#101116"/>
+  <rect x="16" y="16" width="1168" height="608" rx="12" fill="#1a1c22" stroke="#2a2d36"/>
+  <rect x="16" y="16" width="1168" height="44" rx="12" fill="#14161c"/>
+  <rect x="16" y="48" width="1168" height="12" fill="#14161c"/>
+  <text x="36" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">V</text><rect x="56" y="26" width="26" height="22" rx="5" fill="#d4f169"/><text x="69" y="42" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="800" text-anchor="middle">F</text><text x="92" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">R</text><text x="120" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">T</text>
+    <text x="1100" y="42" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" text-anchor="end">Design</text>
+  <rect x="80" y="100" width="200" height="70" rx="10" fill="#d4f169" stroke="#a259ff" stroke-width="3"/>
+  <text x="180" y="142" fill="#101116" font-family="system-ui,sans-serif" font-size="18" font-weight="800" text-anchor="middle">Book</text>
+  <text x="180" y="200" fill="#a259ff" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Main  ·  four diamonds</text>
+  <rect x="360" y="100" width="200" height="70" rx="10" fill="#d4f169" stroke="#a259ff" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="460" y="142" fill="#101116" font-family="system-ui,sans-serif" font-size="18" font-weight="800" text-anchor="middle">Book</text>
+  <text x="460" y="200" fill="#a259ff" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Instance on Slot</text>
+  <rect x="640" y="100" width="200" height="70" rx="10" fill="#d4f169" stroke="#a259ff" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="740" y="142" fill="#101116" font-family="system-ui,sans-serif" font-size="18" font-weight="800" text-anchor="middle">Book</text>
+  <text x="740" y="200" fill="#a259ff" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Instance on Sheet</text>
+  <text x="80" y="280" fill="#ece9e1" font-family="Georgia,serif" font-size="26">Change the main. Both Books move.</text>
+  <rect x="80" y="340" width="200" height="70" rx="10" fill="#5c5f68"/>
+  <text x="180" y="382" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16" font-weight="800" text-anchor="middle">Book</text>
+  <text x="300" y="382" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">Detach. Souvenir. Job no longer listens.</text>
+  <rect x="80" y="460" width="140" height="56" rx="10" fill="#d4f169"/>
+  <text x="150" y="494" fill="#101116" font-family="system-ui,sans-serif" font-size="16" font-weight="800" text-anchor="middle">Booked</text>
+  <text x="240" y="494" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">Variant  State = off. Not a new component.</text>
+
+</svg>

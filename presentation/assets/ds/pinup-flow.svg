@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" role="img">
+  <title>Pin-up slot: list, slot, commit, after</title>
+  <rect width="1120" height="520" fill="#101116"/>
+  <rect x="24" y="16" width="240" height="456" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="122" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="48" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Pin-up</text>
+  <rect x="48" y="92" width="192" height="56" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <text x="62" y="116" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">10:00 · Studio 2</text>
+  <text x="62" y="134" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11">2 seats left</text>
+  <rect x="48" y="156" width="192" height="56" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <text x="62" y="180" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">11:30 · Studio 2</text>
+  <text x="62" y="198" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11">1 seat left</text>
+  <rect x="48" y="220" width="192" height="56" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <text x="62" y="244" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">14:00 · Hall</text>
+  <text x="62" y="262" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11">4 seats left</text>
+  <text x="144" y="500" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">1 · List</text>
+  <rect x="300" y="16" width="240" height="456" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="398" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="324" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Pin-up</text>
+  <rect x="324" y="88" width="192" height="88" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <text x="340" y="118" fill="#ece9e1" font-family="Georgia,serif" font-size="16">10:00</text>
+  <text x="340" y="140" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Studio 2 · 2 seats</text>
+  <text x="324" y="206" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="11" font-weight="700">Note</text>
+  <rect x="324" y="216" width="192" height="44" rx="8" fill="#101116" stroke="#3a3d46"/>
+  <text x="340" y="244" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Need wall near door</text>
+  <rect x="324" y="390" width="192" height="48" rx="10" fill="#d4f169"/>
+  <text x="420" y="420" fill="#101116" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Book</text>
+  <text x="420" y="500" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">2 · Slot</text>
+  <rect x="576" y="16" width="240" height="456" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="576" y="210" width="240" height="262" rx="28" fill="#24262e" stroke="#d4f169" stroke-opacity=".4"/>
+  <rect x="678" y="226" width="36" height="5" rx="2.5" fill="#ece9e1" opacity=".3"/>
+  <text x="600" y="270" fill="#ece9e1" font-family="Georgia,serif" font-size="18">Book 10:00?</text>
+  <text x="600" y="300" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Studio 2 · tomorrow</text>
+  <text x="696" y="368" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">Not now</text>
+  <rect x="600" y="390" width="192" height="48" rx="10" fill="#d4f169"/>
+  <text x="696" y="420" fill="#101116" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Book</text>
+  <text x="696" y="500" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">3 · Commit</text>
+  <rect x="852" y="16" width="240" height="456" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="950" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="876" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Pin-up</text>
+  <rect x="876" y="96" width="192" height="56" rx="12" fill="#d4f169"/>
+  <text x="892" y="120" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="700">You're on the wall.</text>
+  <text x="892" y="138" fill="#101116" font-family="system-ui,sans-serif" font-size="11">10:00 · Studio 2</text>
+  <rect x="876" y="390" width="192" height="48" rx="10" fill="#3a3d46"/>
+  <text x="972" y="420" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">Booked</text>
+  <text x="972" y="500" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">4 · After</text>
+</svg>

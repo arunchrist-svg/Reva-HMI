@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>Dialog blocking the screen</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#101116" opacity=".55"/>
+  <rect x="52" y="190" width="176" height="168" rx="16" fill="#24262e" stroke="#3a3d46"/>
+  <text x="140" y="230" fill="#ece9e1" font-family="Georgia,serif" font-size="16" text-anchor="middle">Delete booking?</text>
+  <text x="140" y="258" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11" text-anchor="middle">This cannot be undone.</text>
+  <text x="96" y="322" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Cancel</text>
+  <text x="176" y="322" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12" font-weight="700">Delete</text>
+</svg>

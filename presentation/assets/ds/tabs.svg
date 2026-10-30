@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>Bottom tabs switching jobs</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="48" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Campus</text>
+  <text x="48" y="120" fill="#ece9e1" font-family="Georgia,serif" font-size="20">Home</text>
+  <rect x="48" y="150" width="184" height="72" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <rect x="48" y="234" width="184" height="72" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <rect x="40" y="456" width="200" height="64" rx="16" fill="#101116" stroke="#3a3d46"/>
+  <circle cx="72" cy="480" r="7" fill="#d4f169"/>
+  <text x="72" y="508" fill="#d4f169" font-family="system-ui,sans-serif" font-size="9" text-anchor="middle">Home</text>
+  <circle cx="124" cy="480" r="7" fill="#3a3d46"/>
+  <text x="124" y="508" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="9" text-anchor="middle">Search</text>
+  <circle cx="176" cy="480" r="7" fill="#3a3d46"/>
+  <text x="176" y="508" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="9" text-anchor="middle">Me</text>
+  <circle cx="220" cy="480" r="7" fill="#3a3d46"/>
+  <text x="220" y="508" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="9" text-anchor="middle">More</text>
+</svg>

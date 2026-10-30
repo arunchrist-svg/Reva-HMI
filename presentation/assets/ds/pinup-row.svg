@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>Three rows to pick a slot</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="48" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Pin-up</text>
+  <rect x="48" y="92" width="184" height="64" rx="10" fill="#101116" stroke="#d4f169"/>
+  <text x="62" y="118" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14">10:00</text>
+  <text x="62" y="138" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11">Studio 2</text>
+  <text x="210" y="128" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">&#8250;</text>
+  <rect x="48" y="164" width="184" height="64" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <text x="62" y="190" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14">11:30</text>
+  <text x="62" y="210" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11">Studio 2</text>
+  <text x="210" y="200" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">&#8250;</text>
+  <rect x="48" y="236" width="184" height="64" rx="10" fill="#101116" stroke="#3a3d46"/>
+  <text x="62" y="262" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14">14:00</text>
+  <text x="62" y="282" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11">Hall</text>
+  <text x="210" y="272" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">&#8250;</text>
+</svg>

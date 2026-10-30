@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 520" role="img">
+  <title>Empty, ask, commit, after on one phone job</title>
+  <rect width="1120" height="520" fill="#101116"/>
+  <!-- empty -->
+  <rect x="24" y="16" width="240" height="456" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="122" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="48" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16">‹</text>
+  <text x="76" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Mess lunch</text>
+  <text x="48" y="120" fill="#ece9e1" font-family="Georgia,serif" font-size="20">Nothing due</text>
+  <text x="48" y="150" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Mess is closed till 11.</text>
+  <rect x="48" y="390" width="192" height="48" rx="10" fill="#d4f169"/>
+  <text x="144" y="420" fill="#101116" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">See tomorrow</text>
+  <text x="144" y="500" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">1 · Empty</text>
+  <!-- ask -->
+  <rect x="300" y="16" width="240" height="456" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="398" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="324" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16">‹</text>
+  <text x="352" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Mess lunch</text>
+  <text x="324" y="120" fill="#ece9e1" font-family="Georgia,serif" font-size="20">Pay the mess</text>
+  <text x="324" y="156" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="700">Amount</text>
+  <rect x="324" y="166" width="192" height="44" rx="8" fill="#101116" stroke="#3a3d46"/>
+  <text x="340" y="194" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14">Rs 80</text>
+  <rect x="324" y="228" width="192" height="56" rx="10" fill="#101116" stroke="#d4f169"/>
+  <text x="340" y="252" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">Lunch · today</text>
+  <text x="340" y="272" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="11">Block B</text>
+  <rect x="324" y="390" width="192" height="48" rx="10" fill="#d4f169"/>
+  <text x="420" y="420" fill="#101116" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+  <text x="420" y="500" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">2 · Ask</text>
+  <!-- commit -->
+  <rect x="576" y="16" width="240" height="456" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="674" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <rect x="576" y="210" width="240" height="262" rx="28" fill="#24262e" stroke="#d4f169" stroke-opacity=".4"/>
+  <rect x="678" y="226" width="36" height="5" rx="2.5" fill="#ece9e1" opacity=".3"/>
+  <text x="600" y="270" fill="#ece9e1" font-family="Georgia,serif" font-size="20">Pay Rs 80?</text>
+  <text x="600" y="300" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Mess lunch · Block B</text>
+  <text x="696" y="368" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">Not now</text>
+  <rect x="600" y="390" width="192" height="48" rx="10" fill="#d4f169"/>
+  <text x="696" y="420" fill="#101116" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+  <text x="696" y="500" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">3 · Commit</text>
+  <!-- after -->
+  <rect x="852" y="16" width="240" height="456" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="950" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="876" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16">‹</text>
+  <text x="904" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Mess lunch</text>
+  <text x="876" y="120" fill="#ece9e1" font-family="Georgia,serif" font-size="20">Pay the mess</text>
+  <rect x="876" y="148" width="192" height="56" rx="12" fill="#d4f169"/>
+  <text x="892" y="172" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Paid. Rs 80.</text>
+  <text x="892" y="190" fill="#101116" font-family="system-ui,sans-serif" font-size="11">12:14 · show at the door</text>
+  <rect x="876" y="390" width="192" height="48" rx="10" fill="#3a3d46"/>
+  <text x="972" y="420" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">Already paid</text>
+  <text x="972" y="500" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">4 · After</text>
+</svg>

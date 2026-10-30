@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 360" role="img">
+  <title>Instance stays linked. Detach breaks the kit.</title>
+  <rect width="580" height="360" fill="#101116"/>
+  <text x="28" y="40" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" letter-spacing="2">INSTANCE</text>
+  <rect x="28" y="64" width="200" height="52" rx="10" fill="#d4f169"/>
+  <text x="128" y="96" fill="#101116" font-family="system-ui,sans-serif" font-size="15" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+  <text x="28" y="140" fill="#d4f169" font-family="system-ui,sans-serif" font-size="13">Linked. Colour comes from Kit.</text>
+  <text x="300" y="40" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" letter-spacing="2">DETACHED</text>
+  <rect x="300" y="64" width="200" height="52" rx="10" fill="#7a8f2e"/>
+  <text x="400" y="96" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="15" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+  <text x="300" y="140" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13">A souvenir. Kit cannot reach it.</text>
+  <text x="28" y="220" fill="#ece9e1" font-family="Georgia,serif" font-size="26">Detach is a last resort.</text>
+  <text x="28" y="260" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">If you detach to change colour, you do not have a system.</text>
+  <text x="28" y="292" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">Change the variant, or change the variable.</text>
+</svg>

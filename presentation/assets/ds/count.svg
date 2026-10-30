@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504 168" role="img">
+  <title>Seven unique buttons versus one kit</title>
+  <rect width="504" height="168" fill="#101116"/>
+  <rect x="8" y="8" width="238" height="152" rx="16" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".22"/>
+  <text x="24" y="34" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="9" font-weight="800" letter-spacing="1.6">WEAK</text>
+  <rect x="24" y="48" width="92" height="24" rx="6" fill="#d4f169"/>
+  <rect x="122" y="48" width="92" height="24" rx="12" fill="#74b9ff"/>
+  <rect x="24" y="80" width="70" height="22" rx="4" fill="#ff6b6b"/>
+  <rect x="100" y="80" width="114" height="22" rx="11" fill="#ffd166"/>
+  <rect x="24" y="110" width="50" height="28" rx="4" fill="#4ecdc4"/>
+  <rect x="82" y="114" width="132" height="20" rx="3" fill="#ece9e1" opacity=".35"/>
+  <text x="24" y="150" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="10">7 buttons. 0 system.</text>
+  <rect x="258" y="8" width="238" height="152" rx="16" fill="#1b1d24" stroke="#d4f169" stroke-opacity=".55"/>
+  <text x="274" y="34" fill="#d4f169" font-family="system-ui,sans-serif" font-size="9" font-weight="800" letter-spacing="1.6">KIT</text>
+  <rect x="274" y="52" width="206" height="32" rx="8" fill="#d4f169"/>
+  <text x="377" y="73" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="700" text-anchor="middle">Primary</text>
+  <rect x="274" y="94" width="206" height="32" rx="8" fill="none" stroke="#ece9e1" stroke-opacity=".45"/>
+  <text x="377" y="115" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700" text-anchor="middle">Secondary</text>
+  <text x="274" y="150" fill="#d4f169" font-family="system-ui,sans-serif" font-size="10">2 buttons. Used everywhere.</text>
+</svg>

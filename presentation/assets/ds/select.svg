@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" role="img">
+  <title>Select from a known list</title>
+  <rect width="280" height="560" fill="#101116"/>
+  <rect x="28" y="16" width="224" height="528" rx="28" fill="#1b1d24" stroke="#3a3d46"/>
+  <rect x="118" y="28" width="44" height="6" rx="3" fill="#ece9e1" opacity=".25"/>
+  <text x="48" y="64" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Pin-up</text>
+  <text x="48" y="108" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="11" font-weight="700">Room</text>
+  <rect x="48" y="118" width="184" height="44" rx="8" fill="#101116" stroke="#3a3d46"/>
+  <text x="62" y="146" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">Studio 2</text>
+  <text x="210" y="146" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">v</text>
+  <rect x="48" y="168" width="184" height="120" rx="8" fill="#24262e" stroke="#3a3d46"/>
+  <text x="62" y="196" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13">Studio 1</text>
+  <text x="62" y="224" fill="#d4f169" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Studio 2</text>
+  <text x="62" y="252" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13">Hall</text>
+</svg>

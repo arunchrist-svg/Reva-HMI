@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504 168" role="img">
+  <title>Two lime buttons versus one primary</title>
+  <rect width="504" height="168" fill="#101116"/>
+  <rect x="8" y="8" width="238" height="152" rx="16" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".22"/>
+  <text x="24" y="34" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="9" font-weight="800" letter-spacing="1.6">WEAK</text>
+  <rect x="24" y="56" width="206" height="36" rx="8" fill="#d4f169"/>
+  <text x="127" y="79" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="700" text-anchor="middle">Pay</text>
+  <rect x="24" y="102" width="206" height="36" rx="8" fill="#d4f169"/>
+  <text x="127" y="125" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="700" text-anchor="middle">Cancel</text>
+  <rect x="258" y="8" width="238" height="152" rx="16" fill="#1b1d24" stroke="#d4f169" stroke-opacity=".55"/>
+  <text x="274" y="34" fill="#d4f169" font-family="system-ui,sans-serif" font-size="9" font-weight="800" letter-spacing="1.6">WHERE</text>
+  <rect x="274" y="56" width="206" height="40" rx="8" fill="#d4f169"/>
+  <text x="377" y="81" fill="#101116" font-family="system-ui,sans-serif" font-size="14" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+  <rect x="274" y="108" width="206" height="36" rx="8" fill="none" stroke="#ece9e1" stroke-opacity=".4"/>
+  <text x="377" y="131" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" font-weight="700" text-anchor="middle">Cancel</text>
+</svg>

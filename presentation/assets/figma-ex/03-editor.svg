@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
+  <title>Four areas. Layers, canvas, design. Pin-up List is selected.</title>
+  <rect width="1200" height="640" fill="#101116"/>
+  <rect x="16" y="16" width="1168" height="608" rx="12" fill="#1a1c22" stroke="#2a2d36"/>
+  <rect x="16" y="16" width="1168" height="44" rx="12" fill="#14161c"/>
+  <rect x="16" y="48" width="1168" height="12" fill="#14161c"/>
+  <text x="36" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">V</text><rect x="56" y="26" width="26" height="22" rx="5" fill="#d4f169"/><text x="69" y="42" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="800" text-anchor="middle">F</text><text x="92" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">R</text><text x="120" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">T</text>
+    <text x="1100" y="42" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" text-anchor="end">Design</text>
+  <rect x="16" y="60" width="220" height="564" fill="#16181e"/>
+  <text x="36" y="92" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">LAYERS</text>
+  <rect x="32" y="108" width="188" height="28" rx="6" fill="#d4f169" fill-opacity=".12" stroke="#d4f169"/>
+  <text x="44" y="127" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12">Job</text>
+  <text x="44" y="168" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">List</text>
+  <text x="56" y="196" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Bar</text>
+  <text x="56" y="220" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Row / 10:00</text>
+  <rect x="236" y="60" width="724" height="564" fill="#101116"/>
+  <rect x="500" y="110" width="196" height="420" rx="28" fill="#1b1d24" stroke="#0d99ff" stroke-width="2"/>
+  <text x="598" y="150" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16" font-weight="800" text-anchor="middle">Pin-up</text>
+  <rect x="520" y="180" width="156" height="44" rx="10" fill="#2a2d36"/>
+  <text x="598" y="208" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">10:00</text>
+  <text x="598" y="560" fill="#0d99ff" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Canvas</text>
+  <rect x="960" y="60" width="224" height="564" fill="#16181e"/>
+  <text x="980" y="92" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="12" font-weight="700" letter-spacing="1.4">DESIGN</text>
+  <text x="980" y="128" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">W  390</text>
+  <text x="1084" y="128" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">H  844</text>
+  <text x="980" y="168" fill="#d4f169" font-family="system-ui,sans-serif" font-size="12">Phone preset</text>
+  <text x="236" y="40" fill="#101116" font-size="1">.</text>
+
+</svg>

@@ -17,7 +17,7 @@ Teaching brief and frontend presentation for **Human-Computer Interaction (M25DA
 cd presentation && python3 -m http.server 8080
 ```
 
-Open [http://localhost:8080](http://localhost:8080) (class home: sessions, notes, assignments), [http://localhost:8080/session-4.html](http://localhost:8080/session-4.html) (Session 4 Figma UI), [http://localhost:8080/session-2.html](http://localhost:8080/session-2.html) (Session 2 user research), [http://localhost:8080/notes.html](http://localhost:8080/notes.html) (class notes), [http://localhost:8080/sprint-v2.html](http://localhost:8080/sprint-v2.html) (Session 1, large type), or [http://localhost:8080/brief.html](http://localhost:8080/brief.html) (faculty brief).
+Open [http://localhost:8080](http://localhost:8080) (class home: sessions, notes, assignments), [http://localhost:8080/session-5.html](http://localhost:8080/session-5.html) (Session 5: name the parts, then Figma, then the meditation flow), [http://localhost:8080/session-5-map.html](http://localhost:8080/session-5-map.html) (Meditation kit page), [http://localhost:8080/session-4.html](http://localhost:8080/session-4.html) (Session 4 Figma UI), [http://localhost:8080/session-2.html](http://localhost:8080/session-2.html) (Session 2 user research), [http://localhost:8080/notes.html](http://localhost:8080/notes.html) (class notes), [http://localhost:8080/sprint-v2.html](http://localhost:8080/sprint-v2.html) (Session 1, large type), or [http://localhost:8080/brief.html](http://localhost:8080/brief.html) (faculty brief).
 
 **Live (Vercel)**
 
@@ -27,6 +27,8 @@ Open [http://localhost:8080](http://localhost:8080) (class home: sessions, notes
 - **Sprint (large type):** [https://arun-hmi.vercel.app/sprint-v2](https://arun-hmi.vercel.app/sprint-v2)
 - **Session 2 (user research):** [https://arun-hmi.vercel.app/session-2](https://arun-hmi.vercel.app/session-2)
 - **Session 4 (Figma UI):** [https://arun-hmi.vercel.app/session-4](https://arun-hmi.vercel.app/session-4)
+- **Session 5 (name the parts, then Figma, then meditation flow):** [https://arun-hmi.vercel.app/session-5](https://arun-hmi.vercel.app/session-5)
+- **Session 5 kit page:** [https://arun-hmi.vercel.app/session-5-map](https://arun-hmi.vercel.app/session-5-map)
 - **Class notes:** [https://arun-hmi.vercel.app/notes](https://arun-hmi.vercel.app/notes)
 
 Also available at [https://reva-hmi.vercel.app/](https://reva-hmi.vercel.app/) (same **arun-hmi** project).

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img">
+  <title>A frame is a phone. A rectangle is not.</title>
+  <rect width="960" height="540" fill="#101116"/>
+  <g>
+    <rect x="90" y="70" width="280" height="400" rx="28" fill="none" stroke="#0d99ff" stroke-width="4"/>
+    <text x="230" y="250" fill="#0d99ff" font-family="system-ui,sans-serif" font-size="72" font-weight="800" text-anchor="middle">F</text>
+    <text x="230" y="500" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="28" font-weight="800" text-anchor="middle">Frame</text>
+    <text x="230" y="534" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" text-anchor="middle">390 x 844 - a place</text>
+  </g>
+  <g>
+    <rect x="590" y="150" width="280" height="160" fill="#2a2d36" stroke="#5c5f68" stroke-width="3"/>
+    <text x="730" y="244" fill="#5c5f68" font-family="system-ui,sans-serif" font-size="48" font-weight="800" text-anchor="middle">R</text>
+    <text x="730" y="360" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="28" font-weight="800" text-anchor="middle">Rectangle</text>
+    <text x="730" y="394" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16" text-anchor="middle">A shape. Not a screen.</text>
+  </g>
+</svg>

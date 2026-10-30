@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img">
+  <title>Boolean union subtract intersect. Name them even if Pin-up uses Rows.</title>
+  <rect width="1200" height="640" fill="#101116"/>
+  <rect x="16" y="16" width="1168" height="608" rx="12" fill="#1a1c22" stroke="#2a2d36"/>
+  <rect x="16" y="16" width="1168" height="44" rx="12" fill="#14161c"/>
+  <rect x="16" y="48" width="1168" height="12" fill="#14161c"/>
+  <text x="36" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">V</text><rect x="56" y="26" width="26" height="22" rx="5" fill="#d4f169"/><text x="69" y="42" fill="#101116" font-family="system-ui,sans-serif" font-size="13" font-weight="800" text-anchor="middle">F</text><text x="92" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">R</text><text x="120" y="44" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" font-weight="700">T</text>
+    <text x="1100" y="42" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" text-anchor="end">Design</text>
+  <circle cx="220" cy="260" r="70" fill="#d4f169" opacity="0.95"/>
+  <circle cx="280" cy="260" r="70" fill="#0d99ff" opacity="0.75"/>
+  <text x="250" y="380" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16" font-weight="800" text-anchor="middle">Union</text>
+  <circle cx="520" cy="260" r="70" fill="#d4f169"/>
+  <circle cx="580" cy="260" r="70" fill="#101116" stroke="#0d99ff"/>
+  <text x="550" y="380" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16" font-weight="800" text-anchor="middle">Subtract</text>
+  <circle cx="820" cy="260" r="70" fill="#2a2d36"/>
+  <circle cx="880" cy="260" r="70" fill="#2a2d36"/>
+  <ellipse cx="850" cy="260" rx="28" ry="44" fill="#d4f169"/>
+  <text x="850" y="380" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="16" font-weight="800" text-anchor="middle">Intersect</text>
+  <text x="80" y="460" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">Select two shapes. Boolean menu. Not on frames.</text>
+  <text x="80" y="500" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">On Pin-up you may skip this. Still name it. Vector edit = move points. Arc = ellipse sweep.</text>
+  <text x="80" y="540" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="16">Swap instance in the right sidebar. Selection colors recolour all at once.</text>
+
+</svg>

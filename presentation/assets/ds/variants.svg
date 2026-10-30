@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img">
+  <title>Four button variants on a kit page</title>
+  <rect width="720" height="420" fill="#101116"/>
+  <text x="36" y="48" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" letter-spacing="2">KIT · BUTTON / PRIMARY</text>
+  <g>
+    <rect x="36" y="80" width="200" height="56" rx="10" fill="#d4f169"/>
+    <text x="136" y="114" fill="#101116" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+    <text x="136" y="160" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">default</text>
+  </g>
+  <g>
+    <rect x="272" y="80" width="200" height="56" rx="10" fill="#b5d14a"/>
+    <text x="372" y="114" fill="#101116" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+    <text x="372" y="160" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">press</text>
+  </g>
+  <g>
+    <rect x="508" y="80" width="176" height="56" rx="10" fill="#3a3d46"/>
+    <text x="596" y="114" fill="#6c6b68" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+    <text x="596" y="160" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">off</text>
+  </g>
+  <g>
+    <rect x="36" y="220" width="200" height="56" rx="10" fill="#d4f169" opacity=".7"/>
+    <text x="136" y="254" fill="#101116" font-family="system-ui,sans-serif" font-size="16" font-weight="700" text-anchor="middle">Paying...</text>
+    <text x="136" y="300" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">wait</text>
+  </g>
+  <text x="36" y="360" fill="#ece9e1" font-family="Georgia,serif" font-size="22">One component. Four states.</text>
+  <text x="36" y="392" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="14">If you draw a fifth Pay, you broke the kit.</text>
+</svg>

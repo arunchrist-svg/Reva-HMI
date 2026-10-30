@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img">
+  <title>Four boolean operations</title>
+  <rect width="960" height="360" fill="#101116"/>
+  <circle cx="90" cy="130" r="48" fill="#d4f169" opacity="0.9"/>
+  <circle cx="130" cy="130" r="48" fill="#0d99ff" opacity="0.7"/>
+  <text x="110" y="230" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="18" font-weight="800" text-anchor="middle">Union</text>
+  <text x="110" y="254" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Merge</text>
+  <circle cx="330" cy="130" r="48" fill="#d4f169"/>
+  <circle cx="370" cy="130" r="48" fill="#101116" stroke="#0d99ff" stroke-width="2"/>
+  <text x="350" y="230" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="18" font-weight="800" text-anchor="middle">Subtract</text>
+  <text x="350" y="254" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Cookie cutter</text>
+  <circle cx="570" cy="130" r="48" fill="#2a2d36"/>
+  <circle cx="610" cy="130" r="48" fill="#2a2d36"/>
+  <ellipse cx="590" cy="130" rx="22" ry="36" fill="#d4f169"/>
+  <text x="590" y="230" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="18" font-weight="800" text-anchor="middle">Intersect</text>
+  <text x="590" y="254" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Overlap only</text>
+  <circle cx="810" cy="130" r="48" fill="#d4f169"/>
+  <circle cx="850" cy="130" r="48" fill="#0d99ff"/>
+  <ellipse cx="830" cy="130" rx="18" ry="30" fill="#101116"/>
+  <text x="830" y="230" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="18" font-weight="800" text-anchor="middle">Exclude</text>
+  <text x="830" y="254" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Cut the overlap</text>
+  <text x="480" y="330" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="15" text-anchor="middle">Non-destructive. Ungroup to undo.</text>
+</svg>
