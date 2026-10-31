@@ -168,13 +168,16 @@ def quote(n, title, act, notes, text, detail=""):
     body += "</div>"
     return f'<section class="slide quote-slide" {attrs(n, title, act, notes)}>{body}</section>'
 
-def ask(n, title, act, notes, question, kicker="ASK", right="", qnum=""):
+def ask(n, title, act, notes, question, kicker="ASK", right="", qnum="", src=""):
+    extra = " has-phone" if src else ""
     body = meta(kicker, right)
+    if src:
+        body += f'<figure class="ux-example-shot"><img src="{src}" alt=""></figure>'
     body += '<div class="ux-example-body">'
     if qnum:
         body += f'<p class="rapid-qn">{qnum}</p>'
     body += f'<p class="ux-example-question">{question}</p></div>'
-    return f'<section class="slide ux-example ux-example-ask ux-example-question-only" {attrs(n, title, act, notes)}>{body}</section>'
+    return f'<section class="slide ux-example ux-example-ask ux-example-question-only{extra}" {attrs(n, title, act, notes)}>{body}</section>'
 
 def answered(n, title, act, notes, question, answer, kicker="ANSWER", right="+5 · +3 · −3", qnum=""):
     body = meta(kicker, right)
@@ -275,7 +278,7 @@ slides.append(lesson(
         "No screen before the problem.",
         "If you cannot defend it, it does not stay.",
         "Steal from the kit. Do not invent a third look.",
-        "Talk to the desk that hands her to you.",
+        "Talk to the desk that hands Arya to you.",
         "Name the reason out loud.",
         "Version 1 is the one you will have to kill.",
     ],
@@ -295,8 +298,8 @@ slides.append(lesson(
     "Arya, 30.",
     "Working professional. New to meditation. Busy. Usually 5–15 minutes. Wants less stress, better sleep, a habit that survives a week.",
     cols=[
-        ("She will", ["Open the app in a corridor.", "Give you minutes, not an hour.", "Quit if the first screen lectures."]),
-        ("She will not", ["Learn specialist vocabulary to start.", "Fill a novel before she tries.", "Forgive streak shame for one missed day."]),
+        ("Arya will", ["Open the app in a corridor.", "Give you minutes, not an hour.", "Quit if the first screen lectures."]),
+        ("Arya will not", ["Learn specialist vocabulary to start.", "Fill a novel before Arya tries.", "Forgive streak shame for one missed day."]),
     ],
     kicker="PERSONA", right="ONE USER"
 ))
@@ -352,12 +355,7 @@ slides.append(lesson(
         ("The teams", [
             "Eight desks. A through H.",
             "One Arya. Eight moments.",
-            "If she gets lost between desks, it is not a product.",
-        ]),
-        ("Today", [
-            "Playground — recreate one screen.",
-            "UI Universe — name the piece.",
-            "Then think, build, and kill v1.",
+            "If Arya gets lost between desks, it is not a product.",
         ]),
     ],
     kicker="WORKSHOP", right="8 TEAMS · 6 HOURS"
@@ -453,24 +451,55 @@ RAPID = [
         "Wait for text link. If they say button, −3. Then: it must not fight Sign Up.",
     ),
 ]
+WELCOME = "assets/mindspace/welcome.png"
+WELCOME_PARTS = [
+    "Illustration",
+    "Heading",
+    "Supporting text",
+    "Primary button",
+    "Secondary action",
+    "Carousel indicator",
+]
 for i, (question, answer, note) in enumerate(RAPID, 1):
     qnum = f"Q{i}"
     slides.append(ask(
         80 + i * 2 - 1, f"Question {i}", "ACT 2 · THE PLAYGROUND",
         f"Exact 5. Close 3. Wrong −3. {note} Then reveal.",
-        question, kicker=qnum, right="+5 · +3 · −3", qnum=qnum
+        question, kicker=qnum, right="+5 · +3 · −3", qnum=qnum,
+        src=WELCOME if i in (1, 2, 4, 5) else "",
     ))
-    slides.append(answered(
-        80 + i * 2, f"Answer {i}", "ACT 2 · THE PLAYGROUND",
-        f"Award 5, 3, or −3. Open Score, click the team, then + / − pts. {answer}",
-        question, answer, kicker=qnum, right="+5 · +3 · −3", qnum=qnum
-    ))
+    if i == 1:
+        marks = "".join(f'<li class="m{n}">{n}</li>' for n in range(1, 7))
+        names = "".join(
+            f"<li><b>{n:02d}</b><span>{name}</span></li>"
+            for n, name in enumerate(WELCOME_PARTS, 1)
+        )
+        slides.append("""<section class="slide rapid-answer has-phone ans-welcome-slide" %s>%s
+<figure class="ans-welcome">
+<img src="%s" alt="Welcome screen with six numbered parts">
+<ol class="ans-welcome-marks" aria-hidden="true">%s</ol>
+</figure>
+<div class="rapid-answer-body">
+<p class="rapid-qn">Q1</p>
+<ol class="ans-welcome-list">%s</ol>
+</div>
+</section>""" % (
+            attrs(80 + i * 2, f"Answer {i}", "ACT 2 · THE PLAYGROUND",
+                  f"Award 5, 3, or −3. Open Score, click the team, then + / − pts. {answer}"),
+            meta(qnum, "+5 · +3 · −3"),
+            WELCOME, marks, names
+        ))
+    else:
+        slides.append(answered(
+            80 + i * 2, f"Answer {i}", "ACT 2 · THE PLAYGROUND",
+            f"Award 5, 3, or −3. Open Score, click the team, then + / − pts. {answer}",
+            question, answer, kicker=qnum, right="+5 · +3 · −3", qnum=qnum
+        ))
 
 slides.append(lime(
     80, "Check scores", "ACT 2 · THE PLAYGROUND",
-    "Open Score. Read the board out loud. Do not start Level 02 until they have heard the numbers.",
+    "Check scores. Then Level 02.",
     "Check scores.",
-    "Open Score. Read the board.",
     kicker="QUIZ", right="THE BOARD"
 ))
 
@@ -551,11 +580,11 @@ slides.append(lesson(
     "See it. Understand it. Choose it. Defend it. Do not award points for finishing first.",
     "How you score.",
     grades=[
-        ("10", "Correct identification"),
-        ("20", "Correct component choice"),
-        ("20", "Strong reasoning"),
-        ("15", "Spotting a usability issue"),
-        ("25", "Excellent improvement"),
+        ("3", "Correct identification"),
+        ("8", "Correct component choice"),
+        ("8", "Strong reasoning"),
+        ("6", "Spotting a usability issue"),
+        ("10", "Excellent improvement"),
     ],
     kicker="SCORING", right="LEVEL 02"
 ))
@@ -578,8 +607,8 @@ def universe_qa(n, num, family, question, answer, note):
 # 01 Buttons
 universe_qa(
     91, 1, "Button",
-    "She taps once. Something happens. Name the component.",
-    "A button. It starts an action. One tap. Something happens.",
+    "One press starts the next step. Sign Up. Play. Start sleep. Name the component.",
+    "A button. It starts an action. One tap.",
     "Wait for button, not the look. Then reveal.",
 )
 slides.append("""<section class="slide phone-pair btn-usage" %s>%s
@@ -755,8 +784,8 @@ slides.append("""<section class="slide lesson-plan btn-states" %s>%s
 # 02 Text fields
 universe_qa(
     96, 2, "Text field",
-    "She types her name. Name the component.",
-    "A text field. The user types. Label above. Value inside.",
+    "A labelled box Arya fills with words or a number. Name the component.",
+    "A text field. Arya types. Label above. Value inside.",
     "If they say box, push for text field.",
 )
 slides.append(pair(
@@ -819,7 +848,7 @@ slides.append("""<section class="slide lesson-plan field-states-slide" %s>%s
 # 03 Checkbox
 universe_qa(
     100, 3, "Checkbox",
-    "Sleep and stress. Both stay on. Name the component.",
+    "More than one yes can stay on. Sleep and stress. Name the component.",
     "A checkbox. Tick one or many. Each choice stands alone.",
     "Do not offer radio. Let them name checkbox.",
 )
@@ -893,7 +922,7 @@ slides.append("""<section class="slide lesson-plan checkbox-usage" %s>%s
 # 04 Radio
 universe_qa(
     104, 4, "Radio",
-    "Morning or evening. Only one. Name the component.",
+    "Only one choice can stay on. Morning or evening. Name the component.",
     "Radio. One of a set. Pick one. The others clear.",
     "If they say checkbox, −3. Exclusive pick is radio.",
 )
@@ -1027,7 +1056,7 @@ slides.append("""<section class="slide lesson-plan sel-states" %s>%s
 # 05 Switch
 universe_qa(
     108, 5, "Switch",
-    "Reminders. On or off, now. Name the component.",
+    "A setting that flips on or off and takes effect now. Reminders. Name the component.",
     "A switch. On or off. It takes effect now.",
     "Switch is not a form submit. Immediate.",
 )
@@ -1123,7 +1152,7 @@ def _card_ux_panel(inner, better=False, cap="Bad"):
 # 06 Cards
 universe_qa(
     112, 6, "Card",
-    "A tappable block that holds one thing. Name the component.",
+    "One session on its own. Image, title, one tap. Name the component.",
     "A card. One object. One tap. Containment.",
     "Containment, not decoration. Then reveal.",
 )
@@ -1320,18 +1349,23 @@ slides.append("""<section class="slide lesson-plan card-ux-states" %s>%s
 # 07 Lists
 universe_qa(
     116, 7, "List",
-    "Same kind of row, stacked. Name the component.",
+    "Same row, stacked. Scan a set of sessions. Name the component.",
     "A list. Same row, stacked. Scan, then tap.",
     "Repeating rows are a list. A unique story is a card.",
 )
-slides.append(pair(
-    118, "List usage", ACT3,
-    "Same rows, stacked. Picture on the edge so she can scan. Picture in the middle is harder.",
-    ("assets/lists/usage-caution.png", "Caution · picture in the middle", False),
-    ("assets/lists/usage-do.png", "Do · picture on the edge", True),
-    kicker="USAGE", extra_cls="list-m2"
+slides.append("""<section class="slide phone-pair list-m2 list-usage-redo" %s>%s
+<div class="list-redo-head"><h2>Same rows. Picture on the edge.</h2></div>
+<div class="pair-row">
+<figure class="phone-frame"><img src="assets/lists/usage-caution.png" alt="Picture in the middle"><figcaption>Bad</figcaption></figure>
+<figure class="phone-frame is-better"><img src="assets/lists/usage-do.png" alt="Picture on the edge"><figcaption>Good</figcaption></figure>
+</div>
+</section>""" % (
+    attrs(118, "List usage", ACT3,
+          "Same rows, stacked. Picture on the edge so Arya can scan. Picture in the middle is harder."),
+    meta("USAGE", "LIST"),
 ))
 slides.append("""<section class="slide phone-pair list-types" %s>%s
+<div class="list-redo-head"><h2>One line. Two. Three.</h2></div>
 <div class="list-types-row">
 <figure class="phone-frame">
 <img src="assets/lists/one-line.png" alt="Single-line list">
@@ -1364,7 +1398,7 @@ slides.append(pair(
 # 08 Navigation bar
 universe_qa(
     120, 8, "Navigation",
-    "Three to five top-level places, always on screen. Name the component.",
+    "Always on screen. Three to five places Arya can go. Name the component.",
     "A navigation bar. Destinations, not actions.",
     "Destinations live in the bar. Actions live in buttons.",
 )
@@ -1532,9 +1566,9 @@ slides.append("""<section class="slide lesson-plan appbar-types" %s>%s
 # 09 Chips
 universe_qa(
     124, 9, "Chip",
-    "A small pill for a filter or choice. Name the component.",
+    "A compact choice Arya can turn on. Sleep. Mood. Not the main verb. Name the component.",
     "A chip. A compact choice. Not the primary verb.",
-    "If they say button, push: the verb is filled. The pill is a chip.",
+    "If they say button, push: the verb is filled. This is a chip.",
 )
 
 _CHIP_X = (
@@ -1623,7 +1657,7 @@ slides.append("""<section class="slide lesson-plan chip-example" %s>%s
 # 10 Dialogs
 universe_qa(
     128, 10, "Dialog",
-    "A decision that must not be missed. Name the component.",
+    "The screen waits. Arya must confirm or dismiss. Name the component.",
     "A dialog. The screen waits. Confirm or dismiss.",
     "If they say snackbar, −3. Irreversible needs a decision.",
 )
@@ -1868,16 +1902,54 @@ slides.append(pair(
 ))
 slides.append(lime(
     35, "Check scores again", "ACT 3 · THE UI UNIVERSE",
-    "After the UI Universe, before the brief. Open Score. Read the board out loud. Do not start the brief until they have heard the numbers.",
+    "Check scores. Then Look first.",
     "Check scores.",
-    "Open Score. Read the board.",
     kicker="QUIZ", right="THE BOARD"
 ))
+GV_SHOTS = [
+    ("assets/gv/01.png", "Call controls"),
+    ("assets/gv/02.png", "Notification badges"),
+    ("assets/gv/03.png", "Form layout"),
+    ("assets/gv/04.png", "Categories"),
+    ("assets/gv/05.png", "Photo contrast"),
+    ("assets/gv/06.png", "Nav bar colour"),
+    ("assets/gv/07.png", "Plans"),
+    ("assets/gv/08.png", "Thumb zone"),
+    ("assets/gv/09.png", "Progress"),
+    ("assets/gv/10.png", "Name the miss"),
+    ("assets/gv/11.png", "Text alignment"),
+    ("assets/gv/12.png", "Name the miss"),
+    ("assets/gv/13.png", "Inactive contrast"),
+    ("assets/gv/14.png", "Name the miss"),
+    ("assets/gv/16.png", "Hero and CTAs"),
+    ("assets/gv/17.png", "Name the miss"),
+    ("assets/gv/18.png", "Tab colours"),
+    ("assets/gv/19.png", "Name the miss"),
+    ("assets/gv/20.png", "Name the miss"),
+]
 slides.append(lime(
-    36, "Wrong piece", "ACT 3 · THE UI UNIVERSE",
+    147, "Look first", "ACT 3 · LOOK FIRST",
+    "Nineteen same-shot comparisons. Ask what is wrong on the left. Then: does Arya use it.",
+    "Look first.",
+    "Nineteen shots. Same frame. Then we check.",
+    kicker="LOOK FIRST", right="19 SHOTS"
+))
+for i, (src, cap) in enumerate(GV_SHOTS, 1):
+    slides.append(
+        '<section class="slide wide-see gv-shot" %s>%s'
+        '<figure class="wide-frame"><img src="%s" alt="%s"></figure>'
+        "</section>" % (
+            attrs(147 + i, cap, "ACT 3 · LOOK FIRST",
+                  "What is wrong on the left? Then next."),
+            meta(f"{i:02d} / 19", "BAD · GOOD"),
+            src, cap
+        )
+    )
+slides.append(lime(
+    36, "Does Arya use it", "ACT 3 · THE UI UNIVERSE",
     "If they cannot say when Arya uses it, they picked the wrong piece. Then the brief.",
-    "When does she use it?",
-    "If you cannot say, you picked the wrong piece.",
+    "Does Arya use it.",
+    "If Arya never uses it, drop it.",
     kicker="CHECKPOINT", right="LEVEL 02"
 ))
 
@@ -1892,30 +1964,30 @@ slides.append(lime(
 slides.append(ask(
     38, "The problem statement", "ACT 4 · MISSION BRIEFING",
     "Keep it short. She has to last a week. The rest is their job.",
-    "How might we keep her coming back for a week?"
+    "How might we keep Arya coming back for a week?"
 ))
 slides.append(cards(
-    39, "Your eight missions", "ACT 4 · MISSION BRIEFING",
+    39, "Pick a desk. Keep Arya.", "ACT 4 · MISSION BRIEFING",
     "Eight teams. Eight parts of Arya's experience. One product. Open Missions (B) for the full briefs.",
-    "Pick a desk. Keep her alive until four.",
+    "Pick a desk. Keep Arya.",
     [
         ("A", "Getting started", "Help Arya begin without a novel of fields."),
-        ("B", "Personalisation", "Understand her needs in everyday language."),
+        ("B", "Personalisation", "Understand Arya’s needs in everyday language."),
         ("C", "Home", "Guide the next action in five minutes."),
         ("D", "Discover", "Find content without specialist words."),
         ("E", "Meditation", "Make the session effortless."),
         ("F", "Goals", "Build a habit without guilt."),
         ("G", "Journal", "Reflect without another chore."),
-        ("H", "Profile", "Give her control she can find."),
+        ("H", "Profile", "Control Arya can find."),
     ],
     kicker="TEAMS"
 ))
 slides.append("""<section class="slide lesson-plan" %s>%s
-<div class="lp-body"><div class="lp-heading"><h2>She has to survive this map.</h2><p class="lp-subtitle">Not a rigid sequence. Journal and goals can open from Home. Find the real entry, the skip, and who you hand her to.</p></div>
+<div class="lp-body"><div class="lp-heading"><h2>Arya has to survive this map.</h2><p class="lp-subtitle">Not a rigid sequence. Journal and goals can open from Home. Find the real entry, the skip, and who you hand Arya to.</p></div>
 <div class="s5-flow">
 <b>Registration</b><i>→</i><b>Personalisation</b><i>→</i><b>Home</b><i>→</i><b>Discover</b><i>→</i><b>Meditation</b><i>→</i><b>Goals</b><i>→</i><b>Journal</b><i>→</i><b>Profile</b>
 </div>
-<p class="lp-subtitle" style="margin-top:1.2rem">Ask: Where does Arya enter? Where next? Can she return? What if she skips?</p>
+<p class="lp-subtitle" style="margin-top:1.2rem">Ask: Where does Arya enter? Where next? Can Arya return? What if Arya skips?</p>
 </div></section>""" % (
     attrs(40, "The product journey", "ACT 4 · MISSION BRIEFING",
           "Where does Arya enter? Where does she go next? Can she return? What happens if she skips something?"),
@@ -1975,53 +2047,12 @@ slides.append(lesson(
         "Name frames so the next desk can find them.",
         "Do not restyle the masters.",
         "Steal styles. Do not invent a third look.",
-        "Write the handoff: who you take her from, who you give her to.",
+        "Write the handoff: who you take Arya from, who you give Arya to.",
         "Same Arya. No extra hero.",
         "Talk to the desks on either side of you.",
     ],
     kicker="COLLAB", right="NON-NEGOTIABLE"
 ))
-GV_SHOTS = [
-    ("assets/gv/01.png", "Call controls"),
-    ("assets/gv/02.png", "Notification badges"),
-    ("assets/gv/03.png", "Form layout"),
-    ("assets/gv/04.png", "Categories"),
-    ("assets/gv/05.png", "Photo contrast"),
-    ("assets/gv/06.png", "Nav bar colour"),
-    ("assets/gv/07.png", "Plans"),
-    ("assets/gv/08.png", "Thumb zone"),
-    ("assets/gv/09.png", "Progress"),
-    ("assets/gv/10.png", "Name the miss"),
-    ("assets/gv/11.png", "Text alignment"),
-    ("assets/gv/12.png", "Name the miss"),
-    ("assets/gv/13.png", "Inactive contrast"),
-    ("assets/gv/14.png", "Name the miss"),
-    ("assets/gv/15.png", "Key values"),
-    ("assets/gv/16.png", "Hero and CTAs"),
-    ("assets/gv/17.png", "Name the miss"),
-    ("assets/gv/18.png", "Tab colours"),
-    ("assets/gv/19.png", "Name the miss"),
-    ("assets/gv/20.png", "Name the miss"),
-]
-slides.append(lime(
-    147, "Look first", "ACT 4 · LOOK FIRST",
-    "Twenty same-shot comparisons from Dribbble. Ask what is wrong on the left. Then the project.",
-    "Look first.",
-    "Twenty shots. Same frame. Then we start.",
-    kicker="BEFORE THE PROJECT", right="20 SHOTS"
-))
-for i, (src, cap) in enumerate(GV_SHOTS, 1):
-    slides.append(
-        '<section class="slide wide-see gv-shot" %s>%s'
-        '<figure class="wide-frame"><img src="%s" alt="%s"></figure>'
-        "</section>" % (
-            attrs(147 + i, cap, "ACT 4 · LOOK FIRST",
-                  "What is wrong on the left? Then next."),
-            meta(f"{i:02d} / 20", "BAD · GOOD"),
-            src, cap
-        )
-    )
-
 slides.append(lime(
     168, "Ten rules", "ACT 4 · TEN RULES",
     "Ten rules. One example each. Then Hands on.",
@@ -2036,22 +2067,22 @@ PRINCIPLES = [
     (170, 2, "Consistency", "Same control. Same place.",
      '<div class="ui-prin-bar"><b>✕</b><span>Close</span></div><div class="ui-prin-bar is-mid"><span>Back</span></div><div class="ui-prin-bar is-end"><b>Done</b></div>',
      '<div class="ui-prin-bar is-same"><b>←</b><span>Home</span></div><div class="ui-prin-bar is-same"><b>←</b><span>Sleep</span></div><div class="ui-prin-bar is-same"><b>←</b><span>Player</span></div>'),
-    (171, 3, "Hierarchy", "She sees the next tap first.",
+    (171, 3, "Hierarchy", "Arya sees the next tap first.",
      '<p class="ui-prin-flat">Sleep</p><p class="ui-prin-flat">10 min</p><p class="ui-prin-flat">Start</p><p class="ui-prin-flat">4.8</p>',
      '<h3>Sleep</h3><p class="ui-prin-muted">10 minutes</p><span class="ui-prin-btn is-fill">Start</span>'),
-    (172, 4, "Feedback", "She taps. The UI answers.",
+    (172, 4, "Feedback", "Arya taps. The UI answers.",
      '<p class="ui-prin-msg">See you tomorrow.</p><span class="ui-prin-btn">Send</span><p class="ui-prin-ghost">…</p>',
      '<p class="ui-prin-msg">See you tomorrow.</p><p class="ui-prin-tick">Sent</p><p class="ui-prin-tick">Delivered</p><p class="ui-prin-tick is-read">Read</p>'),
-    (173, 5, "Access", "If she can’t read it, it is not there.",
+    (173, 5, "Access", "If Arya can’t read it, it is not there.",
      '<p class="ui-prin-wash">Start session</p><p class="ui-prin-wash">10 min guided</p>',
      '<h3>Start session</h3><p class="ui-prin-muted">10 min guided</p><span class="ui-prin-btn is-fill">Play</span>'),
-    (174, 6, "Clarity", "Words she already knows.",
+    (174, 6, "Clarity", "Words Arya already knows.",
      '<h3 class="ui-prin-jargon">Initiate nocturnal protocol</h3><span class="ui-prin-btn">Confirm execution</span>',
      '<h3>Start sleep session</h3><span class="ui-prin-btn is-fill">Start</span>'),
-    (175, 7, "Control", "She can leave. She can undo.",
+    (175, 7, "Control", "Arya can leave. Arya can undo.",
      '<p class="ui-prin-kicker">Playing</p><h3>Please wait</h3><p class="ui-prin-ghost">Locked</p>',
      '<p class="ui-prin-kicker">Playing</p><h3>Sleep</h3><div class="ui-prin-controls"><b>−10</b><b class="is-fill">❚❚</b><b>+10</b></div>'),
-    (176, 8, "Recover", "Stop the miss. Then help her fix it.",
+    (176, 8, "Recover", "Stop the miss. Then help Arya fix it.",
      '<p class="ui-prin-err">ERROR 422</p><p class="ui-prin-err">INVALID PAYLOAD</p>',
      '<p class="ui-prin-warn">That email needs an @</p><span class="ui-prin-field">me</span><span class="ui-prin-btn is-fill">Fix it</span>'),
     (177, 9, "Quiet", "Quiet. Not decoration.",
@@ -2082,10 +2113,10 @@ slides.append(desk_wall(
     "Read A to H out loud. Point at the room. Then move.",
     [
         ("A", "Getting started", "Begin without a novel of fields."),
-        ("B", "Personalisation", "Her words. Not jargon."),
+        ("B", "Personalisation", "Arya’s words. Not jargon."),
         ("C", "Home", "One next tap. Five minutes."),
         ("D", "Discover", "Find sleep. Not a term."),
-        ("E", "Meditation", "Play. Close her eyes."),
+        ("E", "Meditation", "Play. Close Arya’s eyes."),
         ("F", "Goals", "Miss a day. No shame."),
         ("G", "Journal", "A mood is enough."),
         ("H", "Profile", "Find the reminder."),
@@ -2125,9 +2156,9 @@ slides.append(studio(
 # ACT 6
 slides.append(level(
     49, "The Interface Builders", "ACT 6 · INTERFACE BUILDERS",
-    "Pixels. She is still waiting.",
+    "Pixels. Arya is still waiting.",
     4, "The Interface Builders.",
-    "Pixels. She is still waiting.",
+    "Pixels. Arya is still waiting.",
     timer="45", right="03:00–03:45"
 ))
 slides.append(studio(
@@ -2140,9 +2171,9 @@ slides.append(studio(
 
 # ACT 7
 slides.append(lime(
-    51, "Walk her", "ACT 7 · ASSEMBLY",
-    "Walk her from A to H. If she gets lost, the seam is theirs.",
-    "Walk her.",
+    51, "Walk Arya", "ACT 7 · ASSEMBLY",
+    "Walk Arya from A to H. If Arya gets lost, the seam is theirs.",
+    "Walk Arya.",
     timer="15", kicker="ACT 7", right="03:45–04:00"
 ))
 
@@ -2150,7 +2181,7 @@ slides.append(lime(
 slides.append(studio(
     52, "Critique", "ACT 9 · CRITIQUE",
     "Name the miss. Protect the person. Keep / fix / remove / improve. Open Score.",
-    "Break it before she does.",
+    "Break it before Arya does.",
     "",
     "10 min", "10", kicker="CRITIQUE"
 ))
@@ -2158,7 +2189,7 @@ slides.append(studio(
 # ACT 10
 slides.append(level(
     53, "The Design Evolution", "ACT 10 · DESIGN EVOLUTION",
-    "She already used v1. Fix what she hit. Do not add a fifth screen.",
+    "Arya already used v1. Fix what Arya hit. Do not add a fifth screen.",
     5, "The Design Evolution.",
     "",
     timer="60", right="04:30–05:30"
@@ -2206,14 +2237,14 @@ slides.append(lime(
 
 # ACT 12
 slides.append(lime(
-    65, "Learned", "ACT 12 · CLOSING",
-    "Hold. Do not rush it. The day was never Figma. It was her next tap.",
-    "She still has five minutes.",
-    "You designed the next tap. Not the screen.",
-    kicker="SESSION 05", right="LEARNED"
+    65, "Close", "ACT 12 · CLOSING",
+    "Hold. Eight desks. One Arya. Thank them. Then dismiss.",
+    "You kept Arya in the product.",
+    "Eight desks. One Arya. Thank you.",
+    kicker="SESSION 05", right="CLOSE"
 ))
 
-assert len(slides) == 159, len(slides)
+assert len(slides) == 158, len(slides)
 # only first slide should have is-active in cover(); others shouldn't. Fix if any extra.
 # cover() already handles n==1.
 
@@ -2284,7 +2315,7 @@ score_rows = "".join(
     for letter in "ABCDEFGH"
 )
 
-DROP = {2, 3, 4, 5, 6, 11, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 54, 55, 123}
+DROP = {2, 3, 4, 5, 6, 11, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 54, 55, 110, 123, 219}
 slides = [
     s for s in slides
     if int(re.search(r'data-slide="(\d+)"', s).group(1)) not in DROP
@@ -2309,7 +2340,7 @@ html = f"""<!doctype html>
   <link rel="stylesheet" href="deck.css?v=23">
   <link rel="stylesheet" href="deck-v2.css?v=12">
   <link rel="stylesheet" href="mobile.css?v=9">
-  <link rel="stylesheet" href="session-5.css?v=47">
+  <link rel="stylesheet" href="session-5.css?v=53">
 </head>
 <body class="deck-v2 s5" data-deck-title="Session 5 · The Mindspace Design Lab">
   <div class="hud" aria-label="Facilitator">
@@ -2336,7 +2367,7 @@ html = f"""<!doctype html>
   <aside class="score-panel" id="score-panel">
     <h3>Scoreboard · click a team, then + / −</h3>
     <div class="score-rows">{score_rows}</div>
-    <p class="lp-subtitle" style="margin-top:.8rem">10 identify · 20 decision · 20 reasoning · 15 issue · 25 improvement · 15 deliverable · 15 collaboration · 20 observation · 25 iteration. Never for finishing first.</p>
+    <p class="lp-subtitle" style="margin-top:.8rem">3 identify · 8 decision · 8 reasoning · 6 issue · 10 improvement · 6 deliverable · 6 collaboration · 8 observation · 10 iteration. Never for finishing first.</p>
   </aside>
   <aside class="twist-panel" id="twist-panel">
     <h3>Surprise mechanics · inside existing sprint time</h3>
