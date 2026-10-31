@@ -452,6 +452,7 @@ RAPID = [
     ),
 ]
 WELCOME = "assets/mindspace/welcome.png"
+SIGNUP = "assets/mindspace/signup.png"
 WELCOME_PARTS = [
     "Illustration",
     "Heading",
@@ -466,7 +467,7 @@ for i, (question, answer, note) in enumerate(RAPID, 1):
         80 + i * 2 - 1, f"Question {i}", "ACT 2 · THE PLAYGROUND",
         f"Exact 5. Close 3. Wrong −3. {note} Then reveal.",
         question, kicker=qnum, right="+5 · +3 · −3", qnum=qnum,
-        src=WELCOME if i in (1, 2, 4, 5) else "",
+        src=WELCOME if i in (1, 2) else SIGNUP if i in (4, 5) else "",
     ))
     if i == 1:
         marks = "".join(f'<li class="m{n}">{n}</li>' for n in range(1, 7))
