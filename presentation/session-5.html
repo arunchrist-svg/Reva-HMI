@@ -5,1724 +5,688 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101116">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <title>Name the parts: Session 5</title>
+  <title>The Mindspace Design Lab: Session 5</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="deck.css?v=27">
-  <link rel="stylesheet" href="deck-v2.css?v=20">
-  <link rel="stylesheet" href="mobile.css?v=11">
-  <style>
-    body.deck-v2 .cover .lede {
-      margin-top: 1.6rem;
-      max-width: 22ch;
-      font-size: clamp(1.6rem, 2.6vw, 2.2rem);
-    }
-    body.deck-v2 .ux-example-question-only .ux-example-question {
-      font-size: clamp(2.6rem, 5.4vw, 5.2rem);
-      max-width: 16ch;
-      line-height: 1.05;
-    }
-    body.deck-v2 .name-slide h2, .name-slide h2 {
-      font-size: clamp(4.8rem, 11vw, 10rem);
-    }
-    body.deck-v2 .name-slide .law-def,
-    body.deck-v2 .approach-intro-content .law-def {
-      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-      max-width: 18ch;
-    }
-    body.deck-v2 .output .output-list {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    body.deck-v2 .figma-link {
-      color: var(--lime);
-      font-weight: 800;
-      text-decoration: none;
-    }
-    body.deck-v2 .figma-link:hover { text-decoration: underline; }
-    body.deck-v2 .output .output-list {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.4rem;
-    }
-    body.deck-v2 .output .output-list p {
-      font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-      line-height: 1.4;
-    }
-    body.deck-v2 .lp-grading { grid-template-columns: repeat(3, 1fr); }
-
-    .slide.photo-full { display: none; padding: 0; background: #e6e2da; }
-    .slide.photo-full.is-active {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .slide.photo-full .slide-meta {
-      color: rgba(16,17,22,.45);
-      top: 1.4rem;
-    }
-    .slide.photo-full img {
-      display: block;
-      width: 100%;
-      height: 100vh;
-      object-fit: contain;
-      background: #e6e2da;
-    }
-    .slide.photo-full .photo-credit {
-      position: absolute;
-      left: 5.7vw;
-      bottom: 1.4rem;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: rgba(16,17,22,.4);
-    }
-    .slide.photo-full.is-kit { background: #fff; }
-    .slide.photo-full.is-kit img { background: #fff; object-fit: contain; }
-    .law-ex figure.m3-shot {
-      background: #fff;
-      border: 1px solid var(--line);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2.2rem 1.6rem;
-    }
-    .law-ex figure.m3-shot img,
-    .see-one.m3-shot img {
-      object-fit: contain;
-      object-position: center;
-      background: #fff;
-      width: 100%;
-      max-height: min(62vh, 560px);
-    }
-
-    .slide.studio-make { display: none; }
-    .slide.studio-make.is-active {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: clamp(1.5rem, 4vw, 3.5rem);
-      align-items: center;
-    }
-    .studio-make h2 {
-      font-size: clamp(2.6rem, 4.6vw, 5.2rem);
-      line-height: 0.98;
-      max-width: 16ch;
-    }
-    .studio-make p {
-      margin-top: 1rem;
-      max-width: 34ch;
-      font-family: var(--serif);
-      font-size: clamp(1.2rem, 1.9vw, 1.7rem);
-      line-height: 1.35;
-      color: var(--muted);
-    }
-    .studio-key {
-      display: inline-block;
-      margin-top: 1.1rem;
-      border: 1px solid var(--line);
-      padding: 0.35rem 0.7rem;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--lime);
-    }
-    .ux-example-question-only .studio-key { margin-top: 1.4rem; }
-    body.deck-v2 .studio-make .time-box strong { font-size: clamp(4.2rem, 8vw, 7.5rem); }
-    body.deck-v2 .studio-make .time-box span { font-size: 12px; }
-
-    .slide.see-pair, .slide.observe { display: none; }
-    .slide.observe.is-active {
-      display: grid;
-      grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
-      gap: clamp(1.5rem, 4vw, 3.2rem);
-      align-items: center;
-      padding: 3.2rem 5.7vw 3rem;
-    }
-    .observe .see-one { width: min(280px, 26vw); }
-    .observe .see-one img { height: min(70vh, 640px); }
-    .observe-list {
-      list-style: none;
-      margin: 0.4rem 0 0;
-      padding: 0;
-      display: grid;
-      gap: 0.85rem;
-    }
-    .observe-list li {
-      margin: 0;
-      border-top: 1px solid var(--line);
-      padding-top: 0.75rem;
-    }
-    .observe-list span {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: var(--muted);
-    }
-    .observe-list p {
-      margin: 0.3rem 0 0;
-      font-family: var(--serif);
-      font-size: clamp(1.15rem, 1.9vw, 1.7rem);
-      line-height: 1.28;
-      color: var(--paper);
-      max-width: 22ch;
-    }
-    .observe.is-better .see-one figure { border-color: rgba(212, 241, 105, 0.5); }
-    .observe.is-better .see-one figcaption,
-    .observe.is-better .observe-list span { color: var(--lime); }
-    .slide.see-pair.is-active {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 3.2rem 5.7vw 3rem;
-    }
-    .see-one {
-      width: min(420px, 34vw);
-      margin: auto;
-    }
-    .see-one figure {
-      margin: 0;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      padding: 0.7rem 0.7rem 0.85rem;
-    }
-    .see-one img {
-      display: block;
-      width: 100%;
-      height: min(78vh, 740px);
-      object-fit: contain;
-      background: #101116;
-    }
-    .see-one figcaption {
-      margin-top: 0.55rem;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-align: center;
-    }
-    .see-one.is-better figure { border-color: rgba(212, 241, 105, 0.5); }
-    .see-one.is-better figcaption { color: var(--lime); }
-    .see-one.see-flow { width: min(960px, 86vw); }
-    .see-one.see-flow img { height: min(62vh, 520px); }
-
-    .slide.best-slide.is-active {
-      display: flex;
-      justify-content: center;
-      padding: 3.5rem 5.7vw 3rem;
-    }
-    .best-body { width: 100%; max-width: 1280px; margin: auto; }
-    .best-body h2 {
-      font-size: clamp(2.2rem, 3.8vw, 4.2rem);
-      line-height: 1.02;
-      max-width: 18ch;
-    }
-    .best-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      margin-top: 1.6rem;
-    }
-    .best-grid.is-four { grid-template-columns: repeat(4, 1fr); }
-    .best-grid article {
-      background: var(--surface);
-      min-height: 168px;
-      padding: 1.2rem 1.25rem 1.35rem;
-    }
-    .best-grid span {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: var(--muted);
-    }
-    .best-grid .is-best { background: #1f2218; }
-    .best-grid .is-best span { color: var(--lime); }
-    .best-grid h3 {
-      font-family: var(--serif);
-      font-size: clamp(1.35rem, 2vw, 1.85rem);
-      line-height: 1.08;
-      margin: 0.85rem 0 0.55rem;
-    }
-    .best-grid p {
-      font-size: clamp(0.86rem, 1.15vw, 1rem);
-      line-height: 1.45;
-      color: var(--muted);
-    }
-    .best-yours {
-      margin-top: 1.35rem;
-      font-family: var(--serif);
-      font-size: clamp(1.15rem, 1.8vw, 1.5rem);
-      line-height: 1.35;
-      color: var(--paper);
-      max-width: 42ch;
-    }
-
-    .slide.name-slide { display: none; }
-    .slide.name-slide.is-active {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .name-slide {
-      background: var(--lime);
-      color: var(--ink);
-      padding: 3.5rem 5.7vw 4rem;
-    }
-    .name-slide .slide-meta { color: rgba(16, 17, 22, 0.55); top: 3.5rem; }
-    .name-slide .approach-intro-content { width: 100%; max-width: 1280px; margin: auto; }
-    body.deck-v2 .name-slide h2, .name-slide h2 {
-      font-size: clamp(3.6rem, 8vw, 8.2rem);
-      line-height: 0.88;
-      max-width: 14ch;
-      letter-spacing: -0.045em;
-    }
-    .name-slide .law-def {
-      margin-top: 1.25rem;
-      max-width: 42ch;
-      font-family: var(--serif);
-      font-size: clamp(1.25rem, 2vw, 1.85rem);
-      line-height: 1.28;
-      border: 0;
-      padding: 0;
-    }
-    .name-slide .take-label {
-      display: block;
-      margin: 1.5rem 0 0.55rem;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: #46511d;
-    }
-    .name-slide .takeaways {
-      list-style: none;
-      margin: 0;
-      padding: 0.75rem 0 0;
-      border-top: 1px solid rgba(16, 17, 22, 0.28);
-      display: flex;
-      flex-direction: column;
-      gap: 0.32rem;
-      max-width: 52ch;
-    }
-    .name-slide .takeaways li {
-      font-size: clamp(0.88rem, 1.2vw, 1.08rem);
-      line-height: 1.35;
-      color: var(--ink);
-    }
-
-    .slide.law-ex { display: none; }
-    .slide.law-ex.is-active {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .law-ex { padding: 3.5rem 5.7vw 3rem; }
-    .law-ex-body {
-      width: 100%;
-      max-width: 1280px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: minmax(240px, 0.85fr) 1.15fr;
-      gap: clamp(1.4rem, 3.5vw, 3rem);
-      align-items: center;
-    }
-    .law-ex figure {
-      margin: 0;
-      background: #101116;
-      border: 1px solid var(--line);
-    }
-    .law-ex figure img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-    .law-ex .eyebrow { color: var(--lime); }
-    .law-ex h2 {
-      font-family: var(--serif);
-      font-size: clamp(2.2rem, 3.8vw, 3.6rem);
-      line-height: 1.05;
-      margin: 0.25rem 0 1.1rem;
-    }
-    .ex-grid {
-      display: grid;
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-    .ex-grid article {
-      background: var(--surface);
-      padding: 1.05rem 1.15rem 1.15rem;
-    }
-    .ex-grid span {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: var(--muted);
-    }
-    .ex-grid p {
-      margin: 0.4rem 0 0;
-      font-family: var(--serif);
-      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
-      line-height: 1.3;
-      color: var(--paper);
-    }
-
-    body.deck-v2 .ux-example-copy h2 {
-      font-size: clamp(1.85rem, 3vw, 2.8rem);
-      line-height: 1.05;
-      max-width: 16ch;
-    }
-    body.deck-v2 .ux-example-copy p {
-      margin-top: 0.85rem;
-      max-width: 34ch;
-      font-family: var(--serif);
-      font-size: clamp(1.1rem, 1.7vw, 1.45rem);
-      line-height: 1.4;
-      color: var(--muted);
-    }
-    body.deck-v2 .figma-shots .ux-example-grid {
-      grid-template-columns: 1fr 1.1fr;
-      align-items: center;
-    }
-    body.deck-v2 .figma-shots .ux-example-panel { max-width: none; }
-    body.deck-v2 .figma-shots img { height: min(64vh, 560px); object-fit: contain; background: #101116; }
-
-    body.deck-v2 .prompt-block {
-      margin-top: 1.15rem;
-      padding: 1.25rem 1.4rem;
-      border: 1px solid var(--line);
-      border-left: 5px solid var(--lime);
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.05);
-      white-space: pre-wrap;
-      font-family: var(--sans);
-      font-size: clamp(1.05rem, 1.6vw, 1.35rem);
-      font-weight: 550;
-      line-height: 1.48;
-      color: #f0ede5;
-      max-width: 1100px;
-      user-select: text;
-    }
-    body.deck-v2 .prompt-slide { overflow-y: auto; }
-    body.deck-v2 .prompt-slide .lp-heading h2 {
-      font-size: clamp(2.2rem, 3.4vw, 3.4rem);
-    }
-    body.deck-v2 .weak-prompt {
-      margin-top: 1.2rem;
-      max-width: 28ch;
-      font-family: var(--serif);
-      font-size: clamp(2rem, 3.6vw, 3.4rem);
-      line-height: 1.15;
-      color: var(--paper);
-    }
-
-    @media (max-width: 800px) {
-      .slide.studio-make.is-active,
-      .slide.observe.is-active,
-      .best-grid,
-      .best-grid.is-four,
-      .law-ex-body,
-      body.deck-v2 .figma-shots .ux-example-grid { grid-template-columns: 1fr; }
-      .observe .see-one { width: min(220px, 58vw); }
-      .observe .see-one img { height: min(42vh, 340px); }
-      .see-one { width: min(280px, 78vw); }
-      .see-one img { height: min(52vh, 420px); }
-      .see-one.see-flow { width: min(100%, 92vw); }
-      .see-one.see-flow img { height: min(36vh, 280px); }
-    }
-  </style>
+  <link rel="stylesheet" href="deck.css?v=23">
+  <link rel="stylesheet" href="deck-v2.css?v=12">
+  <link rel="stylesheet" href="mobile.css?v=9">
+  <link rel="stylesheet" href="session-5.css?v=40">
 </head>
-<body class="deck-v2" data-deck-title="Session 5 · Name the parts">
+<body class="deck-v2 s5" data-deck-title="Session 5 · The Mindspace Design Lab">
+  <div class="hud" aria-label="Facilitator">
+    <div class="hud-act" id="hud-act">SESSION 05</div>
+    <button type="button" class="hud-timer" id="hud-timer" title="Click start/pause. Double-click reset">Timer</button>
+    <button type="button" id="hud-notes">Notes</button>
+    <button type="button" id="hud-board">Missions</button>
+    <button type="button" id="hud-score">Score</button>
+    <button type="button" id="hud-reveal">Reveal</button>
+    <button type="button" id="hud-twist">Twist</button>
+    <button type="button" id="hud-plus">+ pts</button>
+    <button type="button" id="hud-minus">− pts</button>
+    <span class="hud-act" id="room-score">Room 0</span>
+  </div>
+  <aside class="notes-panel" id="notes-panel">
+    <h3>Speaker</h3>
+    <p id="notes-body"></p>
+  </aside>
+  <aside class="teams-panel" id="teams-panel">
+    <h3>Eight desks · click to advance status</h3>
+    <div class="team-grid"><button type="button" class="team-chip" data-status="idle"><strong>A Getting started</strong><span>Not started</span></button><button type="button" class="team-chip" data-status="idle"><strong>B Personalisation</strong><span>Not started</span></button><button type="button" class="team-chip" data-status="idle"><strong>C Home</strong><span>Not started</span></button><button type="button" class="team-chip" data-status="idle"><strong>D Discover</strong><span>Not started</span></button><button type="button" class="team-chip" data-status="idle"><strong>E Meditation</strong><span>Not started</span></button><button type="button" class="team-chip" data-status="idle"><strong>F Goals</strong><span>Not started</span></button><button type="button" class="team-chip" data-status="idle"><strong>G Journal</strong><span>Not started</span></button><button type="button" class="team-chip" data-status="idle"><strong>H Profile</strong><span>Not started</span></button></div>
+    <div class="s5-grid two" style="margin-top:1rem"><article><span>A · Getting started</span><p><em>Downloaded for the first time.</em> Too many fields create friction. She needs the next step to feel safe. Voice: “I just want to try meditation. Why so many questions?” HMW: Help Arya get started without feeling overwhelmed? Build: Welcome, registration, mobile, OTP, success. Validation, privacy, errors, progress.</p></article><article><span>B · Personalisation</span><p><em>Wants relevance, does not know the jargon.</em> Everyday language. Too many questions feel like an interrogation. Preferences must be editable later. Voice: “I don't know what kind of meditation I need. I just want to feel less stressed.” HMW: Understand Arya's needs without a lengthy questionnaire? Build: Intro, goals, experience, duration, reminders, completion. Radio, checkbox, chips, switch, optional.</p></article><article><span>C · Home</span><p><em>Opens before work. Five minutes.</em> She wants to continue quickly. Too many options delay the decision. Progress should encourage. Voice: “Just tell me what I can do today.” HMW: Make Arya's next action immediately understandable? Build: Dashboard, daily recommendation, continue, inspiration, quick actions. Hierarchy, cards, empty.</p></article><article><span>D · Discover</span><p><em>Wants help sleeping. Does not know the search term.</em> She may search by mood. Duration matters. Browsing still needs guidance. Voice: “I don't know what to search for. I just want something to help me sleep.” HMW: Help Arya find content even when she doesn't know the name? Build: Explore, categories, search, results, filters, details. Chips, IA, empty results.</p></article><article><span>E · Meditation</span><p><em>Ten-minute guided session selected.</em> Minimal distraction. Reliable controls. Interruptions happen. Completion should be obvious. Voice: “I just want to press play, close my eyes and listen.” HMW: Make the meditation experience effortless and dependable? Build: Details, intro, player, pause, resume, completion, feedback.</p></article><article><span>F · Goals</span><p><em>Meditated four days. Missed yesterday.</em> Missed days hurt motivation. Unrealistic goals shame her. Progress should encourage, not scold. Voice: “I missed one day. Does that mean I've failed?” HMW: Help Arya build a habit without making her feel guilty? Build: Goal setup, daily goal, progress, challenges, achievements, missed-day recovery.</p></article><article><span>G · Journal</span><p><em>Session done. Wants to reflect.</em> She may not have words. Mood chips may be enough. Reflections feel private. Voice: “Sometimes I don't know what I'm feeling. I just want a simple way to capture it.” HMW: Help Arya reflect without making journaling another task? Build: Landing, mood, prompts, writing, save, past entries. Privacy, skip, empty.</p></article><article><span>H · Profile</span><p><em>Wants to change reminder time.</em> Settings are hard to find. Controls must be predictable. Account actions need clarity. Voice: “I changed something when I joined. I can't remember where.” HMW: Give Arya confidence and control over her experience? Build: Profile, details, preferences, notifications, account. Switches, lists, confirmations.</p></article></div>
+  </aside>
+  <aside class="score-panel" id="score-panel">
+    <h3>Scoreboard · click a team, then + / −</h3>
+    <div class="score-rows"><button type="button" data-score-team="A"><b>Team A</b><span class="pts">0</span></button><button type="button" data-score-team="B"><b>Team B</b><span class="pts">0</span></button><button type="button" data-score-team="C"><b>Team C</b><span class="pts">0</span></button><button type="button" data-score-team="D"><b>Team D</b><span class="pts">0</span></button><button type="button" data-score-team="E"><b>Team E</b><span class="pts">0</span></button><button type="button" data-score-team="F"><b>Team F</b><span class="pts">0</span></button><button type="button" data-score-team="G"><b>Team G</b><span class="pts">0</span></button><button type="button" data-score-team="H"><b>Team H</b><span class="pts">0</span></button></div>
+    <p class="lp-subtitle" style="margin-top:.8rem">10 identify · 20 decision · 20 reasoning · 15 issue · 25 improvement · 15 deliverable · 15 collaboration · 20 observation · 25 iteration. Never for finishing first.</p>
+  </aside>
+  <aside class="twist-panel" id="twist-panel">
+    <h3>Surprise mechanics · inside existing sprint time</h3>
+    <div class="twist-list">
+      <button type="button" data-twist="The twist · two minutes" data-detail="Arya has only two minutes. Strip the journey to one action."><strong>Two minutes</strong><span>Arya has only two minutes available.</span></button>
+      <button type="button" data-twist="The twist · offline" data-detail="Arya has lost internet. What still works?"><strong>No internet</strong><span>Arya has lost connectivity.</span></button>
+      <button type="button" data-twist="The twist · skip" data-detail="Arya skips personalisation. Can Home still help?"><strong>She skips</strong><span>Arya skips personalisation.</span></button>
+      <button type="button" data-twist="The twist · OTP" data-detail="Invalid OTP. Show recovery, not a dead end."><strong>Invalid OTP</strong><span>The code is wrong.</span></button>
+      <button type="button" data-twist="The twist · reminder" data-detail="She changes reminder time. Can she find it?"><strong>Reminder change</strong><span>She edits a preference.</span></button>
+      <button type="button" data-twist="User interruption" data-detail="Phone call during meditation. What happens when she returns?"><strong>Phone call</strong><span>Interrupted mid-session.</span></button>
+      <button type="button" data-twist="Accessibility check" data-detail="Name the contrast, target, or label failure and fix it."><strong>Accessibility</strong><span>Find and fix one access issue.</span></button>
+      <button type="button" data-twist="Design rescue" data-detail="One team asks another for feedback. Reward useful help."><strong>Design rescue</strong><span>Cross-team help, then points.</span></button>
+      <button type="button" data-twist="Design director's pick" data-detail="Bonus for a particularly thoughtful decision. Click the team, then + pts."><strong>Director's pick</strong><span>Bonus for reasoning, not polish.</span></button>
+    </div>
+  </aside>
+  <div id="twist-banner" hidden>
+    <p><strong></strong> <span></span></p>
+    <button type="button" id="twist-dismiss">Clear</button>
+  </div>
+
   <main class="deck" aria-live="polite">
-
-    <section class="slide photo-full is-active" data-title="Look">
-      <div class="slide-meta"><span>SESSION 05</span><span>LOOK</span></div>
-      <img src="assets/ds/golf-parts.jpg" alt="Every piece of a 1988 Volkswagen Golf CL, laid out">
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="What is this">
-      <div class="slide-meta"><span>LOOK</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">What is this?</p>
-      </div>
-    </section>
-
-    <section class="slide photo-full" data-title="The Golf">
-      <div class="slide-meta"><span>LOOK</span><span>SEE</span></div>
-      <img src="assets/ds/golf-parts.jpg" alt="Every piece of a 1988 Volkswagen Golf CL, laid out">
-      <p class="photo-credit">Hans Hansen · 1988 Golf CL · 6,843 parts</p>
-    </section>
-
-    <section class="slide name-slide" data-title="6843 parts">
-      <div class="slide-meta"><span>THE NAME</span><span>THE GOLF</span></div>
-      <div class="approach-intro-content">
-        <h2>6,843 parts.</h2>
-        <p class="law-def">Every piece has a name. Or it does not go back together.</p>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Put it back">
-      <div class="slide-meta"><span>LOOK</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Could you put it back if you didn’t know the names?</p>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="A phone">
-      <div class="slide-meta"><span>LOOK</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">What does a phone look like, taken apart?</p>
-      </div>
-    </section>
-
-    <section class="slide photo-full is-kit" data-title="Material-X parts">
-      <div class="slide-meta"><span>THE KIT</span><span>MATERIAL-X</span></div>
-      <img src="assets/mx/cover.png" alt="Material-X design system components laid out">
-      <p class="photo-credit">Setproduct · Material-X · Figma Community</p>
-    </section>
-
-    <section class="slide name-slide" data-title="Name the parts">
-      <div class="slide-meta"><span>THE NAME</span><span>TODAY</span></div>
-      <div class="approach-intro-content">
-        <h2>Name the parts.</h2>
-        <p class="law-def">Then we put one job back together. AI comes last.</p>
-      </div>
-    </section>
-
-    <section class="slide output" data-title="The outcome">
-      <div class="slide-meta"><span>TODAY ENDS WHEN</span><span>HARD OUTCOME</span></div>
-      <div class="output-content">
-        <p class="eyebrow">Playable before you leave.</p>
-        <h2>A stranger starts a session.</h2>
-        <div class="output-list">
-          <p><span>The job</span>Welcome → Home → Session → Player.</p>
-          <p><span>The proof</span>They hear the session start. No spoken tour.</p>
-          <p><span>The kit</span>Meditation App instances. Not redrawn souvenirs.</p>
-          <p><span>AI</span>Only after play works. Make, then Agent.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide output" data-title="Four hours">
-      <div class="slide-meta"><span>TODAY</span><span>FOUR HOURS</span></div>
-      <div class="output-content">
-        <p class="eyebrow">Show. Teach Figma. Then play. AI last.</p>
-        <h2>Look. Figma.<br>Play. Then AI.</h2>
-        <div class="output-list">
-          <p><span>1 · Look</span>Golf. Then name the parts. You guess. I name it.</p>
-          <p><span>2 · Figma</span>All 13 videos. Account to prototype. Meditation kit is the object.</p>
-          <p><span>3 · Play</span>Welcome → Home → Session → Player. A stranger starts it.</p>
-          <p><span>4 · AI</span>Only if play already works. Same job in Make, then Agent.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide name-slide" data-title="Five jobs">
-      <div class="slide-meta"><span>MATERIAL-X</span><span>FIVE JOBS</span></div>
-      <div class="approach-intro-content">
-        <h2>Five jobs.</h2>
-        <p class="law-def">Stay. Scan. Enter. Commit. After.</p>
-      </div>
-    </section>
-
-    <!-- STAY -->
-    <section class="slide approach-intro" data-title="Stay">
-      <div class="slide-meta"><span>1 · STAY</span><span>FAMILY</span></div>
-      <div class="approach-intro-content">
-        <h2>Stay.</h2>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="The strip">
-      <div class="slide-meta"><span>1 · STAY</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">The strip at the top of every screen. What job is it doing?</p>
-      </div>
-    </section>
-
-    <section class="slide name-slide" data-title="Bar">
-      <div class="slide-meta"><span>1 · STAY</span><span>THE NAME</span></div>
-      <div class="approach-intro-content">
-        <h2>Bar.</h2>
-        <p class="law-def">Orients. One way out.</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Bar example">
-      <div class="slide-meta"><span>1 · STAY</span><span>EXAMPLE</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/bar.svg" alt="Material-X app bar">
-        </figure>
-        <div>
-          <p class="eyebrow">Where it sits</p>
-          <h2>Every frame of Pin-up.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>On this job</span>
-              <p>Pin-up. Back. That is the whole bar.</p>
-            </article>
-            <article>
-              <span>Not here</span>
-              <p>Five tabs. A second Book. A logo that does nothing.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Three icons">
-      <div class="slide-meta"><span>1 · STAY</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Three icons at the bottom. Same job as the bar?</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Tabs">
-      <div class="slide-meta"><span>1 · STAY</span><span>THE NAME</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/tabs.svg" alt="Material-X tab bar">
-        </figure>
-        <div>
-          <p class="eyebrow">Tabs</p>
-          <h2>Switch jobs.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>Where</span>
-              <p>An app that is several jobs. Home. Search. Me.</p>
-            </article>
-            <article>
-              <span>Not Pin-up</span>
-              <p>Today is one job. Tabs invent a product you did not design.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Magnifying glass">
-      <div class="slide-meta"><span>1 · STAY</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">A magnifying glass on a long list. What is it for?</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Search">
-      <div class="slide-meta"><span>1 · STAY</span><span>THE NAME</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/search.svg" alt="Material-X search">
-        </figure>
-        <div>
-          <p class="eyebrow">Search</p>
-          <h2>Find in a crowd.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>Where</span>
-              <p>A directory. Fifty studios. They already know the name.</p>
-            </article>
-            <article>
-              <span>Not Pin-up</span>
-              <p>Three slots is not a crowd. Scanning three rows is the job.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SCAN -->
-    <section class="slide approach-intro" data-title="Scan">
-      <div class="slide-meta"><span>2 · SCAN</span><span>FAMILY</span></div>
-      <div class="approach-intro-content">
-        <h2>Scan.</h2>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Three blocks">
-      <div class="slide-meta"><span>2 · SCAN</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Three identical blocks. You tap one. What is that part?</p>
-      </div>
-    </section>
-
-    <section class="slide name-slide" data-title="Row">
-      <div class="slide-meta"><span>2 · SCAN</span><span>THE NAME</span></div>
-      <div class="approach-intro-content">
-        <h2>Row.</h2>
-        <p class="law-def">Pick one of several. Same shape, different fact.</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Row example">
-      <div class="slide-meta"><span>2 · SCAN</span><span>EXAMPLE</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/row.svg" alt="Material-X list row">
-        </figure>
-        <div>
-          <p class="eyebrow">Where it sits</p>
-          <h2>The list of slots.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>On this job</span>
-              <p>10:00. 11:30. 14:00. Tap one. Go to Slot.</p>
-            </article>
-            <article>
-              <span>Not here</span>
-              <p>A shop of cards when three lines would do. The Book button as a row.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="One thing">
-      <div class="slide-meta"><span>2 · SCAN</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">One thing with an edge, a time, a room. Why is it not a row?</p>
-      </div>
-    </section>
-
-    <section class="slide name-slide" data-title="Card">
-      <div class="slide-meta"><span>2 · SCAN</span><span>THE NAME</span></div>
-      <div class="approach-intro-content">
-        <h2>Card.</h2>
-        <p class="law-def">Hold one thing still so they can look at it.</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Card example">
-      <div class="slide-meta"><span>2 · SCAN</span><span>EXAMPLE</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/card.svg" alt="Material-X card">
-        </figure>
-        <div>
-          <p class="eyebrow">Where it sits</p>
-          <h2>The slot they picked.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>On this job</span>
-              <p>10:00 · Studio 2 · 2 seats. Then a field. Then Book.</p>
-            </article>
-            <article>
-              <span>Not here</span>
-              <p>A gallery of twelve cards to pick a time. A dialog pretending to be a card.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="A pill">
-      <div class="slide-meta"><span>2 · SCAN</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">A small pill that says Today. A 2 on the slot. Same part?</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Chip and badge">
-      <div class="slide-meta"><span>2 · SCAN</span><span>THE NAME</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/chip.svg" alt="Material-X chip">
-        </figure>
-        <div>
-          <p class="eyebrow">Chip · Badge</p>
-          <h2>Filter. Count.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>Chip</span>
-              <p>Today / Tomorrow. Narrow a long list. Not a heading in a pill.</p>
-            </article>
-            <article>
-              <span>Badge</span>
-              <p>A count on a thing. 2 seats. Not a button. Pin-up can skip both.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Nothing">
-      <div class="slide-meta"><span>2 · SCAN</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">The list has nothing in it. What should they see?</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Empty">
-      <div class="slide-meta"><span>2 · SCAN</span><span>THE NAME</span></div>
-      <div class="law-ex-body">
-        <figure>
-          <img src="assets/mx/one/empty.svg" alt="Material-X empty state">
-        </figure>
-        <div>
-          <p class="eyebrow">Empty</p>
-          <h2>One sentence. One verb.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>Where</span>
-              <p>Nothing today. Crit is tomorrow. See tomorrow.</p>
-            </article>
-            <article>
-              <span>Not here</span>
-              <p>A mascot. A blank white phone. Search on an empty list.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ENTER -->
-    <section class="slide approach-intro" data-title="Enter">
-      <div class="slide-meta"><span>3 · ENTER</span><span>FAMILY</span></div>
-      <div class="approach-intro-content">
-        <h2>Enter.</h2>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="They type">
-      <div class="slide-meta"><span>3 · ENTER</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">They type a note. What must sit on the box, or they will not know what to type?</p>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="Field weak">
-      <div class="slide-meta"><span>3 · ENTER</span><span>WEAK</span></div>
-      <div class="see-one">
-        <figure>
-          <img src="assets/ds/field-bare.svg" alt="A bare input with no label">
-          <figcaption>A box. No name.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="Field better">
-      <div class="slide-meta"><span>3 · ENTER</span><span>BETTER</span></div>
-      <div class="see-one is-better">
-        <figure>
-          <img src="assets/ds/field-named.svg" alt="A labelled field">
-          <figcaption>The box has a name.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide name-slide" data-title="Field">
-      <div class="slide-meta"><span>3 · ENTER</span><span>THE NAME</span></div>
-      <div class="approach-intro-content">
-        <h2>Field.</h2>
-        <p class="law-def">Collect one fact. The label stays.</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Field example">
-      <div class="slide-meta"><span>3 · ENTER</span><span>EXAMPLE</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/field.svg" alt="Material-X text field">
-        </figure>
-        <div>
-          <p class="eyebrow">Where it sits</p>
-          <h2>Slot. One fact.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>On this job</span>
-              <p>Note. Optional. Need wall near door.</p>
-            </article>
-            <article>
-              <span>Not here</span>
-              <p>Name, USN, phone, email, blood group. The job already knows who they are.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="On or off">
-      <div class="slide-meta"><span>3 · ENTER</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">On or off. Not a sentence. What is that control?</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Toggle">
-      <div class="slide-meta"><span>3 · ENTER</span><span>THE NAME</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/toggle.svg" alt="Material-X switch">
-        </figure>
-        <div>
-          <p class="eyebrow">Toggle · Check · Radio</p>
-          <h2>A setting. Not a form.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>Toggle</span>
-              <p>Remind me. Instant. On or off.</p>
-            </article>
-            <article>
-              <span>Check / radio</span>
-              <p>Many / one from a known set. Pin-up does not need them today.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Known list">
-      <div class="slide-meta"><span>3 · ENTER</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Pick a room from a known list without typing. Why not a field?</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Select">
-      <div class="slide-meta"><span>3 · ENTER</span><span>THE NAME</span></div>
-      <div class="law-ex-body">
-        <figure>
-          <img src="assets/mx/one/select.svg" alt="Material-X select">
-        </figure>
-        <div>
-          <p class="eyebrow">Select</p>
-          <h2>The list already exists.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>Where</span>
-              <p>Studio 1, 2, Hall. Do not make them type the room name.</p>
-            </article>
-            <article>
-              <span>Not Pin-up</span>
-              <p>The slot already has a room. A select here is a second decision.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COMMIT -->
-    <section class="slide approach-intro" data-title="Commit">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>FAMILY</span></div>
-      <div class="approach-intro-content">
-        <h2>Commit.</h2>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Three greens">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Three green rectangles. Which one is the verb?</p>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="Buttons equal">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>WEAK</span></div>
-      <div class="see-one">
-        <figure>
-          <img src="assets/ds/buttons-equal.svg" alt="Three equal lime buttons">
-          <figcaption>Three verbs. None wins.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="One button">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>BETTER</span></div>
-      <div class="see-one is-better">
-        <figure>
-          <img src="assets/ds/button-one.svg" alt="One primary button">
-          <figcaption>One verb.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide name-slide" data-title="Button">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>THE NAME</span></div>
-      <div class="approach-intro-content">
-        <h2>Button.</h2>
-        <p class="law-def">The tap that finishes the job. One on the screen.</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Button example">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>EXAMPLE</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/button.svg" alt="Material-X button">
-        </figure>
-        <div>
-          <p class="eyebrow">Where it sits</p>
-          <h2>Book. Then Booked.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>On this job</span>
-              <p>One verb. The word is Book.</p>
-            </article>
-            <article>
-              <span>Not here</span>
-              <p>Submit. Continue. Three greens of equal weight.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Floating circle">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">A circle floating over the list. Is that the verb?</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="FAB">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>THE NAME</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/fab.svg" alt="Material-X FAB">
-        </figure>
-        <div>
-          <p class="eyebrow">FAB</p>
-          <h2>Create. Easy to abuse.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>Where</span>
-              <p>Compose. Add a thing that did not exist. Mail. Notes.</p>
-            </article>
-            <article>
-              <span>Not Pin-up</span>
-              <p>The verb is Book, on the slot. A + invents a second job.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="New page">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">They tap Book. A whole new page says Confirm. Did they leave the job?</p>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="New page weak">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>WEAK</span></div>
-      <div class="see-one">
-        <figure>
-          <img src="assets/ds/newpage.svg" alt="A new confirm page">
-          <figcaption>A new app called Are you sure.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="Sheet better">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>BETTER</span></div>
-      <div class="see-one is-better">
-        <figure>
-          <img src="assets/ds/sheet.svg" alt="A bottom sheet confirm">
-          <figcaption>Decide without leaving.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide name-slide" data-title="Sheet">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>THE NAME</span></div>
-      <div class="approach-intro-content">
-        <h2>Sheet.</h2>
-        <p class="law-def">Decide without leaving. The job is still under it.</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Sheet example">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>EXAMPLE</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/sheet.svg" alt="Material-X sheet">
-        </figure>
-        <div>
-          <p class="eyebrow">Where it sits</p>
-          <h2>Over Slot. Not a new app.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>On this job</span>
-              <p>Book 10:00? Studio 2 · tomorrow.</p>
-            </article>
-            <article>
-              <span>Not here</span>
-              <p>Terms of service. A carousel. Rate this app.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Hard stop">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">A box in the middle that stops everything. When is that fair?</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Dialog">
-      <div class="slide-meta"><span>4 · COMMIT</span><span>THE NAME</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/dialog.svg" alt="Material-X dialog">
-        </figure>
-        <div>
-          <p class="eyebrow">Dialog</p>
-          <h2>Hard stop. Rare.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>Where</span>
-              <p>Delete booking? This cannot be undone.</p>
-            </article>
-            <article>
-              <span>Not Book</span>
-              <p>Confirming Book is a sheet. A dialog for Book is theatre.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AFTER -->
-    <section class="slide approach-intro" data-title="After">
-      <div class="slide-meta"><span>5 · AFTER</span><span>FAMILY</span></div>
-      <div class="approach-intro-content">
-        <h2>After.</h2>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Confetti">
-      <div class="slide-meta"><span>5 · AFTER</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Confetti. Did the system tell them what happened, or congratulate itself?</p>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="Confetti weak">
-      <div class="slide-meta"><span>5 · AFTER</span><span>WEAK</span></div>
-      <div class="see-one">
-        <figure>
-          <img src="assets/ds/confetti.svg" alt="Confetti success screen">
-          <figcaption>A party. No fact.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="Toast better">
-      <div class="slide-meta"><span>5 · AFTER</span><span>BETTER</span></div>
-      <div class="see-one is-better">
-        <figure>
-          <img src="assets/ds/toast.svg" alt="A toast with the result">
-          <figcaption>What happened. Stay.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide name-slide" data-title="Toast">
-      <div class="slide-meta"><span>5 · AFTER</span><span>THE NAME</span></div>
-      <div class="approach-intro-content">
-        <h2>Toast.</h2>
-        <p class="law-def">Say what happened. Stay on the job. Then leave.</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Toast example">
-      <div class="slide-meta"><span>5 · AFTER</span><span>EXAMPLE</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/toast.svg" alt="Material-X snack bar">
-        </figure>
-        <div>
-          <p class="eyebrow">Where it sits</p>
-          <h2>On the list. Verb is dead.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>On this job</span>
-              <p>You’re on the wall. Button reads Booked.</p>
-            </article>
-            <article>
-              <span>Not here</span>
-              <p>A new Success page. Share to Instagram. Take a survey.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Will not leave">
-      <div class="slide-meta"><span>5 · AFTER</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">A bar that will not leave until they deal with it. Same as a toast?</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Banner">
-      <div class="slide-meta"><span>5 · AFTER</span><span>THE NAME</span></div>
-      <div class="law-ex-body">
-        <figure>
-          <img src="assets/mx/one/toast.svg" alt="Material-X banner">
-        </figure>
-        <div>
-          <p class="eyebrow">Banner</p>
-          <h2>Stays until they deal.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>Where</span>
-              <p>Wi-Fi is down. Bookings may not save. Retry.</p>
-            </article>
-            <article>
-              <span>Not toast</span>
-              <p>You’re on the wall is a fact that can go. An error that blocks Book cannot.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Waiting">
-      <div class="slide-meta"><span>5 · AFTER</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">They tapped Book. Nothing yet. What should they see?</p>
-      </div>
-    </section>
-
-    <section class="slide law-ex" data-title="Spinner">
-      <div class="slide-meta"><span>5 · AFTER</span><span>THE NAME</span></div>
-      <div class="law-ex-body">
-        <figure class="m3-shot">
-          <img src="assets/mx/one/progress.svg" alt="Material-X progress">
-        </figure>
-        <div>
-          <p class="eyebrow">Spinner</p>
-          <h2>Stay on this screen.</h2>
-          <div class="ex-grid">
-            <article>
-              <span>Where</span>
-              <p>On the button, or over Slot. Booking…</p>
-            </article>
-            <article>
-              <span>Not here</span>
-              <p>A new Loading page. A skeleton of a different app.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide best-slide" data-title="Today vs leftover">
-      <div class="slide-meta"><span>CUT</span><span>WHAT WE USE</span></div>
-      <div class="best-body">
-        <h2>Seven on Pin-up. The rest you can name.</h2>
-        <div class="best-grid">
-          <article class="is-best">
-            <span>Today</span>
-            <h3>Bar · Row · Card · Field · Button · Sheet · Toast</h3>
-            <p>List, Slot, Commit, After. That is the whole app.</p>
-          </article>
-          <article>
-            <span>You can name</span>
-            <h3>Tabs · Search · Chip · Badge · Empty · Toggle · Select · FAB · Dialog · Banner · Spinner</h3>
-            <p>Put them on Pin-up only if the job needs them. Today it does not.</p>
-          </article>
-          <article>
-            <span>The test</span>
-            <h3>If you cannot say the job, it is leftover.</h3>
-            <p>Leftover is literacy. Using it anyway is decoration.</p>
-          </article>
-        </div>
-        <p class="best-yours">A seventh part on Job must be restated as one of the seven, or it stays off the phone.</p>
-      </div>
-    </section>
-
-    <!-- FIGMA DESIGN FOR BEGINNERS · 13 VIDEOS · ONE EXAMPLE EACH -->
-    <section class="slide approach-intro" data-title="1 Overview">
-      <div class="slide-meta"><span>FIGMA</span><span>01 / 13</span></div>
-      <div class="approach-intro-content">
-        <h2>Thirteen videos.</h2>
-        <p class="law-def">Official beginners course. One example each. Object is the meditation kit.</p>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="What Figma is">
-      <div class="slide-meta"><span>01 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Figma Design is for what — apps, sites, pictures, or all of them?</p>
-      </div>
-    </section>
-
-    <section class="slide name-slide" data-title="Digital experiences">
-      <div class="slide-meta"><span>01 / 13</span><span>THE NAME</span></div>
-      <div class="approach-intro-content">
-        <h2>All of them.</h2>
-        <p class="law-def">Starter plan is enough. Browser or desktop. Education if you have a student email.</p>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="No account">
-      <div class="slide-meta"><span>02 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">You logged in. Where does today’s work live?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="File browser">
-      <div class="slide-meta"><span>02 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">File browser</p>
-          <h2>Name it Calm.</h2>
-          <p>figma.com/signup. Recents. Duplicate the meditation kit. Do not edit the original. One file per group.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/02-file.svg" alt="Figma Recents with a file named Pin-up">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide studio-make" data-title="Open a file">
-      <div class="slide-meta"><span>02 / 13</span><span>10 MINUTES</span></div>
-      <div class="time-box" aria-hidden="true"><strong>10</strong><span>min</span></div>
-      <div>
-        <h2>Duplicate. Add page Our flow.</h2>
-        <p class="studio-key"><a class="figma-link" href="session-5-map.html">Keep this page open</a> · <a class="figma-link" href="https://www.figma.com/community/file/1380569285589400658/meditation-app-ui-kit" target="_blank" rel="noopener">Duplicate the kit</a></p>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Four areas">
-      <div class="slide-meta"><span>03 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">The editor has four parts. Can you name them?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="The editor">
-      <div class="slide-meta"><span>03 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Toolbar · left · canvas · right</p>
-          <h2>List is selected.</h2>
-          <p>V F T. Space or H pan. ⌘+ zoom. Pages are free. Nudge 1 / Shift-arrow 10.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/03-editor.svg" alt="Figma editor with Pin-up List on the canvas">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Blue phone">
-      <div class="slide-meta"><span>04 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">The blue phone. Rectangle, or something else?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="Frame example">
-      <div class="slide-meta"><span>04 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Layers · shapes · fill · text · frame</p>
-          <h2>F. 390 × 844. Name Home.</h2>
-          <p>R O T. Fill in the right sidebar. Nest Bar and session cards under Home. A grey R is a shape. It cannot play.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/04-frame.svg" alt="Phone frame named List with three time rows">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Bar flies">
-      <div class="slide-meta"><span>05 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">You stretch the phone. The bar flies off. Why?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="Constraints example">
-      <div class="slide-meta"><span>05 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Presets · constraints · tidy · not a group</p>
-          <h2>Left + Right. Bar spans.</h2>
-          <p>F → Phone. Select Bar. Constraints: Left and Right. Stretch the phone — Bar still fills. Or skip: Shift+A. ⌘G is not a screen.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/05-constraints.svg?v=2" alt="Bar stays at top when the phone is stretched">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Word clips">
-      <div class="slide-meta"><span>06 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Book becomes Booked. The box stays short. Why is that a poster?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="Auto layout example">
-      <div class="slide-meta"><span>06 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Flow · gap · pad · hug</p>
-          <h2>The word grows the control.</h2>
-          <p>Type Book. Shift+A. Pad 16 × 10. Radius 8. Hug both. Change the word. Then ⌘⌥K.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/06-autolayout.svg" alt="Book hugs. Booked hugs. Auto layout panel">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Two Books">
-      <div class="slide-meta"><span>07 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Book looks different on Slot and on the sheet. What did Figma invent?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="Component example">
-      <div class="slide-meta"><span>07 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Main · instance · push · detach · variant</p>
-          <h2>One brain. Two Books.</h2>
-          <p>Assets onto Slot and Sheet. Push a better colour. Do not detach. Booked is State = off.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/07-component.svg" alt="Main Book component and two instances, detach as a fail">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="One thing">
-      <div class="slide-meta"><span>08 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Time, room, seats in one block. What is that part?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="Card example">
-      <div class="slide-meta"><span>08 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Card · container · Components page</p>
-          <h2>10:00. Studio 2. Then Book.</h2>
-          <p>Shift+A on the card. Phone is the container. Move mains to page Components. Job only gets instances.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/08-card.svg" alt="Slot screen with card, note field, and Book">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide studio-make" data-title="Map the kit">
-      <div class="slide-meta"><span>08 / 13</span><span>15 MINUTES</span></div>
-      <div class="time-box" aria-hidden="true"><strong>15</strong><span>min</span></div>
-      <div>
-        <h2>Map the right part.</h2>
-        <p>Drag instances onto Our flow. Welcome, Home, Session, Player. No extra tabs. No FAB. Match the exact designs.</p>
-        <span class="studio-key">Instances only · from the meditation kit</span>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Strip">
-      <div class="slide-meta"><span>09 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">A strip at the top with the name Pin-up. Website nav, or something else?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="Nav example">
-      <div class="slide-meta"><span>09 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Nav bar · footer</p>
-          <h2>On Pin-up that is Bar.</h2>
-          <p>Course: 1440 × 80, wordmark, links, button, auto gap. Phone: Material-X app bar. No website footer.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/09-nav.svg" alt="Website nav versus Pin-up app bar">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Two circles">
-      <div class="slide-meta"><span>10 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Two circles overlap. How do they become one shape?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="Boolean example">
-      <div class="slide-meta"><span>10 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Boolean · vector · arc · swap</p>
-          <h2>Union. Subtract. Intersect.</h2>
-          <p>Boolean menu. Not on frames. Vector = move points. Arc = ellipse sweep. Swap instance in the right sidebar. Pin-up still uses Rows.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/10-boolean.svg" alt="Union subtract intersect on two circles">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Which parts">
-      <div class="slide-meta"><span>11 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Which kit screens sit on each phone?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="Assemble example">
-      <div class="slide-meta"><span>11 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Assemble</p>
-          <h2>Four frames. Instances only.</h2>
-          <p>Welcome. Home with cards. Session detail. Player. Copy the kit. Do not redraw.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/11-assemble.svg" alt="Four Pin-up phones assembled from instances">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide studio-make" data-title="Build Pin-up">
-      <div class="slide-meta"><span>11 / 13</span><span>40 MINUTES</span></div>
-      <div class="time-box" aria-hidden="true"><strong>40</strong><span>min</span></div>
-      <div>
-        <h2>Build the four phones.</h2>
-        <p>Page Our flow. F · 390 × 844. Instance the kit screens. Do not redraw Start.</p>
-        <span class="studio-key">F · Shift+A · Assets · no detach</span>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Nothing happens">
-      <div class="slide-meta"><span>12 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">A stranger taps Get started. Nothing happens. What is missing?</p>
-      </div>
-    </section>
-
-    <section class="slide figma-shots ux-example" data-title="Prototype example">
-      <div class="slide-meta"><span>12 / 13</span><span>EXAMPLE</span></div>
-      <div class="ux-example-grid">
-        <div class="ux-example-copy">
-          <p class="eyebrow">Flow · trigger · action · overlay · play</p>
-          <h2>On tap. Navigate. Instant.</h2>
-          <p>Get started → Home. Card → Session. Start → Player. Present. Sticky / fixed / scroll to: named, not required today.</p>
-        </div>
-        <figure class="ux-example-panel">
-          <img src="assets/figma-ex/12-proto.svg" alt="Prototype noodle from List row to Slot, Play highlighted">
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide studio-make" data-title="Noodles">
-      <div class="slide-meta"><span>12 / 13</span><span>20 MINUTES</span></div>
-      <div class="time-box" aria-hidden="true"><strong>20</strong><span>min</span></div>
-      <div>
-        <h2>Noodles. Then present.</h2>
-        <p>Play. Start on Welcome. Finish on Player. Give the laptop to the next group.</p>
-        <span class="studio-key">If play does nothing, it is a poster</span>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Stranger">
-      <div class="slide-meta"><span>12 / 13</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">Give the laptop to the next group. Can they finish without you talking?</p>
-      </div>
-    </section>
-
-    <section class="slide name-slide" data-title="13 Summary">
-      <div class="slide-meta"><span>13 / 13</span><span>SUMMARY</span></div>
-      <div class="approach-intro-content">
-        <h2>You can start.</h2>
-        <p class="law-def">File to play. The session starting is the proof. Watch the playlist tonight if a move was fast.</p>
-      </div>
-    </section>
-
-    <!-- AI — only after play works -->
-    <section class="slide approach-intro" data-title="Same job in AI">
-      <div class="slide-meta"><span>THEN AI</span><span>ONLY AFTER PLAY</span></div>
-      <div class="approach-intro-content">
-        <h2>Play works.<br>Then AI.</h2>
-        <p class="law-def">If play does nothing, stop. Do not open Make.</p>
-      </div>
-    </section>
-
-    <section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Ask for a product">
-      <div class="slide-meta"><span>AI</span><span>WAIT</span></div>
-      <div class="ux-example-body">
-        <p class="ux-example-question">If you type “make a meditation app”, what will it invent?</p>
-      </div>
-    </section>
-
-    <section class="slide lesson-plan prompt-slide" data-title="Weak prompt">
-      <div class="slide-meta"><span>AI</span><span>WEAK</span></div>
-      <div class="lp-heading">
-        <h2>A product prompt is a fail.</h2>
-        <p class="weak-prompt">Make a nice meditation app with a modern UI.</p>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="AI dump">
-      <div class="slide-meta"><span>AI</span><span>SEE</span></div>
-      <div class="see-one see-flow">
-        <figure>
-          <img src="assets/ds/ai-dump.svg" alt="AI dump with extra chrome">
-          <figcaption>Tabs. Search. FAB. A home feed.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide lesson-plan prompt-slide" data-title="The prompt">
-      <div class="slide-meta"><span>AI</span><span>COPY THIS</span></div>
-      <div class="lp-heading">
-        <h2>Ask for the job. Name the parts.</h2>
-        <pre class="prompt-block">Make a mobile flow, 390 × 844.
-
-Job: start one calm meditation session.
-
-Four screens only:
-1. Welcome — one Get started button.
-2. Home — title Home. Three session cards.
-3. Session — one card (name, length). One button: Start.
-4. Player — now playing. Pause. That is After.
-
-Do not add sign-in, tabs, search, FAB, or a profile.
-Use the Meditation App UI Kit.</pre>
-      </div>
-    </section>
-
-    <section class="slide studio-make" data-title="Make then kill">
-      <div class="slide-meta"><span>AI</span><span>20 MINUTES</span></div>
-      <div class="time-box" aria-hidden="true"><strong>20</strong><span>min</span></div>
-      <div>
-        <h2>Make. Then kill three.</h2>
-        <p>Paste the prompt in Figma Make. Screenshot the dump. Kill three chrome additions. Rebuild from your instances if Make invents a new Book.</p>
-        <span class="studio-key">Ask for a part. Never a product.</span>
-      </div>
-    </section>
-
-    <section class="slide see-pair" data-title="AI clean">
-      <div class="slide-meta"><span>AI</span><span>BETTER</span></div>
-      <div class="see-one see-flow">
-        <figure>
-          <img src="assets/ds/ai-clean.svg" alt="Clean four-screen Pin-up from AI after kills">
-          <figcaption>Four screens. The seven parts. Nothing else.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="slide best-slide" data-title="Agent ABC">
-      <div class="slide-meta"><span>AI</span><span>AGENT</span></div>
-      <div class="best-body">
-        <h2>Then Agent. Three asks.</h2>
-        <div class="best-grid">
-          <article>
-            <span>A · Dump</span>
-            <h3>“Design the meditation app.”</h3>
-            <p>Show the class what it invents. Name the leftovers out loud.</p>
-          </article>
-          <article>
-            <span>B · Constrain</span>
-            <h3>Paste today’s prompt.</h3>
-            <p>Same four screens. Same seven parts. Compare to A.</p>
-          </article>
-          <article class="is-best">
-            <span>C · You name</span>
-            <h3>“Replace every button with our kit Button instance.”</h3>
-            <p>If it cannot, you place the instance. Agent drafts. You own the kit.</p>
-          </article>
-        </div>
-        <p class="best-yours">A sticky of three kills. Search, tabs, extra CTA, mascot, Made with AI. Chrome without a job does not enter Job.</p>
-      </div>
-    </section>
-
-    <!-- ASSIGN -->
-    <section class="slide output" data-title="Assignment 05">
-      <div class="slide-meta"><span>ASSIGNMENT 05</span><span>BEFORE SESSION 6</span></div>
-      <div class="output-content">
-        <p class="eyebrow">The clickthrough is the pass.</p>
-        <h2>A stranger starts a session.</h2>
-        <div class="output-list">
-          <p><span>Play</span>Welcome → Home → Session → Player. That is the class.</p>
-          <p><span>File</span>390 × 844. Kit instances. Not redrawn buttons.</p>
-          <p><span>Pass</span>A stranger finishes without a spoken tour.</p>
-          <p><span>Then AI</span>Only after play works. Same job in Make, then Agent.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide lesson-plan" data-title="Share">
-      <div class="slide-meta"><span>ASSIGNMENT 05</span><span>PASS WHEN</span></div>
-      <div class="lp-heading">
-        <p class="lp-kicker">Submit the view link</p>
-        <h2>If play does nothing, do not submit it.</h2>
-      </div>
-      <div class="lp-grading">
-        <div>
-          <p class="lp-col-label">Share</p>
-          <ul class="lp-list">
-            <li><span>Share → anyone with the link can <strong>view</strong></span></li>
-            <li><span>Paste the link in the class sheet</span></li>
-            <li><span>Private window. Start on Welcome. Tap through Player</span></li>
-          </ul>
-        </div>
-        <div>
-          <p class="lp-col-label">Pass when</p>
-          <ul class="lp-list">
-            <li><span>A stranger starts a session without a spoken tour</span></li>
-            <li><span>Start is an instance. Changing Kit moves Our flow</span></li>
-            <li><span>Leftover parts are named, and not on the phone</span></li>
-          </ul>
-        </div>
-        <div>
-          <p class="lp-col-label">Fail when</p>
-          <ul class="lp-list">
-            <li><span>A kit page with no playable Job</span></li>
-            <li><span>Make or Agent before a stranger can tap Get started</span></li>
-            <li><span>Sign-in, tabs, FAB, or a detached souvenir</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide closing" data-title="Thank you">
-      <div class="grid-lines"></div>
-      <div class="slide-meta"><span>SESSION 05</span><span>THE JOB IS THE PROOF</span></div>
-      <div class="closing-content">
-        <h2>Start the session.</h2>
-        <p>A stranger taps Get started. Play works. Then — and only then — Make, then Agent. Submit that file before Session 6.</p>
-        <div class="contact">
-          <a href="session-5-map.html">Meditation kit</a>
-          <a href="session-5-guide.html">Studio sheet</a>
-          <a href="notes.html#s5-assignment">Assignment 05</a>
-        </div>
-      </div>
-    </section>
+    <section class="slide cover title-only is-active" data-title="The Mindspace Design Lab" data-act="ACT 1 · OPENING" data-slide="01" data-notes="Welcome them. Do not explain the day. Then meet Arya."><div class="slide-meta"><span>SESSION 05</span><span>8 TEAMS · 6 HOURS</span></div><div class="grid-lines"></div><div class="cover-content"><h1>The<br>Mindspace<br>Design Lab.</h1></div></section><section class="slide lesson-plan" data-title="Meet Arya" data-act="ACT 1 · OPENING" data-slide="02" data-notes="Every team designs for the same person. Each desk solves a different moment."><div class="slide-meta"><span>PERSONA</span><span>ONE USER</span></div><div class="lp-body"><div class="lp-heading"><h2>Arya, 30.</h2><p class="lp-subtitle">Working professional. New to meditation. Busy. Usually 5–15 minutes. Wants less stress, better sleep, a habit that survives a week.</p></div><div class="lp-cols"><div><p class="lp-col-label">She will</p><ul class="lp-list"><li><span>Open the app in a corridor.</span></li><li><span>Give you minutes, not an hour.</span></li><li><span>Quit if the first screen lectures.</span></li></ul></div><div><p class="lp-col-label">She will not</p><ul class="lp-list"><li><span>Learn specialist vocabulary to start.</span></li><li><span>Fill a novel before she tries.</span></li><li><span>Forgive streak shame for one missed day.</span></li></ul></div></div></div></section><section class="slide lesson-plan" data-title="A day in Arya's life" data-act="ACT 1 · OPENING" data-slide="03" data-notes="When would she actually use Mindspace? What would she expect at each moment? Context matters more than features." data-learn="Context matters more than features."><div class="slide-meta"><span>CONTEXT</span><span></span></div><div class="lp-body"><div class="lp-heading"><h2>A day in Arya's life.</h2></div><div class="s5-grid "><article><span>7:30 AM</span><strong>Rushes to work</strong><p>Can the app meet her in five minutes?</p></article><article><span>1:00 PM</span><strong>Struggles to focus</strong><p>What is the next obvious action?</p></article><article><span>7:00 PM</span><strong>Mentally exhausted</strong><p>Does the home screen still feel kind?</p></article><article><span>10:30 PM</span><strong>Wants to sleep</strong><p>Can she find quiet without searching like a librarian?</p></article></div></div></section><section class="slide lesson-plan" data-title="What Arya wants" data-act="ACT 1 · OPENING" data-slide="04" data-notes="Ask the room: if the player is perfect and she still cannot sleep, who failed?"><div class="slide-meta"><span>STAKES</span><span>ASK THE ROOM</span></div><div class="lp-body"><div class="lp-heading"><h2>What Arya wants.</h2><p class="lp-subtitle">She wants to sleep. Feel calmer. Last a week.</p></div><div class="lp-cols"><div><p class="lp-col-label">If this is all you ship</p><ul class="lp-list"><li><span>A player.</span></li><li><span>A streak.</span></li><li><span>A library.</span></li><li><span>A settings page.</span></li></ul></div><div><p class="lp-col-label">If she actually stays</p><ul class="lp-list"><li><span>She sleeps.</span></li><li><span>She feels calmer.</span></li><li><span>She can focus.</span></li><li><span>She comes back tomorrow.</span></li><li><span>She can find the reminder.</span></li></ul></div></div></div></section><section class="slide lesson-plan" data-title="Know. Guess. Find out." data-act="ACT 1 · OPENING" data-slide="05" data-notes="These are preliminary workshop hypotheses, not verified interview findings. A good designer doesn't mistake an assumption for a fact." data-learn="Research literacy: evidence vs assumption."><div class="slide-meta"><span>RESEARCH</span><span>LITERACY</span></div><div class="lp-body"><div class="lp-heading"><h2>Know. Guess. Find out.</h2><p class="lp-subtitle">Every line on the brief is a workshop hypothesis until someone tests it.</p></div><div class="lp-cols three"><div><p class="lp-col-label">What we know</p><ul class="lp-list"><li><span>Arya is new to meditation.</span></li><li><span>She has limited time.</span></li><li><span>She wants consistency.</span></li></ul></div><div><p class="lp-col-label">What we hypothesise</p><ul class="lp-list"><li><span>Too much information may overwhelm her.</span></li><li><span>Short sessions may suit her.</span></li><li><span>Missed days may affect motivation.</span></li></ul></div><div><p class="lp-col-label">What we need to explore</p><ul class="lp-list"><li><span>What is essential at onboarding?</span></li><li><span>How does she choose a session?</span></li><li><span>How can progress be encouraging?</span></li></ul></div></div></div></section><section class="slide lesson-plan" data-title="The game" data-act="ACT 1 · OPENING" data-slide="06" data-notes="Eight desks. One product. Hands up all day. Five levels. Scoring starts in the playground."><div class="slide-meta"><span>WORKSHOP</span><span>8 TEAMS · 6 HOURS</span></div><div class="lp-body"><div class="lp-heading"><h2>How today runs.</h2></div><div class="lp-cols three"><div><p class="lp-col-label">The game</p><ul class="lp-list"><li><span>Hands up. First hand answers.</span></li><li><span>Exact 5. Close 3. Wrong −3.</span></li><li><span>If you cannot defend it, it does not stay.</span></li></ul></div><div><p class="lp-col-label">The teams</p><ul class="lp-list"><li><span>Eight desks. A through H.</span></li><li><span>One Arya. Eight moments.</span></li><li><span>If she gets lost between desks, it is not a product.</span></li></ul></div><div><p class="lp-col-label">Today</p><ul class="lp-list"><li><span>Playground — recreate one screen.</span></li><li><span>UI Universe — name the piece.</span></li><li><span>Then think, build, and kill v1.</span></li></ul></div></div></div></section><section class="slide approach-intro" data-title="Level 1 unlocked" data-act="ACT 2 · THE PLAYGROUND" data-slide="07" data-notes="Do not say 'get comfortable with Figma.' Give them a screen and a clock." data-timer="30"><div class="slide-meta"><span>LEVEL 01</span><span>00:15–00:45</span></div><div class="approach-intro-content level-unlock"><p class="level-stage" aria-hidden="true">01</p><p class="level-stamp">Unlocked</p><h2>The Playground.</h2><p class="approach-intro-lede">Ten minutes. Recreate one screen. No screenshots.</p><ol class="level-track" aria-label="Five levels"><li class="is-now"><b>01</b><span>Playground</span></li><li class=""><b>02</b><span>UI Universe</span></li><li class=""><b>03</b><span>Thinkers</span></li><li class=""><b>04</b><span>Builders</span></li><li class=""><b>05</b><span>Evolution</span></li></ol></div></section><section class="slide phone-see is-pair" data-title="Recreate this screen" data-act="ACT 2 · THE PLAYGROUND" data-slide="08" data-notes="One simple mobile welcome: heading, supporting text, illustration, primary button, secondary action, carousel indicator. Open Figma and recreate it. Ten minutes." data-timer="10"><div class="slide-meta"><span>MISSION · 10 MIN</span><span>LEVEL 01</span></div><figure class="phone-frame is-better"><img src="assets/mindspace/recreate-pair.png" alt="Two screens: a meditation welcome with Sign Up and Sign In, and a Sign Up form."></figure><div class="phone-copy"><h2>Recreate this screen.</h2><p>Heading. Supporting text. Illustration. Primary button. Secondary action. Carousel indicator. Ten minutes.</p></div></section><section class="slide rulebook" data-title="Points rule book" data-act="ACT 2 · THE PLAYGROUND" data-slide="09" data-notes="Click the big clock. It counts down from ten. First correct call: 10 speed. Right name: 20 accuracy. What the tool is for: 20 understanding. Then five rapid-fire questions: exact 5, close 3, wrong −3." data-timer="10"><div class="slide-meta"><span>10 MIN</span><span>LEVEL 01</span></div>
+<button type="button" class="rulebook-clock" data-clock title="Click start or pause. Double-click reset">10:00</button>
+<div class="rulebook-copy">
+<p class="lp-col-label">Points rule book</p>
+<h2>How teams score.</h2>
+<ol class="rulebook-list">
+<li><b>10</b><div><strong>Speed</strong><span>First correct call.</span></div></li>
+<li><b>20</b><div><strong>Accuracy</strong><span>The right name.</span></div></li>
+<li><b>20</b><div><strong>Understanding</strong><span>What the tool is for.</span></div></li>
+</ol>
+</div>
+</section><section class="slide quiz-time" data-title="Quiz time" data-act="ACT 2 · THE PLAYGROUND" data-slide="10" data-notes="Hands only. First hand answers. Exact 5. Close 3. Wrong −3 and next hand. Then Q1."><div class="slide-meta"><span>QUIZ TIME</span><span>+5 · +3 · −3</span></div>
+<div class="quiz-time-body">
+<h2>Quiz time.</h2>
+<ol class="quiz-time-rules">
+<li><b>01</b><div><strong>Hand up.</strong><span>Question on the wall. Hands go up. No shouting the answer.</span></div></li>
+<li><b>02</b><div><strong>First hand.</strong><span>I call the first hand. One answer. Sit if I don’t call you.</span></div></li>
+</ol>
+<div class="quiz-score">
+<div><b>+5</b><strong>Exact</strong><span>The words on the wall.</span></div>
+<div><b>+3</b><strong>Close</strong><span>Right idea. Wrong name.</span></div>
+<div><b>−3</b><strong>Wrong</strong><span>Next hand.</span></div>
+</div>
+</div>
+</section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Question 1" data-act="ACT 2 · THE PLAYGROUND" data-slide="11" data-notes="Exact 5. Close 3. Wrong −3. Wait. Six parts on the welcome they just built. Do not list them. Then reveal."><div class="slide-meta"><span>Q1</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q1</p><p class="ux-example-question">Name the six parts of the welcome screen.</p></div></section><section class="slide rapid-answer" data-title="Answer 1" data-act="ACT 2 · THE PLAYGROUND" data-slide="12" data-notes="Award 5, 3, or −3. Open Score, click the team, then + / − pts. Illustration. Heading. Supporting text. Primary button. Secondary action. Carousel indicator."><div class="slide-meta"><span>Q1</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q1</p><p class="rapid-q">Name the six parts of the welcome screen.</p><p class="rapid-a">Illustration. Heading. Supporting text. Primary button. Secondary action. Carousel indicator.</p></div></section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Question 2" data-act="ACT 2 · THE PLAYGROUND" data-slide="13" data-notes="Exact 5. Close 3. Wrong −3. They just drew both. If they say both, no points. Then reveal."><div class="slide-meta"><span>Q2</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q2</p><p class="ux-example-question">On the first screen, which button is louder?</p></div></section><section class="slide rapid-answer" data-title="Answer 2" data-act="ACT 2 · THE PLAYGROUND" data-slide="14" data-notes="Award 5, 3, or −3. Open Score, click the team, then + / − pts. Sign Up. Filled primary. Sign In stays outlined."><div class="slide-meta"><span>Q2</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q2</p><p class="rapid-q">On the first screen, which button is louder?</p><p class="rapid-a">Sign Up. Filled primary. Sign In stays outlined.</p></div></section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Question 3" data-act="ACT 2 · THE PLAYGROUND" data-slide="15" data-notes="Exact 5. Close 3. Wrong −3. If they say boxes, push for the name: text field. Then reveal."><div class="slide-meta"><span>Q3</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q3</p><p class="ux-example-question">Email and password. Name the component.</p></div></section><section class="slide rapid-answer" data-title="Answer 3" data-act="ACT 2 · THE PLAYGROUND" data-slide="16" data-notes="Award 5, 3, or −3. Open Score, click the team, then + / − pts. Text fields. Label above. Value inside."><div class="slide-meta"><span>Q3</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q3</p><p class="rapid-q">Email and password. Name the component.</p><p class="rapid-a">Text fields. Label above. Value inside.</p></div></section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Question 4" data-act="ACT 2 · THE PLAYGROUND" data-slide="17" data-notes="Exact 5. Close 3. Wrong −3. Do not offer radio or switch. Let them name it. Then reveal."><div class="slide-meta"><span>Q4</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q4</p><p class="ux-example-question">“I agree to the Terms.” Name the component.</p></div></section><section class="slide rapid-answer" data-title="Answer 4" data-act="ACT 2 · THE PLAYGROUND" data-slide="18" data-notes="Award 5, 3, or −3. Open Score, click the team, then + / − pts. A checkbox."><div class="slide-meta"><span>Q4</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q4</p><p class="rapid-q">“I agree to the Terms.” Name the component.</p><p class="rapid-a">A checkbox.</p></div></section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Question 5" data-act="ACT 2 · THE PLAYGROUND" data-slide="19" data-notes="Exact 5. Close 3. Wrong −3. Wait for text link. If they say button, −3. Then: it must not fight Sign Up. Then reveal."><div class="slide-meta"><span>Q5</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q5</p><p class="ux-example-question">“Already have an account? Log In.” Name the component.</p></div></section><section class="slide rapid-answer" data-title="Answer 5" data-act="ACT 2 · THE PLAYGROUND" data-slide="20" data-notes="Award 5, 3, or −3. Open Score, click the team, then + / − pts. A text link. She’s already on Sign Up. Don’t compete with the primary."><div class="slide-meta"><span>Q5</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q5</p><p class="rapid-q">“Already have an account? Log In.” Name the component.</p><p class="rapid-a">A text link. She’s already on Sign Up. Don’t compete with the primary.</p></div></section><section class="slide approach-intro" data-title="Check scores" data-act="ACT 2 · THE PLAYGROUND" data-slide="21" data-notes="Open Score. Read the board out loud. Do not start Level 02 until they have heard the numbers."><div class="slide-meta"><span>QUIZ</span><span>THE BOARD</span></div><div class="approach-intro-content"><h2>Check scores.</h2><p class="approach-intro-lede">Open Score. Read the board.</p></div></section><section class="slide approach-intro" data-title="Level 2 unlocked" data-act="ACT 3 · THE UI UNIVERSE" data-slide="22" data-notes="Scoring starts. Rapid challenges. Do not lecture every widget." data-timer="45"><div class="slide-meta"><span>LEVEL 02</span><span>00:45–01:30</span></div><div class="approach-intro-content level-unlock"><p class="level-stage" aria-hidden="true">02</p><p class="level-stamp">Unlocked</p><h2>The UI Universe.</h2><ol class="level-track" aria-label="Five levels"><li class="is-cleared"><b>01</b><span>Playground</span></li><li class="is-now"><b>02</b><span>UI Universe</span></li><li class=""><b>03</b><span>Thinkers</span></li><li class=""><b>04</b><span>Builders</span></li><li class=""><b>05</b><span>Evolution</span></li></ol></div></section><section class="slide lesson-plan" data-title="Game rules" data-act="ACT 3 · THE UI UNIVERSE" data-slide="23" data-notes="See it. Understand it. Choose it. Defend it. Do not award points for finishing first."><div class="slide-meta"><span>SCORING</span><span>LEVEL 02</span></div><div class="lp-body"><div class="lp-heading"><h2>How you score.</h2></div><div class="lp-grading"><div class="lp-grade-item"><p class="lp-grade-pct">10</p><p class="lp-grade-label">Correct identification</p></div><div class="lp-grade-item"><p class="lp-grade-pct">20</p><p class="lp-grade-label">Correct component choice</p></div><div class="lp-grade-item"><p class="lp-grade-pct">20</p><p class="lp-grade-label">Strong reasoning</p></div><div class="lp-grade-item"><p class="lp-grade-pct">15</p><p class="lp-grade-label">Spotting a usability issue</p></div><div class="lp-grade-item"><p class="lp-grade-pct">25</p><p class="lp-grade-label">Excellent improvement</p></div></div></div></section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Button question" data-act="ACT 3 · THE UI UNIVERSE" data-slide="24" data-notes="Wait for button, not the look. Then reveal."><div class="slide-meta"><span>Q1</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q1</p><p class="ux-example-question">She taps once. Something happens. Name the component.</p></div></section><section class="slide rapid-answer" data-title="Button answer" data-act="ACT 3 · THE UI UNIVERSE" data-slide="25" data-notes="Award 5, 3, or −3. A button. It starts an action. One tap. Something happens."><div class="slide-meta"><span>BUTTON</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q1</p><p class="rapid-q">She taps once. Something happens. Name the component.</p><p class="rapid-a">A button. It starts an action. One tap. Something happens.</p></div></section><section class="slide phone-pair btn-usage" data-title="Button usage" data-act="ACT 3 · THE UI UNIVERSE" data-slide="26" data-notes="One primary. The rest stay quiet. Three equal buttons hide the next step."><div class="slide-meta"><span>USAGE</span><span></span></div>
+<div class="pair-row">
+<figure class="bu-card">
+<div class="bu-form" aria-hidden="true">
+<p class="bu-title">Sign in</p>
+<div class="bu-field">Email</div>
+<div class="bu-field">Password</div>
+<div class="bu-actions">
+<span class="bt is-filled bu-full">Sign in</span>
+<span class="bt is-filled bu-full">Create account</span>
+<span class="bt is-filled bu-full">Forgot password?</span>
+</div>
+</div>
+<figcaption>Bad</figcaption>
+</figure>
+<figure class="bu-card is-better">
+<div class="bu-form" aria-hidden="true">
+<p class="bu-title">Sign in</p>
+<div class="bu-field">Email</div>
+<div class="bu-field">Password</div>
+<div class="bu-actions">
+<span class="bt is-filled bu-full">Sign in</span>
+<span class="bt is-outlined bu-full">Create account</span>
+<span class="bt is-text bu-quiet">Forgot password?</span>
+</div>
+</div>
+<figcaption>Good</figcaption>
+</figure>
+</div>
+</section><section class="slide lesson-plan btn-types" data-title="Button types" data-act="ACT 3 · THE UI UNIVERSE" data-slide="27" data-notes="Filled is the verb. Outlined and text stay secondary. FAB is one obvious create. Icon is a tool, not the next step. Point at filled first - one primary, the rest stay quiet. Elevated is the same verb with a lift. Tonal is important, not the loudest. Segmented is one of a set on the same row."><div class="slide-meta"><span>KIT</span><span>BUTTON</span></div>
+<div class="lp-body">
+<div class="lp-heading">
+<h2>Types of button.</h2>
+<p class="bt-lede">Filled is the verb. The rest stay quiet.</p>
+</div>
+<div class="bt-grid">
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-elevated">Begin</span></div>
+<figcaption class="bt-name">Elevated Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-filled">Begin</span></div>
+<figcaption class="bt-name">Filled Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-tonal">Save</span></div>
+<figcaption class="bt-name">Filled Tonal Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-outlined">Message</span></div>
+<figcaption class="bt-name">Outlined Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-text">Skip</span></div>
+<figcaption class="bt-name">Text Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-icon"><svg class="bt-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14.2 5.2l4.6 4.6M4 20l1.4-5.2L16.6 3.6a2 2 0 0 1 2.8 2.8L8.2 17.6 4 20z"/></svg></span></div>
+<figcaption class="bt-name">Icon Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-fab"><svg class="bt-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg></span></div>
+<figcaption class="bt-name">FAB Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-fab-ext"><svg class="bt-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg> Add</span></div>
+<figcaption class="bt-name">Extended FAB Button</figcaption>
+</figure>
+<figure class="bt-spec is-wide">
+<div class="bt-stage" aria-hidden="true">
+<div class="bt-seg">
+<span class="is-on"><svg class="bt-ico bt-ico-sm" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l5 5 9-10"/></svg> Sleep</span>
+<span>Focus</span>
+<span>Calm</span>
+</div>
+</div>
+<figcaption class="bt-name">Segmented Button</figcaption>
+</figure>
+</div>
+</div>
+</section><section class="slide lesson-plan btn-states" data-title="Button states" data-act="ACT 3 · THE UI UNIVERSE" data-slide="28" data-notes="Same component. Different moment. Variants are looks. States are what is happening. Walk the five from the last bench: ready, keyboard, pointer, press, locked. Disabled must look unavailable. Ask: is this five buttons, or one Begin in five moments?"><div class="slide-meta"><span>STATES</span><span>BUTTON</span></div>
+<div class="lp-body">
+<div class="lp-heading">
+<h2>Button states.</h2>
+<p class="bs-lede">Variants are looks. States are what is happening.</p>
+</div>
+<ol class="bs-list" aria-label="Five states of the same Begin button">
+<li>
+<div class="bs-demo">
+<span class="bs-btn">Begin</span>
+</div>
+<p class="bs-name">Enabled</p>
+<p class="bs-line">She can use it.</p>
+</li>
+<li>
+<div class="bs-demo">
+<span class="bs-btn is-focus">Begin</span>
+<span class="bs-tab">Tab</span>
+</div>
+<p class="bs-name">Focus</p>
+<p class="bs-line">Keyboard is on it.</p>
+</li>
+<li>
+<div class="bs-demo">
+<span class="bs-btn is-hover">Begin</span>
+<svg class="bs-pointer" viewBox="0 0 32 32" aria-hidden="true">
+<path fill="#ece9e1" stroke="#101116" stroke-width="2.2" stroke-linejoin="round" d="M7 3l18 13.2-8.2 1.6 3.4 11.2-5.6-3.6-5.2 7.4z"/>
+</svg>
+</div>
+<p class="bs-name">Hover</p>
+<p class="bs-line">Pointer is on it.</p>
+</li>
+<li>
+<div class="bs-demo">
+<span class="bs-btn is-down">Begin</span>
+</div>
+<p class="bs-name">Pressed</p>
+<p class="bs-line">The press is happening.</p>
+</li>
+<li>
+<div class="bs-demo">
+<span class="bs-btn is-off">Begin</span>
+</div>
+<p class="bs-name">Disabled</p>
+<p class="bs-line">Cannot tap it now.</p>
+</li>
+</ol>
+</div>
+</section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Text field question" data-act="ACT 3 · THE UI UNIVERSE" data-slide="29" data-notes="If they say box, push for text field."><div class="slide-meta"><span>Q2</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q2</p><p class="ux-example-question">She types her name. Name the component.</p></div></section><section class="slide rapid-answer" data-title="Text field answer" data-act="ACT 3 · THE UI UNIVERSE" data-slide="30" data-notes="Award 5, 3, or −3. A text field. The user types. Label above. Value inside."><div class="slide-meta"><span>TEXT FIELD</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q2</p><p class="rapid-q">She types her name. Name the component.</p><p class="rapid-a">A text field. The user types. Label above. Value inside.</p></div></section><section class="slide phone-pair" data-title="Text field usage" data-act="ACT 3 · THE UI UNIVERSE" data-slide="31" data-notes="A field without a label is a guess. Error must explain, not just turn red."><div class="slide-meta"><span>USAGE</span><span></span></div><div class="pair-row"><figure class="phone-frame "><img src="assets/ds/field-bare.svg" alt="Bad · no label"><figcaption>Bad · no label</figcaption></figure><figure class="phone-frame is-better"><img src="assets/ds/field-named.svg" alt="Good · label on the field"><figcaption>Good · label on the field</figcaption></figure></div></section><section class="slide lesson-plan field-states-slide" data-title="Text field types" data-act="ACT 3 · THE UI UNIVERSE" data-slide="32" data-notes="Click empty. Hover the next so the back row sees the border jump. Disabled cannot type. Focus: the lime ring must read from the last bench. Checking is a wait, not a lock. Error says what to fix. Filled or outlined is a look. State is the moment."><div class="slide-meta"><span>KIT</span><span>TEXT FIELD</span></div>
+<div class="lp-body field-states-body">
+<div class="lp-heading"><h2>Types and states.</h2></div>
+<div class="field-states-grid" id="field-states-grid">
+<article class="field-states-cell">
+<label class="field-states-label" for="fs-inactive">Your name</label>
+<input class="field-states-input" id="fs-inactive" type="text" name="fs-inactive" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+<p class="field-states-help" aria-hidden="true">&nbsp;</p>
+<p class="field-states-caption">Inactive</p>
+</article>
+<article class="field-states-cell is-hover-demo">
+<label class="field-states-label" for="fs-hover">Your name</label>
+<input class="field-states-input" id="fs-hover" type="text" name="fs-hover" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+<p class="field-states-help" aria-hidden="true">&nbsp;</p>
+<p class="field-states-caption">Hover</p>
+</article>
+<article class="field-states-cell is-disabled">
+<label class="field-states-label" for="fs-disabled">Reminder time</label>
+<input class="field-states-input" id="fs-disabled" type="text" name="fs-disabled" value="7:00 AM" disabled>
+<p class="field-states-help" aria-hidden="true">&nbsp;</p>
+<p class="field-states-caption">Disabled</p>
+</article>
+<article class="field-states-cell">
+<label class="field-states-label" for="fs-focus">Your name</label>
+<input class="field-states-input" id="fs-focus" type="text" name="fs-focus" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+<p class="field-states-help" aria-hidden="true">&nbsp;</p>
+<p class="field-states-caption">Focus / active</p>
+</article>
+<article class="field-states-cell is-validate">
+<label class="field-states-label" for="fs-validate">Display name</label>
+<input class="field-states-input" id="fs-validate" type="text" name="fs-validate" value="Arya" data-fs-validate autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-describedby="fs-validate-help">
+<p class="field-states-help is-checking" id="fs-validate-help" data-fs-status><span class="field-states-spin" aria-hidden="true"></span>Checking...</p>
+<p class="field-states-caption">Validation</p>
+</article>
+<article class="field-states-cell is-error">
+<label class="field-states-label" for="fs-error">Display name</label>
+<input class="field-states-input" id="fs-error" type="text" name="fs-error" value="A" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-invalid="true" aria-describedby="fs-error-help">
+<p class="field-states-help" id="fs-error-help"><span class="field-states-x" aria-hidden="true"></span>Already taken</p>
+<p class="field-states-caption">Error</p>
+</article>
+</div>
+</div>
+</section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Checkbox question" data-act="ACT 3 · THE UI UNIVERSE" data-slide="33" data-notes="Do not offer radio. Let them name checkbox."><div class="slide-meta"><span>Q3</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q3</p><p class="ux-example-question">Sleep and stress. Both stay on. Name the component.</p></div></section><section class="slide rapid-answer" data-title="Checkbox answer" data-act="ACT 3 · THE UI UNIVERSE" data-slide="34" data-notes="Award 5, 3, or −3. A checkbox. Tick one or many. Each choice stands alone."><div class="slide-meta"><span>CHECKBOX</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q3</p><p class="rapid-q">Sleep and stress. Both stay on. Name the component.</p><p class="rapid-a">A checkbox. Tick one or many. Each choice stands alone.</p></div></section><section class="slide lesson-plan checkbox-usage" data-title="Checkbox usage" data-act="ACT 3 · THE UI UNIVERSE" data-slide="35" data-notes="Tiny ticks hide in a long list. Same yeses as bigger targets. She can hit sleep and stress with a thumb. Days of week is the same miss."><div class="slide-meta"><span>USAGE</span><span>CHECKBOX</span></div>
+<div class="lp-body cb-usage-body">
+<div class="cb-usage">
+<article class="cb-card is-bad">
+<p class="cb-flag is-bad"><svg class="cb-flag-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg> Bad</p>
+<p class="cb-screen">I want help with</p>
+<div class="cb-bad-body">
+<ul class="cb-tiny"><li class="is-on"><span class="cb-box is-on" aria-hidden="true"></span>Sleep</li><li class="is-on"><span class="cb-box is-on" aria-hidden="true"></span>Stress</li><li class=""><span class="cb-box" aria-hidden="true"></span>Focus</li><li class=""><span class="cb-box" aria-hidden="true"></span>Anxiety</li><li class=""><span class="cb-box" aria-hidden="true"></span>Energy</li><li class=""><span class="cb-box" aria-hidden="true"></span>Mood</li><li class="is-on"><span class="cb-box is-on" aria-hidden="true"></span>Breath</li><li class=""><span class="cb-box" aria-hidden="true"></span>Gratitude</li><li class=""><span class="cb-box" aria-hidden="true"></span>Journal</li><li class=""><span class="cb-box" aria-hidden="true"></span>Walking</li><li class=""><span class="cb-box" aria-hidden="true"></span>Evening</li><li class=""><span class="cb-box" aria-hidden="true"></span>Morning</li><li class=""><span class="cb-box" aria-hidden="true"></span>Night</li><li class=""><span class="cb-box" aria-hidden="true"></span>Weekend</li></ul>
+<p class="cb-hits"><span>Harder to tap</span><span>A tall list</span><span>Too many boxes</span></p>
+</div>
+<p class="cb-cap">Tiny ticks. A long list.</p>
+</article>
+<article class="cb-card is-good">
+<p class="cb-flag is-good"><svg class="cb-flag-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l5 5 9-10"/></svg> Good</p>
+<p class="cb-screen">I want help with</p>
+<div class="cb-pills"><span class="cb-pill is-on"><span class="cb-box is-on" aria-hidden="true"></span>Sleep</span><span class="cb-pill is-on"><span class="cb-box is-on" aria-hidden="true"></span>Stress</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Focus</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Anxiety</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Energy</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Mood</span><span class="cb-pill is-on"><span class="cb-box is-on" aria-hidden="true"></span>Breath</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Gratitude</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Journal</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Walking</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Evening</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Morning</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Night</span><span class="cb-pill"><span class="cb-box" aria-hidden="true"></span>Weekend</span></div>
+<p class="cb-cap">Big targets. Easy to tap.</p>
+</article>
+</div>
+</div>
+</section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Radio question" data-act="ACT 3 · THE UI UNIVERSE" data-slide="36" data-notes="If they say checkbox, −3. Exclusive pick is radio."><div class="slide-meta"><span>Q4</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q4</p><p class="ux-example-question">Morning or evening. Only one. Name the component.</p></div></section><section class="slide rapid-answer" data-title="Radio answer" data-act="ACT 3 · THE UI UNIVERSE" data-slide="37" data-notes="Award 5, 3, or −3. Radio. One of a set. Pick one. The others clear."><div class="slide-meta"><span>RADIO</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q4</p><p class="rapid-q">Morning or evening. Only one. Name the component.</p><p class="rapid-a">Radio. One of a set. Pick one. The others clear.</p></div></section><section class="slide lesson-plan pick-pair" data-title="One or many" data-act="ACT 3 · THE UI UNIVERSE" data-slide="38" data-notes="One pick is radio. Many independent yeses are checkbox. Session length is 5, 10 or 20. Sleep and stress can both stay on."><div class="slide-meta"><span>USAGE</span><span>RADIO / CHECKBOX</span></div>
+<div class="lp-body cb-usage-body">
+<div class="cb-usage">
+<article class="cb-card">
+<h2 class="pick-title">One</h2>
+<p class="cb-screen">Session length</p>
+<div class="pick-list" data-pick>
+<label class="pick-opt"><input type="radio" name="pick-len" value="5"><span class="sel-radio" aria-hidden="true"></span>5 min</label>
+<label class="pick-opt"><input type="radio" name="pick-len" value="10" checked><span class="sel-radio" aria-hidden="true"></span>10 min</label>
+<label class="pick-opt"><input type="radio" name="pick-len" value="20"><span class="sel-radio" aria-hidden="true"></span>20 min</label>
+</div>
+<p class="cb-cap">Radio</p>
+</article>
+<article class="cb-card">
+<h2 class="pick-title">Many</h2>
+<p class="cb-screen">I want help with</p>
+<div class="pick-list" data-pick>
+<label class="pick-opt"><input type="checkbox" name="pick-need" value="sleep" checked><span class="cb-box" aria-hidden="true"></span>Sleep</label>
+<label class="pick-opt"><input type="checkbox" name="pick-need" value="stress" checked><span class="cb-box" aria-hidden="true"></span>Stress</label>
+<label class="pick-opt"><input type="checkbox" name="pick-need" value="focus"><span class="cb-box" aria-hidden="true"></span>Focus</label>
+</div>
+<p class="cb-cap">Checkbox</p>
+</article>
+</div>
+</div>
+</section><section class="slide lesson-plan pick-pair" data-title="Radios not a menu" data-act="ACT 3 · THE UI UNIVERSE" data-slide="39" data-notes="Three lengths. Keep them on the screen. A short exclusive list is radio, not Choose a length."><div class="slide-meta"><span>USAGE</span><span>RADIO</span></div>
+<div class="lp-body cb-usage-body">
+<div class="cb-usage">
+<article class="cb-card is-bad">
+<p class="cb-flag is-bad"><svg class="cb-flag-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg> Bad</p>
+<p class="cb-screen">Session length</p>
+<div class="sel-menu" aria-hidden="true">
+<p class="sel-menu-btn">Choose a length... <svg class="sel-chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M6 15l6-6 6 6"/></svg></p>
+<ul class="sel-menu-list">
+<li>5 min</li>
+<li>10 min</li>
+<li>20 min</li>
+</ul>
+</div>
+</article>
+<article class="cb-card is-good">
+<p class="cb-flag is-good"><svg class="cb-flag-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l5 5 9-10"/></svg> Good</p>
+<p class="cb-screen">Session length</p>
+<ul class="pick-list is-static">
+<li class="pick-opt"><span class="sel-radio" aria-hidden="true"></span>5 min</li>
+<li class="pick-opt is-on"><span class="sel-radio is-on" aria-hidden="true"></span>10 min</li>
+<li class="pick-opt"><span class="sel-radio" aria-hidden="true"></span>20 min</li>
+</ul>
+</article>
+</div>
+</div>
+</section><section class="slide lesson-plan sel-states" data-title="Selection states" data-act="ACT 3 · THE UI UNIVERSE" data-slide="40" data-notes="Walk unselected, selected, hover, focus, disabled from the last bench. Radio stays a group. Checkbox stands alone."><div class="slide-meta"><span>STATES</span><span>SELECT</span></div>
+<div class="lp-body sel-states-body">
+<div class="lp-heading"><h2>States.</h2></div>
+<div class="sel-band">
+<p class="sel-band-name">Radio</p>
+<div class="sel-row"><article class="sel-cell"><div class="sel-demo"><span class="sel-radio" aria-hidden="true"></span>10 min</div><p class="sel-caption">Unselected</p></article><article class="sel-cell is-on"><div class="sel-demo"><span class="sel-radio is-on" aria-hidden="true"></span>10 min</div><p class="sel-caption">Selected</p></article><article class="sel-cell is-hover-demo is-focus-demo" tabindex="0"><div class="sel-demo"><span class="sel-radio" aria-hidden="true"></span>10 min</div><p class="sel-caption">Hover / focus</p></article><article class="sel-cell is-disabled"><div class="sel-demo"><span class="sel-radio" aria-hidden="true"></span>10 min</div><p class="sel-caption">Disabled</p></article></div>
+</div>
+<div class="sel-band">
+<p class="sel-band-name">Checkbox</p>
+<div class="sel-row"><article class="sel-cell"><div class="sel-demo"><span class="cb-box" aria-hidden="true"></span>Sleep</div><p class="sel-caption">Unselected</p></article><article class="sel-cell is-on"><div class="sel-demo"><span class="cb-box is-on" aria-hidden="true"></span>Sleep</div><p class="sel-caption">Selected</p></article><article class="sel-cell is-hover-demo is-focus-demo" tabindex="0"><div class="sel-demo"><span class="cb-box" aria-hidden="true"></span>Sleep</div><p class="sel-caption">Hover / focus</p></article><article class="sel-cell is-disabled"><div class="sel-demo"><span class="cb-box" aria-hidden="true"></span>Sleep</div><p class="sel-caption">Disabled</p></article></div>
+</div>
+</div>
+</section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Switch question" data-act="ACT 3 · THE UI UNIVERSE" data-slide="41" data-notes="Switch is not a form submit. Immediate."><div class="slide-meta"><span>Q5</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q5</p><p class="ux-example-question">Reminders. On or off, now. Name the component.</p></div></section><section class="slide rapid-answer" data-title="Switch answer" data-act="ACT 3 · THE UI UNIVERSE" data-slide="42" data-notes="Award 5, 3, or −3. A switch. On or off. It takes effect now."><div class="slide-meta"><span>SWITCH</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q5</p><p class="rapid-q">Reminders. On or off, now. Name the component.</p><p class="rapid-a">A switch. On or off. It takes effect now.</p></div></section><section class="slide phone-pair" data-title="Switch usage" data-act="ACT 3 · THE UI UNIVERSE" data-slide="43" data-notes="Switch for a setting that flips now. Not a list of goals. Not a single exclusive pick."><div class="slide-meta"><span>USAGE</span><span></span></div><div class="pair-row"><figure class="phone-frame "><img src="assets/m3/switch-bad.svg" alt="Bad · agree as a switch"><figcaption>Bad · agree as a switch</figcaption></figure><figure class="phone-frame is-better"><img src="assets/mindspace/switch.svg" alt="Good · one setting, now"><figcaption>Good · one setting, now</figcaption></figure></div></section><section class="slide lesson-plan toggle-states" data-title="Switch states" data-act="ACT 3 · THE UI UNIVERSE" data-slide="44" data-notes="Default is off. Active is on now. Focused is the keyboard ring. Disabled cannot flip. No third choice. If they must confirm, it is not a switch. Click Default or Active to feel the flip. Arrows still turn the deck."><div class="slide-meta"><span>STATES</span><span>SWITCH</span></div>
+<div class="lp-body toggle-states-body">
+<div class="lp-heading">
+<h2>Switch states.</h2>
+</div>
+<ul class="toggle-states-grid" id="toggle-states-grid">
+<li>
+<button type="button" class="toggle-states-switch" role="switch" aria-checked="false" aria-label="Default">
+<span class="toggle-states-thumb" aria-hidden="true"></span>
+</button>
+<p class="toggle-states-name">Default</p>
+</li>
+<li>
+<button type="button" class="toggle-states-switch is-on" role="switch" aria-checked="true" aria-label="Active">
+<span class="toggle-states-thumb" aria-hidden="true"></span>
+</button>
+<p class="toggle-states-name">Active</p>
+</li>
+<li>
+<button type="button" class="toggle-states-switch is-focused" role="switch" aria-checked="false" aria-label="Focused" data-locked="true">
+<span class="toggle-states-thumb" aria-hidden="true"></span>
+</button>
+<p class="toggle-states-name">Focused</p>
+</li>
+<li class="is-disabled">
+<button type="button" class="toggle-states-switch is-disabled" role="switch" aria-checked="false" aria-label="Disabled" disabled>
+<span class="toggle-states-thumb" aria-hidden="true"></span>
+</button>
+<p class="toggle-states-name">Disabled</p>
+</li>
+</ul>
+</div>
+</section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Card question" data-act="ACT 3 · THE UI UNIVERSE" data-slide="45" data-notes="Containment, not decoration. Then reveal."><div class="slide-meta"><span>Q6</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q6</p><p class="ux-example-question">A tappable block that holds one thing. Name the component.</p></div></section><section class="slide rapid-answer" data-title="Card answer" data-act="ACT 3 · THE UI UNIVERSE" data-slide="46" data-notes="Award 5, 3, or −3. A card. One object. One tap. Containment."><div class="slide-meta"><span>CARD</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q6</p><p class="rapid-q">A tappable block that holds one thing. Name the component.</p><p class="rapid-a">A card. One object. One tap. Containment.</p></div></section><section class="slide lesson-plan card-ux-anatomy" data-title="Card anatomy" data-act="ACT 3 · THE UI UNIVERSE" data-slide="47" data-notes="One object. Preview, title, badge, subtitle, supporting, CTA. Point from the last bench. Then the pairs."><div class="slide-meta"><span>ANATOMY</span><span>CARD</span></div>
+<div class="lp-body card-ux-anatomy-body">
+<div class="card-ux-anatomy-stage">
+<article class="card-ux card-ux-anatomy-card">
+<div class="card-ux-preview" aria-hidden="true"></div>
+<div class="card-ux-title-row">
+<p class="card-ux-title">Breath for stress</p>
+<span class="card-ux-badge">10 min</span>
+</div>
+<p class="card-ux-sub">Guided</p>
+<p class="card-ux-copy">A short reset before her desk.</p>
+<div class="card-ux-foot"><span class="card-ux-cta">Begin</span></div>
+</article>
+<ul class="card-ux-callouts">
+<li><i></i>Preview</li>
+<li><i></i>Title <b>Badge</b></li>
+<li><i></i>Subtitle</li>
+<li><i></i>Supporting</li>
+<li><i></i>CTA</li>
+</ul>
+</div>
+</div>
+</section><section class="slide phone-pair card-ux-pair" data-title="Card type" data-act="ACT 3 · THE UI UNIVERSE" data-slide="48" data-notes="Headline louder than subhead louder than body. The button is a verb, not a shout."><div class="slide-meta"><span>TYPE</span><span>CARD</span></div>
+<div class="pair-row">
+<figure class="card-ux-panel"><article class="card-ux is-type-bad"><div class="card-ux-preview" aria-hidden="true"></div><div class="card-ux-body"><div class="card-ux-title-row"><p class="card-ux-title">Breath for stress</p><span class="card-ux-badge">10 min</span></div><p class="card-ux-sub">Guided</p><p class="card-ux-copy">A short reset before her desk.</p></div><div class="card-ux-foot"><span class="card-ux-cta">Begin</span></div></article><figcaption>Bad</figcaption></figure>
+<figure class="card-ux-panel is-better"><article class="card-ux is-type-good"><div class="card-ux-preview" aria-hidden="true"></div><div class="card-ux-body"><div class="card-ux-title-row"><p class="card-ux-title">Breath for stress</p><span class="card-ux-badge">10 min</span></div><p class="card-ux-sub">Guided</p><p class="card-ux-copy">A short reset before her desk.</p></div><div class="card-ux-foot"><span class="card-ux-cta">Begin</span></div></article><figcaption>Good</figcaption></figure>
+</div>
+</section><section class="slide phone-pair card-ux-pair" data-title="Card spacing" data-act="ACT 3 · THE UI UNIVERSE" data-slide="49" data-notes="Even rhythm. If the gaps argue, she cannot scan. No rulers. Feel the beat."><div class="slide-meta"><span>SPACE</span><span>CARD</span></div>
+<div class="pair-row">
+<figure class="card-ux-panel"><article class="card-ux is-space-bad is-sleep"><div class="card-ux-preview" aria-hidden="true"></div><div class="card-ux-body"><div class="card-ux-title-row"><p class="card-ux-title">Sleep stories</p><span class="card-ux-badge">15 min</span></div><p class="card-ux-sub">Night</p><p class="card-ux-copy">Dim, quiet, and done in time.</p></div><div class="card-ux-foot"><span class="card-ux-cta">Begin</span></div></article><figcaption>Bad</figcaption></figure>
+<figure class="card-ux-panel is-better"><article class="card-ux is-space-good is-sleep"><div class="card-ux-preview" aria-hidden="true"></div><div class="card-ux-body"><div class="card-ux-title-row"><p class="card-ux-title">Sleep stories</p><span class="card-ux-badge">15 min</span></div><p class="card-ux-sub">Night</p><p class="card-ux-copy">Dim, quiet, and done in time.</p></div><div class="card-ux-foot"><span class="card-ux-cta">Begin</span></div></article><figcaption>Good</figcaption></figure>
+</div>
+</section><section class="slide phone-pair card-ux-pair" data-title="Card loading" data-act="ACT 3 · THE UI UNIVERSE" data-slide="50" data-notes="A spinner is a shrug. The skeleton is the card arriving."><div class="slide-meta"><span>LOADING</span><span>CARD</span></div>
+<div class="pair-row">
+<figure class="card-ux-panel"><article class="card-ux is-wait" aria-hidden="true"><span class="card-ux-spin"></span><p>Please wait</p></article><figcaption>Bad</figcaption></figure>
+<figure class="card-ux-panel is-better"><article class="card-ux is-skel" aria-hidden="true"><div class="card-ux-preview"></div><div class="card-ux-body"><span class="card-ux-bar is-wide"></span><span class="card-ux-bar is-mid"></span><span class="card-ux-bar is-long"></span></div><div class="card-ux-foot"><span class="card-ux-bar is-btn"></span></div></article><figcaption>Good</figcaption></figure>
+</div>
+</section><section class="slide phone-pair card-ux-pair" data-title="Card alignment" data-act="ACT 3 · THE UI UNIVERSE" data-slide="51" data-notes="Same height. Clamp the title. Images and CTAs share a line. Long copy gets Show more."><div class="slide-meta"><span>ALIGN</span><span>CARD</span></div>
+<div class="pair-row">
+<figure class="card-ux-panel"><div class="card-ux-row"><article class="card-ux is-stack is-align-bad"><div class="card-ux-body"><div class="card-ux-title-row"><p class="card-ux-title">Breath for stress</p><span class="card-ux-badge">10 min</span></div><p class="card-ux-sub">Guided</p></div><div class="card-ux-preview" aria-hidden="true"></div><p class="card-ux-copy">A short reset.</p><div class="card-ux-foot"><span class="card-ux-cta">Begin</span></div></article><article class="card-ux is-stack is-align-bad is-sleep"><div class="card-ux-body"><div class="card-ux-title-row"><p class="card-ux-title">Evening wind-down she can actually finish tonight</p><span class="card-ux-badge">20 min</span></div><p class="card-ux-sub">Night</p></div><div class="card-ux-preview" aria-hidden="true"></div><p class="card-ux-copy">A longer session for when the day ran her over and she still wants a close.</p><div class="card-ux-foot"><span class="card-ux-cta">Begin</span></div></article></div><figcaption>Bad</figcaption></figure>
+<figure class="card-ux-panel is-better"><div class="card-ux-row is-even"><article class="card-ux is-stack is-align-good"><div class="card-ux-body"><div class="card-ux-title-row"><p class="card-ux-title">Breath for stress</p><span class="card-ux-badge">10 min</span></div><p class="card-ux-sub">Guided</p></div><div class="card-ux-preview" aria-hidden="true"></div><p class="card-ux-copy">A short reset before her desk.</p><span class="card-ux-more">Show more</span><div class="card-ux-foot"><span class="card-ux-cta">Begin</span></div></article><article class="card-ux is-stack is-align-good is-sleep"><div class="card-ux-body"><div class="card-ux-title-row"><p class="card-ux-title">Evening wind-down she can actually finish tonight</p><span class="card-ux-badge">20 min</span></div><p class="card-ux-sub">Night</p></div><div class="card-ux-preview" aria-hidden="true"></div><p class="card-ux-copy">A longer session for when the day ran her over.</p><span class="card-ux-more">Show more</span><div class="card-ux-foot"><span class="card-ux-cta">Begin</span></div></article></div><figcaption>Good</figcaption></figure>
+</div>
+</section><section class="slide lesson-plan card-ux-states" data-title="Card states" data-act="ACT 3 · THE UI UNIVERSE" data-slide="52" data-notes="Default waits. Hover leans in. Active is the press. Focused is the keyboard ring. Hover the Default card. Arrows still turn the deck."><div class="slide-meta"><span>STATES</span><span>CARD</span></div>
+<div class="lp-body card-ux-states-body">
+<div class="lp-heading"><h2>Card states.</h2></div>
+<ul class="card-ux-states-grid">
+<li>
+<article class="card-ux is-compact is-live">
+<div class="card-ux-preview" aria-hidden="true"></div>
+<p class="card-ux-title">Breath for stress</p>
+</article>
+<p class="card-ux-state-name">Default</p>
+</li>
+<li>
+<article class="card-ux is-compact is-hover">
+<div class="card-ux-preview" aria-hidden="true"></div>
+<p class="card-ux-title">Breath for stress</p>
+</article>
+<p class="card-ux-state-name">Hover</p>
+</li>
+<li>
+<article class="card-ux is-compact is-down">
+<div class="card-ux-preview" aria-hidden="true"></div>
+<p class="card-ux-title">Breath for stress</p>
+</article>
+<p class="card-ux-state-name">Active</p>
+</li>
+<li>
+<article class="card-ux is-compact is-focus">
+<div class="card-ux-preview" aria-hidden="true"></div>
+<p class="card-ux-title">Breath for stress</p>
+</article>
+<p class="card-ux-state-name">Focused</p>
+</li>
+</ul>
+</div>
+</section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="List question" data-act="ACT 3 · THE UI UNIVERSE" data-slide="53" data-notes="Repeating rows are a list. A unique story is a card."><div class="slide-meta"><span>Q7</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q7</p><p class="ux-example-question">Same kind of row, stacked. Name the component.</p></div></section><section class="slide rapid-answer" data-title="List answer" data-act="ACT 3 · THE UI UNIVERSE" data-slide="54" data-notes="Award 5, 3, or −3. A list. Same row, stacked. Scan, then tap."><div class="slide-meta"><span>LIST</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q7</p><p class="rapid-q">Same kind of row, stacked. Name the component.</p><p class="rapid-a">A list. Same row, stacked. Scan, then tap.</p></div></section><section class="slide phone-pair list-m2" data-title="List usage" data-act="ACT 3 · THE UI UNIVERSE" data-slide="55" data-notes="Same rows, stacked. Picture on the edge so she can scan. Picture in the middle is harder."><div class="slide-meta"><span>USAGE</span><span></span></div><div class="pair-row"><figure class="phone-frame "><img src="assets/lists/usage-caution.png" alt="Caution · picture in the middle"><figcaption>Caution · picture in the middle</figcaption></figure><figure class="phone-frame is-better"><img src="assets/lists/usage-do.png" alt="Do · picture on the edge"><figcaption>Do · picture on the edge</figcaption></figure></div></section><section class="slide phone-pair list-types" data-title="List types" data-act="ACT 3 · THE UI UNIVERSE" data-slide="56" data-notes="One line, two line, three line. Same row, stacked. Point from the last bench."><div class="slide-meta"><span>TYPES</span><span>LIST</span></div>
+<div class="list-types-row">
+<figure class="phone-frame">
+<img src="assets/lists/one-line.png" alt="Single-line list">
+<figcaption>One line</figcaption>
+</figure>
+<figure class="phone-frame">
+<img src="assets/lists/two-line.png" alt="Two-line list">
+<figcaption>Two line</figcaption>
+</figure>
+<figure class="phone-frame">
+<img src="assets/lists/three-line.png" alt="Three-line list">
+<figcaption>Three line</figcaption>
+</figure>
+</div>
+</section><section class="slide phone-pair list-m2 list-anatomy" data-title="List anatomy" data-act="ACT 3 · THE UI UNIVERSE" data-slide="57" data-notes="1 is the whole list. 2 is one row. 3 is the item. Icon, words, extra."><div class="slide-meta"><span>ANATOMY</span><span></span></div><div class="pair-row"><figure class="phone-frame "><img src="assets/lists/anatomy.png" alt="1 list · 2 row · 3 item"><figcaption>1 list · 2 row · 3 item</figcaption></figure><figure class="phone-frame "><img src="assets/lists/content.png" alt="1 icon · 2 words · 3 extra"><figcaption>1 icon · 2 words · 3 extra</figcaption></figure></div></section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Navigation question" data-act="ACT 3 · THE UI UNIVERSE" data-slide="58" data-notes="Destinations live in the bar. Actions live in buttons."><div class="slide-meta"><span>Q8</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q8</p><p class="ux-example-question">Three to five top-level places, always on screen. Name the component.</p></div></section><section class="slide rapid-answer" data-title="Navigation answer" data-act="ACT 3 · THE UI UNIVERSE" data-slide="59" data-notes="Award 5, 3, or −3. A navigation bar. Destinations, not actions."><div class="slide-meta"><span>NAVIGATION</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q8</p><p class="rapid-q">Three to five top-level places, always on screen. Name the component.</p><p class="rapid-a">A navigation bar. Destinations, not actions.</p></div></section><section class="slide phone-pair" data-title="Navigation usage" data-act="ACT 3 · THE UI UNIVERSE" data-slide="60" data-notes="Destinations live in the bar. Do not stuff every page into the top. Primary few up top. The rest below."><div class="slide-meta"><span>USAGE</span><span></span></div><div class="pair-row"><figure class="phone-frame "><img src="assets/mindspace/nav-usage-bad.svg" alt="Bad"><figcaption>Bad</figcaption></figure><figure class="phone-frame is-better"><img src="assets/mindspace/nav-usage-good.svg" alt="Good"><figcaption>Good</figcaption></figure></div></section><section class="slide lesson-plan appbar-types" data-title="App bar types" data-act="ACT 3 · THE UI UNIVERSE" data-slide="61" data-notes="Walk the last bench across seven bars. Small is back, title, one action. Subtitle names the moment. Search is a field. Icons are local tools. Prominent shouts the screen name. Search can sit under the bar. Avatar or Share is extra, not the title. Mindspace, Today, Sleep, Search. Not a shop kit."><div class="slide-meta"><span>KIT</span><span>APP BAR</span></div>
+<div class="lp-body appbar-types-body">
+<div class="lp-heading">
+<h2>Types of app bar.</h2>
+<p class="appbar-types-lede">Where you are. Local tools.</p>
+</div>
+<div class="appbar-types-cols">
+<div class="appbar-types-col">
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar" aria-hidden="true">
+<span class="appbar-types-hit"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg></span>
+<p class="appbar-types-title">Mindspace</p>
+<span class="appbar-types-cta">Begin</span>
+</div>
+<figcaption class="appbar-types-name">Small</figcaption>
+</figure>
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar" aria-hidden="true">
+<span class="appbar-types-hit"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg></span>
+<div class="appbar-types-copy">
+<p class="appbar-types-title">Mindspace</p>
+<p class="appbar-types-sub">Today’s session</p>
+</div>
+<span class="appbar-types-hit"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6.5" cy="12" r="1.7" fill="currentColor"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/><circle cx="17.5" cy="12" r="1.7" fill="currentColor"/></svg></span>
+</div>
+<figcaption class="appbar-types-name">Title + subtitle</figcaption>
+</figure>
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar" aria-hidden="true">
+<span class="appbar-types-hit"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg></span>
+<div class="appbar-types-search"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.2" fill="none" stroke="currentColor" stroke-width="2.2"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M16.2 16.2L21 21"/></svg> Search</div>
+</div>
+<figcaption class="appbar-types-name">Search</figcaption>
+</figure>
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar" aria-hidden="true">
+<p class="appbar-types-title">Sleep</p>
+<div class="appbar-types-tools">
+<span class="appbar-types-hit"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.2" fill="none" stroke="currentColor" stroke-width="2.2"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M16.2 16.2L21 21"/></svg></span>
+<span class="appbar-types-hit"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" d="M16.5 13.2A6.2 6.2 0 0 1 11 6.2 6.4 6.4 0 1 0 17.8 15a5.2 5.2 0 0 1-1.3-1.8z"/></svg></span>
+<span class="appbar-types-hit"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" d="M14.2 5.2l4.6 4.6M4 20l1.4-5.2L16.6 3.6a2 2 0 0 1 2.8 2.8L8.2 17.6 4 20z"/></svg></span>
+</div>
+</div>
+<figcaption class="appbar-types-name">Icons</figcaption>
+</figure>
+</div>
+<div class="appbar-types-col">
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar is-loud is-stack" aria-hidden="true">
+<div class="appbar-types-row">
+<span class="appbar-types-hit"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" d="M5 7h14M5 12h14M5 17h14"/></svg></span>
+<span class="appbar-types-cta is-ink">Begin</span>
+</div>
+<div class="appbar-types-copy">
+<p class="appbar-types-title">Today</p>
+<p class="appbar-types-sub">Afternoon session</p>
+</div>
+</div>
+<figcaption class="appbar-types-name">Prominent</figcaption>
+</figure>
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar is-stack" aria-hidden="true">
+<div class="appbar-types-row">
+<span class="appbar-types-hit"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></svg></span>
+<p class="appbar-types-title">Sleep</p>
+<span class="appbar-types-ava">A</span>
+</div>
+<div class="appbar-types-search"><svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.2" fill="none" stroke="currentColor" stroke-width="2.2"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M16.2 16.2L21 21"/></svg> Search</div>
+</div>
+<figcaption class="appbar-types-name">Search below</figcaption>
+</figure>
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar" aria-hidden="true">
+<p class="appbar-types-title">Mindspace</p>
+<div class="appbar-types-tools">
+<span class="appbar-types-ava">A</span>
+<span class="appbar-types-cta">Share</span>
+</div>
+</div>
+<figcaption class="appbar-types-name">Avatar + action</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Chip question" data-act="ACT 3 · THE UI UNIVERSE" data-slide="62" data-notes="If they say button, push: the verb is filled. The pill is a chip."><div class="slide-meta"><span>Q9</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q9</p><p class="ux-example-question">A small pill for a filter or choice. Name the component.</p></div></section><section class="slide rapid-answer" data-title="Chip answer" data-act="ACT 3 · THE UI UNIVERSE" data-slide="63" data-notes="Award 5, 3, or −3. A chip. A compact choice. Not the primary verb."><div class="slide-meta"><span>CHIP</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q9</p><p class="rapid-q">A small pill for a filter or choice. Name the component.</p><p class="rapid-a">A chip. A compact choice. Not the primary verb.</p></div></section><section class="slide lesson-plan chip-example" data-title="Chip example" data-act="ACT 3 · THE UI UNIVERSE" data-slide="64" data-notes="Selected is filled. The outline waits. The X lets her drop a choice. Click to flip. Arrows still turn the deck. Not the primary verb."><div class="slide-meta"><span>EXAMPLE</span><span>CHIP</span></div>
+<div class="lp-body chip-example-body">
+<div class="lp-heading">
+<h2>Chips.</h2>
+</div>
+<div class="chip-example-group" role="group" aria-label="Mood chips">
+<button type="button" class="chip-example-chip is-on" aria-pressed="true" aria-label="Sleep"><span class="chip-example-ico"><svg class="chip-example-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16.6 13.4A6.1 6.1 0 0 1 11 6.4 6.5 6.5 0 1 0 18 15.2a5.3 5.3 0 0 1-1.4-1.8z"/></svg></span><span class="chip-example-label">Sleep</span><svg class="chip-example-x" viewBox="0 0 12 12" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M3 3l6 6M9 3L3 9"/></svg></button><button type="button" class="chip-example-chip" aria-pressed="false" aria-label="Stress"><span class="chip-example-ico"><svg class="chip-example-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12h3.2l2-6 3.2 12 2.2-6H20"/></svg></span><span class="chip-example-label">Stress</span><svg class="chip-example-x" viewBox="0 0 12 12" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M3 3l6 6M9 3L3 9"/></svg></button><button type="button" class="chip-example-chip is-on" aria-pressed="true" aria-label="Focus"><span class="chip-example-ico"><svg class="chip-example-svg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.4" fill="currentColor"/></svg></span><span class="chip-example-label">Focus</span><svg class="chip-example-x" viewBox="0 0 12 12" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M3 3l6 6M9 3L3 9"/></svg></button><button type="button" class="chip-example-chip" aria-pressed="false" aria-label="Calm"><span class="chip-example-ico"><svg class="chip-example-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3.5c3.6 4.4 6.2 7.2 6.2 11.1A6.2 6.2 0 1 1 5.8 14.6C5.8 10.7 8.4 7.9 12 3.5z"/></svg></span><span class="chip-example-label">Calm</span><svg class="chip-example-x" viewBox="0 0 12 12" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M3 3l6 6M9 3L3 9"/></svg></button><button type="button" class="chip-example-chip" aria-pressed="false" aria-label="Breath"><span class="chip-example-ico"><svg class="chip-example-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 9.2h10.2a2.8 2.8 0 1 0-2.6-2.8M4 14.8h12.4a2.8 2.8 0 1 1-2.6 2.8"/></svg></span><span class="chip-example-label">Breath</span><svg class="chip-example-x" viewBox="0 0 12 12" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M3 3l6 6M9 3L3 9"/></svg></button><button type="button" class="chip-example-chip" aria-pressed="false" aria-label="Night"><span class="chip-example-ico"><svg class="chip-example-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.2l1.15 3.55H17l-2.95 2.15.95 3.7L12 10.55 8.99 12.6l.95-3.7L7 6.75h3.85z"/></svg></span><span class="chip-example-label">Night</span><svg class="chip-example-x" viewBox="0 0 12 12" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M3 3l6 6M9 3L3 9"/></svg></button><button type="button" class="chip-example-chip" aria-pressed="false" aria-label="Rest"><span class="chip-example-ico"><svg class="chip-example-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 16.5V10.2A2.2 2.2 0 0 1 6.2 8h7.1V16.5M4 16.5h16M17.4 16.5V11.4h2.4"/></svg></span><span class="chip-example-label">Rest</span><svg class="chip-example-x" viewBox="0 0 12 12" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M3 3l6 6M9 3L3 9"/></svg></button>
+</div>
+</div>
+</section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="Dialog question" data-act="ACT 3 · THE UI UNIVERSE" data-slide="65" data-notes="If they say snackbar, −3. Irreversible needs a decision."><div class="slide-meta"><span>Q10</span><span>+5 · +3 · −3</span></div><div class="ux-example-body"><p class="rapid-qn">Q10</p><p class="ux-example-question">A decision that must not be missed. Name the component.</p></div></section><section class="slide rapid-answer" data-title="Dialog answer" data-act="ACT 3 · THE UI UNIVERSE" data-slide="66" data-notes="Award 5, 3, or −3. A dialog. The screen waits. Confirm or dismiss."><div class="slide-meta"><span>DIALOG</span><span>+5 · +3 · −3</span></div><div class="rapid-answer-body"><p class="rapid-qn">Q10</p><p class="rapid-q">A decision that must not be missed. Name the component.</p><p class="rapid-a">A dialog. The screen waits. Confirm or dismiss.</p></div></section><section class="slide phone-pair" data-title="Dialog usage" data-act="ACT 3 · THE UI UNIVERSE" data-slide="67" data-notes="Dialog stops the screen. Snackbar is a whisper after something already happened."><div class="slide-meta"><span>USAGE</span><span></span></div><div class="pair-row"><figure class="phone-frame "><img src="assets/ds/toast.svg" alt="Bad · a whisper for a hard stop"><figcaption>Bad · a whisper for a hard stop</figcaption></figure><figure class="phone-frame is-better"><img src="assets/ds/dialog.svg" alt="Good · the screen waits"><figcaption>Good · the screen waits</figcaption></figure></div></section><section class="slide lesson-plan dialog-types" data-title="Dialog types" data-act="ACT 3 · THE UI UNIVERSE" data-slide="68" data-notes="Six templates. Point from the last bench: alert, permission, archive, got it, form, choice. Filled is the verb. Quiet dismiss never matches it. Never two filled buttons of equal weight. Archive stacks the loud action over Cancel."><div class="slide-meta"><span>KIT</span><span>DIALOG</span></div>
+<div class="lp-body dialog-types-body">
+<div class="lp-heading">
+<h2>Types of dialog.</h2>
+<p class="dialog-types-lede">One confirm. One quiet dismiss.</p>
+</div>
+<div class="dialog-types-grid">
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<p class="dialog-types-kicker">Note</p>
+<p class="dialog-types-title">We need your consent</p>
+<p class="dialog-types-copy">Private notes stay in this session.</p>
+<div class="dialog-types-actions">
+<span class="dialog-types-btn is-quiet">Cancel</span>
+<span class="dialog-types-btn is-fill">Got it</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Alert</figcaption>
+</figure>
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<span class="dialog-types-mark"><svg class="dialog-types-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M12 11v5"/><circle cx="12" cy="7.4" r="1.15" fill="currentColor"/></svg></span>
+<p class="dialog-types-title">Permission required</p>
+<p class="dialog-types-copy">Ask a facilitator to open this session.</p>
+<div class="dialog-types-actions">
+<span class="dialog-types-btn is-quiet">Cancel</span>
+<span class="dialog-types-btn is-fill">Got it</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Permission</figcaption>
+</figure>
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<p class="dialog-types-title">Archive session</p>
+<p class="dialog-types-copy">After 30 days, this session is gone.</p>
+<div class="dialog-types-actions is-stack">
+<span class="dialog-types-btn is-fill is-wide">Archive</span>
+<span class="dialog-types-btn is-quiet is-wide">Cancel</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Archive</figcaption>
+</figure>
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<p class="dialog-types-title">Session shared</p>
+<p class="dialog-types-copy">Anyone with the link can read it.</p>
+<div class="dialog-types-actions is-stack">
+<span class="dialog-types-btn is-fill is-wide">Got it</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Got it</figcaption>
+</figure>
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<p class="dialog-types-title">Share session</p>
+<p class="dialog-types-label">Full name</p>
+<p class="dialog-types-field">Arya</p>
+<div class="dialog-types-actions">
+<span class="dialog-types-btn is-quiet">Previous</span>
+<span class="dialog-types-btn is-fill">Confirm</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Form</figcaption>
+</figure>
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<p class="dialog-types-title">Choose a length</p>
+<p class="dialog-types-kicker">Now 10 min</p>
+<div class="dialog-types-choice is-on"><span class="dialog-types-radio"></span><span>20 min · evening</span></div>
+<div class="dialog-types-choice"><span class="dialog-types-radio"></span><span>40 min · shared</span></div>
+<div class="dialog-types-actions">
+<span class="dialog-types-btn is-quiet">Cancel</span>
+<span class="dialog-types-btn is-fill">Confirm</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Choice</figcaption>
+</figure>
+</div>
+</div>
+</section><section class="slide approach-intro" data-title="Check scores again" data-act="ACT 3 · THE UI UNIVERSE" data-slide="69" data-notes="After the UI Universe, before the brief. Open Score. Read the board out loud. Do not start the brief until they have heard the numbers."><div class="slide-meta"><span>QUIZ</span><span>THE BOARD</span></div><div class="approach-intro-content"><h2>Check scores.</h2><p class="approach-intro-lede">Open Score. Read the board.</p></div></section><section class="slide approach-intro" data-title="Wrong piece" data-act="ACT 3 · THE UI UNIVERSE" data-slide="70" data-notes="If they cannot say when Arya uses it, they picked the wrong piece. Then the brief."><div class="slide-meta"><span>CHECKPOINT</span><span>LEVEL 02</span></div><div class="approach-intro-content"><h2>When does she use it?</h2><p class="approach-intro-lede">If you cannot say, you picked the wrong piece.</p></div></section><section class="slide approach-intro" data-title="The brief is live" data-act="ACT 4 · MISSION BRIEFING" data-slide="71" data-notes="Do not recap what they learned. Open the brief. Eight missions. One Arya." data-timer="15"><div class="slide-meta"><span>ACT 4</span><span>01:30–01:45</span></div><div class="approach-intro-content"><h2>The brief is live.</h2><p class="approach-intro-lede">Eight missions. One Arya. The file is shared.</p></div></section><section class="slide ux-example ux-example-ask ux-example-question-only" data-title="The problem statement" data-act="ACT 4 · MISSION BRIEFING" data-slide="72" data-notes="Keep it short. She has to last a week. The rest is their job."><div class="slide-meta"><span>ASK</span><span></span></div><div class="ux-example-body"><p class="ux-example-question">How might we keep her coming back for a week?</p></div></section><section class="slide lesson-plan" data-title="Your eight missions" data-act="ACT 4 · MISSION BRIEFING" data-slide="73" data-notes="Eight teams. Eight parts of Arya's experience. One product. Open Missions (B) for the full briefs."><div class="slide-meta"><span>TEAMS</span><span></span></div><div class="lp-body"><div class="lp-heading"><h2>Pick a desk. Keep her alive until four.</h2></div><div class="s5-grid "><article><span>A</span><strong>Getting started</strong><p>Help Arya begin without a novel of fields.</p></article><article><span>B</span><strong>Personalisation</strong><p>Understand her needs in everyday language.</p></article><article><span>C</span><strong>Home</strong><p>Guide the next action in five minutes.</p></article><article><span>D</span><strong>Discover</strong><p>Find content without specialist words.</p></article><article><span>E</span><strong>Meditation</strong><p>Make the session effortless.</p></article><article><span>F</span><strong>Goals</strong><p>Build a habit without guilt.</p></article><article><span>G</span><strong>Journal</strong><p>Reflect without another chore.</p></article><article><span>H</span><strong>Profile</strong><p>Give her control she can find.</p></article></div></div></section><section class="slide lesson-plan" data-title="The product journey" data-act="ACT 4 · MISSION BRIEFING" data-slide="74" data-notes="Where does Arya enter? Where does she go next? Can she return? What happens if she skips something?"><div class="slide-meta"><span>MAP</span><span>NOT A RIGID SEQUENCE</span></div>
+<div class="lp-body"><div class="lp-heading"><h2>She has to survive this map.</h2><p class="lp-subtitle">Not a rigid sequence. Journal and goals can open from Home. Find the real entry, the skip, and who you hand her to.</p></div>
+<div class="s5-flow">
+<b>Registration</b><i>→</i><b>Personalisation</b><i>→</i><b>Home</b><i>→</i><b>Discover</b><i>→</i><b>Meditation</b><i>→</i><b>Goals</b><i>→</i><b>Journal</b><i>→</i><b>Profile</b>
+</div>
+<p class="lp-subtitle" style="margin-top:1.2rem">Ask: Where does Arya enter? Where next? Can she return? What if she skips?</p>
+</div></section><section class="slide lesson-plan" data-title="The research rule" data-act="ACT 4 · MISSION BRIEFING" data-slide="75" data-notes="You are not receiving a screen to copy. You are receiving a person to understand. No screen before the problem."><div class="slide-meta"><span>PROCESS</span><span></span></div><div class="lp-body"><div class="lp-heading"><h2>No screen before the problem.</h2></div><div class="s5-process"><ol><li><span>01</span><b>Insight</b></li><li><span>02</span><b>Opportunity</b></li><li><span>03</span><b>Journey</b></li><li><span>04</span><b>Sketch</b></li><li><span>05</span><b>Interface</b></li></ol></div></div></section><section class="slide wide-see kit-file" data-title="Design system is the constraint" data-act="ACT 4 · MISSION BRIEFING" data-slide="76" data-notes="Don't invent a new design language. Use Mindspace: colour, type, buttons, cards, inputs, navigation, icons, spacing. Creativity is the experience, not eight visual languages."><div class="slide-meta"><span>SEE</span><span></span></div><figure class="wide-frame"><a class="kit-file-shot" data-kit-file href="https://www.figma.com/design/f9j5dYKE7QLi5E1NFxeW4I/Meditation-App---UI-Kit--Community-?node-id=57-2065" target="_blank" rel="noopener"><img src="assets/mindspace/stylesheet.png" alt="Mindspace stylesheet: Poppins type scale and colour tokens."></a><figcaption>Mindspace type and colour. Duplicate this file and stay there.</figcaption></figure><a class="kit-open-file" data-kit-file href="https://www.figma.com/design/f9j5dYKE7QLi5E1NFxeW4I/Meditation-App---UI-Kit--Community-?node-id=57-2065" target="_blank" rel="noopener">Open file</a></section><section class="slide approach-intro jtbd-card" data-title="The job" data-act="ACT 4 · MISSION BRIEFING" data-slide="77" data-notes="Write one job on paper for their moment. Then sit. No screen before the problem."><div class="slide-meta"><span>JOB</span><span>PAPER</span></div>
+<div class="approach-intro-content">
+<h2>The job.</h2>
+<ol class="jtbd">
+<li><p class="jtbd-line"><b>When</b><i></i></p><p class="jtbd-ex">the corridor is loud</p></li>
+<li><p class="jtbd-line"><b>I want to</b><i></i></p><p class="jtbd-ex">ten quiet minutes</p></li>
+<li><p class="jtbd-line"><b>so I can</b><i></i></p><p class="jtbd-ex">sleep</p></li>
+</ol>
+</div></section><section class="slide lesson-plan" data-title="Team deliverables" data-act="ACT 4 · MISSION BRIEFING" data-slide="78" data-notes="Every team must deliver all of this by the first launch."><div class="slide-meta"><span>DELIVER</span><span>FIRST LAUNCH</span></div><div class="lp-body"><div class="lp-heading"><h2>On the desk at first launch</h2></div><ol class="lp-rules lp-rules-standalone"><li><span class="lp-rule-num">01</span><span>The sentence: who, task, barrier.</span></li><li><span class="lp-rule-num">02</span><span>Know / guess / find out — labelled.</span></li><li><span class="lp-rule-num">03</span><span>One How Might We.</span></li><li><span class="lp-rule-num">04</span><span>A path with a skip and a dead end.</span></li><li><span class="lp-rule-num">05</span><span>Two sketches, not one.</span></li><li><span class="lp-rule-num">06</span><span>Screens from the kit, not a new brand.</span></li><li><span class="lp-rule-num">07</span><span>Two states that are not the happy path.</span></li><li><span class="lp-rule-num">08</span><span>Play: the tap that matters lands.</span></li><li><span class="lp-rule-num">09</span><span>One reason, said out loud.</span></li></ol></div></section><section class="slide lesson-plan" data-title="Rules of collaboration" data-act="ACT 4 · MISSION BRIEFING" data-slide="79" data-notes="One product. Shared language. Shared responsibility."><div class="slide-meta"><span>COLLAB</span><span>NON-NEGOTIABLE</span></div><div class="lp-body"><div class="lp-heading"><h2>If two desks disagree, Arya loses.</h2></div><ol class="lp-rules lp-rules-standalone"><li><span class="lp-rule-num">01</span><span>One shared file, or approved team pages.</span></li><li><span class="lp-rule-num">02</span><span>Name frames so the next desk can find them.</span></li><li><span class="lp-rule-num">03</span><span>Do not restyle the masters.</span></li><li><span class="lp-rule-num">04</span><span>Steal styles. Do not invent a third look.</span></li><li><span class="lp-rule-num">05</span><span>Write the handoff: who you take her from, who you give her to.</span></li><li><span class="lp-rule-num">06</span><span>Same Arya. No extra hero.</span></li><li><span class="lp-rule-num">07</span><span>Talk to the desks on either side of you.</span></li></ol></div></section><section class="slide hands-all" data-title="Hands on. All eight." data-act="ACT 4 · MISSION BRIEFING" data-slide="80" data-notes="All eight desks. Same video. Same file. Follow along, then split to A–H."><div class="slide-meta"><span>ALL EIGHT</span><span>THEN SPLIT</span></div>
+<div class="hands-all-body">
+<h2>Hands on. All eight.</h2>
+<p class="hands-all-video">Figma Interactive Components For Beginners</p>
+<a class="hands-all-play" data-yt-play href="https://www.youtube.com/watch?v=eeGVBhZURUI" target="_blank" rel="noopener">Play</a>
+<p class="hands-all-lede">Follow along. Same steps. Then we split.</p>
+</div></section><section class="slide studio-make" data-title="Find your desk" data-act="ACT 4 · MISSION BRIEFING" data-slide="81" data-notes="Reveal desks A–H. Open Missions (B). Move. Then sit." data-timer="4"><div class="slide-meta"><span>MOVE</span><span>4 MIN</span></div><div class="time-box" aria-hidden="true"><strong>4</strong><span>min</span></div><div><h2>Find your desk.</h2><p>Read her moment. Then sit.</p></div></section><section class="slide approach-intro" data-title="The Product Thinkers" data-act="ACT 5 · PRODUCT THINKERS" data-slide="82" data-notes="Paper first. Figma after the checkpoint." data-timer="60"><div class="slide-meta"><span>LEVEL 03</span><span>01:45–02:45</span></div><div class="approach-intro-content level-unlock"><p class="level-stage" aria-hidden="true">03</p><p class="level-stamp">Unlocked</p><h2>The Product Thinkers.</h2><p class="approach-intro-lede">Paper first. Figma after the checkpoint.</p><ol class="level-track" aria-label="Five levels"><li class="is-cleared"><b>01</b><span>Playground</span></li><li class="is-cleared"><b>02</b><span>UI Universe</span></li><li class="is-now"><b>03</b><span>Thinkers</span></li><li class=""><b>04</b><span>Builders</span></li><li class=""><b>05</b><span>Evolution</span></li></ol></div></section><section class="slide studio-make" data-title="Paper first" data-act="ACT 5 · PRODUCT THINKERS" data-slide="83" data-notes="Need. Path. Two sketches. Then the checkpoint." data-timer="30"><div class="slide-meta"><span>PAPER</span><span>30 MIN</span></div><div class="time-box" aria-hidden="true"><strong>30</strong><span>min</span></div><div><h2>Need. Path. Two sketches.</h2><p>Circle the need. Draw the skip. Two ideas. No Figma yet.</p></div></section><section class="slide studio-make" data-title="Paper checkpoint" data-act="ACT 5 · PRODUCT THINKERS" data-slide="84" data-notes="Stop. Show. Explain. Problem, flow, two sketches. Score 10 / 10 / 10." data-timer="10"><div class="slide-meta"><span>CHECKPOINT</span><span>10 MIN</span></div><div class="time-box" aria-hidden="true"><strong>10</strong><span>min</span></div><div><h2>Stop. Show. Explain.</h2><p>Problem. Flow. Two sketches.</p></div></section><section class="slide approach-intro" data-title="The Interface Builders" data-act="ACT 6 · INTERFACE BUILDERS" data-slide="85" data-notes="Pixels. She is still waiting." data-timer="45"><div class="slide-meta"><span>LEVEL 04</span><span>03:00–03:45</span></div><div class="approach-intro-content level-unlock"><p class="level-stage" aria-hidden="true">04</p><p class="level-stamp">Unlocked</p><h2>The Interface Builders.</h2><p class="approach-intro-lede">Pixels. She is still waiting.</p><ol class="level-track" aria-label="Five levels"><li class="is-cleared"><b>01</b><span>Playground</span></li><li class="is-cleared"><b>02</b><span>UI Universe</span></li><li class="is-cleared"><b>03</b><span>Thinkers</span></li><li class="is-now"><b>04</b><span>Builders</span></li><li class=""><b>05</b><span>Evolution</span></li></ol></div></section><section class="slide studio-make" data-title="Build it" data-act="ACT 6 · INTERFACE BUILDERS" data-slide="86" data-notes="One file. Shared product page. Team pages A–H. Do not wreck the library." data-timer="30"><div class="slide-meta"><span>FIGMA</span><span>30 MIN</span></div><div class="time-box" aria-hidden="true"><strong>30</strong><span>min</span></div><div><h2>Build it.</h2><p>Shared page. Team pages A–H. Do not wreck the library.</p></div></section><section class="slide approach-intro" data-title="Walk her" data-act="ACT 7 · ASSEMBLY" data-slide="87" data-notes="Walk her from A to H. If she gets lost, the seam is theirs." data-timer="15"><div class="slide-meta"><span>ACT 7</span><span>03:45–04:00</span></div><div class="approach-intro-content"><h2>Walk her from A to H.</h2><p class="approach-intro-lede">If she gets lost, the seam is yours.</p></div></section><section class="slide studio-make" data-title="Critique" data-act="ACT 9 · CRITIQUE" data-slide="88" data-notes="Name the miss. Protect the person. Keep / fix / remove / improve. Open Score." data-timer="10"><div class="slide-meta"><span>CRITIQUE</span><span>10 MIN</span></div><div class="time-box" aria-hidden="true"><strong>10</strong><span>min</span></div><div><h2>Break it before she does.</h2><p>Name the miss. Protect the person.</p></div></section><section class="slide approach-intro" data-title="The Design Evolution" data-act="ACT 10 · DESIGN EVOLUTION" data-slide="89" data-notes="She already used v1. Fix what she hit. Do not add a fifth screen." data-timer="60"><div class="slide-meta"><span>LEVEL 05</span><span>04:30–05:30</span></div><div class="approach-intro-content level-unlock"><p class="level-stage" aria-hidden="true">05</p><p class="level-stamp">Unlocked</p><h2>The Design Evolution.</h2><p class="approach-intro-lede">She already used v1. Fix what she hit.</p><ol class="level-track" aria-label="Five levels"><li class="is-cleared"><b>01</b><span>Playground</span></li><li class="is-cleared"><b>02</b><span>UI Universe</span></li><li class="is-cleared"><b>03</b><span>Thinkers</span></li><li class="is-cleared"><b>04</b><span>Builders</span></li><li class="is-now"><b>05</b><span>Evolution</span></li></ol></div></section><section class="slide studio-make" data-title="Improve it" data-act="ACT 10 · DESIGN EVOLUTION" data-slide="90" data-notes="One improve beat. Kill a step. Fix the tap. No fifth screen." data-timer="30"><div class="slide-meta"><span>IMPROVE</span><span>30 MIN</span></div><div class="time-box" aria-hidden="true"><strong>30</strong><span>min</span></div><div><h2>Make v1 die.</h2><p>Kill a step. Fix the tap. No fifth screen.</p></div></section><section class="slide studio-make" data-title="Swap test" data-act="ACT 10 · DESIGN EVOLUTION" data-slide="91" data-notes="Swap. Stay quiet. Give Arya's task. Watch where they hesitate." data-timer="10"><div class="slide-meta"><span>TEST</span><span>10 MIN</span></div><div class="time-box" aria-hidden="true"><strong>10</strong><span>min</span></div><div><h2>Swap. Stay quiet.</h2><p>Give Arya's task. Watch where they hesitate.</p></div></section><section class="slide approach-intro" data-title="Team A · Getting started" data-act="ACT 11 · SHOWCASE" data-slide="92" data-notes="Leave this up while Team A talks. Two minutes. Then sit." data-timer="2"><div class="slide-meta"><span>TEAM A</span><span>2 MIN</span></div><div class="approach-intro-content"><h2>Getting started.</h2><p class="approach-intro-lede">On stage. Explain. Then sit.</p></div></section><section class="slide approach-intro" data-title="Team B · Personalisation" data-act="ACT 11 · SHOWCASE" data-slide="93" data-notes="Leave this up while Team B talks. Two minutes. Then sit." data-timer="2"><div class="slide-meta"><span>TEAM B</span><span>2 MIN</span></div><div class="approach-intro-content"><h2>Personalisation.</h2><p class="approach-intro-lede">On stage. Explain. Then sit.</p></div></section><section class="slide approach-intro" data-title="Team C · Home" data-act="ACT 11 · SHOWCASE" data-slide="94" data-notes="Leave this up while Team C talks. Two minutes. Then sit." data-timer="2"><div class="slide-meta"><span>TEAM C</span><span>2 MIN</span></div><div class="approach-intro-content"><h2>Home.</h2><p class="approach-intro-lede">On stage. Explain. Then sit.</p></div></section><section class="slide approach-intro" data-title="Team D · Discover" data-act="ACT 11 · SHOWCASE" data-slide="95" data-notes="Leave this up while Team D talks. Two minutes. Then sit." data-timer="2"><div class="slide-meta"><span>TEAM D</span><span>2 MIN</span></div><div class="approach-intro-content"><h2>Discover.</h2><p class="approach-intro-lede">On stage. Explain. Then sit.</p></div></section><section class="slide approach-intro" data-title="Team E · Meditation" data-act="ACT 11 · SHOWCASE" data-slide="96" data-notes="Leave this up while Team E talks. Two minutes. Then sit." data-timer="2"><div class="slide-meta"><span>TEAM E</span><span>2 MIN</span></div><div class="approach-intro-content"><h2>Meditation.</h2><p class="approach-intro-lede">On stage. Explain. Then sit.</p></div></section><section class="slide approach-intro" data-title="Team F · Goals" data-act="ACT 11 · SHOWCASE" data-slide="97" data-notes="Leave this up while Team F talks. Two minutes. Then sit." data-timer="2"><div class="slide-meta"><span>TEAM F</span><span>2 MIN</span></div><div class="approach-intro-content"><h2>Goals.</h2><p class="approach-intro-lede">On stage. Explain. Then sit.</p></div></section><section class="slide approach-intro" data-title="Team G · Journal" data-act="ACT 11 · SHOWCASE" data-slide="98" data-notes="Leave this up while Team G talks. Two minutes. Then sit." data-timer="2"><div class="slide-meta"><span>TEAM G</span><span>2 MIN</span></div><div class="approach-intro-content"><h2>Journal.</h2><p class="approach-intro-lede">On stage. Explain. Then sit.</p></div></section><section class="slide approach-intro" data-title="Team H · Profile" data-act="ACT 11 · SHOWCASE" data-slide="99" data-notes="Leave this up while Team H talks. Two minutes. Then sit." data-timer="2"><div class="slide-meta"><span>TEAM H</span><span>2 MIN</span></div><div class="approach-intro-content"><h2>Profile.</h2><p class="approach-intro-lede">On stage. Explain. Then sit.</p></div></section><section class="slide approach-intro" data-title="One prototype" data-act="ACT 11 · SHOWCASE" data-slide="100" data-notes="Different members from A–H walk one working product. Play the live file. No spoken tour." data-timer="10"><div class="slide-meta"><span>FINALE</span><span>ONE FILE</span></div><div class="approach-intro-content"><h2>One prototype.</h2><p class="approach-intro-lede">A through H. One Arya. Play it. No spoken tour.</p></div></section><section class="slide closing" data-title="Closing thought" data-act="ACT 12 · CLOSING" data-slide="101" data-notes="Same close as Session 4. The file is the evidence. Do not end on a slogan.">
+<div class="grid-lines"></div>
+<div class="slide-meta"><span>SESSION 05</span><span>CLOSE</span></div>
+<div class="closing-content">
+<h2>You are still<br>the designer.</h2>
+<p>The file is the evidence. She still has five minutes.</p>
+<div class="contact">
+<a href="session-5-guide.html">Studio sheet</a>
+<a href="notes.html#session-5">Class notes</a>
+<a href="https://www.figma.com/design/f9j5dYKE7QLi5E1NFxeW4I/Meditation-App---UI-Kit--Community-?node-id=57-2065" target="_blank" rel="noopener">Mindspace kit</a>
+</div>
+</div>
+</section>
   </main>
 
   <aside class="controls" aria-label="Slide navigation">
     <button class="prev" aria-label="Previous slide">←</button>
-    <span class="counter">01 / 01</span>
+    <span class="counter">01 / 101</span>
     <button class="next" aria-label="Next slide">→</button>
   </aside>
   <div class="progress"><span></span></div>
   <script src="deck.js"></script>
+  <script src="session-5.js?v=14"></script>
 </body>
 </html>

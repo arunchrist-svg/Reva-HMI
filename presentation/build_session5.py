@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Generate session-5.html from the ChatGPT production blueprint."""
+import re
 from pathlib import Path
 
 KIT_ANDROID = "https://www.figma.com/design/8wLehGECxWD4DxvWRcP7Ge/Android-UI-Kit--Community-?node-id=337-23462"
@@ -43,6 +44,23 @@ def lime(n, title, act, notes, h2, lede="", timer="", kicker="", right="", trans
     body += "</div>"
     return f'<section class="slide approach-intro" {attrs(n, title, act, notes, timer, learn, trans)}>{body}</section>'
 
+LEVELS = ("Playground", "UI Universe", "Thinkers", "Builders", "Evolution")
+
+def level(n, title, act, notes, stage, world, lede, timer="", right=""):
+    body = meta(f"LEVEL {stage:02d}", right or "UNLOCKED")
+    body += '<div class="approach-intro-content level-unlock">'
+    body += f'<p class="level-stage" aria-hidden="true">{stage:02d}</p>'
+    body += '<p class="level-stamp">Unlocked</p>'
+    body += f"<h2>{world}</h2>"
+    if lede:
+        body += f'<p class="approach-intro-lede">{lede}</p>'
+    body += '<ol class="level-track" aria-label="Five levels">'
+    for i, name in enumerate(LEVELS, 1):
+        cls = "is-now" if i == stage else ("is-cleared" if i < stage else "")
+        body += f'<li class="{cls}"><b>{i:02d}</b><span>{name}</span></li>'
+    body += "</ol></div>"
+    return f'<section class="slide approach-intro" {attrs(n, title, act, notes, timer)}>{body}</section>'
+
 def studio(n, title, act, notes, h2, p, time_label, timer, kicker="NOW"):
     body = meta(kicker, time_label.upper())
     num, unit = time_label.split(" ", 1) if " " in time_label else (time_label, "")
@@ -79,26 +97,53 @@ def lesson(n, title, act, notes, h2, subtitle="", cols=None, rules=None, grades=
     body += "</div>"
     return f'<section class="slide lesson-plan" {attrs(n, title, act, notes, timer, learn)}>{body}</section>'
 
-def phone(n, title, act, notes, src, cap, h2, extra_html="", better=False, kicker="SEE", timer="", right=""):
+def phone(n, title, act, notes, src, cap, h2, extra_html="", better=False, kicker="SEE", timer="", right="", alt=None, wide=False):
     cls = "is-better" if better else ""
+    label = cap if alt is None else alt
+    cap_html = f"<figcaption>{cap}</figcaption>" if cap else ""
+    slide_cls = "phone-see is-pair" if wide else "phone-see"
     body = meta(kicker, right)
-    body += f'<figure class="phone-frame {cls}"><img src="{src}" alt="{cap}"><figcaption>{cap}</figcaption></figure>'
+    body += f'<figure class="phone-frame {cls}"><img src="{src}" alt="{label}">{cap_html}</figure>'
     body += f'<div class="phone-copy"><h2>{h2}</h2>{extra_html}</div>'
-    return f'<section class="slide phone-see" {attrs(n, title, act, notes, timer)}>{body}</section>'
+    return f'<section class="slide {slide_cls}" {attrs(n, title, act, notes, timer)}>{body}</section>'
 
-def pair(n, title, act, notes, left, right, kicker="SEE"):
+def pair(n, title, act, notes, left, right, kicker="SEE", light=False, extra_cls=""):
     body = meta(kicker, "")
     body += '<div class="pair-row">'
     for src, cap, better in (left, right):
         cls = "is-better" if better else ""
         body += f'<figure class="phone-frame {cls}"><img src="{src}" alt="{cap}"><figcaption>{cap}</figcaption></figure>'
     body += "</div>"
-    return f'<section class="slide phone-pair" {attrs(n, title, act, notes)}>{body}</section>'
+    slide_cls = "phone-pair is-light-cards" if light else "phone-pair"
+    if extra_cls:
+        slide_cls = f"{slide_cls} {extra_cls}"
+    return f'<section class="slide {slide_cls}" {attrs(n, title, act, notes)}>{body}</section>'
 
-def wide(n, title, act, notes, src, cap, kicker="SEE"):
+def kit_items(items):
+    html = '<ul class="lp-list">'
+    for item in items:
+        html += f"<li><span>{item}</span></li>"
+    html += "</ul>"
+    return html
+
+def wide(n, title, act, notes, src, cap, kicker="SEE", href="", alt=""):
     body = meta(kicker, "")
-    body += f'<figure class="wide-frame"><img src="{src}" alt="{cap}"><figcaption>{cap}</figcaption></figure>'
-    return f'<section class="slide wide-see" {attrs(n, title, act, notes)}>{body}</section>'
+    img_alt = alt or re.sub(r"<[^>]+>", "", cap)
+    img = f'<img src="{src}" alt="{img_alt}">'
+    extra_cls = ""
+    if href:
+        extra_cls = " kit-file"
+        img = (
+            f'<a class="kit-file-shot" data-kit-file href="{href}" target="_blank" rel="noopener">'
+            f"{img}</a>"
+        )
+    body += f'<figure class="wide-frame">{img}<figcaption>{cap}</figcaption></figure>'
+    if href:
+        body += (
+            f'<a class="kit-open-file" data-kit-file href="{href}" target="_blank" rel="noopener">'
+            f"Open file</a>"
+        )
+    return f'<section class="slide wide-see{extra_cls}" {attrs(n, title, act, notes)}>{body}</section>'
 
 def quote(n, title, act, notes, text, detail=""):
     body = meta(act, "")
@@ -108,10 +153,23 @@ def quote(n, title, act, notes, text, detail=""):
     body += "</div>"
     return f'<section class="slide quote-slide" {attrs(n, title, act, notes)}>{body}</section>'
 
-def ask(n, title, act, notes, question, kicker="ASK"):
-    body = meta(kicker, "")
-    body += f'<div class="ux-example-body"><p class="ux-example-question">{question}</p></div>'
+def ask(n, title, act, notes, question, kicker="ASK", right="", qnum=""):
+    body = meta(kicker, right)
+    body += '<div class="ux-example-body">'
+    if qnum:
+        body += f'<p class="rapid-qn">{qnum}</p>'
+    body += f'<p class="ux-example-question">{question}</p></div>'
     return f'<section class="slide ux-example ux-example-ask ux-example-question-only" {attrs(n, title, act, notes)}>{body}</section>'
+
+def answered(n, title, act, notes, question, answer, kicker="ANSWER", right="+5 · +3 · −3", qnum=""):
+    body = meta(kicker, right)
+    body += '<div class="rapid-answer-body">'
+    if qnum:
+        body += f'<p class="rapid-qn">{qnum}</p>'
+    body += f'<p class="rapid-q">{question}</p>'
+    body += f'<p class="rapid-a">{answer}</p>'
+    body += "</div>"
+    return f'<section class="slide rapid-answer" {attrs(n, title, act, notes)}>{body}</section>'
 
 def cards(n, title, act, notes, h2, items, kicker="MAP", cols="four", subtitle="", learn=""):
     grid = {"two": "two", "three": "three", "six": "six", "four": ""}.get(cols, "")
@@ -127,10 +185,10 @@ def cards(n, title, act, notes, h2, items, kicker="MAP", cols="four", subtitle="
 
 def process(n, title, act, notes, h2, steps, kicker="PROCESS"):
     body = meta(kicker, "")
-    body += f'<div class="lp-body"><div class="lp-heading"><h2>{h2}</h2></div><div class="s5-process">'
-    for step in steps:
-        body += f"<b>{step}</b>"
-    body += "</div></div>"
+    body += f'<div class="lp-body"><div class="lp-heading"><h2>{h2}</h2></div><div class="s5-process"><ol>'
+    for i, step in enumerate(steps, 1):
+        body += f"<li><span>{i:02d}</span><b>{step}</b></li>"
+    body += "</ol></div></div>"
     return f'<section class="slide lesson-plan" {attrs(n, title, act, notes)}>{body}</section>'
 
 def choices(buttons):
@@ -149,10 +207,9 @@ slides = []
 # 01
 slides.append(cover(
     1, "The Mindspace Design Lab", "ACT 1 · OPENING",
-    "Welcome them. Do not explain the day. The next slide hires them.",
+    "Welcome them. Do not explain the day. Then meet Arya.",
     "The<br>Mindspace<br>Design Lab.",
     right="8 TEAMS · 6 HOURS",
-    lede="She downloaded it this morning."
 ))
 # 02
 slides.append(lime(
@@ -234,7 +291,7 @@ slides.append(cards(
 slides.append(lesson(
     9, "What Arya wants", "ACT 1 · OPENING",
     "Ask the room: if the player is perfect and she still cannot sleep, who failed?",
-    "She did not download a player.",
+    "What Arya wants.",
     "She wants to sleep. Feel calmer. Last a week.",
     cols=[
         ("If this is all you ship", ["A player.", "A streak.", "A library.", "A settings page."]),
@@ -244,7 +301,7 @@ slides.append(lesson(
 ))
 # 10
 slides.append(lesson(
-    10, "Research behind the challenge", "ACT 1 · OPENING",
+    10, "Know. Guess. Find out.", "ACT 1 · OPENING",
     "These are preliminary workshop hypotheses, not verified interview findings. A good designer doesn't mistake an assumption for a fact.",
     "Know. Guess. Find out.",
     subtitle="Every line on the brief is a workshop hypothesis until someone tests it.",
@@ -256,6 +313,29 @@ slides.append(lesson(
     kicker="RESEARCH", right="LITERACY",
     learn="Research literacy: evidence vs assumption."
 ))
+slides.append(lesson(
+    78, "The game", "ACT 1 · OPENING",
+    "Eight desks. One product. Hands up all day. Five levels. Scoring starts in the playground.",
+    "How today runs.",
+    cols=[
+        ("The game", [
+            "Hands up. First hand answers.",
+            "Exact 5. Close 3. Wrong −3.",
+            "If you cannot defend it, it does not stay.",
+        ]),
+        ("The teams", [
+            "Eight desks. A through H.",
+            "One Arya. Eight moments.",
+            "If she gets lost between desks, it is not a product.",
+        ]),
+        ("Today", [
+            "Playground — recreate one screen.",
+            "UI Universe — name the piece.",
+            "Then think, build, and kill v1.",
+        ]),
+    ],
+    kicker="WORKSHOP", right="8 TEAMS · 6 HOURS"
+))
 # 11
 slides.append(process(
     11, "Warm-up", "ACT 1 · OPENING",
@@ -266,28 +346,108 @@ slides.append(process(
 ))
 
 # ACT 2
-slides.append(lime(
+slides.append(level(
     12, "Level 1 unlocked", "ACT 2 · THE PLAYGROUND",
     "Do not say 'get comfortable with Figma.' Give them a screen and a clock.",
-    "Level 01<br>The Playground.",
+    1, "The Playground.",
     "Ten minutes. Recreate one screen. No screenshots.",
-    timer="30", kicker="LEVEL 01", right="00:15–00:45"
+    timer="30", right="00:15–00:45"
 ))
 slides.append(phone(
     13, "Recreate this screen", "ACT 2 · THE PLAYGROUND",
-    "One simple mobile welcome: heading, supporting text, illustration, primary button, secondary action. Open Figma and recreate it. Ten minutes.",
-    "assets/mindspace/welcome.svg",
-    "Teaching diagram · heading, supporting text, illustration, primary, secondary. Recreate this, do not screenshot it.",
+    "One simple mobile welcome: heading, supporting text, illustration, primary button, secondary action, carousel indicator. Open Figma and recreate it. Ten minutes.",
+    "assets/mindspace/recreate-pair.png",
+    "",
     "Recreate this screen.",
-    extra_html="<p>Heading. Supporting text. Illustration. Primary button. Secondary action. Ten minutes.</p>",
-    better=True, kicker="MISSION · 10 MIN", timer="10", right="LEVEL 01"
+    extra_html="<p>Heading. Supporting text. Illustration. Primary button. Secondary action. Carousel indicator. Ten minutes.</p>",
+    alt="Two screens: a meditation welcome with Sign Up and Sign In, and a Sign Up form.",
+    better=True, wide=True, kicker="MISSION · 10 MIN", timer="10", right="LEVEL 01"
 ))
-slides.append(wide(
-    14, "Discover your workspace", "ACT 2 · THE PLAYGROUND",
-    "Explain where things are, not every feature. Canvas, layers, toolbar, properties, pages.",
-    "assets/figma/three-parts.svg",
-    "Teaching diagram of Figma workspace regions · not a live file screenshot."
+slides.append("""<section class="slide rulebook" %s>%s
+<button type="button" class="rulebook-clock" data-clock title="Click start or pause. Double-click reset">10:00</button>
+<div class="rulebook-copy">
+<p class="lp-col-label">Points rule book</p>
+<h2>How teams score.</h2>
+<ol class="rulebook-list">
+<li><b>10</b><div><strong>Speed</strong><span>First correct call.</span></div></li>
+<li><b>20</b><div><strong>Accuracy</strong><span>The right name.</span></div></li>
+<li><b>20</b><div><strong>Understanding</strong><span>What the tool is for.</span></div></li>
+</ol>
+</div>
+</section>""" % (
+    attrs(14, "Points rule book", "ACT 2 · THE PLAYGROUND",
+          "Click the big clock. It counts down from ten. First correct call: 10 speed. Right name: 20 accuracy. What the tool is for: 20 understanding. Then five rapid-fire questions: exact 5, close 3, wrong −3.",
+          timer="10"),
+    meta("10 MIN", "LEVEL 01")
 ))
+
+slides.append("""<section class="slide quiz-time" %s>%s
+<div class="quiz-time-body">
+<h2>Quiz time.</h2>
+<ol class="quiz-time-rules">
+<li><b>01</b><div><strong>Hand up.</strong><span>Question on the wall. Hands go up. No shouting the answer.</span></div></li>
+<li><b>02</b><div><strong>First hand.</strong><span>I call the first hand. One answer. Sit if I don’t call you.</span></div></li>
+</ol>
+<div class="quiz-score">
+<div><b>+5</b><strong>Exact</strong><span>The words on the wall.</span></div>
+<div><b>+3</b><strong>Close</strong><span>Right idea. Wrong name.</span></div>
+<div><b>−3</b><strong>Wrong</strong><span>Next hand.</span></div>
+</div>
+</div>
+</section>""" % (
+    attrs(79, "Quiz time", "ACT 2 · THE PLAYGROUND",
+          "Hands only. First hand answers. Exact 5. Close 3. Wrong −3 and next hand. Then Q1."),
+    meta("QUIZ TIME", "+5 · +3 · −3")
+))
+
+RAPID = [
+    (
+        "Name the six parts of the welcome screen.",
+        "Illustration. Heading. Supporting text. Primary button. Secondary action. Carousel indicator.",
+        "Wait. Six parts on the welcome they just built. Do not list them.",
+    ),
+    (
+        "On the first screen, which button is louder?",
+        "Sign Up. Filled primary. Sign In stays outlined.",
+        "They just drew both. If they say both, no points.",
+    ),
+    (
+        "Email and password. Name the component.",
+        "Text fields. Label above. Value inside.",
+        "If they say boxes, push for the name: text field.",
+    ),
+    (
+        "“I agree to the Terms.” Name the component.",
+        "A checkbox.",
+        "Do not offer radio or switch. Let them name it.",
+    ),
+    (
+        "“Already have an account? Log In.” Name the component.",
+        "A text link. She’s already on Sign Up. Don’t compete with the primary.",
+        "Wait for text link. If they say button, −3. Then: it must not fight Sign Up.",
+    ),
+]
+for i, (question, answer, note) in enumerate(RAPID, 1):
+    qnum = f"Q{i}"
+    slides.append(ask(
+        80 + i * 2 - 1, f"Question {i}", "ACT 2 · THE PLAYGROUND",
+        f"Exact 5. Close 3. Wrong −3. {note} Then reveal.",
+        question, kicker=qnum, right="+5 · +3 · −3", qnum=qnum
+    ))
+    slides.append(answered(
+        80 + i * 2, f"Answer {i}", "ACT 2 · THE PLAYGROUND",
+        f"Award 5, 3, or −3. Open Score, click the team, then + / − pts. {answer}",
+        question, answer, kicker=qnum, right="+5 · +3 · −3", qnum=qnum
+    ))
+
+slides.append(lime(
+    80, "Check scores", "ACT 2 · THE PLAYGROUND",
+    "Open Score. Read the board out loud. Do not start Level 02 until they have heard the numbers.",
+    "Check scores.",
+    "Open Score. Read the board.",
+    kicker="QUIZ", right="THE BOARD"
+))
+
 slides.append(phone(
     15, "Build the frame", "ACT 2 · THE PLAYGROUND",
     "Create a mobile frame. Frames, dimensions, constraints.",
@@ -312,16 +472,17 @@ slides.append(pair(
 ))
 slides.append(lesson(
     18, "Make it reusable", "ACT 2 · THE PLAYGROUND",
-    "Demonstrate: create a component, show how instances update. Reusability and design systems.",
+    "Quiz. 15 points if they can say why a component, not twenty copies, before the clock.",
     "What if you need 20 identical buttons?",
-    subtitle="Individual copies versus a reusable component.",
+    subtitle="Individual copies versus a reusable component. Quiz: 15 points if they answer before the clock.",
     rules=[
         "Draw one primary button.",
         "Make it a component.",
         "Place three instances.",
         "Change the master. Watch the copies follow.",
     ],
-    kicker="COMPONENT", right="LIVE DEMO"
+    grades=[("15", "Quiz · answer before the clock")],
+    kicker="QUIZ", right="15 PTS"
 ))
 slides.append(pair(
     19, "Let the layout adapt", "ACT 2 · THE PLAYGROUND",
@@ -346,18 +507,18 @@ slides.append(lesson(
 ))
 
 # ACT 3
-slides.append(lime(
+slides.append(level(
     22, "Level 2 unlocked", "ACT 3 · THE UI UNIVERSE",
     "Scoring starts. Rapid challenges. Do not lecture every widget.",
-    "Level 02<br>The UI Universe.",
-    "See it. Pick it. Defend it. Points if the room believes you.",
-    timer="45", kicker="LEVEL 02", right="00:45–01:30"
+    2, "The UI Universe.",
+    "",
+    timer="45", right="00:45–01:30"
 ))
 slides.append(wide(
-    23, "Material Design 3", "ACT 3 · THE UI UNIVERSE",
-    "A design system is more than a collection of components. Components, variants, properties, tokens, states, consistency. Open the Android UI Kit live.",
-    "assets/figma-kits/android-thumb-view.png",
-    "Connected kit cover · Android UI Kit / Material. Open the live file in class."
+    23, "Components", "ACT 3 · THE UI UNIVERSE",
+    "Open the kit. Components are building blocks. Action, containment, communication, navigation, selection, text input.",
+    "assets/m3/overview.png",
+    "Material 3 Design Kit · Components overview."
 ))
 slides.append(lesson(
     24, "Game rules", "ACT 3 · THE UI UNIVERSE",
@@ -372,6 +533,1188 @@ slides.append(lesson(
     ],
     kicker="SCORING", right="LEVEL 02"
 ))
+
+ACT3 = "ACT 3 · THE UI UNIVERSE"
+PTS = "+5 · +3 · −3"
+
+def universe_qa(n, num, family, question, answer, note):
+    qnum = f"Q{num}"
+    slides.append(ask(
+        n, f"{family} question", ACT3, note, question,
+        kicker=qnum, right=PTS, qnum=qnum
+    ))
+    slides.append(answered(
+        n + 1, f"{family} answer", ACT3,
+        f"Award 5, 3, or −3. {answer}",
+        question, answer, kicker=family.upper(), right=PTS, qnum=qnum
+    ))
+
+# 01 Buttons
+universe_qa(
+    91, 1, "Button",
+    "She taps once. Something happens. Name the component.",
+    "A button. It starts an action. One tap. Something happens.",
+    "Wait for button, not the look. Then reveal.",
+)
+slides.append("""<section class="slide phone-pair btn-usage" %s>%s
+<div class="pair-row">
+<figure class="bu-card">
+<div class="bu-form" aria-hidden="true">
+<p class="bu-title">Sign in</p>
+<div class="bu-field">Email</div>
+<div class="bu-field">Password</div>
+<div class="bu-actions">
+<span class="bt is-filled bu-full">Sign in</span>
+<span class="bt is-filled bu-full">Create account</span>
+<span class="bt is-filled bu-full">Forgot password?</span>
+</div>
+</div>
+<figcaption>Bad</figcaption>
+</figure>
+<figure class="bu-card is-better">
+<div class="bu-form" aria-hidden="true">
+<p class="bu-title">Sign in</p>
+<div class="bu-field">Email</div>
+<div class="bu-field">Password</div>
+<div class="bu-actions">
+<span class="bt is-filled bu-full">Sign in</span>
+<span class="bt is-outlined bu-full">Create account</span>
+<span class="bt is-text bu-quiet">Forgot password?</span>
+</div>
+</div>
+<figcaption>Good</figcaption>
+</figure>
+</div>
+</section>""" % (
+    attrs(
+        93, "Button usage", ACT3,
+        "One primary. The rest stay quiet. Three equal buttons hide the next step.",
+    ),
+    meta("USAGE", ""),
+))
+_BT_PENCIL = (
+    '<svg class="bt-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" '
+    'd="M14.2 5.2l4.6 4.6M4 20l1.4-5.2L16.6 3.6a2 2 0 0 1 2.8 2.8L8.2 17.6 4 20z"/>'
+    "</svg>"
+)
+_BT_PLUS = (
+    '<svg class="bt-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M12 5v14M5 12h14"/>'
+    "</svg>"
+)
+_BT_CHECK = (
+    '<svg class="bt-ico bt-ico-sm" viewBox="0 0 24 24" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l5 5 9-10"/>'
+    "</svg>"
+)
+slides.append("""<section class="slide lesson-plan btn-types" %s>%s
+<div class="lp-body">
+<div class="lp-heading">
+<h2>Types of button.</h2>
+<p class="bt-lede">Filled is the verb. The rest stay quiet.</p>
+</div>
+<div class="bt-grid">
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-elevated">Begin</span></div>
+<figcaption class="bt-name">Elevated Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-filled">Begin</span></div>
+<figcaption class="bt-name">Filled Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-tonal">Save</span></div>
+<figcaption class="bt-name">Filled Tonal Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-outlined">Message</span></div>
+<figcaption class="bt-name">Outlined Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-text">Skip</span></div>
+<figcaption class="bt-name">Text Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-icon">%s</span></div>
+<figcaption class="bt-name">Icon Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-fab">%s</span></div>
+<figcaption class="bt-name">FAB Button</figcaption>
+</figure>
+<figure class="bt-spec">
+<div class="bt-stage" aria-hidden="true"><span class="bt is-fab-ext">%s Add</span></div>
+<figcaption class="bt-name">Extended FAB Button</figcaption>
+</figure>
+<figure class="bt-spec is-wide">
+<div class="bt-stage" aria-hidden="true">
+<div class="bt-seg">
+<span class="is-on">%s Sleep</span>
+<span>Focus</span>
+<span>Calm</span>
+</div>
+</div>
+<figcaption class="bt-name">Segmented Button</figcaption>
+</figure>
+</div>
+</div>
+</section>""" % (
+    attrs(
+        94, "Button types", ACT3,
+        "Filled is the verb. Outlined and text stay secondary. FAB is one obvious create. Icon is a tool, not the next step. Point at filled first - one primary, the rest stay quiet. Elevated is the same verb with a lift. Tonal is important, not the loudest. Segmented is one of a set on the same row."
+    ),
+    meta("KIT", "BUTTON"),
+    _BT_PENCIL,
+    _BT_PLUS,
+    _BT_PLUS,
+    _BT_CHECK,
+))
+slides.append("""<section class="slide lesson-plan btn-states" %s>%s
+<div class="lp-body">
+<div class="lp-heading">
+<h2>Button states.</h2>
+<p class="bs-lede">Variants are looks. States are what is happening.</p>
+</div>
+<ol class="bs-list" aria-label="Five states of the same Begin button">
+<li>
+<div class="bs-demo">
+<span class="bs-btn">Begin</span>
+</div>
+<p class="bs-name">Enabled</p>
+<p class="bs-line">She can use it.</p>
+</li>
+<li>
+<div class="bs-demo">
+<span class="bs-btn is-focus">Begin</span>
+<span class="bs-tab">Tab</span>
+</div>
+<p class="bs-name">Focus</p>
+<p class="bs-line">Keyboard is on it.</p>
+</li>
+<li>
+<div class="bs-demo">
+<span class="bs-btn is-hover">Begin</span>
+<svg class="bs-pointer" viewBox="0 0 32 32" aria-hidden="true">
+<path fill="#ece9e1" stroke="#101116" stroke-width="2.2" stroke-linejoin="round" d="M7 3l18 13.2-8.2 1.6 3.4 11.2-5.6-3.6-5.2 7.4z"/>
+</svg>
+</div>
+<p class="bs-name">Hover</p>
+<p class="bs-line">Pointer is on it.</p>
+</li>
+<li>
+<div class="bs-demo">
+<span class="bs-btn is-down">Begin</span>
+</div>
+<p class="bs-name">Pressed</p>
+<p class="bs-line">The press is happening.</p>
+</li>
+<li>
+<div class="bs-demo">
+<span class="bs-btn is-off">Begin</span>
+</div>
+<p class="bs-name">Disabled</p>
+<p class="bs-line">Cannot tap it now.</p>
+</li>
+</ol>
+</div>
+</section>""" % (
+    attrs(
+        95, "Button states", ACT3,
+        "Same component. Different moment. Variants are looks. States are what is happening. Walk the five from the last bench: ready, keyboard, pointer, press, locked. Disabled must look unavailable. Ask: is this five buttons, or one Begin in five moments?"
+    ),
+    meta("STATES", "BUTTON")
+))
+
+# 02 Text fields
+universe_qa(
+    96, 2, "Text field",
+    "She types her name. Name the component.",
+    "A text field. The user types. Label above. Value inside.",
+    "If they say box, push for text field.",
+)
+slides.append(pair(
+    98, "Text field usage", ACT3,
+    "A field without a label is a guess. Error must explain, not just turn red.",
+    ("assets/ds/field-bare.svg", "Bad · no label", False),
+    ("assets/ds/field-named.svg", "Good · label on the field", True),
+    kicker="USAGE"
+))
+slides.append("""<section class="slide lesson-plan field-states-slide" %s>%s
+<div class="lp-body field-states-body">
+<div class="lp-heading"><h2>Types and states.</h2></div>
+<div class="field-states-grid" id="field-states-grid">
+<article class="field-states-cell">
+<label class="field-states-label" for="fs-inactive">Your name</label>
+<input class="field-states-input" id="fs-inactive" type="text" name="fs-inactive" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+<p class="field-states-help" aria-hidden="true">&nbsp;</p>
+<p class="field-states-caption">Inactive</p>
+</article>
+<article class="field-states-cell is-hover-demo">
+<label class="field-states-label" for="fs-hover">Your name</label>
+<input class="field-states-input" id="fs-hover" type="text" name="fs-hover" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+<p class="field-states-help" aria-hidden="true">&nbsp;</p>
+<p class="field-states-caption">Hover</p>
+</article>
+<article class="field-states-cell is-disabled">
+<label class="field-states-label" for="fs-disabled">Reminder time</label>
+<input class="field-states-input" id="fs-disabled" type="text" name="fs-disabled" value="7:00 AM" disabled>
+<p class="field-states-help" aria-hidden="true">&nbsp;</p>
+<p class="field-states-caption">Disabled</p>
+</article>
+<article class="field-states-cell">
+<label class="field-states-label" for="fs-focus">Your name</label>
+<input class="field-states-input" id="fs-focus" type="text" name="fs-focus" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+<p class="field-states-help" aria-hidden="true">&nbsp;</p>
+<p class="field-states-caption">Focus / active</p>
+</article>
+<article class="field-states-cell is-validate">
+<label class="field-states-label" for="fs-validate">Display name</label>
+<input class="field-states-input" id="fs-validate" type="text" name="fs-validate" value="Arya" data-fs-validate autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-describedby="fs-validate-help">
+<p class="field-states-help is-checking" id="fs-validate-help" data-fs-status><span class="field-states-spin" aria-hidden="true"></span>Checking...</p>
+<p class="field-states-caption">Validation</p>
+</article>
+<article class="field-states-cell is-error">
+<label class="field-states-label" for="fs-error">Display name</label>
+<input class="field-states-input" id="fs-error" type="text" name="fs-error" value="A" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-invalid="true" aria-describedby="fs-error-help">
+<p class="field-states-help" id="fs-error-help"><span class="field-states-x" aria-hidden="true"></span>Already taken</p>
+<p class="field-states-caption">Error</p>
+</article>
+</div>
+</div>
+</section>""" % (
+    attrs(
+        99, "Text field types", ACT3,
+        "Click empty. Hover the next so the back row sees the border jump. Disabled cannot type. Focus: the lime ring must read from the last bench. Checking is a wait, not a lock. Error says what to fix. Filled or outlined is a look. State is the moment."
+    ),
+    meta("KIT", "TEXT FIELD")
+))
+
+# 03 Checkbox
+universe_qa(
+    100, 3, "Checkbox",
+    "Sleep and stress. Both stay on. Name the component.",
+    "A checkbox. Tick one or many. Each choice stands alone.",
+    "Do not offer radio. Let them name checkbox.",
+)
+_CB_X = (
+    '<svg class="cb-flag-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/>'
+    "</svg>"
+)
+_CB_OK = (
+    '<svg class="cb-flag-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l5 5 9-10"/>'
+    "</svg>"
+)
+_CB_NEEDS = (
+    ("Sleep", True),
+    ("Stress", True),
+    ("Focus", False),
+    ("Anxiety", False),
+    ("Energy", False),
+    ("Mood", False),
+    ("Breath", True),
+    ("Gratitude", False),
+    ("Journal", False),
+    ("Walking", False),
+    ("Evening", False),
+    ("Morning", False),
+    ("Night", False),
+    ("Weekend", False),
+)
+_cb_tiny = "".join(
+    '<li class="%s"><span class="cb-box%s" aria-hidden="true"></span>%s</li>'
+    % ("is-on" if on else "", " is-on" if on else "", label)
+    for label, on in _CB_NEEDS
+)
+_cb_pills = "".join(
+    '<span class="cb-pill%s"><span class="cb-box%s" aria-hidden="true"></span>%s</span>'
+    % (" is-on" if on else "", " is-on" if on else "", label)
+    for label, on in _CB_NEEDS
+)
+slides.append("""<section class="slide lesson-plan checkbox-usage" %s>%s
+<div class="lp-body cb-usage-body">
+<div class="cb-usage">
+<article class="cb-card is-bad">
+<p class="cb-flag is-bad">%s Bad</p>
+<p class="cb-screen">I want help with</p>
+<div class="cb-bad-body">
+<ul class="cb-tiny">%s</ul>
+<p class="cb-hits"><span>Harder to tap</span><span>A tall list</span><span>Too many boxes</span></p>
+</div>
+<p class="cb-cap">Tiny ticks. A long list.</p>
+</article>
+<article class="cb-card is-good">
+<p class="cb-flag is-good">%s Good</p>
+<p class="cb-screen">I want help with</p>
+<div class="cb-pills">%s</div>
+<p class="cb-cap">Big targets. Easy to tap.</p>
+</article>
+</div>
+</div>
+</section>""" % (
+    attrs(
+        102, "Checkbox usage", ACT3,
+        "Tiny ticks hide in a long list. Same yeses as bigger targets. She can hit sleep and stress with a thumb. Days of week is the same miss."
+    ),
+    meta("USAGE", "CHECKBOX"),
+    _CB_X,
+    _cb_tiny,
+    _CB_OK,
+    _cb_pills,
+))
+# 04 Radio
+universe_qa(
+    104, 4, "Radio",
+    "Morning or evening. Only one. Name the component.",
+    "Radio. One of a set. Pick one. The others clear.",
+    "If they say checkbox, −3. Exclusive pick is radio.",
+)
+_CHEV_UP = (
+    '<svg class="sel-chev" viewBox="0 0 24 24" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" '
+    'stroke-linejoin="round" d="M6 15l6-6 6 6"/>'
+    "</svg>"
+)
+slides.append("""<section class="slide lesson-plan pick-pair" %s>%s
+<div class="lp-body cb-usage-body">
+<div class="cb-usage">
+<article class="cb-card">
+<h2 class="pick-title">One</h2>
+<p class="cb-screen">Session length</p>
+<div class="pick-list" data-pick>
+<label class="pick-opt"><input type="radio" name="pick-len" value="5"><span class="sel-radio" aria-hidden="true"></span>5 min</label>
+<label class="pick-opt"><input type="radio" name="pick-len" value="10" checked><span class="sel-radio" aria-hidden="true"></span>10 min</label>
+<label class="pick-opt"><input type="radio" name="pick-len" value="20"><span class="sel-radio" aria-hidden="true"></span>20 min</label>
+</div>
+<p class="cb-cap">Radio</p>
+</article>
+<article class="cb-card">
+<h2 class="pick-title">Many</h2>
+<p class="cb-screen">I want help with</p>
+<div class="pick-list" data-pick>
+<label class="pick-opt"><input type="checkbox" name="pick-need" value="sleep" checked><span class="cb-box" aria-hidden="true"></span>Sleep</label>
+<label class="pick-opt"><input type="checkbox" name="pick-need" value="stress" checked><span class="cb-box" aria-hidden="true"></span>Stress</label>
+<label class="pick-opt"><input type="checkbox" name="pick-need" value="focus"><span class="cb-box" aria-hidden="true"></span>Focus</label>
+</div>
+<p class="cb-cap">Checkbox</p>
+</article>
+</div>
+</div>
+</section>""" % (
+    attrs(
+        106, "One or many", ACT3,
+        "One pick is radio. Many independent yeses are checkbox. Session length is 5, 10 or 20. Sleep and stress can both stay on."
+    ),
+    meta("USAGE", "RADIO / CHECKBOX"),
+))
+slides.append("""<section class="slide lesson-plan pick-pair" %s>%s
+<div class="lp-body cb-usage-body">
+<div class="cb-usage">
+<article class="cb-card is-bad">
+<p class="cb-flag is-bad">%s Bad</p>
+<p class="cb-screen">Session length</p>
+<div class="sel-menu" aria-hidden="true">
+<p class="sel-menu-btn">Choose a length... %s</p>
+<ul class="sel-menu-list">
+<li>5 min</li>
+<li>10 min</li>
+<li>20 min</li>
+</ul>
+</div>
+</article>
+<article class="cb-card is-good">
+<p class="cb-flag is-good">%s Good</p>
+<p class="cb-screen">Session length</p>
+<ul class="pick-list is-static">
+<li class="pick-opt"><span class="sel-radio" aria-hidden="true"></span>5 min</li>
+<li class="pick-opt is-on"><span class="sel-radio is-on" aria-hidden="true"></span>10 min</li>
+<li class="pick-opt"><span class="sel-radio" aria-hidden="true"></span>20 min</li>
+</ul>
+</article>
+</div>
+</div>
+</section>""" % (
+    attrs(
+        132, "Radios not a menu", ACT3,
+        "Three lengths. Keep them on the screen. A short exclusive list is radio, not Choose a length."
+    ),
+    meta("USAGE", "RADIO"),
+    _CB_X,
+    _CHEV_UP,
+    _CB_OK,
+))
+
+def _state_cell(kind, caption, on=False, hover=False, focus=False, disabled=False, label="10 min"):
+    mark = "sel-radio" if kind == "radio" else "cb-box"
+    extras = []
+    if on:
+        extras.append("is-on")
+    if hover:
+        extras.append("is-hover-demo")
+    if focus:
+        extras.append("is-focus-demo")
+    if disabled:
+        extras.append("is-disabled")
+    cls = (" " + " ".join(extras)) if extras else ""
+    tab = ' tabindex="0"' if focus else ""
+    on_cls = " is-on" if on else ""
+    return (
+        '<article class="sel-cell%s"%s>'
+        '<div class="sel-demo"><span class="%s%s" aria-hidden="true"></span>%s</div>'
+        '<p class="sel-caption">%s</p></article>'
+    ) % (cls, tab, mark, on_cls, label, caption)
+
+_SS_CAPS = (
+    ("Unselected", {}),
+    ("Selected", {"on": True}),
+    ("Hover / focus", {"hover": True, "focus": True}),
+    ("Disabled", {"disabled": True}),
+)
+_ss_radio = "".join(_state_cell("radio", cap, **kw) for cap, kw in _SS_CAPS)
+_ss_check = "".join(
+    _state_cell("check", cap, label="Sleep", **kw) for cap, kw in _SS_CAPS
+)
+slides.append("""<section class="slide lesson-plan sel-states" %s>%s
+<div class="lp-body sel-states-body">
+<div class="lp-heading"><h2>States.</h2></div>
+<div class="sel-band">
+<p class="sel-band-name">Radio</p>
+<div class="sel-row">%s</div>
+</div>
+<div class="sel-band">
+<p class="sel-band-name">Checkbox</p>
+<div class="sel-row">%s</div>
+</div>
+</div>
+</section>""" % (
+    attrs(
+        107, "Selection states", ACT3,
+        "Walk unselected, selected, hover, focus, disabled from the last bench. Radio stays a group. Checkbox stands alone."
+    ),
+    meta("STATES", "SELECT"),
+    _ss_radio,
+    _ss_check,
+))
+
+# 05 Switch
+universe_qa(
+    108, 5, "Switch",
+    "Reminders. On or off, now. Name the component.",
+    "A switch. On or off. It takes effect now.",
+    "Switch is not a form submit. Immediate.",
+)
+slides.append(pair(
+    110, "Switch usage", ACT3,
+    "Switch for a setting that flips now. Not a list of goals. Not a single exclusive pick.",
+    ("assets/m3/switch-bad.svg", "Bad · agree as a switch", False),
+    ("assets/mindspace/switch.svg", "Good · one setting, now", True),
+    kicker="USAGE"
+))
+slides.append("""<section class="slide lesson-plan toggle-states" %s>%s
+<div class="lp-body toggle-states-body">
+<div class="lp-heading">
+<h2>Switch states.</h2>
+</div>
+<ul class="toggle-states-grid" id="toggle-states-grid">
+<li>
+<button type="button" class="toggle-states-switch" role="switch" aria-checked="false" aria-label="Default">
+<span class="toggle-states-thumb" aria-hidden="true"></span>
+</button>
+<p class="toggle-states-name">Default</p>
+</li>
+<li>
+<button type="button" class="toggle-states-switch is-on" role="switch" aria-checked="true" aria-label="Active">
+<span class="toggle-states-thumb" aria-hidden="true"></span>
+</button>
+<p class="toggle-states-name">Active</p>
+</li>
+<li>
+<button type="button" class="toggle-states-switch is-focused" role="switch" aria-checked="false" aria-label="Focused" data-locked="true">
+<span class="toggle-states-thumb" aria-hidden="true"></span>
+</button>
+<p class="toggle-states-name">Focused</p>
+</li>
+<li class="is-disabled">
+<button type="button" class="toggle-states-switch is-disabled" role="switch" aria-checked="false" aria-label="Disabled" disabled>
+<span class="toggle-states-thumb" aria-hidden="true"></span>
+</button>
+<p class="toggle-states-name">Disabled</p>
+</li>
+</ul>
+</div>
+</section>""" % (
+    attrs(
+        111, "Switch states", ACT3,
+        "Default is off. Active is on now. Focused is the keyboard ring. Disabled cannot flip. No third choice. If they must confirm, it is not a switch. Click Default or Active to feel the flip. Arrows still turn the deck."
+    ),
+    meta("STATES", "SWITCH"),
+))
+
+def _card_ux(title, badge, sub, copy, cta="Begin", cls="", more=False):
+    more_html = ' <span class="card-ux-more">Show more</span>' if more else ""
+    return (
+        f'<article class="card-ux {cls}">'
+        f'<div class="card-ux-preview" aria-hidden="true"></div>'
+        f'<div class="card-ux-body">'
+        f'<div class="card-ux-title-row">'
+        f'<p class="card-ux-title">{title}</p>'
+        f'<span class="card-ux-badge">{badge}</span>'
+        f"</div>"
+        f'<p class="card-ux-sub">{sub}</p>'
+        f'<p class="card-ux-copy">{copy}{more_html}</p>'
+        f"</div>"
+        f'<div class="card-ux-foot"><span class="card-ux-cta">{cta}</span></div>'
+        "</article>"
+    )
+
+
+def _card_ux_stack(title, badge, sub, copy, cta="Begin", cls="", more=False):
+    more_html = '<span class="card-ux-more">Show more</span>' if more else ""
+    return (
+        f'<article class="card-ux is-stack {cls}">'
+        f'<div class="card-ux-body">'
+        f'<div class="card-ux-title-row">'
+        f'<p class="card-ux-title">{title}</p>'
+        f'<span class="card-ux-badge">{badge}</span>'
+        f"</div>"
+        f'<p class="card-ux-sub">{sub}</p>'
+        f"</div>"
+        f'<div class="card-ux-preview" aria-hidden="true"></div>'
+        f'<p class="card-ux-copy">{copy}</p>'
+        f"{more_html}"
+        f'<div class="card-ux-foot"><span class="card-ux-cta">{cta}</span></div>'
+        "</article>"
+    )
+
+
+def _card_ux_panel(inner, better=False, cap="Bad"):
+    cls = "card-ux-panel is-better" if better else "card-ux-panel"
+    return f'<figure class="{cls}">{inner}<figcaption>{cap}</figcaption></figure>'
+
+
+# 06 Cards
+universe_qa(
+    112, 6, "Card",
+    "A tappable block that holds one thing. Name the component.",
+    "A card. One object. One tap. Containment.",
+    "Containment, not decoration. Then reveal.",
+)
+slides.append("""<section class="slide lesson-plan card-ux-anatomy" %s>%s
+<div class="lp-body card-ux-anatomy-body">
+<div class="card-ux-anatomy-stage">
+<article class="card-ux card-ux-anatomy-card">
+<div class="card-ux-preview" aria-hidden="true"></div>
+<div class="card-ux-title-row">
+<p class="card-ux-title">Breath for stress</p>
+<span class="card-ux-badge">10 min</span>
+</div>
+<p class="card-ux-sub">Guided</p>
+<p class="card-ux-copy">A short reset before her desk.</p>
+<div class="card-ux-foot"><span class="card-ux-cta">Begin</span></div>
+</article>
+<ul class="card-ux-callouts">
+<li><i></i>Preview</li>
+<li><i></i>Title <b>Badge</b></li>
+<li><i></i>Subtitle</li>
+<li><i></i>Supporting</li>
+<li><i></i>CTA</li>
+</ul>
+</div>
+</div>
+</section>""" % (
+    attrs(
+        114, "Card anatomy", ACT3,
+        "One object. Preview, title, badge, subtitle, supporting, CTA. Point from the last bench. Then the pairs.",
+    ),
+    meta("ANATOMY", "CARD"),
+))
+slides.append("""<section class="slide phone-pair card-ux-pair" %s>%s
+<div class="pair-row">
+%s
+%s
+</div>
+</section>""" % (
+    attrs(
+        115, "Card type", ACT3,
+        "Headline louder than subhead louder than body. The button is a verb, not a shout.",
+    ),
+    meta("TYPE", "CARD"),
+    _card_ux_panel(_card_ux(
+        "Breath for stress", "10 min", "Guided",
+        "A short reset before her desk.",
+        cls="is-type-bad",
+    ), cap="Bad"),
+    _card_ux_panel(_card_ux(
+        "Breath for stress", "10 min", "Guided",
+        "A short reset before her desk.",
+        cls="is-type-good",
+    ), True, "Good"),
+))
+slides.append("""<section class="slide phone-pair card-ux-pair" %s>%s
+<div class="pair-row">
+%s
+%s
+</div>
+</section>""" % (
+    attrs(
+        140, "Card spacing", ACT3,
+        "Even rhythm. If the gaps argue, she cannot scan. No rulers. Feel the beat.",
+    ),
+    meta("SPACE", "CARD"),
+    _card_ux_panel(_card_ux(
+        "Sleep stories", "15 min", "Night",
+        "Dim, quiet, and done in time.",
+        cls="is-space-bad is-sleep",
+    ), cap="Bad"),
+    _card_ux_panel(_card_ux(
+        "Sleep stories", "15 min", "Night",
+        "Dim, quiet, and done in time.",
+        cls="is-space-good is-sleep",
+    ), True, "Good"),
+))
+slides.append("""<section class="slide phone-pair card-ux-pair" %s>%s
+<div class="pair-row">
+%s
+%s
+</div>
+</section>""" % (
+    attrs(
+        141, "Card loading", ACT3,
+        "A spinner is a shrug. The skeleton is the card arriving.",
+    ),
+    meta("LOADING", "CARD"),
+    _card_ux_panel(
+        '<article class="card-ux is-wait" aria-hidden="true">'
+        '<span class="card-ux-spin"></span>'
+        "<p>Please wait</p>"
+        "</article>",
+        cap="Bad",
+    ),
+    _card_ux_panel(
+        '<article class="card-ux is-skel" aria-hidden="true">'
+        '<div class="card-ux-preview"></div>'
+        '<div class="card-ux-body">'
+        '<span class="card-ux-bar is-wide"></span>'
+        '<span class="card-ux-bar is-mid"></span>'
+        '<span class="card-ux-bar is-long"></span>'
+        "</div>"
+        '<div class="card-ux-foot"><span class="card-ux-bar is-btn"></span></div>'
+        "</article>",
+        True, "Good",
+    ),
+))
+slides.append("""<section class="slide phone-pair card-ux-pair" %s>%s
+<div class="pair-row">
+%s
+%s
+</div>
+</section>""" % (
+    attrs(
+        142, "Card alignment", ACT3,
+        "Same height. Clamp the title. Images and CTAs share a line. Long copy gets Show more.",
+    ),
+    meta("ALIGN", "CARD"),
+    _card_ux_panel(
+        '<div class="card-ux-row">'
+        + _card_ux_stack(
+            "Breath for stress", "10 min", "Guided",
+            "A short reset.",
+            cls="is-align-bad",
+        )
+        + _card_ux_stack(
+            "Evening wind-down she can actually finish tonight", "20 min", "Night",
+            "A longer session for when the day ran her over and she still wants a close.",
+            cls="is-align-bad is-sleep",
+        )
+        + "</div>",
+        cap="Bad",
+    ),
+    _card_ux_panel(
+        '<div class="card-ux-row is-even">'
+        + _card_ux_stack(
+            "Breath for stress", "10 min", "Guided",
+            "A short reset before her desk.",
+            cls="is-align-good",
+            more=True,
+        )
+        + _card_ux_stack(
+            "Evening wind-down she can actually finish tonight", "20 min", "Night",
+            "A longer session for when the day ran her over.",
+            cls="is-align-good is-sleep",
+            more=True,
+        )
+        + "</div>",
+        True, "Good",
+    ),
+))
+slides.append("""<section class="slide lesson-plan card-ux-states" %s>%s
+<div class="lp-body card-ux-states-body">
+<div class="lp-heading"><h2>Card states.</h2></div>
+<ul class="card-ux-states-grid">
+<li>
+<article class="card-ux is-compact is-live">
+<div class="card-ux-preview" aria-hidden="true"></div>
+<p class="card-ux-title">Breath for stress</p>
+</article>
+<p class="card-ux-state-name">Default</p>
+</li>
+<li>
+<article class="card-ux is-compact is-hover">
+<div class="card-ux-preview" aria-hidden="true"></div>
+<p class="card-ux-title">Breath for stress</p>
+</article>
+<p class="card-ux-state-name">Hover</p>
+</li>
+<li>
+<article class="card-ux is-compact is-down">
+<div class="card-ux-preview" aria-hidden="true"></div>
+<p class="card-ux-title">Breath for stress</p>
+</article>
+<p class="card-ux-state-name">Active</p>
+</li>
+<li>
+<article class="card-ux is-compact is-focus">
+<div class="card-ux-preview" aria-hidden="true"></div>
+<p class="card-ux-title">Breath for stress</p>
+</article>
+<p class="card-ux-state-name">Focused</p>
+</li>
+</ul>
+</div>
+</section>""" % (
+    attrs(
+        143, "Card states", ACT3,
+        "Default waits. Hover leans in. Active is the press. Focused is the keyboard ring. Hover the Default card. Arrows still turn the deck.",
+    ),
+    meta("STATES", "CARD"),
+))
+
+# 07 Lists
+universe_qa(
+    116, 7, "List",
+    "Same kind of row, stacked. Name the component.",
+    "A list. Same row, stacked. Scan, then tap.",
+    "Repeating rows are a list. A unique story is a card.",
+)
+slides.append(pair(
+    118, "List usage", ACT3,
+    "Same rows, stacked. Picture on the edge so she can scan. Picture in the middle is harder.",
+    ("assets/lists/usage-caution.png", "Caution · picture in the middle", False),
+    ("assets/lists/usage-do.png", "Do · picture on the edge", True),
+    kicker="USAGE", extra_cls="list-m2"
+))
+slides.append("""<section class="slide phone-pair list-types" %s>%s
+<div class="list-types-row">
+<figure class="phone-frame">
+<img src="assets/lists/one-line.png" alt="Single-line list">
+<figcaption>One line</figcaption>
+</figure>
+<figure class="phone-frame">
+<img src="assets/lists/two-line.png" alt="Two-line list">
+<figcaption>Two line</figcaption>
+</figure>
+<figure class="phone-frame">
+<img src="assets/lists/three-line.png" alt="Three-line list">
+<figcaption>Three line</figcaption>
+</figure>
+</div>
+</section>""" % (
+    attrs(
+        119, "List types", ACT3,
+        "One line, two line, three line. Same row, stacked. Point from the last bench.",
+    ),
+    meta("TYPES", "LIST"),
+))
+slides.append(pair(
+    219, "List anatomy", ACT3,
+    "1 is the whole list. 2 is one row. 3 is the item. Icon, words, extra.",
+    ("assets/lists/anatomy.png", "1 list · 2 row · 3 item", False),
+    ("assets/lists/content.png", "1 icon · 2 words · 3 extra", False),
+    kicker="ANATOMY", extra_cls="list-m2 list-anatomy"
+))
+
+# 08 Navigation bar
+universe_qa(
+    120, 8, "Navigation",
+    "Three to five top-level places, always on screen. Name the component.",
+    "A navigation bar. Destinations, not actions.",
+    "Destinations live in the bar. Actions live in buttons.",
+)
+slides.append(pair(
+    122, "Navigation usage", ACT3,
+    "Destinations live in the bar. Do not stuff every page into the top. Primary few up top. The rest below.",
+    ("assets/mindspace/nav-usage-bad.svg", "Bad", False),
+    ("assets/mindspace/nav-usage-good.svg", "Good", True),
+    kicker="USAGE"
+))
+slides.append(phone(
+    123, "Navigation types", ACT3,
+    "Navigation bar is destinations. Top app bar is the screen title and the local tools.",
+    "assets/m3/navigation-bar.png",
+    "Material 3 kit · Navigation bar",
+    "Bar versus app bar.",
+    extra_html=kit_items([
+        "Navigation bar — where you can go.",
+        "Top app bar — where you are.",
+        "Three to five destinations.",
+        "Never put Sign Up in the bar.",
+    ]),
+    better=True, wide=True, kicker="KIT", right="NAV"
+))
+_AB_BACK = (
+    '<svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" '
+    'stroke-linejoin="round" d="M15 5l-7 7 7 7"/>'
+    "</svg>"
+)
+_AB_SEARCH = (
+    '<svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<circle cx="11" cy="11" r="6.2" fill="none" stroke="currentColor" stroke-width="2.2"/>'
+    '<path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M16.2 16.2L21 21"/>'
+    "</svg>"
+)
+_AB_MORE = (
+    '<svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<circle cx="6.5" cy="12" r="1.7" fill="currentColor"/>'
+    '<circle cx="12" cy="12" r="1.7" fill="currentColor"/>'
+    '<circle cx="17.5" cy="12" r="1.7" fill="currentColor"/>'
+    "</svg>"
+)
+_AB_EDIT = (
+    '<svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" '
+    'stroke-linejoin="round" d="M14.2 5.2l4.6 4.6M4 20l1.4-5.2L16.6 3.6a2 2 0 0 1 2.8 2.8L8.2 17.6 4 20z"/>'
+    "</svg>"
+)
+_AB_MENU = (
+    '<svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" '
+    'd="M5 7h14M5 12h14M5 17h14"/>'
+    "</svg>"
+)
+_AB_MOON = (
+    '<svg class="appbar-types-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" '
+    'stroke-linejoin="round" d="M16.5 13.2A6.2 6.2 0 0 1 11 6.2 6.4 6.4 0 1 0 17.8 15a5.2 5.2 0 0 1-1.3-1.8z"/>'
+    "</svg>"
+)
+slides.append("""<section class="slide lesson-plan appbar-types" %s>%s
+<div class="lp-body appbar-types-body">
+<div class="lp-heading">
+<h2>Types of app bar.</h2>
+<p class="appbar-types-lede">Where you are. Local tools.</p>
+</div>
+<div class="appbar-types-cols">
+<div class="appbar-types-col">
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar" aria-hidden="true">
+<span class="appbar-types-hit">%s</span>
+<p class="appbar-types-title">Mindspace</p>
+<span class="appbar-types-cta">Begin</span>
+</div>
+<figcaption class="appbar-types-name">Small</figcaption>
+</figure>
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar" aria-hidden="true">
+<span class="appbar-types-hit">%s</span>
+<div class="appbar-types-copy">
+<p class="appbar-types-title">Mindspace</p>
+<p class="appbar-types-sub">Today’s session</p>
+</div>
+<span class="appbar-types-hit">%s</span>
+</div>
+<figcaption class="appbar-types-name">Title + subtitle</figcaption>
+</figure>
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar" aria-hidden="true">
+<span class="appbar-types-hit">%s</span>
+<div class="appbar-types-search">%s Search</div>
+</div>
+<figcaption class="appbar-types-name">Search</figcaption>
+</figure>
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar" aria-hidden="true">
+<p class="appbar-types-title">Sleep</p>
+<div class="appbar-types-tools">
+<span class="appbar-types-hit">%s</span>
+<span class="appbar-types-hit">%s</span>
+<span class="appbar-types-hit">%s</span>
+</div>
+</div>
+<figcaption class="appbar-types-name">Icons</figcaption>
+</figure>
+</div>
+<div class="appbar-types-col">
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar is-loud is-stack" aria-hidden="true">
+<div class="appbar-types-row">
+<span class="appbar-types-hit">%s</span>
+<span class="appbar-types-cta is-ink">Begin</span>
+</div>
+<div class="appbar-types-copy">
+<p class="appbar-types-title">Today</p>
+<p class="appbar-types-sub">Afternoon session</p>
+</div>
+</div>
+<figcaption class="appbar-types-name">Prominent</figcaption>
+</figure>
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar is-stack" aria-hidden="true">
+<div class="appbar-types-row">
+<span class="appbar-types-hit">%s</span>
+<p class="appbar-types-title">Sleep</p>
+<span class="appbar-types-ava">A</span>
+</div>
+<div class="appbar-types-search">%s Search</div>
+</div>
+<figcaption class="appbar-types-name">Search below</figcaption>
+</figure>
+<figure class="appbar-types-spec">
+<div class="appbar-types-bar" aria-hidden="true">
+<p class="appbar-types-title">Mindspace</p>
+<div class="appbar-types-tools">
+<span class="appbar-types-ava">A</span>
+<span class="appbar-types-cta">Share</span>
+</div>
+</div>
+<figcaption class="appbar-types-name">Avatar + action</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>""" % (
+    attrs(
+        135, "App bar types", ACT3,
+        "Walk the last bench across seven bars. Small is back, title, one action. Subtitle names the moment. Search is a field. Icons are local tools. Prominent shouts the screen name. Search can sit under the bar. Avatar or Share is extra, not the title. Mindspace, Today, Sleep, Search. Not a shop kit.",
+    ),
+    meta("KIT", "APP BAR"),
+    _AB_BACK,
+    _AB_BACK,
+    _AB_MORE,
+    _AB_BACK,
+    _AB_SEARCH,
+    _AB_SEARCH,
+    _AB_MOON,
+    _AB_EDIT,
+    _AB_MENU,
+    _AB_BACK,
+    _AB_SEARCH,
+))
+
+# 09 Chips
+universe_qa(
+    124, 9, "Chip",
+    "A small pill for a filter or choice. Name the component.",
+    "A chip. A compact choice. Not the primary verb.",
+    "If they say button, push: the verb is filled. The pill is a chip.",
+)
+
+_CHIP_X = (
+    '<svg class="chip-example-x" viewBox="0 0 12 12" aria-hidden="true">'
+    '<path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M3 3l6 6M9 3L3 9"/>'
+    "</svg>"
+)
+
+def _chip_svg(inner):
+    return (
+        '<svg class="chip-example-svg" viewBox="0 0 24 24" aria-hidden="true">'
+        f"{inner}</svg>"
+    )
+
+_CHIP_MARKS = {
+    "Sleep": _chip_svg(
+        '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+        'stroke-linejoin="round" d="M16.6 13.4A6.1 6.1 0 0 1 11 6.4 6.5 6.5 0 1 0 18 15.2a5.3 5.3 0 0 1-1.4-1.8z"/>'
+    ),
+    "Stress": _chip_svg(
+        '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+        'stroke-linejoin="round" d="M4 12h3.2l2-6 3.2 12 2.2-6H20"/>'
+    ),
+    "Focus": _chip_svg(
+        '<circle cx="12" cy="12" r="7.2" fill="none" stroke="currentColor" stroke-width="2"/>'
+        '<circle cx="12" cy="12" r="2.4" fill="currentColor"/>'
+    ),
+    "Calm": _chip_svg(
+        '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+        'stroke-linejoin="round" d="M12 3.5c3.6 4.4 6.2 7.2 6.2 11.1A6.2 6.2 0 1 1 5.8 14.6C5.8 10.7 8.4 7.9 12 3.5z"/>'
+    ),
+    "Breath": _chip_svg(
+        '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+        'd="M4 9.2h10.2a2.8 2.8 0 1 0-2.6-2.8M4 14.8h12.4a2.8 2.8 0 1 1-2.6 2.8"/>'
+    ),
+    "Night": _chip_svg(
+        '<path fill="currentColor" d="M12 3.2l1.15 3.55H17l-2.95 2.15.95 3.7L12 10.55 8.99 12.6l.95-3.7L7 6.75h3.85z"/>'
+    ),
+    "Rest": _chip_svg(
+        '<path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" '
+        'stroke-linejoin="round" d="M4 16.5V10.2A2.2 2.2 0 0 1 6.2 8h7.1V16.5M4 16.5h16M17.4 16.5V11.4h2.4"/>'
+    ),
+}
+
+def _chip_btn(label, on=False):
+    cls = "chip-example-chip is-on" if on else "chip-example-chip"
+    pressed = "true" if on else "false"
+    return (
+        f'<button type="button" class="{cls}" aria-pressed="{pressed}" aria-label="{label}">'
+        f'<span class="chip-example-ico">{_CHIP_MARKS[label]}</span>'
+        f'<span class="chip-example-label">{label}</span>'
+        f"{_CHIP_X}"
+        "</button>"
+    )
+
+_chip_row = "".join(
+    _chip_btn(name, on)
+    for name, on in (
+        ("Sleep", True),
+        ("Stress", False),
+        ("Focus", True),
+        ("Calm", False),
+        ("Breath", False),
+        ("Night", False),
+        ("Rest", False),
+    )
+)
+slides.append("""<section class="slide lesson-plan chip-example" %s>%s
+<div class="lp-body chip-example-body">
+<div class="lp-heading">
+<h2>Chips.</h2>
+</div>
+<div class="chip-example-group" role="group" aria-label="Mood chips">
+%s
+</div>
+</div>
+</section>""" % (
+    attrs(
+        126, "Chip example", ACT3,
+        "Selected is filled. The outline waits. The X lets her drop a choice. Click to flip. Arrows still turn the deck. Not the primary verb.",
+    ),
+    meta("EXAMPLE", "CHIP"),
+    _chip_row,
+))
+
+# 10 Dialogs
+universe_qa(
+    128, 10, "Dialog",
+    "A decision that must not be missed. Name the component.",
+    "A dialog. The screen waits. Confirm or dismiss.",
+    "If they say snackbar, −3. Irreversible needs a decision.",
+)
+slides.append(pair(
+    130, "Dialog usage", ACT3,
+    "Dialog stops the screen. Snackbar is a whisper after something already happened.",
+    ("assets/ds/toast.svg", "Bad · a whisper for a hard stop", False),
+    ("assets/ds/dialog.svg", "Good · the screen waits", True),
+    kicker="USAGE"
+))
+_DT_INFO = (
+    '<svg class="dialog-types-ico" viewBox="0 0 24 24" aria-hidden="true">'
+    '<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>'
+    '<path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" d="M12 11v5"/>'
+    '<circle cx="12" cy="7.4" r="1.15" fill="currentColor"/>'
+    "</svg>"
+)
+slides.append("""<section class="slide lesson-plan dialog-types" %s>%s
+<div class="lp-body dialog-types-body">
+<div class="lp-heading">
+<h2>Types of dialog.</h2>
+<p class="dialog-types-lede">One confirm. One quiet dismiss.</p>
+</div>
+<div class="dialog-types-grid">
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<p class="dialog-types-kicker">Note</p>
+<p class="dialog-types-title">We need your consent</p>
+<p class="dialog-types-copy">Private notes stay in this session.</p>
+<div class="dialog-types-actions">
+<span class="dialog-types-btn is-quiet">Cancel</span>
+<span class="dialog-types-btn is-fill">Got it</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Alert</figcaption>
+</figure>
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<span class="dialog-types-mark">%s</span>
+<p class="dialog-types-title">Permission required</p>
+<p class="dialog-types-copy">Ask a facilitator to open this session.</p>
+<div class="dialog-types-actions">
+<span class="dialog-types-btn is-quiet">Cancel</span>
+<span class="dialog-types-btn is-fill">Got it</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Permission</figcaption>
+</figure>
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<p class="dialog-types-title">Archive session</p>
+<p class="dialog-types-copy">After 30 days, this session is gone.</p>
+<div class="dialog-types-actions is-stack">
+<span class="dialog-types-btn is-fill is-wide">Archive</span>
+<span class="dialog-types-btn is-quiet is-wide">Cancel</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Archive</figcaption>
+</figure>
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<p class="dialog-types-title">Session shared</p>
+<p class="dialog-types-copy">Anyone with the link can read it.</p>
+<div class="dialog-types-actions is-stack">
+<span class="dialog-types-btn is-fill is-wide">Got it</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Got it</figcaption>
+</figure>
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<p class="dialog-types-title">Share session</p>
+<p class="dialog-types-label">Full name</p>
+<p class="dialog-types-field">Arya</p>
+<div class="dialog-types-actions">
+<span class="dialog-types-btn is-quiet">Previous</span>
+<span class="dialog-types-btn is-fill">Confirm</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Form</figcaption>
+</figure>
+<figure class="dialog-types-spec">
+<div class="dialog-types-phone" aria-hidden="true">
+<article class="dialog-types-card">
+<p class="dialog-types-title">Choose a length</p>
+<p class="dialog-types-kicker">Now 10 min</p>
+<div class="dialog-types-choice is-on"><span class="dialog-types-radio"></span><span>20 min · evening</span></div>
+<div class="dialog-types-choice"><span class="dialog-types-radio"></span><span>40 min · shared</span></div>
+<div class="dialog-types-actions">
+<span class="dialog-types-btn is-quiet">Cancel</span>
+<span class="dialog-types-btn is-fill">Confirm</span>
+</div>
+</article>
+</div>
+<figcaption class="dialog-types-name">Choice</figcaption>
+</figure>
+</div>
+</div>
+</section>""" % (
+    attrs(
+        131, "Dialog types", ACT3,
+        "Six templates. Point from the last bench: alert, permission, archive, got it, form, choice. Filled is the verb. Quiet dismiss never matches it. Never two filled buttons of equal weight. Archive stacks the loud action over Cancel.",
+    ),
+    meta("KIT", "DIALOG"),
+    _DT_INFO,
+))
+
 slides.append(phone(
     25, "Spot the component", "ACT 3 · THE UI UNIVERSE",
     "60 seconds. Identify buttons, cards, navigation, inputs, selection, feedback. Then reveal annotations. Correct identification: 10 points.",
@@ -497,12 +1840,12 @@ slides.append(pair(
     ("assets/ui-contrast-good.svg", "Readable contrast · teaching diagram", True),
     kicker="A11Y"
 ))
-slides.append("""<section class="slide lesson-plan" %s>%s
-<div class="lp-body"><div class="lp-heading"><h2>No winner yet.</h2><p class="lp-subtitle">Read the board. Strongest defence. Best catch. Do not crown anyone. Click a team, then + pts.</p></div>
-<p class="lp-subtitle">N notes · B missions · S score · R reveal · T twist · + / − points.</p>
-</div></section>""" % (
-    attrs(35, "Scoreboard", "ACT 3 · THE UI UNIVERSE", "Open the scoreboard. Celebrate reasoning, not speed."),
-    meta("SCORE", "NO WINNER YET")
+slides.append(lime(
+    35, "Check scores again", "ACT 3 · THE UI UNIVERSE",
+    "After the UI Universe, before the brief. Open Score. Read the board out loud. Do not start the brief until they have heard the numbers.",
+    "Check scores.",
+    "Open Score. Read the board.",
+    kicker="QUIZ", right="THE BOARD"
 ))
 slides.append(lime(
     36, "Wrong piece", "ACT 3 · THE UI UNIVERSE",
@@ -557,13 +1900,28 @@ slides.append(process(
     "You are not receiving a screen to copy. You are receiving a person to understand. No screen before the problem.",
     "No screen before the problem.",
     ["Insight", "Opportunity", "Journey", "Sketch", "Interface"],
-    kicker="RULE"
+    kicker="PROCESS"
 ))
 slides.append(wide(
     42, "Design system is the constraint", "ACT 4 · MISSION BRIEFING",
     "Don't invent a new design language. Use Mindspace: colour, type, buttons, cards, inputs, navigation, icons, spacing. Creativity is the experience, not eight visual languages.",
-    "assets/figma-kits/meditation-thumb-view.png",
-    f"Mindspace look comes from the Meditation kit. Duplicate <a class='figma-link' href='{KIT_MIND}'>this file</a> and stay there."
+    "assets/mindspace/stylesheet.png",
+    "Mindspace type and colour. Duplicate this file and stay there.",
+    href=KIT_MIND,
+    alt="Mindspace stylesheet: Poppins type scale and colour tokens."
+))
+slides.append("""<section class="slide approach-intro jtbd-card" %s>%s
+<div class="approach-intro-content">
+<h2>The job.</h2>
+<ol class="jtbd">
+<li><p class="jtbd-line"><b>When</b><i></i></p><p class="jtbd-ex">the corridor is loud</p></li>
+<li><p class="jtbd-line"><b>I want to</b><i></i></p><p class="jtbd-ex">ten quiet minutes</p></li>
+<li><p class="jtbd-line"><b>so I can</b><i></i></p><p class="jtbd-ex">sleep</p></li>
+</ol>
+</div></section>""" % (
+    attrs(145, "The job", "ACT 4 · MISSION BRIEFING",
+          "Write one job on paper for their moment. Then sit. No screen before the problem."),
+    meta("JOB", "PAPER")
 ))
 slides.append(lesson(
     43, "Team deliverables", "ACT 4 · MISSION BRIEFING",
@@ -597,363 +1955,135 @@ slides.append(lesson(
     ],
     kicker="COLLAB", right="NON-NEGOTIABLE"
 ))
+YT_HANDS = "https://www.youtube.com/watch?v=eeGVBhZURUI"
+slides.append("""<section class="slide hands-all" %s>%s
+<div class="hands-all-body">
+<h2>Hands on. All eight.</h2>
+<p class="hands-all-video">Figma Interactive Components For Beginners</p>
+<a class="hands-all-play" data-yt-play href="%s" target="_blank" rel="noopener">Play</a>
+<p class="hands-all-lede">Follow along. Same steps. Then we split.</p>
+</div></section>""" % (
+    attrs(146, "Hands on. All eight.", "ACT 4 · MISSION BRIEFING",
+          "All eight desks. Same video. Same file. Follow along, then split to A–H."),
+    meta("ALL EIGHT", "THEN SPLIT"),
+    YT_HANDS
+))
 slides.append(studio(
-    45, "Team assignment", "ACT 4 · MISSION BRIEFING",
-    "Reveal teams. Open Missions (B) for research, situation, challenge, success. Move into groups.",
+    45, "Find your desk", "ACT 4 · MISSION BRIEFING",
+    "Reveal desks A–H. Open Missions (B). Move. Then sit.",
     "Find your desk.",
-    "Read her moment before you touch Figma. If you skip this, you will decorate.",
+    "Read her moment. Then sit.",
     "4 min", "4", kicker="MOVE"
 ))
 
 # ACT 5
-slides.append(lime(
-    46, "The mission begins", "ACT 5 · PRODUCT THINKERS",
-    "Paper first. Figma after the checkpoint. Do not say 'understand before you create.'",
-    "Level 03<br>The Product Thinkers.",
+slides.append(level(
+    46, "The Product Thinkers", "ACT 5 · PRODUCT THINKERS",
     "Paper first. Figma after the checkpoint.",
-    timer="60", kicker="LEVEL 03", right="01:45–02:45"
+    3, "The Product Thinkers.",
+    "Paper first. Figma after the checkpoint.",
+    timer="60", right="01:45–02:45"
 ))
 slides.append(studio(
-    47, "Research mission", "ACT 5 · PRODUCT THINKERS",
-    "Circle the one need that would make the rest of the day fail.",
-    "Circle the one need that would sink the day.",
-    "Read the mission card. If you ignore this one, the rest of your screens are decoration.",
-    "5 min", "5", kicker="RESEARCH"
-))
-slides.append(lesson(
-    48, "Evidence from assumptions", "ACT 5 · PRODUCT THINKERS",
-    "Put the assigned research insight into three categories. Ask whether they are treating workshop hypotheses as verified facts.",
-    "What we know / assume / need to learn.",
-    cols=[
-        ("Watch for", ["Treating the brief as interview proof.", "Designing a screen to justify an assumption."]),
-        ("Do this", ["Park unknowns on the third column.", "Say hypothesis out loud before you draw."]),
-    ],
-    kicker="5 MIN", right="FACILITATE", timer="5"
-))
-slides.append(lesson(
-    49, "The opportunity question", "ACT 5 · PRODUCT THINKERS",
-    "Write one specific How Might We. Examples on screen.",
-    "How might we…?",
-    subtitle="One specific question. Five minutes.",
-    cols=[
-        ("Examples", ["Help Arya get started without feeling overwhelmed?", "Help Arya find a meditation that fits her mood?", "Help Arya stay consistent without feeling guilty?"]),
-        ("Test", ["Would Arya recognise herself in this sentence?", "Can you sketch two answers to it?"]),
-    ],
-    kicker="HMW", right="5 MIN", timer="5"
+    47, "Paper first", "ACT 5 · PRODUCT THINKERS",
+    "Need. Path. Two sketches. Then the checkpoint.",
+    "Need. Path. Two sketches.",
+    "Circle the need. Draw the skip. Two ideas. No Figma yet.",
+    "30 min", "30", kicker="PAPER"
 ))
 slides.append(studio(
-    50, "Map the journey", "ACT 5 · PRODUCT THINKERS",
-    "START → ACTION → DECISION → OUTCOME. Draw the complete journey before designing screens.",
-    "Start → action → decision → outcome.",
-    "Draw the whole path, including the skip and the dead end, before Figma.",
-    "10 min", "10", kicker="MAP"
-))
-slides.append(studio(
-    51, "Sketch before Figma", "ACT 5 · PRODUCT THINKERS",
-    "Ideas first. Pixels later. Sketch two alternative approaches.",
-    "Two sketches. Then you may open Figma.",
-    "If you only have one idea, you do not have a choice yet.",
-    "15 min", "15", kicker="SKETCH"
-))
-slides.append(lesson(
-    52, "Choose your direction", "ACT 5 · PRODUCT THINKERS",
-    "Compare alternatives using user value, simplicity, feasibility, consistency, accessibility.",
-    "Which idea best solves Arya's problem?",
-    grades=[
-        ("01", "User value"),
-        ("02", "Simplicity"),
-        ("03", "Feasibility"),
-        ("04", "Consistency + access"),
-    ],
-    kicker="DECIDE", right="5 MIN", timer="5"
-))
-slides.append(studio(
-    53, "Design system inspection", "ACT 5 · PRODUCT THINKERS",
-    "Don't reinvent. Discover what already exists. Find required components in the Mindspace library.",
-    "Steal from the kit.",
-    "Ten minutes. Write the names you will actually use. If you are drawing a new purple, you have left the team.",
-    "10 min", "10", kicker="KIT"
-))
-slides.append(studio(
-    54, "Sprint 1 checkpoint", "ACT 5 · PRODUCT THINKERS",
-    "Stop. Show. Explain. Problem, flow, sketches, component choices. Scoring: 10 problem, 10 flow, 10 reasoning.",
+    48, "Paper checkpoint", "ACT 5 · PRODUCT THINKERS",
+    "Stop. Show. Explain. Problem, flow, two sketches. Score 10 / 10 / 10.",
     "Stop. Show. Explain.",
-    "Problem. Proposed flow. Sketches. Component choices. Ten points each for clarity, logic, reasoning.",
+    "Problem. Flow. Two sketches.",
     "10 min", "10", kicker="CHECKPOINT"
 ))
 
 # ACT 6
-slides.append(lime(
-    55, "Welcome back", "ACT 6 · INTERFACE BUILDERS",
-    "Break is over if they took one. Pixels now. She is still waiting.",
-    "Level 04<br>The Interface Builders.",
+slides.append(level(
+    49, "The Interface Builders", "ACT 6 · INTERFACE BUILDERS",
     "Pixels. She is still waiting.",
-    timer="45", kicker="LEVEL 04", right="03:00–03:45"
-))
-slides.append(lesson(
-    56, "Your Figma workspace", "ACT 6 · INTERFACE BUILDERS",
-    "Shared product page plus team pages A–H. If the source file differs, document existing structure. Do not reorganise the source library destructively.",
-    "One file. Eight pages. Do not wreck the library.",
-    rules=[
-        "Shared product page.",
-        "Team A through Team H pages.",
-        "Steal components. Do not restyle the masters.",
-        "If the kit's page map is different, write it down and use an approved workspace.",
-    ],
-    kicker="FILE", right="STRUCTURE"
+    4, "The Interface Builders.",
+    "Pixels. She is still waiting.",
+    timer="45", right="03:00–03:45"
 ))
 slides.append(studio(
-    57, "Build your first screen", "ACT 6 · INTERFACE BUILDERS",
-    "Start with the most important moment in your journey. Build the primary screen using existing styles and components.",
-    "Start with the most important moment.",
-    "One primary screen, kit styles only. If you are drawing a new purple, you have left the team.",
-    "12 min", "12", kicker="PRIMARY"
-))
-slides.append(studio(
-    58, "Build the flow", "ACT 6 · INTERFACE BUILDERS",
-    "A screen is not an experience. Connect 3–5 meaningful screens or states.",
-    "If Play does nothing, it is still a poster.",
-    "Three to five connected frames. Prototype the tap that matters.",
-    "12 min", "12", kicker="FLOW"
-))
-slides.append(lesson(
-    59, "Missing states", "ACT 6 · INTERFACE BUILDERS",
-    "What happens when things don't go as planned? Empty, loading, error, success, disabled, selected. Identify at least two non-default states.",
-    "What happens when things don't go as planned?",
-    grades=[
-        ("Empty", "Nothing here yet."),
-        ("Loading", "Work is happening."),
-        ("Error", "Recovery, not blame."),
-        ("Success", "She knows it worked."),
-    ],
-    kicker="STATES", right="AT LEAST TWO"
-))
-slides.append(studio(
-    60, "The 10-second test", "ACT 6 · INTERFACE BUILDERS",
-    "A student from another team inspects without explanation. What is this for? What next? What happens on the primary tap? Understandability and visual hierarchy.",
-    "Give the file. Stay quiet.",
-    "One visitor. Ten seconds. What is this, what next, what happens when I tap.",
-    "8 min", "8", kicker="TEST"
-))
-slides.append(studio(
-    61, "Sprint 2 checkpoint", "ACT 6 · INTERFACE BUILDERS",
-    "Show your product, not just progress. Working screens, clear flow, consistent styling, states, prototype connections.",
-    "Show the path. Not the effort.",
-    "Working screens. Flow. Kit. Two states. Play, if you can.",
-    "5 min", "5", kicker="CHECKPOINT"
+    50, "Build it", "ACT 6 · INTERFACE BUILDERS",
+    "One file. Shared product page. Team pages A–H. Do not wreck the library.",
+    "Build it.",
+    "Shared page. Team pages A–H. Do not wreck the library.",
+    "30 min", "30", kicker="FIGMA"
 ))
 
 # ACT 7
 slides.append(lime(
-    62, "Walk her", "ACT 7 · ASSEMBLY",
+    51, "Walk her", "ACT 7 · ASSEMBLY",
     "Walk her from A to H. If she gets lost, the seam is theirs.",
     "Walk her from A to H.",
     "If she gets lost, the seam is yours.",
     timer="15", kicker="ACT 7", right="03:45–04:00"
 ))
-slides.append(lesson(
-    63, "The integration challenge", "ACT 7 · ASSEMBLY",
-    "Do the journeys actually connect? Teams must not overwrite another team's work. Integration is a coordinated handoff.",
-    "Do the journeys actually connect?",
-    rules=[
-        "Consistent header.",
-        "Shared navigation.",
-        "Consistent buttons, type, spacing.",
-        "Correct screen transitions.",
-        "Consistent language.",
-        "No duplicate or contradictory patterns.",
-    ],
-    kicker="CHECKLIST", right="SEAMS"
-))
-slides.append(wide(
-    64, "The product map", "ACT 7 · ASSEMBLY",
-    "One representative per team: where Arya enters, what she accomplishes, where she exits, who she hands to.",
-    "assets/mindspace/journeys.svg",
-    "Teaching diagram of eight journeys · replace with the live assembled map in class."
-))
-
-# ACT 8
-slides.append(lime(
-    65, "Mindspace is live", "ACT 8 · FIRST LAUNCH",
-    "No spoken tour. She walks it. Keep the energy high.",
-    "She's tapping it now.",
-    "No spoken tour.",
-    timer="15", kicker="ACT 8", right="04:00–04:15"
-))
-slides.append(studio(
-    66, "The launch showcase", "ACT 8 · FIRST LAUNCH",
-    "90 seconds each. User problem, design solution, one UX decision, one component decision, one unsolved limitation. Keep the pace high.",
-    "Ninety seconds. Then sit down.",
-    "Problem. Solution. One UX decision. One component decision. One thing you have not solved.",
-    "12 min", "12", kicker="SHOWCASE"
-))
-slides.append(lesson(
-    67, "First product review", "ACT 8 · FIRST LAUNCH",
-    "Does it work as one product? Do not turn this into a popularity contest.",
-    "Does it work as one product?",
-    cols=[
-        ("Ask the class", ["Does it feel consistent?", "Is Arya's journey clear?", "What is confusing?"]),
-        ("Do not", ["Vote for the prettiest screen.", "Skip the gaps.", "Let one team dominate the airtime."]),
-    ],
-    kicker="REVIEW", right="ONE PRODUCT"
-))
 
 # ACT 9
-slides.append(quote(
-    68, "The design director enters", "ACT 9 · CRITIQUE",
-    "Become the design director. Don't simply tell them what is wrong. Ask questions. Good design is knowing what to improve.",
-    "What would she tap first?",
-    "What would she miss?"
-))
-slides.append(lesson(
-    69, "Critique framework", "ACT 9 · CRITIQUE",
-    "Five design director questions. Use them on an actual student screen.",
-    "Five questions. Use them on a real screen.",
-    rules=[
-        "Is the user's problem being solved?",
-        "Is the next action obvious?",
-        "Is the experience unnecessarily complicated?",
-        "Is the design consistent?",
-        "What happens when something goes wrong?",
-    ],
-    kicker="FRAMEWORK", right="15 MIN", timer="15"
-))
 slides.append(studio(
-    70, "The UX teardown", "ACT 9 · CRITIQUE",
-    "Pick one screen from the assembled application. Critique the design, never the designer. Confusing content, extras, weak hierarchy, inconsistent components, missing feedback, access issues.",
+    52, "Critique", "ACT 9 · CRITIQUE",
+    "Name the miss. Protect the person. Keep / fix / remove / improve. Open Score.",
     "Break it before she does.",
-    "One shared screen. Name the miss. Protect the person who made it.",
-    "6 min", "6", kicker="TEARDOWN"
-))
-slides.append(cards(
-    71, "The opportunity board", "ACT 9 · CRITIQUE",
-    "Keep. Fix. Remove. Improve. Each team identifies three highest-priority improvements.",
-    "Keep. Fix. Remove. Improve.",
-    [
-        ("Keep", "What already serves Arya", "Do not restyle it for sport."),
-        ("Fix", "Broken or unclear", "Name the principle."),
-        ("Remove", "Noise", "If it has no job, it goes."),
-        ("Improve", "The next version", "Three priorities only."),
-    ],
-    kicker="BOARD"
+    "Name the miss. Protect the person.",
+    "10 min", "10", kicker="CRITIQUE"
 ))
 
 # ACT 10
-slides.append(lime(
-    72, "Level 5 unlocked", "ACT 10 · DESIGN EVOLUTION",
+slides.append(level(
+    53, "The Design Evolution", "ACT 10 · DESIGN EVOLUTION",
     "She already used v1. Fix what she hit. Do not add a fifth screen.",
-    "Level 05<br>The Design Evolution.",
+    5, "The Design Evolution.",
     "She already used v1. Fix what she hit.",
-    timer="60", kicker="LEVEL 05", right="04:30–05:30"
+    timer="60", right="04:30–05:30"
 ))
 slides.append(studio(
-    73, "Refinement mission", "ACT 10 · DESIGN EVOLUTION",
-    "Don't add more. Make it better. Review the three improvement priorities from critique.",
-    "If you are adding a fifth screen, you are hiding.",
-    "Re-read your three priorities. Kill, merge, or fix. Do not decorate.",
-    "5 min", "5", kicker="MISSION"
+    54, "Improve it", "ACT 10 · DESIGN EVOLUTION",
+    "One improve beat. Kill a step. Fix the tap. No fifth screen.",
+    "Make v1 die.",
+    "Kill a step. Fix the tap. No fifth screen.",
+    "30 min", "30", kicker="IMPROVE"
 ))
 slides.append(studio(
-    74, "Improve the journey", "ACT 10 · DESIGN EVOLUTION",
-    "Where can we remove friction? Revisit the user flow. Eliminate unnecessary steps or confusing decisions.",
-    "Where can we remove friction?",
-    "Kill a step. Merge a decision. Name what Arya no longer has to think about.",
-    "10 min", "10", kicker="JOURNEY"
-))
-slides.append(studio(
-    75, "Improve the interface", "ACT 10 · DESIGN EVOLUTION",
-    "Hierarchy, clarity, consistency. Improve visual hierarchy, spacing, typography, component usage.",
-    "One thing louder. The rest quieter.",
-    "Type from the kit. Spacing you can count. No new purple.",
-    "15 min", "15", kicker="INTERFACE"
-))
-slides.append(studio(
-    76, "Improve the interaction", "ACT 10 · DESIGN EVOLUTION",
-    "What happens after the tap? Selected, validation, error, success, loading, empty, recovery.",
-    "What happens after the tap?",
-    "Add or refine: selected, validation, error, success, loading, empty, recovery.",
-    "15 min", "15", kicker="INTERACTION"
-))
-slides.append(studio(
-    77, "Cross-team usability test", "ACT 10 · DESIGN EVOLUTION",
-    "Swap prototypes. Give a task based on Arya's scenario. Observe hesitation, misunderstanding, expectation, stuck moments.",
+    55, "Swap test", "ACT 10 · DESIGN EVOLUTION",
+    "Swap. Stay quiet. Give Arya's task. Watch where they hesitate.",
     "Swap. Stay quiet.",
-    "Give Arya's task. Watch where they hesitate. Do not rescue them with a speech.",
+    "Give Arya's task. Watch where they hesitate.",
     "10 min", "10", kicker="TEST"
 ))
-slides.append(studio(
-    78, "The final polish", "ACT 10 · DESIGN EVOLUTION",
-    "Fix the most important usability issue and check consistency with the Mindspace library.",
-    "One seam. Then we ship.",
-    "Fix the worst miss. Then check you still look like Mindspace.",
-    "5 min", "5", kicker="POLISH"
-))
 
-# ACT 11
+# ACT 11 — eight on-stage cards, then one prototype
+STAGE = [
+    (56, "A", "Getting started."),
+    (57, "B", "Personalisation."),
+    (58, "C", "Home."),
+    (59, "D", "Discover."),
+    (60, "E", "Meditation."),
+    (61, "F", "Goals."),
+    (62, "G", "Journal."),
+    (63, "H", "Profile."),
+]
+for n, letter, journey in STAGE:
+    slides.append(lime(
+        n, f"Team {letter} · {journey[:-1]}", "ACT 11 · SHOWCASE",
+        f"Leave this up while Team {letter} talks. Two minutes. Then sit.",
+        journey,
+        "On stage. Explain. Then sit.",
+        timer="2", kicker=f"TEAM {letter}", right="2 MIN"
+    ))
 slides.append(lime(
-    79, "The final launch", "ACT 11 · SHOWCASE",
-    "Walk the live prototype. No spoken tour. Two minutes per desk.",
-    "Walk it.",
-    "No spoken tour.",
-    timer="20", kicker="ACT 11", right="05:30–05:50"
-))
-slides.append(cards(
-    80, "Eight journeys, one Arya", "ACT 11 · SHOWCASE",
-    "Two minutes per team: original problem, first solution, feedback, what changed, why the final is better.",
-    "Two minutes. Then sit down.",
-    [
-        ("A", "Getting started", "Problem → first → change."),
-        ("B", "Personalisation", "Problem → first → change."),
-        ("C", "Home", "Problem → first → change."),
-        ("D", "Discover", "Problem → first → change."),
-        ("E", "Meditation", "Problem → first → change."),
-        ("F", "Goals", "Problem → first → change."),
-        ("G", "Journal", "Problem → first → change."),
-        ("H", "Profile", "Problem → first → change."),
-    ],
-    kicker="PRESENT"
-))
-slides.append(pair(
-    81, "Before and after", "ACT 11 · SHOWCASE",
-    "The power of iteration. Use actual first-version and refined screens from the room. Teaching pair until student work is on the wall.",
-    ("assets/mindspace/home-clutter.svg", "First version energy · teaching diagram until student work is pinned", False),
-    ("assets/mindspace/home-calm.svg", "Refined · teaching diagram until student work is pinned", True),
-    kicker="ITERATION"
-))
-slides.append(wide(
-    82, "Final product walkthrough", "ACT 11 · SHOWCASE",
-    "Demonstrate the connected prototype from onboarding through journeys. Use a real clickable prototype if available. Otherwise a prepared sequence labelled as a visual walkthrough.",
-    "assets/figma-kits/meditation-thumb-view.png",
-    "Walk the live prototype if it exists. If not, this kit sequence is a visual walkthrough, not a clickable product."
+    64, "One prototype", "ACT 11 · SHOWCASE",
+    "Different members from A–H walk one working product. Play the live file. No spoken tour.",
+    "One prototype.",
+    "A through H. One Arya. Play it. No spoken tour.",
+    timer="10", kicker="FINALE", right="ONE FILE"
 ))
 
 # ACT 12
-slides.append("""<section class="slide lesson-plan" %s>%s
-<div class="lp-body"><div class="lp-heading"><h2>Awards follow what the room saw.</h2><p class="lp-subtitle">Not the prettiest screen. Click to mark.</p></div>
-<div class="award-grid">
-<button type="button" data-award><strong>Best UX thinking</strong><span>Strongest understanding of the user.</span></button>
-<button type="button" data-award><strong>Best design decision</strong><span>Most thoughtful component or interaction choice.</span></button>
-<button type="button" data-award><strong>Best visual design</strong><span>Strongest visual execution in the kit.</span></button>
-<button type="button" data-award><strong>Best problem solver</strong><span>Best response to a complex challenge.</span></button>
-<button type="button" data-award><strong>Best collaboration</strong><span>Strongest teamwork across desks.</span></button>
-<button type="button" data-award><strong>Best iteration</strong><span>Biggest improvement after feedback.</span></button>
-<button type="button" data-award><strong>Best accessibility</strong><span>Most inclusive decisions.</span></button>
-<button type="button" data-award><strong>Product champion</strong><span>Strongest overall contribution.</span></button>
-</div></div></section>""" % (
-    attrs(83, "The design awards", "ACT 12 · CLOSING",
-          "Awards based on observed work and reasoning, not invented scores. 05:50–06:00.", timer="10"),
-    meta("AWARDS", "05:50–06:00")
-))
-slides.append(lesson(
-    84, "One decision", "ACT 12 · CLOSING",
-    "Do not recap nine skills. Ask for one decision they would now make differently.",
-    "Name one decision you would now make differently.",
-    cols=[
-        ("Ask", ["What would you cut?", "What would you steal again?", "What would you test first?"]),
-        ("Pass when", ["They can name the miss.", "They can name the law.", "They do not say 'it looks better.'"]),
-    ],
-    kicker="ASK THE ROOM", right="ONE LINE"
-))
 slides.append("""<section class="slide closing" %s>
 <div class="grid-lines"></div>
 %s
@@ -967,13 +2097,13 @@ slides.append("""<section class="slide closing" %s>
 </div>
 </div>
 </section>""" % (
-    attrs(85, "Closing thought", "ACT 12 · CLOSING",
+    attrs(65, "Closing thought", "ACT 12 · CLOSING",
           "Same close as Session 4. The file is the evidence. Do not end on a slogan."),
     meta("SESSION 05", "CLOSE"),
     KIT_MIND
 ))
 
-assert len(slides) == 85, len(slides)
+assert len(slides) == 126, len(slides)
 # only first slide should have is-active in cover(); others shouldn't. Fix if any extra.
 # cover() already handles n==1.
 
@@ -1044,6 +2174,17 @@ score_rows = "".join(
     for letter in "ABCDEFGH"
 )
 
+DROP = {2, 3, 4, 5, 6, 11, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 123}
+slides = [
+    s for s in slides
+    if int(re.search(r'data-slide="(\d+)"', s).group(1)) not in DROP
+]
+slides = [
+    re.sub(r'data-slide="\d+"', f'data-slide="{i:02d}"', s, count=1)
+    for i, s in enumerate(slides, 1)
+]
+body = "".join(slides)
+
 html = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -1056,9 +2197,9 @@ html = f"""<!doctype html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="deck.css?v=23">
-  <link rel="stylesheet" href="deck-v2.css?v=11">
+  <link rel="stylesheet" href="deck-v2.css?v=12">
   <link rel="stylesheet" href="mobile.css?v=9">
-  <link rel="stylesheet" href="session-5.css?v=6">
+  <link rel="stylesheet" href="session-5.css?v=40">
 </head>
 <body class="deck-v2 s5" data-deck-title="Session 5 · The Mindspace Design Lab">
   <div class="hud" aria-label="Facilitator">
@@ -1107,21 +2248,21 @@ html = f"""<!doctype html>
   </div>
 
   <main class="deck" aria-live="polite">
-    {''.join(slides)}
+    {body}
   </main>
 
   <aside class="controls" aria-label="Slide navigation">
     <button class="prev" aria-label="Previous slide">←</button>
-    <span class="counter">01 / 85</span>
+    <span class="counter">01 / {len(slides):02d}</span>
     <button class="next" aria-label="Next slide">→</button>
   </aside>
   <div class="progress"><span></span></div>
   <script src="deck.js"></script>
-  <script src="session-5.js?v=5"></script>
+  <script src="session-5.js?v=14"></script>
 </body>
 </html>
 """
 
 out = Path(__file__).with_name("session-5.html")
-out.write_text(html)
+out.write_text(html, encoding="utf-8")
 print(f"wrote {out} slides={len(slides)} bytes={out.stat().st_size}")

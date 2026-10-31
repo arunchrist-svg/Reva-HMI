@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504 168" role="img">
+  <title>A crowd of boxes versus one fact this step</title>
+  <rect width="504" height="168" fill="#101116"/>
+<rect x="8" y="8" width="238" height="152" rx="16" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".22"/>
+  <rect x="105" y="14" width="44" height="4" rx="2" fill="#ece9e1" opacity=".25"/>
+  <text x="24" y="34" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="9" font-weight="800" letter-spacing="1.6">WEAK</text>
+<rect x="24" y="48" width="98" height="20" rx="4" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/><rect x="132" y="48" width="98" height="20" rx="4" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/><rect x="24" y="74" width="98" height="20" rx="4" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/><rect x="132" y="74" width="98" height="20" rx="4" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/><rect x="24" y="100" width="98" height="20" rx="4" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/><rect x="132" y="100" width="98" height="20" rx="4" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/><rect x="24" y="126" width="98" height="20" rx="4" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/><rect x="132" y="126" width="98" height="20" rx="4" fill="#ece9e1" opacity=".08" stroke="#ece9e1" stroke-opacity=".2"/>
+<rect x="258" y="8" width="238" height="152" rx="16" fill="#1b1d24" stroke="#d4f169" stroke-opacity=".55"/>
+  <rect x="355" y="14" width="44" height="4" rx="2" fill="#ece9e1" opacity=".25"/>
+  <text x="274" y="34" fill="#d4f169" font-family="system-ui,sans-serif" font-size="9" font-weight="800" letter-spacing="1.6">BETTER</text>
+<text x="274" y="58" fill="#ece9e1" font-family="Georgia,serif" font-size="16">Pay the mess</text>
+  <text x="274" y="80" fill="#d4f169" font-family="system-ui,sans-serif" font-size="10" font-weight="700">UPI ID</text>
+  <rect x="274" y="86" width="206" height="32" rx="7" fill="#ece9e1" opacity=".08" stroke="#d4f169" stroke-opacity=".5"/>
+  <text x="286" y="107" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">arun@okaxis</text>
+  <text x="274" y="140" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">This step. One fact.</text>
+</svg>

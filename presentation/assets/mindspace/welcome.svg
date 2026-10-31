@@ -11,5 +11,4 @@
   <rect x="52" y="330" width="176" height="48" rx="10" fill="#B7D4A8"/>
   <text x="140" y="360" fill="#161C18" font-family="system-ui,sans-serif" font-size="15" font-weight="700" text-anchor="middle">Get started</text>
   <text x="140" y="412" fill="#B7D4A8" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">I already have an account</text>
-  <text x="140" y="500" fill="#5d6a60" font-family="system-ui,sans-serif" font-size="9" text-anchor="middle">Teaching diagram - recreate in Figma</text>
 </svg>

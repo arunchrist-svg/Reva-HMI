@@ -72,25 +72,45 @@
     return String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
   }
 
+  function slideClock() {
+    var slide = activeSlide();
+    return slide ? slide.querySelector("[data-clock]") : null;
+  }
+
+  function paintClock() {
+    var clock = slideClock();
+    var label = duration || remaining ? formatTime(remaining) : "Timer";
+    if (remaining <= 0 && duration) label = "00:00";
+    timerBtn.textContent = label;
+    timerBtn.classList.toggle("is-hot", !!ticking);
+    timerBtn.classList.toggle("is-done", remaining <= 0 && duration > 0 && !ticking);
+    if (clock) {
+      clock.textContent = formatTime(remaining || duration);
+      clock.classList.toggle("is-hot", !!ticking);
+      clock.classList.toggle("is-done", remaining <= 0 && duration > 0 && !ticking);
+    }
+  }
+
   function stopTimer() {
     if (ticking) window.clearInterval(ticking);
     ticking = null;
     timerBtn.classList.remove("is-hot");
+    var clock = slideClock();
+    if (clock) clock.classList.remove("is-hot");
   }
 
   function startTimer() {
     if (remaining <= 0) remaining = duration || 60;
     stopTimer();
-    timerBtn.classList.add("is-hot");
     ticking = window.setInterval(function () {
       remaining -= 1;
-      timerBtn.textContent = formatTime(remaining);
+      paintClock();
       if (remaining <= 0) {
         stopTimer();
-        timerBtn.classList.add("is-done");
-        timerBtn.textContent = "00:00";
+        paintClock();
       }
     }, 1000);
+    paintClock();
   }
 
   function loadTimerFromSlide(slide) {
@@ -100,12 +120,13 @@
     if (!mins) {
       duration = 0;
       remaining = 0;
+      paintClock();
       timerBtn.textContent = "Timer";
       return;
     }
     duration = Math.round(mins * 60);
     remaining = duration;
-    timerBtn.textContent = formatTime(remaining);
+    paintClock();
   }
 
   function closePanels(except) {
@@ -135,17 +156,28 @@
     observer.observe(slide, { attributes: true, attributeFilter: ["class"] });
   });
 
-  timerBtn.addEventListener("click", function () {
+  function toggleTimer() {
     if (!duration && remaining <= 0) return;
-    if (ticking) stopTimer();
-    else startTimer();
-  });
-  timerBtn.addEventListener("dblclick", function (event) {
-    event.preventDefault();
+    if (ticking) {
+      stopTimer();
+      paintClock();
+    } else startTimer();
+  }
+
+  function resetTimer(event) {
+    if (event) event.preventDefault();
     remaining = duration;
-    timerBtn.classList.remove("is-done");
-    timerBtn.textContent = duration ? formatTime(duration) : "Timer";
     stopTimer();
+    paintClock();
+    if (!duration) timerBtn.textContent = "Timer";
+  }
+
+  timerBtn.addEventListener("click", toggleTimer);
+  timerBtn.addEventListener("dblclick", resetTimer);
+
+  document.querySelectorAll("[data-clock]").forEach(function (clock) {
+    clock.addEventListener("click", toggleTimer);
+    clock.addEventListener("dblclick", resetTimer);
   });
 
   function togglePanel(btn, panel) {
@@ -262,4 +294,174 @@
 
   renderScores();
   syncHud();
+
+  (function fieldStatesCatalog() {
+    var slide = document.querySelector(".field-states-slide");
+    if (!slide) return;
+    var grid = slide.querySelector(".field-states-grid");
+    if (!grid) return;
+
+    function stopSlideAdvance(event) {
+      event.stopPropagation();
+    }
+    grid.addEventListener("click", stopSlideAdvance);
+    grid.addEventListener("mousedown", stopSlideAdvance);
+    grid.addEventListener("pointerdown", function (event) {
+      event.stopPropagation();
+      var input = event.target.closest(".field-states-input");
+      if (!input || input.disabled) return;
+      grid.querySelectorAll(".is-focused").forEach(function (node) {
+        node.classList.remove("is-focused");
+      });
+      input.classList.add("is-focused");
+      var cell = input.closest(".field-states-cell");
+      if (cell) cell.classList.add("is-focused");
+    });
+
+    grid.addEventListener("focusin", function (event) {
+      var input = event.target.closest(".field-states-input");
+      if (!input) return;
+      grid.querySelectorAll(".is-focused").forEach(function (node) {
+        node.classList.remove("is-focused");
+      });
+      input.classList.add("is-focused");
+      var cell = input.closest(".field-states-cell");
+      if (cell) cell.classList.add("is-focused");
+    });
+    grid.addEventListener("focusout", function (event) {
+      var next = event.relatedTarget;
+      if (next && grid.contains(next)) return;
+      grid.querySelectorAll(".is-focused").forEach(function (node) {
+        node.classList.remove("is-focused");
+      });
+    });
+    grid.querySelectorAll(".is-hover-demo").forEach(function (cell) {
+      cell.addEventListener("pointerenter", function () { cell.classList.add("is-hot"); });
+      cell.addEventListener("pointerleave", function () { cell.classList.remove("is-hot"); });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      var t = event.target;
+      if (!t || !slide.contains(t)) return;
+      var typing = t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable;
+      if (!typing) return;
+      if (event.key === " " || event.key === "Spacebar") {
+        event.stopImmediatePropagation();
+      }
+    }, true);
+
+    var checkInput = slide.querySelector("[data-fs-validate]");
+    var status = slide.querySelector("[data-fs-status]");
+    var timer = 0;
+    if (checkInput && status) {
+      function paint(kind, label) {
+        var cell = checkInput.closest(".field-states-cell");
+        if (cell) cell.classList.toggle("is-ok", kind === "ok");
+        status.classList.toggle("is-checking", kind === "checking");
+        status.classList.toggle("is-ok", kind === "ok");
+        var mark = kind === "checking"
+          ? '<span class="field-states-spin" aria-hidden="true"></span>'
+          : '<span class="field-states-tick" aria-hidden="true"></span>';
+        status.innerHTML = mark + label;
+      }
+      checkInput.addEventListener("input", function () {
+        window.clearTimeout(timer);
+        var value = checkInput.value.trim();
+        paint("checking", "Checking...");
+        if (!value) return;
+        timer = window.setTimeout(function () {
+          paint("ok", "Looks good");
+        }, 650);
+      });
+    }
+
+    var blurWatch = new MutationObserver(function () {
+      if (slide.classList.contains("is-active")) return;
+      var active = document.activeElement;
+      if (active && slide.contains(active) && typeof active.blur === "function") {
+        active.blur();
+      }
+    });
+    blurWatch.observe(slide, { attributes: true, attributeFilter: ["class"] });
+  })();
+
+  function guardDeckKeys(root) {
+    if (!root) return;
+    function stop(event) { event.stopPropagation(); }
+    root.addEventListener("click", stop);
+    root.addEventListener("mousedown", stop);
+    root.addEventListener("pointerdown", stop);
+    root.addEventListener("keydown", function (event) {
+      var keys = [" ", "Spacebar", "ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"];
+      if (keys.indexOf(event.key) !== -1) event.stopPropagation();
+    });
+  }
+  document.querySelectorAll("[data-pick]").forEach(guardDeckKeys);
+
+  (function selectionStates() {
+    var slide = document.querySelector(".sel-states");
+    if (!slide) return;
+    var body = slide.querySelector(".sel-states-body");
+    guardDeckKeys(body);
+    slide.querySelectorAll(".is-hover-demo").forEach(function (cell) {
+      cell.addEventListener("pointerenter", function () { cell.classList.add("is-hot"); });
+      cell.addEventListener("pointerleave", function () { cell.classList.remove("is-hot"); });
+    });
+  })();
+
+  (function toggleStatesCatalog() {
+    var slide = document.querySelector(".toggle-states");
+    if (!slide) return;
+    var grid = slide.querySelector(".toggle-states-grid");
+    if (!grid) return;
+
+    function flip(btn) {
+      if (!btn || btn.disabled || btn.getAttribute("data-locked") === "true") return;
+      var on = btn.getAttribute("aria-checked") === "true";
+      btn.setAttribute("aria-checked", on ? "false" : "true");
+      btn.classList.toggle("is-on", !on);
+    }
+
+    grid.addEventListener("click", function (event) {
+      event.stopPropagation();
+      flip(event.target.closest(".toggle-states-switch"));
+    });
+
+    grid.addEventListener("keydown", function (event) {
+      if (event.key !== " " && event.key !== "Spacebar") return;
+      event.stopPropagation();
+    });
+  })();
+
+  (function chipExample() {
+    var slide = document.querySelector(".chip-example");
+    if (!slide) return;
+    var group = slide.querySelector(".chip-example-group");
+    if (!group) return;
+
+    group.addEventListener("click", function (event) {
+      event.stopPropagation();
+      var chip = event.target.closest(".chip-example-chip");
+      if (!chip) return;
+      var on = chip.getAttribute("aria-pressed") === "true";
+      chip.setAttribute("aria-pressed", on ? "false" : "true");
+      chip.classList.toggle("is-on", !on);
+    });
+
+    group.addEventListener("keydown", function (event) {
+      if (event.key !== " " && event.key !== "Spacebar") return;
+      event.stopPropagation();
+    });
+  })();
+
+  (function kitFileOpen() {
+    document.querySelectorAll("[data-kit-file], [data-yt-play]").forEach(function (el) {
+      function stopAdvance(event) {
+        event.stopPropagation();
+      }
+      el.addEventListener("click", stopAdvance);
+      el.addEventListener("mousedown", stopAdvance);
+      el.addEventListener("pointerdown", stopAdvance);
+    });
+  })();
 })();

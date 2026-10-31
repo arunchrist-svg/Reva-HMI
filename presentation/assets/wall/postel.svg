@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504 168" role="img">
+  <title>A space rejected versus a real UPI that still sends</title>
+  <rect width="504" height="168" fill="#101116"/>
+<rect x="8" y="8" width="238" height="152" rx="16" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".22"/>
+  <rect x="105" y="14" width="44" height="4" rx="2" fill="#ece9e1" opacity=".25"/>
+  <text x="24" y="34" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="9" font-weight="800" letter-spacing="1.6">WEAK</text>
+<text x="24" y="56" fill="#d4f169" font-family="system-ui,sans-serif" font-size="10" font-weight="700">UPI ID</text>
+  <rect x="24" y="64" width="206" height="32" rx="7" fill="#ece9e1" opacity=".08" stroke="#c45c5c" stroke-opacity=".8"/>
+  <text x="36" y="85" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">arun @okaxis</text>
+  <text x="24" y="114" fill="#c45c5c" font-family="system-ui,sans-serif" font-size="12">Spaces not allowed</text>
+  <rect x="24" y="126" width="206" height="26" rx="6" fill="#ece9e1" opacity=".12"/>
+  <text x="127" y="144" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12" font-weight="700" text-anchor="middle">OK</text>
+<rect x="258" y="8" width="238" height="152" rx="16" fill="#1b1d24" stroke="#d4f169" stroke-opacity=".55"/>
+  <rect x="355" y="14" width="44" height="4" rx="2" fill="#ece9e1" opacity=".25"/>
+  <text x="274" y="34" fill="#d4f169" font-family="system-ui,sans-serif" font-size="9" font-weight="800" letter-spacing="1.6">BETTER</text>
+<text x="274" y="56" fill="#d4f169" font-family="system-ui,sans-serif" font-size="10" font-weight="700">UPI ID</text>
+  <rect x="274" y="64" width="206" height="32" rx="7" fill="#ece9e1" opacity=".08" stroke="#d4f169" stroke-opacity=".5"/>
+  <text x="286" y="85" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="13">arun @okaxis</text>
+  <text x="274" y="114" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Space stripped. Still sends.</text>
+  <rect x="274" y="126" width="206" height="26" rx="6" fill="#d4f169"/>
+  <text x="377" y="144" fill="#101116" font-family="system-ui,sans-serif" font-size="12" font-weight="700" text-anchor="middle">Pay Rs 80</text>
+</svg>

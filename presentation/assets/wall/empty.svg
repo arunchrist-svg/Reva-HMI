@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 504 168" role="img">
+  <title>Blank first use versus a tap that still exists</title>
+  <rect width="504" height="168" fill="#101116"/>
+<rect x="8" y="8" width="238" height="152" rx="16" fill="#1b1d24" stroke="#ece9e1" stroke-opacity=".22"/>
+  <rect x="105" y="14" width="44" height="4" rx="2" fill="#ece9e1" opacity=".25"/>
+  <text x="24" y="34" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="9" font-weight="800" letter-spacing="1.6">WEAK</text>
+<text x="24" y="64" fill="#ece9e1" font-family="Georgia,serif" font-size="18">Pay the mess</text>
+  <text x="127" y="108" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Nothing here.</text>
+<rect x="258" y="8" width="238" height="152" rx="16" fill="#1b1d24" stroke="#d4f169" stroke-opacity=".55"/>
+  <rect x="355" y="14" width="44" height="4" rx="2" fill="#ece9e1" opacity=".25"/>
+  <text x="274" y="34" fill="#d4f169" font-family="system-ui,sans-serif" font-size="9" font-weight="800" letter-spacing="1.6">BETTER</text>
+<text x="274" y="60" fill="#ece9e1" font-family="Georgia,serif" font-size="18">Pay the mess</text>
+  <text x="274" y="88" fill="#ece9e1" font-family="system-ui,sans-serif" font-size="14">Nothing due today.</text>
+  <text x="274" y="108" fill="#a4a3a0" font-family="system-ui,sans-serif" font-size="12">Come back at lunch.</text>
+  <rect x="274" y="122" width="206" height="28" rx="7" fill="#d4f169"/>
+  <text x="377" y="141" fill="#101116" font-family="system-ui,sans-serif" font-size="12" font-weight="700" text-anchor="middle">See history</text>
+</svg>
