@@ -65,7 +65,10 @@ def studio(n, title, act, notes, h2, p, time_label, timer, kicker="NOW"):
     body = meta(kicker, time_label.upper())
     num, unit = time_label.split(" ", 1) if " " in time_label else (time_label, "")
     body += f'<div class="time-box" aria-hidden="true"><strong>{num}</strong><span>{unit}</span></div>'
-    body += f"<div><h2>{h2}</h2><p>{p}</p></div>"
+    body += f"<div><h2>{h2}</h2>"
+    if p:
+        body += f"<p>{p}</p>"
+    body += "</div>"
     return f'<section class="slide studio-make" {attrs(n, title, act, notes, timer)}>{body}</section>'
 
 def lesson(n, title, act, notes, h2, subtitle="", cols=None, rules=None, grades=None, kicker="", right="", timer="", learn=""):
@@ -126,6 +129,18 @@ def kit_items(items):
     html += "</ul>"
     return html
 
+def principle(n, i, name, line, bad, good):
+    body = meta(f"{i:02d} / 10", "PRINCIPLE")
+    body += '<div class="ui-prin-body">'
+    body += f'<div class="ui-prin-head"><h2>{name}</h2><p>{line}</p></div>'
+    body += '<div class="ui-prin-pair">'
+    body += f'<figure class="ui-prin-card is-bad"><div class="ui-prin-phone">{bad}</div><figcaption>Bad</figcaption></figure>'
+    body += f'<figure class="ui-prin-card is-good"><div class="ui-prin-phone">{good}</div><figcaption>Good</figcaption></figure>'
+    body += "</div></div>"
+    return (
+        f'<section class="slide ui-prin" {attrs(n, name, "ACT 4 · TEN RULES", "Point at bad. Then good. Carry it into the build.")}>{body}</section>'
+    )
+
 def wide(n, title, act, notes, src, cap, kicker="SEE", href="", alt=""):
     body = meta(kicker, "")
     img_alt = alt or re.sub(r"<[^>]+>", "", cap)
@@ -170,6 +185,17 @@ def answered(n, title, act, notes, question, answer, kicker="ANSWER", right="+5 
     body += f'<p class="rapid-a">{answer}</p>'
     body += "</div>"
     return f'<section class="slide rapid-answer" {attrs(n, title, act, notes)}>{body}</section>'
+
+def desk_wall(n, title, act, notes, items, kicker="BEFORE YOU MOVE", right="A–H"):
+    body = meta(kicker, right)
+    body += '<div class="desk-wall-grid">'
+    for letter, name, task in items:
+        body += (
+            f"<article><b>{letter}</b><div><strong>{name}</strong>"
+            f"<p>{task}</p></div></article>"
+        )
+    body += "</div>"
+    return f'<section class="slide desk-wall" {attrs(n, title, act, notes)}>{body}</section>'
 
 def cards(n, title, act, notes, h2, items, kicker="MAP", cols="four", subtitle="", learn=""):
     grid = {"two": "two", "three": "three", "six": "six", "four": ""}.get(cols, "")
@@ -1955,6 +1981,89 @@ slides.append(lesson(
     ],
     kicker="COLLAB", right="NON-NEGOTIABLE"
 ))
+GV_SHOTS = [
+    ("assets/gv/01.png", "Call controls"),
+    ("assets/gv/02.png", "Notification badges"),
+    ("assets/gv/03.png", "Form layout"),
+    ("assets/gv/04.png", "Categories"),
+    ("assets/gv/05.png", "Photo contrast"),
+    ("assets/gv/06.png", "Nav bar colour"),
+    ("assets/gv/07.png", "Plans"),
+    ("assets/gv/08.png", "Thumb zone"),
+    ("assets/gv/09.png", "Progress"),
+    ("assets/gv/10.png", "Name the miss"),
+    ("assets/gv/11.png", "Text alignment"),
+    ("assets/gv/12.png", "Name the miss"),
+    ("assets/gv/13.png", "Inactive contrast"),
+    ("assets/gv/14.png", "Name the miss"),
+    ("assets/gv/15.png", "Key values"),
+    ("assets/gv/16.png", "Hero and CTAs"),
+    ("assets/gv/17.png", "Name the miss"),
+    ("assets/gv/18.png", "Tab colours"),
+    ("assets/gv/19.png", "Name the miss"),
+    ("assets/gv/20.png", "Name the miss"),
+]
+slides.append(lime(
+    147, "Look first", "ACT 4 · LOOK FIRST",
+    "Twenty same-shot comparisons from Dribbble. Ask what is wrong on the left. Then the project.",
+    "Look first.",
+    "Twenty shots. Same frame. Then we start.",
+    kicker="BEFORE THE PROJECT", right="20 SHOTS"
+))
+for i, (src, cap) in enumerate(GV_SHOTS, 1):
+    slides.append(
+        '<section class="slide wide-see gv-shot" %s>%s'
+        '<figure class="wide-frame"><img src="%s" alt="%s"></figure>'
+        "</section>" % (
+            attrs(147 + i, cap, "ACT 4 · LOOK FIRST",
+                  "What is wrong on the left? Then next."),
+            meta(f"{i:02d} / 20", "BAD · GOOD"),
+            src, cap
+        )
+    )
+
+slides.append(lime(
+    168, "Ten rules", "ACT 4 · TEN RULES",
+    "Ten rules. One example each. Then Hands on.",
+    "Ten rules.",
+    "One line. One example. Then we build.",
+    kicker="BEFORE THE PROJECT", right="10 RULES"
+))
+PRINCIPLES = [
+    (169, 1, "Simplicity", "One job on the screen.",
+     '<p class="ui-prin-tiny">Mindspace</p><div class="ui-prin-chips"><i></i><i></i><i></i><i></i><i></i><i></i></div><b class="ui-prin-banner">Offer</b><b class="ui-prin-banner">Tip</b><span class="ui-prin-btn">Start</span><span class="ui-prin-btn">Browse</span><span class="ui-prin-btn">Join</span>',
+     '<p class="ui-prin-kicker">Tonight</p><h3>Sleep</h3><span class="ui-prin-btn is-fill">Start</span>'),
+    (170, 2, "Consistency", "Same control. Same place.",
+     '<div class="ui-prin-bar"><b>✕</b><span>Close</span></div><div class="ui-prin-bar is-mid"><span>Back</span></div><div class="ui-prin-bar is-end"><b>Done</b></div>',
+     '<div class="ui-prin-bar is-same"><b>←</b><span>Home</span></div><div class="ui-prin-bar is-same"><b>←</b><span>Sleep</span></div><div class="ui-prin-bar is-same"><b>←</b><span>Player</span></div>'),
+    (171, 3, "Hierarchy", "She sees the next tap first.",
+     '<p class="ui-prin-flat">Sleep</p><p class="ui-prin-flat">10 min</p><p class="ui-prin-flat">Start</p><p class="ui-prin-flat">4.8</p>',
+     '<h3>Sleep</h3><p class="ui-prin-muted">10 minutes</p><span class="ui-prin-btn is-fill">Start</span>'),
+    (172, 4, "Feedback", "She taps. The UI answers.",
+     '<p class="ui-prin-msg">See you tomorrow.</p><span class="ui-prin-btn">Send</span><p class="ui-prin-ghost">…</p>',
+     '<p class="ui-prin-msg">See you tomorrow.</p><p class="ui-prin-tick">Sent</p><p class="ui-prin-tick">Delivered</p><p class="ui-prin-tick is-read">Read</p>'),
+    (173, 5, "Access", "If she can’t read it, it is not there.",
+     '<p class="ui-prin-wash">Start session</p><p class="ui-prin-wash">10 min guided</p>',
+     '<h3>Start session</h3><p class="ui-prin-muted">10 min guided</p><span class="ui-prin-btn is-fill">Play</span>'),
+    (174, 6, "Clarity", "Words she already knows.",
+     '<h3 class="ui-prin-jargon">Initiate nocturnal protocol</h3><span class="ui-prin-btn">Confirm execution</span>',
+     '<h3>Start sleep session</h3><span class="ui-prin-btn is-fill">Start</span>'),
+    (175, 7, "Control", "She can leave. She can undo.",
+     '<p class="ui-prin-kicker">Playing</p><h3>Please wait</h3><p class="ui-prin-ghost">Locked</p>',
+     '<p class="ui-prin-kicker">Playing</p><h3>Sleep</h3><div class="ui-prin-controls"><b>−10</b><b class="is-fill">❚❚</b><b>+10</b></div>'),
+    (176, 8, "Recover", "Stop the miss. Then help her fix it.",
+     '<p class="ui-prin-err">ERROR 422</p><p class="ui-prin-err">INVALID PAYLOAD</p>',
+     '<p class="ui-prin-warn">That email needs an @</p><span class="ui-prin-field">me</span><span class="ui-prin-btn is-fill">Fix it</span>'),
+    (177, 9, "Quiet", "Quiet. Not decoration.",
+     '<p class="ui-prin-loud">MIND★SPACE</p><p class="ui-prin-loud is-alt">Breathe!!!</p><span class="ui-prin-btn is-hot">GO</span><span class="ui-prin-btn is-alt">NOW</span>',
+     '<p class="ui-prin-kicker">Mindspace</p><h3>Breathe</h3><span class="ui-prin-btn is-fill">Start</span>'),
+    (178, 10, "Fit", "Phone first. Still works bigger.",
+     '<div class="ui-prin-squeeze"><i>Rec</i><i>Sleep</i><i>Focus</i></div>',
+     '<b class="ui-prin-stack">Recent</b><b class="ui-prin-stack">Sleep</b><b class="ui-prin-stack">Focus</b>'),
+]
+for n, i, name, line, bad, good in PRINCIPLES:
+    slides.append(principle(n, i, name, line, bad, good))
+
 YT_HANDS = "https://www.youtube.com/watch?v=eeGVBhZURUI"
 slides.append("""<section class="slide hands-all" %s>%s
 <div class="hands-all-body">
@@ -1968,11 +2077,25 @@ slides.append("""<section class="slide hands-all" %s>%s
     meta("ALL EIGHT", "THEN SPLIT"),
     YT_HANDS
 ))
+slides.append(desk_wall(
+    179, "Eight desks", "ACT 4 · MISSION BRIEFING",
+    "Read A to H out loud. Point at the room. Then move.",
+    [
+        ("A", "Getting started", "Begin without a novel of fields."),
+        ("B", "Personalisation", "Her words. Not jargon."),
+        ("C", "Home", "One next tap. Five minutes."),
+        ("D", "Discover", "Find sleep. Not a term."),
+        ("E", "Meditation", "Play. Close her eyes."),
+        ("F", "Goals", "Miss a day. No shame."),
+        ("G", "Journal", "A mood is enough."),
+        ("H", "Profile", "Find the reminder."),
+    ],
+))
 slides.append(studio(
     45, "Find your desk", "ACT 4 · MISSION BRIEFING",
     "Reveal desks A–H. Open Missions (B). Move. Then sit.",
     "Find your desk.",
-    "Read her moment. Then sit.",
+    "",
     "4 min", "4", kicker="MOVE"
 ))
 
@@ -1988,7 +2111,7 @@ slides.append(studio(
     47, "Paper first", "ACT 5 · PRODUCT THINKERS",
     "Need. Path. Two sketches. Then the checkpoint.",
     "Need. Path. Two sketches.",
-    "Circle the need. Draw the skip. Two ideas. No Figma yet.",
+    "",
     "30 min", "30", kicker="PAPER"
 ))
 slides.append(studio(
@@ -2019,8 +2142,7 @@ slides.append(studio(
 slides.append(lime(
     51, "Walk her", "ACT 7 · ASSEMBLY",
     "Walk her from A to H. If she gets lost, the seam is theirs.",
-    "Walk her from A to H.",
-    "If she gets lost, the seam is yours.",
+    "Walk her.",
     timer="15", kicker="ACT 7", right="03:45–04:00"
 ))
 
@@ -2029,7 +2151,7 @@ slides.append(studio(
     52, "Critique", "ACT 9 · CRITIQUE",
     "Name the miss. Protect the person. Keep / fix / remove / improve. Open Score.",
     "Break it before she does.",
-    "Name the miss. Protect the person.",
+    "",
     "10 min", "10", kicker="CRITIQUE"
 ))
 
@@ -2038,7 +2160,7 @@ slides.append(level(
     53, "The Design Evolution", "ACT 10 · DESIGN EVOLUTION",
     "She already used v1. Fix what she hit. Do not add a fifth screen.",
     5, "The Design Evolution.",
-    "She already used v1. Fix what she hit.",
+    "",
     timer="60", right="04:30–05:30"
 ))
 slides.append(studio(
@@ -2072,7 +2194,6 @@ for n, letter, journey in STAGE:
         n, f"Team {letter} · {journey[:-1]}", "ACT 11 · SHOWCASE",
         f"Leave this up while Team {letter} talks. Two minutes. Then sit.",
         journey,
-        "On stage. Explain. Then sit.",
         timer="2", kicker=f"TEAM {letter}", right="2 MIN"
     ))
 slides.append(lime(
@@ -2084,26 +2205,15 @@ slides.append(lime(
 ))
 
 # ACT 12
-slides.append("""<section class="slide closing" %s>
-<div class="grid-lines"></div>
-%s
-<div class="closing-content">
-<h2>You are still<br>the designer.</h2>
-<p>The file is the evidence. She still has five minutes.</p>
-<div class="contact">
-<a href="session-5-guide.html">Studio sheet</a>
-<a href="notes.html#session-5">Class notes</a>
-<a href="%s" target="_blank" rel="noopener">Mindspace kit</a>
-</div>
-</div>
-</section>""" % (
-    attrs(65, "Closing thought", "ACT 12 · CLOSING",
-          "Same close as Session 4. The file is the evidence. Do not end on a slogan."),
-    meta("SESSION 05", "CLOSE"),
-    KIT_MIND
+slides.append(lime(
+    65, "Learned", "ACT 12 · CLOSING",
+    "Hold. Do not rush it. The day was never Figma. It was her next tap.",
+    "She still has five minutes.",
+    "You designed the next tap. Not the screen.",
+    kicker="SESSION 05", right="LEARNED"
 ))
 
-assert len(slides) == 126, len(slides)
+assert len(slides) == 159, len(slides)
 # only first slide should have is-active in cover(); others shouldn't. Fix if any extra.
 # cover() already handles n==1.
 
@@ -2174,7 +2284,7 @@ score_rows = "".join(
     for letter in "ABCDEFGH"
 )
 
-DROP = {2, 3, 4, 5, 6, 11, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 123}
+DROP = {2, 3, 4, 5, 6, 11, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 54, 55, 123}
 slides = [
     s for s in slides
     if int(re.search(r'data-slide="(\d+)"', s).group(1)) not in DROP
@@ -2199,7 +2309,7 @@ html = f"""<!doctype html>
   <link rel="stylesheet" href="deck.css?v=23">
   <link rel="stylesheet" href="deck-v2.css?v=12">
   <link rel="stylesheet" href="mobile.css?v=9">
-  <link rel="stylesheet" href="session-5.css?v=40">
+  <link rel="stylesheet" href="session-5.css?v=47">
 </head>
 <body class="deck-v2 s5" data-deck-title="Session 5 · The Mindspace Design Lab">
   <div class="hud" aria-label="Facilitator">
