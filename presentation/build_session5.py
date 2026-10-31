@@ -1947,6 +1947,47 @@ for i, (src, cap) in enumerate(GV_SHOTS, 1):
         )
     )
 slides.append(lime(
+    168, "Ten rules", "ACT 4 · TEN RULES",
+    "Ten rules. One example each. Then Hands on.",
+    "Ten rules.",
+    "One line. One example. Then we build.",
+    kicker="BEFORE THE PROJECT", right="10 RULES"
+))
+PRINCIPLES = [
+    (169, 1, "Simplicity", "One job on the screen.",
+     '<p class="ui-prin-tiny">Mindspace</p><div class="ui-prin-chips"><i></i><i></i><i></i><i></i><i></i><i></i></div><b class="ui-prin-banner">Offer</b><b class="ui-prin-banner">Tip</b><span class="ui-prin-btn">Start</span><span class="ui-prin-btn">Browse</span><span class="ui-prin-btn">Join</span>',
+     '<p class="ui-prin-kicker">Tonight</p><h3>Sleep</h3><span class="ui-prin-btn is-fill">Start</span>'),
+    (170, 2, "Consistency", "Same control. Same place.",
+     '<div class="ui-prin-bar"><b>✕</b><span>Close</span></div><div class="ui-prin-bar is-mid"><span>Back</span></div><div class="ui-prin-bar is-end"><b>Done</b></div>',
+     '<div class="ui-prin-bar is-same"><b>←</b><span>Home</span></div><div class="ui-prin-bar is-same"><b>←</b><span>Sleep</span></div><div class="ui-prin-bar is-same"><b>←</b><span>Player</span></div>'),
+    (171, 3, "Hierarchy", "Arya sees the next tap first.",
+     '<p class="ui-prin-flat">Sleep</p><p class="ui-prin-flat">10 min</p><p class="ui-prin-flat">Start</p><p class="ui-prin-flat">4.8</p>',
+     '<h3>Sleep</h3><p class="ui-prin-muted">10 minutes</p><span class="ui-prin-btn is-fill">Start</span>'),
+    (172, 4, "Feedback", "Arya taps. The UI answers.",
+     '<p class="ui-prin-msg">See you tomorrow.</p><span class="ui-prin-btn">Send</span><p class="ui-prin-ghost">…</p>',
+     '<p class="ui-prin-msg">See you tomorrow.</p><p class="ui-prin-tick">Sent</p><p class="ui-prin-tick">Delivered</p><p class="ui-prin-tick is-read">Read</p>'),
+    (173, 5, "Access", "If Arya can’t read it, it is not there.",
+     '<p class="ui-prin-wash">Start session</p><p class="ui-prin-wash">10 min guided</p>',
+     '<h3>Start session</h3><p class="ui-prin-muted">10 min guided</p><span class="ui-prin-btn is-fill">Play</span>'),
+    (174, 6, "Clarity", "Words Arya already knows.",
+     '<h3 class="ui-prin-jargon">Initiate nocturnal protocol</h3><span class="ui-prin-btn">Confirm execution</span>',
+     '<h3>Start sleep session</h3><span class="ui-prin-btn is-fill">Start</span>'),
+    (175, 7, "Control", "Arya can leave. Arya can undo.",
+     '<p class="ui-prin-kicker">Playing</p><h3>Please wait</h3><p class="ui-prin-ghost">Locked</p>',
+     '<p class="ui-prin-kicker">Playing</p><h3>Sleep</h3><div class="ui-prin-controls"><b>−10</b><b class="is-fill">❚❚</b><b>+10</b></div>'),
+    (176, 8, "Recover", "Stop the miss. Then help Arya fix it.",
+     '<p class="ui-prin-err">ERROR 422</p><p class="ui-prin-err">INVALID PAYLOAD</p>',
+     '<p class="ui-prin-warn">That email needs an @</p><span class="ui-prin-field">me</span><span class="ui-prin-btn is-fill">Fix it</span>'),
+    (177, 9, "Quiet", "Quiet. Not decoration.",
+     '<p class="ui-prin-loud">MIND★SPACE</p><p class="ui-prin-loud is-alt">Breathe!!!</p><span class="ui-prin-btn is-hot">GO</span><span class="ui-prin-btn is-alt">NOW</span>',
+     '<p class="ui-prin-kicker">Mindspace</p><h3>Breathe</h3><span class="ui-prin-btn is-fill">Start</span>'),
+    (178, 10, "Fit", "Phone first. Still works bigger.",
+     '<div class="ui-prin-squeeze"><i>Rec</i><i>Sleep</i><i>Focus</i></div>',
+     '<b class="ui-prin-stack">Recent</b><b class="ui-prin-stack">Sleep</b><b class="ui-prin-stack">Focus</b>'),
+]
+for n, i, name, line, bad, good in PRINCIPLES:
+    slides.append(principle(n, i, name, line, bad, good))
+slides.append(lime(
     36, "Does Arya use it", "ACT 3 · THE UI UNIVERSE",
     "If they cannot say when Arya uses it, they picked the wrong piece. Then the brief.",
     "Does Arya use it.",
@@ -2054,47 +2095,6 @@ slides.append(lesson(
     ],
     kicker="COLLAB", right="NON-NEGOTIABLE"
 ))
-slides.append(lime(
-    168, "Ten rules", "ACT 4 · TEN RULES",
-    "Ten rules. One example each. Then Hands on.",
-    "Ten rules.",
-    "One line. One example. Then we build.",
-    kicker="BEFORE THE PROJECT", right="10 RULES"
-))
-PRINCIPLES = [
-    (169, 1, "Simplicity", "One job on the screen.",
-     '<p class="ui-prin-tiny">Mindspace</p><div class="ui-prin-chips"><i></i><i></i><i></i><i></i><i></i><i></i></div><b class="ui-prin-banner">Offer</b><b class="ui-prin-banner">Tip</b><span class="ui-prin-btn">Start</span><span class="ui-prin-btn">Browse</span><span class="ui-prin-btn">Join</span>',
-     '<p class="ui-prin-kicker">Tonight</p><h3>Sleep</h3><span class="ui-prin-btn is-fill">Start</span>'),
-    (170, 2, "Consistency", "Same control. Same place.",
-     '<div class="ui-prin-bar"><b>✕</b><span>Close</span></div><div class="ui-prin-bar is-mid"><span>Back</span></div><div class="ui-prin-bar is-end"><b>Done</b></div>',
-     '<div class="ui-prin-bar is-same"><b>←</b><span>Home</span></div><div class="ui-prin-bar is-same"><b>←</b><span>Sleep</span></div><div class="ui-prin-bar is-same"><b>←</b><span>Player</span></div>'),
-    (171, 3, "Hierarchy", "Arya sees the next tap first.",
-     '<p class="ui-prin-flat">Sleep</p><p class="ui-prin-flat">10 min</p><p class="ui-prin-flat">Start</p><p class="ui-prin-flat">4.8</p>',
-     '<h3>Sleep</h3><p class="ui-prin-muted">10 minutes</p><span class="ui-prin-btn is-fill">Start</span>'),
-    (172, 4, "Feedback", "Arya taps. The UI answers.",
-     '<p class="ui-prin-msg">See you tomorrow.</p><span class="ui-prin-btn">Send</span><p class="ui-prin-ghost">…</p>',
-     '<p class="ui-prin-msg">See you tomorrow.</p><p class="ui-prin-tick">Sent</p><p class="ui-prin-tick">Delivered</p><p class="ui-prin-tick is-read">Read</p>'),
-    (173, 5, "Access", "If Arya can’t read it, it is not there.",
-     '<p class="ui-prin-wash">Start session</p><p class="ui-prin-wash">10 min guided</p>',
-     '<h3>Start session</h3><p class="ui-prin-muted">10 min guided</p><span class="ui-prin-btn is-fill">Play</span>'),
-    (174, 6, "Clarity", "Words Arya already knows.",
-     '<h3 class="ui-prin-jargon">Initiate nocturnal protocol</h3><span class="ui-prin-btn">Confirm execution</span>',
-     '<h3>Start sleep session</h3><span class="ui-prin-btn is-fill">Start</span>'),
-    (175, 7, "Control", "Arya can leave. Arya can undo.",
-     '<p class="ui-prin-kicker">Playing</p><h3>Please wait</h3><p class="ui-prin-ghost">Locked</p>',
-     '<p class="ui-prin-kicker">Playing</p><h3>Sleep</h3><div class="ui-prin-controls"><b>−10</b><b class="is-fill">❚❚</b><b>+10</b></div>'),
-    (176, 8, "Recover", "Stop the miss. Then help Arya fix it.",
-     '<p class="ui-prin-err">ERROR 422</p><p class="ui-prin-err">INVALID PAYLOAD</p>',
-     '<p class="ui-prin-warn">That email needs an @</p><span class="ui-prin-field">me</span><span class="ui-prin-btn is-fill">Fix it</span>'),
-    (177, 9, "Quiet", "Quiet. Not decoration.",
-     '<p class="ui-prin-loud">MIND★SPACE</p><p class="ui-prin-loud is-alt">Breathe!!!</p><span class="ui-prin-btn is-hot">GO</span><span class="ui-prin-btn is-alt">NOW</span>',
-     '<p class="ui-prin-kicker">Mindspace</p><h3>Breathe</h3><span class="ui-prin-btn is-fill">Start</span>'),
-    (178, 10, "Fit", "Phone first. Still works bigger.",
-     '<div class="ui-prin-squeeze"><i>Rec</i><i>Sleep</i><i>Focus</i></div>',
-     '<b class="ui-prin-stack">Recent</b><b class="ui-prin-stack">Sleep</b><b class="ui-prin-stack">Focus</b>'),
-]
-for n, i, name, line, bad, good in PRINCIPLES:
-    slides.append(principle(n, i, name, line, bad, good))
 
 YT_HANDS = "https://www.youtube.com/watch?v=eeGVBhZURUI"
 slides.append("""<section class="slide hands-all" %s>%s
@@ -2316,7 +2316,7 @@ score_rows = "".join(
     for letter in "ABCDEFGH"
 )
 
-DROP = {2, 3, 4, 5, 6, 11, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 54, 55, 110, 123, 219}
+DROP = {2, 3, 4, 5, 6, 11, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 39, 54, 55, 110, 123, 219}
 slides = [
     s for s in slides
     if int(re.search(r'data-slide="(\d+)"', s).group(1)) not in DROP
